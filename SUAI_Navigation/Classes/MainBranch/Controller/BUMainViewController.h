@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  BUMainViewController.h
 //  SUAI_Navigation
 //
 //  Created by Виктор on 24.04.17.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface BUMainViewController : UIViewController
 
 @end
-
