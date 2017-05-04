@@ -8,9 +8,11 @@
 
 #import "BUConcreteInfoModel.h"
 #import "BUItem.h"
+#import "BUFaculty.h"
 
 @interface BUConcreteInfoModel() {
     BUDean *model;
+    NSString *header;
 }
 
 @end
@@ -34,7 +36,10 @@
 }
 
 - (NSString *)tableHeader {
-    return [model activeFields][0];
+    if ([header isEqualToString:@""]) {
+        return header;
+    }
+    return @"abc";
 }
 
 @end

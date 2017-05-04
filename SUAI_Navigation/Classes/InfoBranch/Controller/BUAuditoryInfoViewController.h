@@ -11,5 +11,6 @@
 @interface BUAuditoryInfoViewController : UIViewController
 
 @property (strong, nonatomic) id data;
+@property (strong, nonatomic) NSString *header;
 
 @end
