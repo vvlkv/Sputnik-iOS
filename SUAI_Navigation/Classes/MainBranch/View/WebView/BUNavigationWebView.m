@@ -29,6 +29,10 @@
     }
 }
 
+- (void)refreshMap {
+    [self.webView stringByEvaluatingJavaScriptFromString:@"ToNewFloor('main_map')"];
+}
+
 - (void)showAuditory:(NSString *)auditory {
     NSString *js = [NSString stringWithFormat:@"SetNewAudFromAndroid(false, '%@')", auditory];
     [self.webView stringByEvaluatingJavaScriptFromString:js];

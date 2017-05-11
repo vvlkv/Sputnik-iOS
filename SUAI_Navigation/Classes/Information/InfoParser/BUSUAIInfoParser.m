@@ -7,13 +7,15 @@
 //
 
 #import "BUSUAIInfoParser.h"
+#import "NSString+Lowercalize.h"
 #import "TBXML.h"
 #import "BUFaculty.h"
 #import "BUItem.h"
+#import "BUDean.h"
+#import "BUCathedral.h"
 
 @interface BUSUAIInfoParser() {
     NSXMLParser *parser;
-    NSData *xmlData;
 }
 
 @end
@@ -23,24 +25,27 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"information" ofType:@"xml"];
-        xmlData = [[NSData alloc] initWithContentsOfFile:filePath];
     }
     return self;
 }
 
 - (NSArray *)loadFile {
+    
+    NSData *xmlData = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"information" ofType:@"xml"]];
     NSError *error;
     NSMutableArray *objects = [NSMutableArray array];
-    NSArray *attributes = @[@"name", @"Auditorium", @"Time", @"Telephone"];
     
     TBXML *source = [[TBXML alloc] initWithXMLData:xmlData error:&error];
-    TBXMLElement *faculties = [TBXML childElementNamed:@"faculties" parentElement:source.rootXMLElement];
-    TBXMLElement *departments = [TBXML childElementNamed:@"Departments" parentElement:source.rootXMLElement];
-    TBXMLElement *others = [TBXML childElementNamed:@"Others" parentElement:source.rootXMLElement];
     
+    NSArray *attributes = @[@"name", @"Auditorium", @"Time", @"Telephone"];
+    
+    TBXMLElement *others = [TBXML childElementNamed:@"Others" parentElement:source.rootXMLElement];
     [objects addObject:[self loadObjects:others withAttributes:attributes forType:ItemTypeOther]];
+    
+    TBXMLElement *faculties = [TBXML childElementNamed:@"faculties" parentElement:source.rootXMLElement];
     [objects addObject:[self loadFaculties:faculties]];
+    
+    TBXMLElement *departments = [TBXML childElementNamed:@"Departments" parentElement:source.rootXMLElement];
     [objects addObject:[self loadObjects:departments withAttributes:attributes forType:ItemTypeDepartment]];
     
     return objects;
@@ -58,22 +63,22 @@
         NSString *facultNumber = [TBXML valueOfAttributeNamed:@"number" forElement:faculty];
         NSString *facultName = [TBXML valueOfAttributeNamed:@"name" forElement:faculty];
         BUFaculty *facultEntity = [[BUFaculty alloc] initWithNumber:facultNumber
-                                                             andName:facultName];
+                                                            andName:facultName];
         [objects addObject:facultEntity];
         do {
             if ([[TBXML elementName:element] isEqualToString:@"Dean"]) {
                 
                 attributes = @[@"Auditorium", @"Telephone", @"HeaderName|name"];
-                BUDean *dean = [self loadEntity:element withAttributes:attributes forType:ItemTypeDean];
-                dean.definition = @"Деканат";
-                [facultEntity.departments addObject:dean];
+                BUDean *dean = (BUDean *)[self loadEntity:element withAttributes:attributes andClass:[BUDean class]];
+                [dean setHeader:[facultEntity title]];
+                facultEntity.dean = dean;
                 
             } else {
                 
-                attributes = @[@"name", @"Auditorium", @"number", @"Telephone"];
-                BUItem *item = (BUItem *)[self loadEntity:element withAttributes:attributes forType:ItemTypeDepartment];
-                item.definition = [item shortName];
-                [facultEntity.departments addObject:item];
+                attributes = @[@"name", @"Auditorium", @"number", @"Telephone", @"HeaderName|headerName"];
+                BUCathedral *cathedral = (BUCathedral *)[self loadEntity:element withAttributes:attributes andClass:[BUCathedral class]];
+                [cathedral setHeader:cathedral.name];
+                [facultEntity addCathedral:cathedral];
             }
         } while ((element = element->nextSibling));
     } while ((faculty = faculty->nextSibling));
@@ -82,25 +87,40 @@
 }
 
 - (NSArray *)loadObjects:(TBXMLElement *)entities
-      withAttributes:(NSArray *)attributes
-             forType:(ItemType)type {
+          withAttributes:(NSArray *)attributes
+                 forType:(ItemType)type {
     
     NSMutableArray *objects = [NSMutableArray array];
     TBXMLElement *department = entities->firstChild;
     
     do {
-        BUItem *item = (BUItem *)[self loadEntity:department withAttributes:attributes forType:type];
+        BUItem *item = [self loadEntity:department withAttributes:attributes forType:type];
         [objects addObject:item];
     } while ((department = department->nextSibling));
     
     return [objects copy];
 }
 
-- (BUDean *)loadEntity:(TBXMLElement *)element
+- (id)loadEntity:(TBXMLElement *)element
+  withAttributes:(NSArray *)attributes
+        andClass:(Class)class {
+    
+    BUAbstractItem *item = [[class alloc] init];
+    TBXMLElement *destination;
+    
+    for (NSString *attribute in attributes) {
+        NSArray *components = [attribute componentsSeparatedByString:@"|"];
+        destination = [TBXML childElementNamed:[components firstObject] parentElement:element];
+        [item setValue:[TBXML textForElement:destination] forKey:[[components lastObject] lowercalizedString]];
+    }
+    return item;
+}
+
+- (BUItem *)loadEntity:(TBXMLElement *)element
         withAttributes:(NSArray *)attributes
                forType:(ItemType)type {
     
-    BUDean *item = (type == ItemTypeDean) ? [[BUDean alloc] init] : (BUItem *)[[BUItem alloc] initWithType:type];
+    BUItem *item = [[BUItem alloc] initWithType:type];
     TBXMLElement *destination;
     
     for (NSString *attribute in attributes) {
@@ -108,7 +128,6 @@
         destination = [TBXML childElementNamed:[components firstObject] parentElement:element];
         [item setValue:[TBXML textForElement:destination] forKey:[[components lastObject] lowercaseString]];
     }
-    item.definition = item.name;
     return item;
 }
 

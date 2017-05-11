@@ -1,23 +1,22 @@
 //
 //  BUItem.m
-//  SUAIInfoParser
+//  BUSUAIEntities
 //
-//  Created by Виктор on 29.04.17.
+//  Created by Виктор on 04.05.17.
 //  Copyright © 2017 Viktor. All rights reserved.
 //
 
 #import "BUItem.h"
 
 @interface BUItem() {
-    BOOL isLoaded;
+    NSMutableArray *icons;
 }
 
 @end
 
 @implementation BUItem
 
-- (instancetype)initWithType:(ItemType)type
-{
+- (instancetype)initWithType:(ItemType)type {
     self = [super init];
     if (self) {
         self.type = type;
@@ -25,21 +24,32 @@
     return self;
 }
 
-- (NSString *)shortName {
-    return [NSString stringWithFormat:@"Кафедра %@", _number];
+- (void)setTime:(NSString *)time {
+    _time = time;
+    if ([_time isEqualToString:@"N/A"]) {
+        [self.imageIcons removeObject:@"Clock icon"];
+    }
 }
 
-- (NSUInteger)infoFields {
-    NSUInteger parentResult = [super infoFields];
+- (void)setName:(NSString *)name {
+    [super setName:name];
+    [self.imageIcons removeObject:@"Usr icon"];
+}
+
+- (NSMutableArray *)infoFields {
     
-    NSString *value = _time;
-    if (![value isEqualToString:@"N/A"] && value != nil) {
-        parentResult++;
-        if (!isLoaded)
-            [self.activeFields addObject:value];
+    NSMutableArray *activeObjects = [super infoFields];
+    NSMutableArray *retArray = [NSMutableArray array];
+    if (![self.time isEqualToString:@"N/A"]) {
+        [activeObjects insertObject:self.time atIndex:1];
     }
-    isLoaded = YES;
-    return parentResult;
+    
+    for (NSString *value in activeObjects) {
+        if (![value isEqualToString:self.name]) {
+            [retArray addObject:value];
+        }
+    }
+    return retArray;
 }
 
 @end

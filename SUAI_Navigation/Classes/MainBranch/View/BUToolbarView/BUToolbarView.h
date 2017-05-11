@@ -13,6 +13,8 @@
 
 @required
 - (void)toolbarView:(BUToolbarView *)toolbarView buttonPressed:(NSUInteger)tag;
+- (void)toolbarView:(BUToolbarView *)toolbarView cancelButtonPressed:(NSUInteger)tag;
+- (void)invertAuditoriesInToolbarView:(BUToolbarView *)toolbarView;
 
 @end
 

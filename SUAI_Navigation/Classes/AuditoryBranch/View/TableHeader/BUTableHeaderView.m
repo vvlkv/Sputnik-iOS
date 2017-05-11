@@ -41,6 +41,10 @@
     }
 }
 
+- (void)changeTextAlignment:(NSTextAlignment) alignment {
+    self.textView.textAlignment = alignment;
+}
+
 - (void)setTitle:(NSString *)title {
     _title = title;
     self.textView.text = _title;

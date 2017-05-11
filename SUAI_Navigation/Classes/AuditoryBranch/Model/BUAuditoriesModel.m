@@ -8,8 +8,8 @@
 
 #import "BUAuditoriesModel.h"
 #import "BUSUAIInfoParser.h"
-#import "BUItem.h"
 #import "BUFaculty.h"
+#import "BUItem.h"
 
 @interface BUAuditoriesModel()<NSXMLParserDelegate> {
     NSArray *pObjects;
@@ -47,6 +47,9 @@
     pActualScope = scope;
 }
 
+- (NSUInteger)selectedScope {
+    return pActualScope;
+}
 
 #pragma mark - DataAccess
 
@@ -54,7 +57,7 @@
     
     if ([[self.actualObjects firstObject] isKindOfClass:[BUFaculty class]]) {
         BUFaculty *faculty = (BUFaculty *)self.actualObjects[section];
-        return [[faculty departments] count];
+        return [[faculty allObjects] count];
     }
     return [self.actualObjects count];
 }
@@ -71,15 +74,15 @@
     
     if ([self.actualObjects[section] isKindOfClass:[BUFaculty class]]) {
         BUFaculty *faculty = (BUFaculty *)self.actualObjects[section];
-        BUItem *item = ((BUItem *)[faculty departments][index]);
-        return [item definition];
+        BUItem *item = ((BUItem *)[faculty allObjects][index]);
+        return [item title];
     }
-    return [((BUDean *)self.actualObjects[index]) definition];
+    return [self.actualObjects[index] title];
 }
 
 - (NSString *)headerAtIndex:(NSUInteger)index {
     if ([self.actualObjects[index] isKindOfClass:[BUFaculty class]] && [self.actualObjects count] > 0) {
-        return [((BUFaculty *)self.actualObjects[index]) definition];
+        return [((BUFaculty *)self.actualObjects[index]) title];
     }
     return @"";
 }
@@ -87,19 +90,25 @@
 - (BUDean *)entityAtIndex:(NSUInteger)index inSection:(NSUInteger)section {
     if ([self.actualObjects[section] isKindOfClass:[BUFaculty class]]) {
         BUFaculty *faculty = (BUFaculty *)self.actualObjects[section];
-        return [faculty departments][index];
+        return [faculty allObjects][index];
     }
     return self.actualObjects[index];
 }
 
 - (BOOL)isSelectableAtIndex:(NSUInteger)index inSection:(NSUInteger)section {
     if ([self.actualObjects[section] isKindOfClass:[BUFaculty class]]) {
-        BUFaculty *faculty = (BUFaculty *)self.actualObjects[section];
-        return ([[faculty departments][index] infoFields] > 2) ? YES : NO;
+        return YES;
     }
-    return ([self.actualObjects[index] infoFields] > 2) ? YES : NO;
+    return ([[self.actualObjects[index] infoFields] count] > 1) ? YES : NO;
 }
 
+- (NSString *)auditoryAtIndex:(NSUInteger)index inSection:(NSUInteger)section {
+    if ([self.actualObjects[section] isKindOfClass:[BUFaculty class]]) {
+        BUFaculty *faculty = (BUFaculty *)self.actualObjects[section];
+        return [((BUAbstractItem *)[faculty allObjects][index]) auditorium];
+    }
+    return [((BUAbstractItem *)self.actualObjects[index]) auditorium];
+}
 
 #pragma mark - Getters
 

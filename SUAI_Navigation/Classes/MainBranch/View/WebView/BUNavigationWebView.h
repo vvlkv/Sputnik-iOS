@@ -19,6 +19,7 @@
 
 @property (weak, nonatomic) id <BUNavigationDelegate> delegate;
 
+- (void)refreshMap;
 - (void)showAuditory:(NSString *)auditory;
 - (void)showPathFrom:(NSString *)start to:(NSString *)finish;
 

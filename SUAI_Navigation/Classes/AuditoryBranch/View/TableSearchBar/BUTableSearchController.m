@@ -16,12 +16,12 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.scopeButtonTitles = @[@"Аудитории", @"Институты", @"Отделы"];
+ //   self.scopeButtonTitles = @[@"Аудитории", @"Институты", @"Отделы"];
     UIButton *cancelButton = ((UIButton *)[self valueForKey:@"cancelButton"]);
     [cancelButton setTitle:@"Отмена" forState:UIControlStateNormal];
     [self becomeFirstResponder];
     self.placeholder = @"Например, 1243";
-    UIColor *color = [UIColor colorWithRed:250.f/255.f
+    /*UIColor *color = [UIColor colorWithRed:250.f/255.f
                                      green:250.f/255.f
                                       blue:250.f/255.f
                                      alpha:90.f/100.f];
@@ -31,7 +31,13 @@
     UIRectFill(imageRect);
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    [self setScopeBarBackgroundImage:image];
+    [self setScopeBarBackgroundImage:image];*/
+ /*   self.layer.borderWidth = .1f;
+    UITextField *txfSearchField = [self valueForKey:@"_searchField"];
+    txfSearchField.backgroundColor = [UIColor colorWithRed:3.f/255.f
+                                                     green:3.f/255.f
+                                                      blue:3.f/255.f
+                                                     alpha:9.f/100.f];*/
 }
 
 - (BOOL)resignFirstResponder {

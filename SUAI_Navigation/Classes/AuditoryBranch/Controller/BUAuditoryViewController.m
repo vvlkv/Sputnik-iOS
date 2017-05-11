@@ -10,8 +10,9 @@
 #import "BUAuditoryInfoViewController.h"
 #import "BUTableView.h"
 #import "BUAuditoriesModel.h"
+#import "BUSegmentedControl.h"
 
-@interface BUAuditoryViewController ()<BUTableViewDataSource, BUTableViewDelegate> {
+@interface BUAuditoryViewController ()<BUTableViewDataSource, BUTableViewDelegate, BUAuditoryInfoViewControllerDelegate> {
     BUTableView *tableView;
     BUAuditoriesModel *model;
     NSUInteger barState;
@@ -27,16 +28,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     barState = 0;
-    
     model = [[BUAuditoriesModel alloc] init];
     [model prepareInformationData];
     tableView = [[NSBundle mainBundle] loadNibNamed:@"BUTableView"
                                                      owner:self
                                                    options:nil][0];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Откуда"
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:nil action:nil];
     tableView.delegate = self;
     tableView.dataSource = self;
-    tableView.frame = CGRectMake(0, 0, self.view.frame.size.width, CGRectGetHeight(self.view.frame) - 44);
+    tableView.frame = CGRectMake(0, 0, self.view.frame.size.width, CGRectGetHeight(self.view.frame) - 14);
     [self.view addSubview:tableView];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -49,7 +56,9 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    [tableView prepareForDismiss];
 }
+
 
 #pragma mark - BUTableViewDataSource
 
@@ -76,11 +85,15 @@
 #pragma mark - BUTableViewDelegate
 
 - (void)tableView:(BUTableView *)tableView didChangedSearchText:(NSString *)searchText {
-    //TODO
+    if ([searchText length] == 4) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [self.delegate viewController:self foundAuditory:searchText];
+    }
 }
 
 - (void)tableView:(BUTableView *)tableView didChangedScopeIndex:(NSUInteger)index {
     [model updateScope:index];
+    [self updateBackButtonTitle];
 }
 
 - (void)tableView:(BUTableView *)tableView didSelectedCellAtIndex:(NSUInteger)index inSection:(NSUInteger)section {
@@ -89,8 +102,8 @@
         [self performSegueWithIdentifier:@"showDetail" sender:targetModel];
     } else {
         [self dismissViewControllerAnimated:YES completion:nil];
+        [self.delegate viewController:self foundAuditory:[model auditoryAtIndex:index inSection:section]];
     }
-    
 }
 
 - (void)didChangedStateInTableView:(BUTableView *)tableView {
@@ -99,16 +112,25 @@
 }
 
 
+#pragma mark - BUSegmentedControlDelegate
+
+- (void)segmentedControl:(BUSegmentedControl *)control indexWasChanged:(NSUInteger)index {
+    [model updateScope:index];
+    [self updateBackButtonTitle];
+    [tableView reloadData];
+}
+
+
 #pragma mark - Actions
 
 - (IBAction)cancelButton:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
-    [self.delegate viewController:self foundAuditory:@"1229"];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     BUAuditoryInfoViewController *controller = (BUAuditoryInfoViewController *)((UINavigationController *)[segue destinationViewController]);
     controller.data = sender;
+    controller.delegate = self;
     controller.navigationItem.leftItemsSupplementBackButton = YES;
 }
 
@@ -118,6 +140,18 @@
 - (void)setTitleText:(NSString *)titleText {
     _titleText = titleText;
     self.navigationController.navigationBar.topItem.title = _titleText;
+}
+
+- (void)viewController:(BUAuditoryInfoViewController *)viewController didDismissedWithAuditory:(NSString *)auditory {
+    [self.delegate viewController:self foundAuditory:auditory];
+}
+
+
+- (void)updateBackButtonTitle {
+    NSArray *scopes = @[@"Аудитории", @"Институты", @"Отделы"];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:scopes[[model selectedScope]]
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:nil action:nil];
 }
 
 @end

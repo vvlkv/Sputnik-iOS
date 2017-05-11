@@ -1,28 +1,24 @@
 //
 //  BUItem.h
-//  SUAIInfoParser
+//  BUSUAIEntities
 //
-//  Created by Виктор on 29.04.17.
+//  Created by Виктор on 04.05.17.
 //  Copyright © 2017 Viktor. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "BUDean.h"
+#import "BUAbstractItem.h"
 
-typedef enum Type {
-    ItemTypeDepartment,
+typedef enum ItemType {
     ItemTypeOther,
-    ItemTypeDean
-} ItemType;
+    ItemTypeDepartment
+}ItemType;
 
-@interface BUItem : BUDean
+@interface BUItem : BUAbstractItem
 
 @property (assign, nonatomic) ItemType type;
-@property (strong, nonatomic) NSString *number;
 @property (strong, nonatomic) NSString *time;
+@property (readonly, nonatomic) NSMutableArray *infoFields;
 
 - (instancetype)initWithType:(ItemType)type;
-
-- (NSString *)shortName;
 
 @end

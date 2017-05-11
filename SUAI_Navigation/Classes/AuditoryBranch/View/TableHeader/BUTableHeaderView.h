@@ -12,4 +12,6 @@
 
 @property (strong, nonatomic) NSString *title;
 
+- (void)changeTextAlignment:(NSTextAlignment) alignment;
+
 @end

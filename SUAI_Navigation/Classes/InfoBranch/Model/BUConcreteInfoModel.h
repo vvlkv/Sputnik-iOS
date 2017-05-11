@@ -16,4 +16,12 @@
 - (NSString *)titleAtIndex:(NSUInteger)index;
 - (NSString *)tableHeader;
 
+- (NSUInteger)cellTypeAtIndex:(NSUInteger)index;
+- (NSString *)cellDescription;
+
+- (NSString *)auditory;
+
+- (NSString *)imageNameAtIndex:(NSUInteger)index;
+- (BOOL)isSelectableAtIndex:(NSUInteger)index;
+
 @end

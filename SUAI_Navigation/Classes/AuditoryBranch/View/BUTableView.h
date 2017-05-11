@@ -38,4 +38,6 @@
 @property (weak, nonatomic) id<BUTableViewDelegate> delegate;
 @property (weak, nonatomic) id<BUTableViewDataSource> dataSource;
 
+- (void)prepareForDismiss;
+- (void)reloadData;
 @end

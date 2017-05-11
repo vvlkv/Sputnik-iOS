@@ -10,24 +10,28 @@
 			<Department>
 				<number>11</number>
 				<name>Кафедра аэрокосмических измерительно-вычислительных комплексов</name>
+                <HeaderName>Небылов Александр Владимирович</HeaderName>
 				<Auditorium>12-13</Auditorium>
 				<Telephone>+7 (812) 494-70-11</Telephone>
 			</Department>
 			<Department>
 				<number>12</number>
 				<name>Кафедра системного анализа и логистики</name>
+                <HeaderName>Фетисов Владимир Андреевич</HeaderName>
 				<Auditorium>13-06</Auditorium>
 				<Telephone>+7 (812) 315-49-67</Telephone>
 			</Department>
 			<Department>
 				<number>13</number>
 				<name>Кафедра эксплуатации и управления аэрокосмическими системами</name>
+                <HeaderName>Ковалев Александр Павлович</HeaderName>
 				<Auditorium>13-01</Auditorium>
 				<Telephone>+7 (812) 570-65-99</Telephone>
 			</Department>
 			<Department>
 				<number>14</number>
 				<name>Кафедра аэрокосмических компьютерных и программных систем</name>
+                <HeaderName>Шейнин Юрий Евгеньевич</HeaderName>
 				<Auditorium>52-33</Auditorium>
 				<Telephone>+7 (812) 710-62-34</Telephone>
 			</Department>
@@ -41,24 +45,28 @@
 			<Department>
 				<number>21</number>
 				<name>Кафедра радиотехнических и оптоэлектронных комплексов</name>
+                <HeaderName>Крячко Александр Федотович</HeaderName>
 				<Auditorium>52-57</Auditorium>
 				<Telephone>+7 (812) 494-70-23</Telephone>
 			</Department>
 			<Department>
 				<number>22</number>
 				<name>Кафедра бортовой радиоэлектронной аппаратуры</name>
+                <HeaderName>Король Виктор Михайлович</HeaderName>
 				<Auditorium>22-04</Auditorium>
 				<Telephone>+7 (812) 494-70-22</Telephone>
 			</Department>
 			<Department>
 				<number>23</number>
 				<name>Кафедра конструирования и технологии электронных и лазерных средств</name>
+                <HeaderName>Бестугин Александр Роальдович</HeaderName>
 				<Auditorium>14-06</Auditorium>
 				<Telephone>+7 (812) 494-70-14</Telephone>
 			</Department>
 			<Department>
 				<number>24</number>
 				<name>Кафедра медицинской радиоэлектроники</name>
+                <HeaderName>Зайченко Кирилл Вадимович</HeaderName>
 				<Auditorium>14-52</Auditorium>
 				<Telephone>+7 (812) 494-70-24</Telephone>
 			</Department>
@@ -72,12 +80,14 @@
 			<Department>
 				<number>31</number>
 				<name>Кафедра управления в технических системах</name>
+                <HeaderName>Шишлаков Владислав Федорович</HeaderName>
 				<Auditorium>21-14б</Auditorium>
 				<Telephone>+7 (812) 494-70-31</Telephone>
 			</Department>
 			<Department>
 				<number>32</number>
 				<name>Кафедра технической физики, электромеханики и робототехники</name>
+                <HeaderName>Ронжин Андрей Леонидович</HeaderName>
 				<Auditorium>21-20</Auditorium>
 				<Telephone>+7 (812) 494-70-34</Telephone>
 			</Department>
@@ -91,24 +101,28 @@
 			<Department>
 				<number>41</number>
 				<name>Кафедра проблемно-ориентированных вычислительных комплексов</name>
+                <HeaderName>Шепета Александр Павлович</HeaderName>
 				<Auditorium>23-18</Auditorium>
 				<Telephone>+7 (812) 494-70-41</Telephone>
 			</Department>
 			<Department>
 				<number>43</number>
 				<name>Кафедра компьютерной математики и программирования</name>
+                <HeaderName>Охтилев Михаил Юрьевич</HeaderName>
 				<Auditorium>23-12</Auditorium>
 				<Telephone>+7 (812) 494-70-43</Telephone>
 			</Department>
 			<Department>
 				<number>44</number>
 				<name>Кафедра вычислительных систем и сетей</name>
+                <HeaderName>Сергеев Михаил Борисович</HeaderName>
 				<Auditorium>22-12</Auditorium>
 				<Telephone>+7 (812) 494-70-44</Telephone>
 			</Department>
 			<Department>
 				<number>45</number>
 				<name>Кафедра информационно-управляющих систем</name>
+                <HeaderName>--</HeaderName>
 				<Auditorium>23-12</Auditorium>
 				<Telephone>+7 (812) 494-70-45</Telephone>
 			</Department>
@@ -122,24 +136,28 @@
 			<Department>
 				<number>51</number>
 				<name>Кафедра безопасности информационных систем</name>
+                <HeaderName>Крук Евгений Аврамович</HeaderName>
 				<Auditorium>14-49</Auditorium>
 				<Telephone>+7 (812) 494-70-52</Telephone>
 			</Department>
 			<Department>
 				<number>52</number>
 				<name>Кафедра инфокоммуникационных систем</name>
+                <HeaderName>Тюрликов Андрей Михайлович</HeaderName>
 				<Auditorium>14-49</Auditorium>
 				<Telephone>+7 (812) 494-70-52</Telephone>
 			</Department>
 			<Department>
 				<number>53</number>
 				<name>Кафедра информационно-сетевых технологий</name>
+                <HeaderName>Осипов Леонид Андроникович</HeaderName>
 				<Auditorium>33-03</Auditorium>
 				<Telephone>+7 (812) 494-70-53</Telephone>
 			</Department>
 			<Department>
 				<number>54</number>
 				<name>Кафедра технологий защиты информации</name>
+                <HeaderName>Беззатеев Сергей Валентинович</HeaderName>
 				<Auditorium>14-42</Auditorium>
 				<Telephone>+7 (812) 494-70-77</Telephone>
 			</Department>
@@ -153,24 +171,28 @@
 			<Department>
 				<number>61</number>
 				<name>Кафедра истории и философии</name>
+                <HeaderName>Бурова Мария Леонидовна</HeaderName>
 				<Auditorium>53-06</Auditorium>
 				<Telephone>+7 (812) 708-42-05</Telephone>
 			</Department>
 			<Department>
 				<number>62</number>
 				<name>Кафедра рекламы и современных коммуникаций</name>
+                <HeaderName>Лосев Константин Викторович</HeaderName>
 				<Auditorium>N/A</Auditorium>
 				<Telephone>+7 (812) 708-42-13</Telephone>
 			</Department>
 			<Department>
 				<number>63</number>
 				<name>Кафедра иностранных языков</name>
+                <HeaderName>Чиханова Марина Анатольевна</HeaderName>
 				<Auditorium>N/A</Auditorium>
 				<Telephone>+7 (812) 708-42-01</Telephone>
 			</Department>
 			<Department>
 				<number>64</number>
 				<name>Кафедра физической культуры и спорта</name>
+                <HeaderName>Башкин Виктор Михайлович</HeaderName>
 				<Auditorium>41-05</Auditorium>
 				<Telephone>+7 (812) 571-23-74</Telephone>
 			</Department>
@@ -184,30 +206,35 @@
 			<Department>
 				<number>81</number>
 				<name>Кафедра экономики высокотехнологичных производств</name>
+                <HeaderName>Власова Виктория Михайловна</HeaderName>
 				<Auditorium>52-50</Auditorium>
 				<Telephone>+7 (812) 571-24-90</Telephone>
 			</Department>
 			<Department>
 				<number>82</number>
 				<name>Кафедра информационных технологий предпринимательства</name>
+                <HeaderName>Будагов Артур Суренович</HeaderName>
 				<Auditorium>52-16</Auditorium>
 				<Telephone>+7 (812) 710-65-35</Telephone>
 			</Department>
 			<Department>
 				<number>83</number>
 				<name>Кафедра международного предпринимательства</name>
+                <HeaderName>Оводенко Анатолий Аркадьевич</HeaderName>
 				<Auditorium>23-13</Auditorium>
 				<Telephone>+7 (812) 314-80-08</Telephone>
 			</Department>
 			<Department>
 				<number>84</number>
 				<name>Кафедра безопасности высокотехнологичных систем</name>
+                <HeaderName>Самойлов Александр Васильевич</HeaderName>
 				<Auditorium>53-05</Auditorium>
 				<Telephone>+7 (812) 494-70-86</Telephone>
 			</Department>
 			<Department>
 				<number>85</number>
 				<name>Кафедра менеджмента наукоемких производств</name>
+                <HeaderName>Сироткин Владислав Борисович</HeaderName>
 				<Auditorium>52-55</Auditorium>
 				<Telephone>+7 (812) 312-50-75</Telephone>
 			</Department>
@@ -220,42 +247,48 @@
             </Dean>
 			<Department>
 				<number>91</number>
-				<name>Кафедра теории права и государства</name>
+                <name>Кафедра теории права и государства</name>
+                <HeaderName>Кузнецов Эдуард Вениаминович</HeaderName>
 				<Auditorium>LENS</Auditorium>
 				<Telephone>+7 (812) 373-09-45</Telephone>
 			</Department>
 			<Department>
 				<number>92</number>
-				<name>Кафедра гражданского права</name>
+                <name>Кафедра гражданского права</name>
+                <HeaderName>Боер Анна Александровна</HeaderName>
 				<Auditorium>LENS</Auditorium>
 				<Telephone>+7 (812) 708-59-04</Telephone>
 			</Department>
 			<Department>
 				<number>93</number>
-				<name>Кафедра уголовного права и таможенных расследований</name>
+                <name>Кафедра уголовного права и таможенных расследований</name>
+                <HeaderName>Сафин Фярит Юсупович</HeaderName>
 				<Auditorium>LENS</Auditorium>
 				<Telephone>N/A</Telephone>
 			</Department>
 			<Department>
 				<number>94</number>
-				<name>Кафедра государственного права</name>
+                <name>Кафедра государственного права</name>
+                <HeaderName>Лойт Хиллар Харриевич</HeaderName>
 				<Auditorium>LENS</Auditorium>
 				<Telephone>+7 (812) 373-09-45</Telephone>
 			</Department>
 			<Department>
 				<number>95</number>
-				<name>Кафедра международного и таможенного права</name>
+                <name>Кафедра международного и таможенного права</name>
+                <HeaderName>Цмай Василий Васильевич</HeaderName>
 				<Auditorium>LENS</Auditorium>
 				<Telephone>+7 (812) 373-09-45</Telephone>
 			</Department>
 			<Department>
 				<number>96</number>
-				<name>Кафедра правоведения и таможенного дела</name>
+                <name>Кафедра правоведения и таможенного дела</name>
+                <HeaderName>Боер Виктор Матвеевич </HeaderName>
 				<Auditorium>LENS</Auditorium>
 				<Telephone>N/A</Telephone>
 			</Department>
         </facult>
-        <facult number="100" name="Институт инноватики и базовой магистерской подготовки">
+        <facult number="ИБМП" name="Институт инноватики и базовой магистерской подготовки">
             <Dean>
                 <Auditorium>23-20</Auditorium>
                 <Telephone>+7 (812) 494-70-69</Telephone>
@@ -263,31 +296,36 @@
             </Dean>
 			<Department>
 				<number>1</number>
-				<name>Кафедра высшей математики и механики</name>
+                <name>Кафедра высшей математики и механики</name>
+                <HeaderName>Смирнов Александр Олегович</HeaderName>
 				<Auditorium>GAST</Auditorium>
 				<Telephone>+7 (812) 371-91-73</Telephone>
 			</Department>
 			<Department>
-				<number>3</number>
-				<name>Кафедра прикладной математики</name>
+				<number>2</number>
+                <name>Кафедра прикладной математики</name>
+                <HeaderName>Фарафонов Виктор Георгиевич</HeaderName>
 				<Auditorium>GAST</Auditorium>
 				<Telephone>+7 (812) 708-39-40</Telephone>
 			</Department>
 			<Department>
 				<number>4</number>
-				<name>Кафедра физики</name>
+                <name>Кафедра физики</name>
+                <HeaderName>Коваленко Иван Иванович</HeaderName>
 				<Auditorium>GAST</Auditorium>
 				<Telephone>+7 (812) 373-72-65</Telephone>
 			</Department>
 			<Department>
 				<number>5</number>
-				<name>Кафедра инноватики и интегрированных систем качества</name>
+                <name>Кафедра инноватики и интегрированных систем качества</name>
+                <HeaderName>Семенова Елена Георгиевна</HeaderName>
 				<Auditorium>23-23</Auditorium>
 				<Telephone>+7 (812) 494-70-55</Telephone>
 			</Department>
 			<Department>
 				<number>6</number>
-				<name>Кафедра метрологического обеспечения инновационных технологий и промышленной безопасности</name>
+                <name>Кафедра метрологического обеспечения инновационных технологий и промышленной безопасности</name>
+                <HeaderName>Окрепилов Владимир Валентинович</HeaderName>
 				<Auditorium>52-53а</Auditorium>
 				<Telephone>+7 (812) 494-70-75</Telephone>
 			</Department>

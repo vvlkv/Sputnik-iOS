@@ -1,42 +1,43 @@
 //
 //  BUDean.m
-//  SUAIInfoParser
+//  BUSUAIEntities
 //
-//  Created by Виктор on 29.04.17.
+//  Created by Виктор on 04.05.17.
 //  Copyright © 2017 Viktor. All rights reserved.
 //
 
 #import "BUDean.h"
 
 @interface BUDean() {
-    BOOL isLoaded;
+    NSString *header;
 }
 
 @end
-
 @implementation BUDean
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        self.activeFields = [[NSMutableArray alloc] init];
+        header = @"";
     }
     return self;
 }
 
-- (NSUInteger)infoFields {
-    NSArray *propertiesValue = @[_name, _auditorium, _telephone];
-    NSUInteger counter = 0;
-    for (NSString *value in propertiesValue) {
-        if (![value isEqualToString:@"N/A"] && value != nil) {
-            if (!isLoaded)
-                [self.activeFields addObject:value];
-            counter++;
-        }
-    }
-    isLoaded = YES;
-    return counter;
+- (NSString *)title {
+    return @"Деканат";
+}
+
+- (NSString *)parentName {
+    return header;
+}
+
+- (void)setHeader:(NSString *)content {
+    header = content;
+}
+
+- (NSString *)nameDescription {
+    return @"Декан";
 }
 
 @end

@@ -62,9 +62,9 @@ function MainLoadFunc()
 	var deltaY;
 	deltaY =(centerH - rect.bottom/2);
 	MoveSVG(0, deltaY);
-	//ToBrowserSize("minimap",30);
 	ToBrowserSize("LeftMenuPart",15);
-	ToBrowserSize("RightMenuPart",70);
+    ToBrowserSize("RightMenuPart",50);
+//	ToBrowserSize("RightMenuPart",70);
 	MoveMinimap();
 
 	if (!isLoaded)
@@ -148,7 +148,7 @@ function MoveMinimap()
 	dx = SVGRoot.getAttribute("width") - curPartElem.getBoundingClientRect().width - 15;
 	matrix =curPartElem.getCTM();
 	s = "matrix(" +(matrix.a) + "," + matrix.b + "," + matrix.c+ "," + (matrix.d)
-	+"," +( dx ) + "," + (searchBarHeight) + ")";
+	+"," +( dx ) + "," + (searchBarHeight + 108) + ")";
 	curPartElem.setAttribute("transform", s);
 }
 
@@ -174,7 +174,7 @@ function ToBrowserSize(ID, percent)
 		browser_scroll_dif = browser_scroll_dif / (percent/100);
 		var screen_center = windowWidth/2  - (el_width/browser_scroll_dif)/2;
 
-		s = "matrix(" +(matrix.a/browser_scroll_dif) + "," + matrix.b + "," + matrix.c+ "," + (matrix.d/browser_scroll_dif)
+		s = "matrix(" + (matrix.a/browser_scroll_dif) + "," + matrix.b + "," + matrix.c+ "," + (matrix.d/browser_scroll_dif)
 		+"," +( Math.abs(screen_center) ) + "," +  (windowHeight/2  - (el_height/browser_scroll_dif)/2) + ")";
 		g.setAttribute("transform", s);
 		return;		

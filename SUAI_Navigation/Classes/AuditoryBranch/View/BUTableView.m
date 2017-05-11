@@ -9,18 +9,22 @@
 #import "BUTableView.h"
 #import "BUTableHeaderView.h"
 #import "BUTableSearchController.h"
+#import "BUSegmentedControl.h"
+#import "BUTableViewCell.h"
 
 typedef enum SearcBarState {
     SearcBarStateUp,
     SearcBarStateDown
 } SearcBarState;
 
-@interface BUTableView() <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate> {
+@interface BUTableView() <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, BUSegmentedControlDelegate> {
     SearcBarState barState;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet BUTableSearchController *searchController;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *control;
+
 
 @end
 
@@ -34,6 +38,7 @@ typedef enum SearcBarState {
     self.tableView.dataSource = self;
     self.searchController.delegate = self;
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    self.tableView.estimatedRowHeight = 100;
     [self.tableView reloadData];
 }
 
@@ -43,18 +48,25 @@ typedef enum SearcBarState {
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     BUTableHeaderView *headerView = [[NSBundle mainBundle] loadNibNamed:@"BUTableHeaderView" owner:self options:nil][0];
     headerView.title = [self.dataSource tableView:self headerAtIndex:section];
+    headerView.frame = CGRectMake(0, 0, self.frame.size.width, UITableViewAutomaticDimension);
+    [headerView sizeToFit];
     return headerView;
 }
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if ([[self.dataSource tableView:self headerAtIndex:section] isEqualToString:@""])
         return 0.1f;
-    return 44.f;
+    return 55.f;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self.delegate tableView:self didSelectedCellAtIndex:indexPath.row inSection:indexPath.section];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewAutomaticDimension;
 }
 
 
@@ -66,20 +78,21 @@ typedef enum SearcBarState {
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellId = @"cellId";
-    UITableViewCell *testCell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    BUTableViewCell *testCell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (!testCell) {
-        testCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+        testCell = (BUTableViewCell *)[[NSBundle mainBundle] loadNibNamed:@"BUTableViewCell"
+                                                                    owner:self options:nil][0];
     }
     if ([self.dataSource tableView:self isSelectableCellAtIndex:indexPath.row inSection:indexPath.section]) {
         testCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        testCell.textLabel.textColor = [UIColor blackColor];
+        testCell.textColor = [UIColor blackColor];
     } else {
         testCell.accessoryType = UITableViewCellAccessoryNone;
-        testCell.textLabel.textColor = [UIColor colorWithRed:5.f/255.f green:123.f/255.f blue:251.f/255.f alpha:1.f];
+        testCell.textColor = [UIColor colorWithRed:5.f/255.f green:123.f/255.f blue:251.f/255.f alpha:1.f];
     }
-    testCell.textLabel.text = [self.dataSource tableView:self
-                                            titleAtIndex:indexPath.row
-                                               inSection:indexPath.section];
+    testCell.title = [self.dataSource tableView:self
+                                  titleAtIndex:indexPath.row
+                                     inSection:indexPath.section];
     return testCell;
 }
 
@@ -90,6 +103,10 @@ typedef enum SearcBarState {
 
 
 #pragma mark - UISearchBarDelegate
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    [self.delegate tableView:self didChangedSearchText:searchText];
+}
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     [self.searchController resignFirstResponder];
@@ -130,10 +147,24 @@ typedef enum SearcBarState {
     }
 }
 
+#pragma mark - BUSegmentedControlDelegate
+
+- (void)segmentedControl:(BUSegmentedControl *)control indexWasChanged:(NSUInteger)index {
+    [self.delegate tableView:self didChangedScopeIndex:index];
+    [self.tableView reloadData];
+}
+
+- (IBAction)indexWasChanged:(id)sender {
+    [self.delegate tableView:self didChangedScopeIndex:self.control.selectedSegmentIndex];
+    [self.tableView reloadData];
+}
+
+
 - (void)changeSearchBarPosition {
     [self.delegate didChangedStateInTableView:self];
-    NSUInteger xPos = (barState == SearcBarStateUp) ? 44 : 0;
-    NSUInteger height = (barState == SearcBarStateUp) ? CGRectGetHeight(self.frame) - 44 : CGRectGetHeight(self.frame) + 44;
+    NSUInteger startPosition = 13;
+    NSUInteger xPos = (barState == SearcBarStateUp) ? startPosition : 0;
+    NSUInteger height = (barState == SearcBarStateUp) ? CGRectGetHeight(self.frame) - startPosition: CGRectGetHeight(self.frame) + startPosition;
     [UIView animateWithDuration:.25
                      animations:^{
                          self.frame = CGRectMake(0, xPos, CGRectGetWidth(self.frame), height);
@@ -141,4 +172,11 @@ typedef enum SearcBarState {
     barState ^= 1;
 }
 
+- (void)prepareForDismiss {
+    [self.searchController resignFirstResponder];
+}
+
+- (void)reloadData {
+    [self.tableView reloadData];
+}
 @end
