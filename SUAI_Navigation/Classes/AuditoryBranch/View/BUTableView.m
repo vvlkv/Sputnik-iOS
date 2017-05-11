@@ -38,6 +38,7 @@ typedef enum SearcBarState {
     self.tableView.dataSource = self;
     self.searchController.delegate = self;
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    [self.tableView snapshotViewAfterScreenUpdates:YES];
     self.tableView.estimatedRowHeight = 100;
     [self.tableView reloadData];
 }
