@@ -17,7 +17,7 @@
 - (NSString *)tableView:(BUTableView *)tableView headerAtIndex:(NSUInteger)index;
 
 @optional
-- (NSUInteger)numberOfSectionsInTableView:(BUTableView *)tableView atIndex:(NSUInteger)index;
+- (NSUInteger)numberOfSectionsInTableView:(BUTableView *)tableView;
 - (BOOL)tableView:(BUTableView *)tableView isSelectableCellAtIndex:(NSUInteger)index inSection:(NSUInteger)section;
 
 @end
@@ -26,7 +26,6 @@
 
 @required
 - (void)tableView:(BUTableView *)tableView didChangedSearchText:(NSString *)searchText;
-- (void)tableView:(BUTableView *)tableView didChangedScopeIndex:(NSUInteger)index;
 - (void)tableView:(BUTableView *)tableView didSelectedCellAtIndex:(NSUInteger)index inSection:(NSUInteger)section;
 
 @optional

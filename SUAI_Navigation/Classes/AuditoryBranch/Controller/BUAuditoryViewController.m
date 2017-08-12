@@ -10,11 +10,12 @@
 #import "BUAuditoryInfoViewController.h"
 #import "BUTableView.h"
 #import "BUAuditoriesModel.h"
-#import "BUSegmentedControl.h"
+#import "BUCustomSegmentedControl.h"
 
-@interface BUAuditoryViewController ()<BUTableViewDataSource, BUTableViewDelegate, BUAuditoryInfoViewControllerDelegate> {
+@interface BUAuditoryViewController ()<BUTableViewDataSource, BUTableViewDelegate, BUAuditoryInfoViewControllerDelegate, BUCustomSegmentDelegate> {
     BUTableView *tableView;
     BUAuditoriesModel *model;
+    BUCustomSegmentedControl *segmentedControl;
     NSUInteger barState;
 }
 
@@ -33,25 +34,16 @@
     tableView = [[NSBundle mainBundle] loadNibNamed:@"BUTableView"
                                                      owner:self
                                                    options:nil][0];
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Откуда"
-                                                                             style:UIBarButtonItemStylePlain
-                                                                            target:nil action:nil];
     tableView.delegate = self;
     tableView.dataSource = self;
-    tableView.frame = CGRectMake(0, 0, self.view.frame.size.width, CGRectGetHeight(self.view.frame) - 14);
+    tableView.frame = CGRectMake(0, 45, self.view.frame.size.width, CGRectGetHeight(self.view.frame) - 45);
+    self.title = @"Справочник";
     [self.view addSubview:tableView];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+    
+    segmentedControl = [[BUCustomSegmentedControl alloc] initWithItems:@[@"Аудитории", @"Институты", @"Отделы"] andType:BUSegmentTypeNormal];
+    segmentedControl.delegate = self;
+    segmentedControl.frame = CGRectMake(8, 8, self.view.frame.size.width - 16, 29);
+    [self.view addSubview:segmentedControl];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -73,8 +65,8 @@
     return [model headerAtIndex:index];
 }
 
-- (NSUInteger)numberOfSectionsInTableView:(BUTableView *)tableView atIndex:(NSUInteger)index {
-    return [model sectionsCountAtIndex:index];
+- (NSUInteger)numberOfSectionsInTableView:(BUTableView *)tableView {
+    return [model sectionsCountAtIndex:segmentedControl.selectedSegmentIndex];
 }
 
 - (BOOL)tableView:(BUTableView *)tableView isSelectableCellAtIndex:(NSUInteger)index inSection:(NSUInteger)section {
@@ -91,15 +83,10 @@
     }
 }
 
-- (void)tableView:(BUTableView *)tableView didChangedScopeIndex:(NSUInteger)index {
-    [model updateScope:index];
-    [self updateBackButtonTitle];
-}
-
 - (void)tableView:(BUTableView *)tableView didSelectedCellAtIndex:(NSUInteger)index inSection:(NSUInteger)section {
     if ([model isSelectableAtIndex:index inSection:section]) {
         id targetModel = [model entityAtIndex:index inSection:section];
-        [self performSegueWithIdentifier:@"showDetail" sender:targetModel];
+        [self loadAuditoryInfoViewControllerWithData:targetModel];
     } else {
         [self dismissViewControllerAnimated:YES completion:nil];
         [self.delegate viewController:self foundAuditory:[model auditoryAtIndex:index inSection:section]];
@@ -110,16 +97,6 @@
     barState ^= 1;
     [self.navigationController setNavigationBarHidden:barState animated:YES];
 }
-
-
-#pragma mark - BUSegmentedControlDelegate
-
-- (void)segmentedControl:(BUSegmentedControl *)control indexWasChanged:(NSUInteger)index {
-    [model updateScope:index];
-    [self updateBackButtonTitle];
-    [tableView reloadData];
-}
-
 
 #pragma mark - Actions
 
@@ -134,6 +111,21 @@
     controller.navigationItem.leftItemsSupplementBackButton = YES;
 }
 
+- (void)loadAuditoryInfoViewControllerWithData:(id)data {
+    BUAuditoryInfoViewController *controller = [[BUAuditoryInfoViewController alloc] init];
+    controller.data = data;
+    controller.delegate = self;
+    controller.navigationItem.leftItemsSupplementBackButton = YES;
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+#pragma mark - BUCustomSegmentDelegate
+
+- (void)customSegment:(BUCustomSegmentedControl *)customSegment selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
+    [model updateScope:selectedScope];
+    [self updateBackButtonTitle];
+    [tableView reloadData];
+}
 
 #pragma mark - Setters
 
@@ -145,7 +137,6 @@
 - (void)viewController:(BUAuditoryInfoViewController *)viewController didDismissedWithAuditory:(NSString *)auditory {
     [self.delegate viewController:self foundAuditory:auditory];
 }
-
 
 - (void)updateBackButtonTitle {
     NSArray *scopes = @[@"Аудитории", @"Институты", @"Отделы"];

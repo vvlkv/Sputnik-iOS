@@ -9,12 +9,11 @@
 #import "BUAuditoryInfoViewController.h"
 #import "BUInfoTableView.h"
 #import "BUConcreteInfoModel.h"
-#import "BUButton.h"
+//#import "BUButton.h"
 
-@interface BUAuditoryInfoViewController ()<BUInfoTableViewDataSource, BUInfoTableViewDelegate, UINavigationControllerDelegate, BUButtonDelegate> {
+@interface BUAuditoryInfoViewController ()<BUInfoTableViewDataSource, BUInfoTableViewDelegate, UINavigationControllerDelegate> {
     BUConcreteInfoModel *model;
     BUInfoTableView *tableView;
-    BUButton *showButton;
 }
 
 @end
@@ -37,17 +36,6 @@
     self.navigationController.view.clipsToBounds = YES;
     [self.view addSubview:tableView];
     [self.view sendSubviewToBack:tableView];
-    
-    showButton = (BUButton *)[[NSBundle mainBundle] loadNibNamed:@"BUButton" owner:self options:nil][0];
-    showButton.frame = CGRectMake(8, self.view.frame.size.height - 38, self.view.frame.size.width - 16, 30);
-    showButton.delegate = self;
-    [showButton setTitle:@"Показать на карте"];
-    [showButton setCancelButtonState:BUCancelStateHidden];
-    [self.view addSubview:showButton];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
 }
 
 
@@ -98,14 +86,6 @@
         [self dismiss];
     }
 }
-
-
-#pragma mark - BUButtonDelegate
-
-- (void)buttonSetAudioryDidPressed:(BUButton *)button {
-    [self dismiss];
-}
-
 
 #pragma mark - Actions
 

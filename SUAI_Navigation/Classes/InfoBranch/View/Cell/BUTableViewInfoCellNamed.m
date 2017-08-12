@@ -7,6 +7,7 @@
 //
 
 #import "BUTableViewInfoCellNamed.h"
+#import "UIFont+SUAI.h"
 
 @interface BUTableViewInfoCellNamed() {
     
@@ -20,9 +21,14 @@
 
 @implementation BUTableViewInfoCellNamed
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+}
+
 - (void)setTitleDescription:(NSString *)titleDescription {
     _titleDescription = titleDescription;
     self.titleDescriptionLabel.text = _titleDescription;
+    self.titleDescriptionLabel.font = [UIFont suaiRobotoFont:RobotoFontLight size:12.f];
 }
 
 - (void)setImage:(UIImage *)image {
@@ -33,6 +39,7 @@
 - (void)setTitle:(NSString *)title {
     [super setTitle:title];
     self.titleLabel.text = title;
+    self.titleLabel.font = [UIFont suaiRobotoFont:RobotoFontLight size:17.f];
 }
 
 @end

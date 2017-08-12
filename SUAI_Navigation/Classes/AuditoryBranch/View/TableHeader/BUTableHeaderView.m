@@ -7,6 +7,7 @@
 //
 
 #import "BUTableHeaderView.h"
+#import "UIFont+SUAI.h"
 
 @interface BUTableHeaderView() {
     
@@ -25,10 +26,6 @@
     self.layer.borderColor = [[UIColor colorWithRed:239.f/255.f green:239.f/255.f blue:244.f/255.f alpha:1.f] CGColor];
 }
 
-- (void)dealloc {
-    [self.textView removeObserver:self forKeyPath:@"contentSize"];
-}
-
 - (void)observeValueForKeyPath:(NSString *)keyPath
                      ofObject:(id)object
                        change:(NSDictionary *)change
@@ -42,12 +39,17 @@
 }
 
 - (void)changeTextAlignment:(NSTextAlignment) alignment {
-    self.textView.textAlignment = alignment;
+    [self.textView setTextAlignment:alignment];
 }
 
 - (void)setTitle:(NSString *)title {
     _title = title;
     self.textView.text = _title;
+    self.textView.font = [UIFont suaiRobotoFont:RobotoFontMedium size:15.f];
+}
+
+- (void)dealloc {
+    [self.textView removeObserver:self forKeyPath:@"contentSize"];
 }
 
 @end

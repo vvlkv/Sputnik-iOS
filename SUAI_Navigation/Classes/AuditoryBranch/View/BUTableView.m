@@ -8,23 +8,19 @@
 
 #import "BUTableView.h"
 #import "BUTableHeaderView.h"
-#import "BUTableSearchController.h"
-#import "BUSegmentedControl.h"
 #import "BUTableViewCell.h"
+#import "UIColor+SUAI.h"
 
 typedef enum SearcBarState {
     SearcBarStateUp,
     SearcBarStateDown
 } SearcBarState;
 
-@interface BUTableView() <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, BUSegmentedControlDelegate> {
+@interface BUTableView() <UITableViewDelegate, UITableViewDataSource> {
     SearcBarState barState;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet BUTableSearchController *searchController;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *control;
-
 
 @end
 
@@ -36,10 +32,10 @@ typedef enum SearcBarState {
     barState = SearcBarStateDown;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.searchController.delegate = self;
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-    [self.tableView snapshotViewAfterScreenUpdates:YES];
     self.tableView.estimatedRowHeight = 100;
+    UINib *nib = [UINib nibWithNibName:@"BUTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"cellId"];
     [self.tableView reloadData];
 }
 
@@ -80,26 +76,21 @@ typedef enum SearcBarState {
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellId = @"cellId";
     BUTableViewCell *testCell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (!testCell) {
-        testCell = (BUTableViewCell *)[[NSBundle mainBundle] loadNibNamed:@"BUTableViewCell"
-                                                                    owner:self options:nil][0];
-    }
+    testCell.title = [self.dataSource tableView:self
+                                   titleAtIndex:indexPath.row
+                                      inSection:indexPath.section];
     if ([self.dataSource tableView:self isSelectableCellAtIndex:indexPath.row inSection:indexPath.section]) {
         testCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         testCell.textColor = [UIColor blackColor];
     } else {
         testCell.accessoryType = UITableViewCellAccessoryNone;
-        testCell.textColor = [UIColor colorWithRed:5.f/255.f green:123.f/255.f blue:251.f/255.f alpha:1.f];
+        testCell.textColor = [UIColor suaiBlueColor];
     }
-    testCell.title = [self.dataSource tableView:self
-                                  titleAtIndex:indexPath.row
-                                     inSection:indexPath.section];
     return testCell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [self.dataSource numberOfSectionsInTableView:self
-                                                atIndex:_searchController.selectedScopeButtonIndex];
+    return [self.dataSource numberOfSectionsInTableView:self];
 }
 
 
@@ -110,22 +101,16 @@ typedef enum SearcBarState {
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    [self.searchController resignFirstResponder];
     if (barState == SearcBarStateUp) {
         [self changeSearchBarPosition];
     }
 }
 
 - (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
-    [self.delegate tableView:self didChangedScopeIndex:selectedScope];
     [self.tableView reloadData];
 }
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
-    [self.searchController sizeToFit];
-    [self.searchController setShowsCancelButton:YES animated:NO];
-    UIButton *cancelButton = ((UIButton *)[self.searchController valueForKey:@"cancelButton"]);
-    [cancelButton setTitle:@"Отмена" forState:UIControlStateNormal];
     if (barState == SearcBarStateDown) {
         [self changeSearchBarPosition];
     }
@@ -133,8 +118,6 @@ typedef enum SearcBarState {
 }
 
 - (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar {
-    [self.searchController sizeToFit];
-    [self.searchController setShowsCancelButton:NO animated:NO];
     if (barState == SearcBarStateUp) {
         [self changeSearchBarPosition];
     }
@@ -142,24 +125,10 @@ typedef enum SearcBarState {
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    [self.searchController resignFirstResponder];
     if (barState != SearcBarStateDown) {
         [self changeSearchBarPosition];
     }
 }
-
-#pragma mark - BUSegmentedControlDelegate
-
-- (void)segmentedControl:(BUSegmentedControl *)control indexWasChanged:(NSUInteger)index {
-    [self.delegate tableView:self didChangedScopeIndex:index];
-    [self.tableView reloadData];
-}
-
-- (IBAction)indexWasChanged:(id)sender {
-    [self.delegate tableView:self didChangedScopeIndex:self.control.selectedSegmentIndex];
-    [self.tableView reloadData];
-}
-
 
 - (void)changeSearchBarPosition {
     [self.delegate didChangedStateInTableView:self];
@@ -174,10 +143,10 @@ typedef enum SearcBarState {
 }
 
 - (void)prepareForDismiss {
-    [self.searchController resignFirstResponder];
 }
 
 - (void)reloadData {
     [self.tableView reloadData];
 }
+
 @end

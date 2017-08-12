@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BURootViewController.h"
 
 @class BUAuditoryViewController;
 @protocol BUAuditoryDelegate <NSObject>
@@ -17,9 +18,9 @@
 
 @end
 
-@interface BUAuditoryViewController : UIViewController
+@interface BUAuditoryViewController : BURootViewController
 
 @property (strong, nonatomic) NSString *titleText;
-@property (weak, nonatomic) id <BUAuditoryDelegate> delegate;
+@property (strong, nonatomic) id <BUAuditoryDelegate> delegate;
 
 @end

@@ -3,49 +3,49 @@
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "SUAI_navigation_logo-5.png",
+      "filename" : "ic_satellite20@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "SUAI_navigation_logo-4.png",
+      "filename" : "ic_satellite20@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "SUAI_navigation_logo-2.png",
+      "filename" : "ic_satellite29@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "SUAI_navigation_logo-3.png",
+      "filename" : "ic_satellite29@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "SUAI_navigation_logo-1.png",
+      "filename" : "ic_satellite40@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "SUAI_navigation_logo_120-1.png",
+      "filename" : "ic_satellite40@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "SUAI_navigation_logo_120.png",
+      "filename" : "ic_satellite60.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "SUAI_navigation_logo.png",
+      "filename" : "ic_satellite60@3x.png",
       "scale" : "3x"
     }
   ],

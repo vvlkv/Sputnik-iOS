@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BUAboutAppViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="satellite" translatesAutoresizingMaskIntoConstraints="NO" id="4iv-Pk-bEC">
+                    <rect key="frame" x="70" y="20" width="235" height="235"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="235" id="DyU-tg-4Ip"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Спутник ГУАП" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nma-UY-jCT">
+                    <rect key="frame" x="130.5" y="271" width="113.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Версия 2.0 от 31 августа 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uhh-8m-2sq">
+                    <rect key="frame" x="93" y="300" width="188" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVC-dT-z49">
+                    <rect key="frame" x="62" y="360" width="250" height="84"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Авторы:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6T-tG-DKD">
+                            <rect key="frame" x="8" y="0.0" width="234" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Виктор Волков" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bD-Fr-PXp">
+                            <rect key="frame" x="37" y="16" width="205" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Борис Седов" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1VV-YQ-fi4">
+                            <rect key="frame" x="37" y="32" width="205" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сергей Пахарев" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mya-rE-mcB">
+                            <rect key="frame" x="37" y="48" width="205" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Наша почта: suainav@yandex.ru" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phF-yA-pPJ">
+                            <rect key="frame" x="8" y="68" width="234" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="h6T-tG-DKD" secondAttribute="trailing" constant="8" id="1D5-hS-AQy"/>
+                        <constraint firstItem="4bD-Fr-PXp" firstAttribute="leading" secondItem="BVC-dT-z49" secondAttribute="leading" constant="37" id="1rM-gI-cL2"/>
+                        <constraint firstAttribute="trailing" secondItem="4bD-Fr-PXp" secondAttribute="trailing" constant="8" id="2pt-Oa-bNM"/>
+                        <constraint firstItem="h6T-tG-DKD" firstAttribute="leading" secondItem="BVC-dT-z49" secondAttribute="leading" constant="8" id="4CU-cs-GS4"/>
+                        <constraint firstItem="Mya-rE-mcB" firstAttribute="top" secondItem="1VV-YQ-fi4" secondAttribute="bottom" id="7UG-sh-y6U"/>
+                        <constraint firstAttribute="trailing" secondItem="phF-yA-pPJ" secondAttribute="trailing" constant="8" id="AWr-MQ-X2j"/>
+                        <constraint firstItem="4bD-Fr-PXp" firstAttribute="top" secondItem="h6T-tG-DKD" secondAttribute="bottom" id="BFs-Sl-foM"/>
+                        <constraint firstAttribute="bottom" secondItem="phF-yA-pPJ" secondAttribute="bottom" id="DR4-0v-7Bb"/>
+                        <constraint firstItem="phF-yA-pPJ" firstAttribute="leading" secondItem="BVC-dT-z49" secondAttribute="leading" constant="8" id="LQG-T1-zpK"/>
+                        <constraint firstItem="1VV-YQ-fi4" firstAttribute="top" secondItem="4bD-Fr-PXp" secondAttribute="bottom" id="Pnw-Qp-bZ8"/>
+                        <constraint firstAttribute="trailing" secondItem="Mya-rE-mcB" secondAttribute="trailing" constant="8" id="SWn-6E-F9V"/>
+                        <constraint firstItem="Mya-rE-mcB" firstAttribute="leading" secondItem="BVC-dT-z49" secondAttribute="leading" constant="37" id="dIT-5o-hnY"/>
+                        <constraint firstItem="phF-yA-pPJ" firstAttribute="top" secondItem="Mya-rE-mcB" secondAttribute="bottom" constant="4" id="dyr-Rq-MXJ"/>
+                        <constraint firstItem="h6T-tG-DKD" firstAttribute="top" secondItem="BVC-dT-z49" secondAttribute="top" id="eJu-uJ-GxK"/>
+                        <constraint firstAttribute="height" constant="84" id="jxh-VK-7Ft"/>
+                        <constraint firstItem="h6T-tG-DKD" firstAttribute="centerX" secondItem="BVC-dT-z49" secondAttribute="centerX" id="k8n-cg-1vs"/>
+                        <constraint firstItem="1VV-YQ-fi4" firstAttribute="leading" secondItem="BVC-dT-z49" secondAttribute="leading" constant="37" id="p3D-1N-451"/>
+                        <constraint firstAttribute="width" constant="250" id="uiS-mq-KpF"/>
+                        <constraint firstAttribute="trailing" secondItem="1VV-YQ-fi4" secondAttribute="trailing" constant="8" id="v5c-jn-nfP"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="BVC-dT-z49" firstAttribute="top" secondItem="Uhh-8m-2sq" secondAttribute="bottom" constant="44" id="6fF-jc-KFC"/>
+                <constraint firstItem="Uhh-8m-2sq" firstAttribute="top" secondItem="Nma-UY-jCT" secondAttribute="bottom" constant="8" id="Aqq-7w-PG1"/>
+                <constraint firstItem="Nma-UY-jCT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="CjM-bz-efY"/>
+                <constraint firstItem="Uhh-8m-2sq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Cpw-YE-Uic"/>
+                <constraint firstAttribute="trailing" secondItem="4iv-Pk-bEC" secondAttribute="trailing" constant="70" id="D4c-Yn-UIK"/>
+                <constraint firstItem="BVC-dT-z49" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ZTM-HO-33v"/>
+                <constraint firstItem="4iv-Pk-bEC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="gts-lY-iKn"/>
+                <constraint firstItem="4iv-Pk-bEC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="70" id="uvV-fK-wvY"/>
+                <constraint firstItem="Nma-UY-jCT" firstAttribute="top" secondItem="4iv-Pk-bEC" secondAttribute="bottom" constant="16" id="vht-2V-9hs"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="satellite" width="979" height="1029"/>
+    </resources>
+</document>
