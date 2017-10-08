@@ -31,7 +31,7 @@
 #pragma mark - BUSettingsViewControllerOutput
 
 - (void)didPressEntitySettings {
-    if ([state.codes count] == 0) {
+    if ([state.codes count] == 0 || state.isOnline == NO) {
         [self.view showFailureMessage];
     } else {
         NSArray *searchItems = @[[NSArray codesFromDictionary:state.codes[@"Semester"][@"Groups"]],
@@ -71,6 +71,13 @@
     state.startScreenIndex = index;
 }
 
+- (void)didConnectionBecomReachable {
+    state.isOnline = YES;
+}
+
+- (void)didConnectionBecomUnreachable {
+    state.isOnline = NO;
+}
 
 #pragma mark - BUSettingsRouterOutput
 

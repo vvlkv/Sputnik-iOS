@@ -14,5 +14,6 @@
 @property (assign, nonatomic) NSUInteger selectedEntitiesIndex;
 @property (assign, nonatomic) NSUInteger chosenEntityIndex;
 @property (strong, nonatomic) NSDictionary *codes;
+@property (assign, nonatomic) BOOL isFailViewAlreadyInit;
 
 @end

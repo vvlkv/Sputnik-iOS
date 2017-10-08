@@ -11,13 +11,13 @@
 #import "BUPairViewModel.h"
 #import "BUDay.h"
 
+@class BUCapsPageView;
 @implementation BUScheduleDataDisplayManager
-
 
 #pragma mark - BUScheduleContentDataSource
 
 - (NSUInteger)viewTypeAtIndex:(NSUInteger)index andType:(NSUInteger)type {
-    if ([[self schedule] count] == 0) {
+    if ([[self semesterSchedule] count] == 0 && [self sessionSchedule] == 0) {
         return -1;
     }
     if (type == 0) {
@@ -33,7 +33,7 @@
 - (NSString *)titleForViewAtIndex:(NSUInteger)index andType:(NSUInteger)type {
     NSString *title;
     if (type == 0) {
-        title = (index == 6) ? @"Курсовых проектов нет!" : @"Сегодня выходной!";
+        title = (index == 6) ? @"Предметов вне сетки расписания нет!" : @"Выходной!";
     } else {
         title = @"Сессии нет!";
     }
@@ -62,7 +62,13 @@
     }
     
     pairViewModel.name = currentPair.name;
-    pairViewModel.auditory = currentPair.auditory;
+    if ([currentPair.auditory containsString:@"КАФЕДРА"]) {
+        pairViewModel.auditory = [currentPair.auditory stringByReplacingOccurrencesOfString:@"КАФЕДРА " withString:@""];
+    } else {
+        pairViewModel.auditory = currentPair.auditory;
+    }
+    
+    
     if (type == 0)
     {
         pairViewModel.time = currentPair.time;
@@ -73,7 +79,9 @@
         pairViewModel.type = [[currentPair.time componentsSeparatedByString:@" "] firstObject];
     }
     
-    if ([self entityType] == 0) {
+    if (day == 6) {
+        pairViewModel.subInfo = @"";
+    } else if ([self entityType] == 0) {
         pairViewModel.subInfo = [[[[currentPair teacherName] componentsSeparatedByString:@":"] lastObject] substringFromIndex:1];
     } else {
         pairViewModel.subInfo = [[[[currentPair groups] componentsSeparatedByString:@":"] lastObject] substringFromIndex:1];
@@ -89,33 +97,29 @@
     return [self weekIndex];
 }
 
-- (NSString *)dateForTableView:(BUScheduleContentViewController *)tableView {
-    NSArray* items = [[self date] componentsSeparatedByString:@" "];
-    if ([items count] != 1) {
-        NSString *date = [NSString stringWithFormat:@"%@ %@ %@", [items[2] capitalizedString], items[3], items[4]];
-        return date;
-    }
-    return @"";
+- (NSString *)currentDate {
+    return [self date][0];
 }
 
-- (NSString *)weekForTableView:(BUScheduleContentViewController *)tableView {
-    NSArray* items = [[self date] componentsSeparatedByString:@" "];
-    if ([items count] != 1) {
-        NSString *week = [NSString stringWithFormat:@"%@ %@ %@", [items[7] capitalizedString], items[8], [items[11] substringToIndex:[items[11] length] - 1]];
-        return week;
-    }
-    return @"";
+- (NSString *)currentWeek {
+    return [self date][1];
 }
 
+#pragma mark - BUCapsPageViewDataSource
+
+- (NSUInteger)capsPageView:(BUCapsPageView *)pageView dayTypeAtIndex:(NSUInteger)dayType {
+    NSUInteger value = [_weekIndicators[[NSString stringWithFormat:@"%ld", (unsigned long)dayType]] integerValue];
+    return value;
+}
 
 #pragma mark - Root
 
 - (NSArray *)semesterSchedule {
-    return _schedule[0];
+    return _semesterSchedule[_weekIndex];
 }
 
 - (NSArray *)sessionSchedule {
-    return _schedule[1];
+    return _sessionSchedule[0];
 }
 
 @end

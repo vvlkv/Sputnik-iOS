@@ -22,7 +22,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.errorLabel.text = @"Соединение с интернет не установлено :(";
+    self.errorLabel.text = @"Соединение с интернетом не установлено :(";
     self.errorLabel.textColor = [UIColor whiteColor];
     [self.errorLabel setFont:[UIFont suaiRobotoFont:RobotoFontMedium size:17.f]];
     self.errorDescriptionLabel.text = @"В настройках вы сможете выбрать группу при подключении к сети";

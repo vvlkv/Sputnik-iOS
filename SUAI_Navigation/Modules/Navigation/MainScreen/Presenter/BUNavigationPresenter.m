@@ -28,6 +28,8 @@
         state = [[BUNavigationPresenterState alloc] init];
         stateModel = [[BUMainStateModel alloc] init];
         stateModel.delegate = self;
+        state.isMapLoaded = NO;
+        state.temporaryAuditory = @"";
     }
     return self;
 }
@@ -48,7 +50,10 @@
 #pragma mark - BUMainScreenViewControllerOutput
 
 - (void)didWebViewLoaded {
-    
+    state.isMapLoaded = YES;
+    if (![state.temporaryAuditory isEqualToString:@""]) {
+        [self showTemporaryAuditory];
+    }
 }
 
 - (void)didButtonPressed:(NSUInteger)index {
@@ -90,15 +95,27 @@
 }
 
 - (void)didReceivedAuditory:(NSString *)auditory {
-    NSString *aud = [NSString deleteDash:[[auditory componentsSeparatedByString:@" "] lastObject]];
+    
+    NSString *aud = [NSString prepareAuditoryToLoad:auditory];
     if ([aud isEqualToString:@""]) {
         [self.view showAlertWithTitle:@"Простите, аудитория не найдена :("
-                              message:@"У нас пока что есть навигация только для БМ"
+                              message:@"У нас пока что есть навигация только для Б.М."
                             andAction:@"Обидно"];
+    } else {
+        if (state.isMapLoaded) {
+            state.findingAuditoryIndex = 1;
+            [stateModel setAuditory:aud forDirection:state.findingAuditoryIndex];
+            [self performSelector:@selector(execute) withObject:nil afterDelay:0.01];
+        } else {
+            state.temporaryAuditory = aud;
+        }
     }
-    [stateModel setAuditory:aud forDirection:0];
-    state.findingAuditoryIndex = 0;
-    [self performSelector:@selector(execute) withObject:nil afterDelay:0.01];
+}
+
+- (void)showTemporaryAuditory {
+    state.findingAuditoryIndex = 1;
+    [stateModel setAuditory:state.temporaryAuditory forDirection:state.findingAuditoryIndex];
+    [self performSelector:@selector(execute) withObject:nil afterDelay:0.5];
 }
 
 #pragma mark - BUMainStateModelDelegate

@@ -381,7 +381,7 @@ NSString * const CAPSPageMenuOptionHideTopMenuBar                       = @"hide
                 menuItemView.menuItemSeparator.hidden = NO;
             }
         }
-        
+        //TODOMenu
         // Add menu item view to menu scroll view
         [_menuScrollView addSubview:menuItemView];
         
@@ -419,6 +419,7 @@ NSString * const CAPSPageMenuOptionHideTopMenuBar                       = @"hide
     
     _selectionIndicatorView = [[UIView alloc] initWithFrame:selectionIndicatorFrame];
     _selectionIndicatorView.backgroundColor = _selectionIndicatorColor;
+    _selectionIndicatorView.layer.cornerRadius = _selectionIndicatorView.frame.size.height/2;
     [_menuScrollView addSubview:_selectionIndicatorView];
 }
 
@@ -745,6 +746,25 @@ NSString * const CAPSPageMenuOptionHideTopMenuBar                       = @"hide
     }
 }
 
+
+#pragma mark - Menu Item View Customization
+
+- (void)fillMenuItemViews {
+    NSMutableArray *menuItemViews = [NSMutableArray array];
+    for (UIView *view in _menuScrollView.subviews) {
+        if ([view isKindOfClass:[MenuItemView class]]) {
+            [menuItemViews addObject:view];
+        }
+    }
+    
+    for (MenuItemView *itemView in menuItemViews) {
+        UIView *indicatorView = [self.dataSource viewForMenuItemViewAtIndex:[menuItemViews indexOfObject:itemView]];
+        indicatorView.frame = CGRectMake(itemView.bounds.size.width*5.f/6.f - 2, 2, itemView.bounds.size.width/6.f, itemView.bounds.size.width/6.f);
+//        indicatorView.frame = CGRectMake(10, 10, 20, 20);
+        [itemView addSubview:indicatorView];
+    }
+}
+
 // MARK: - Remove/Add Page
 - (void)addPageAtIndex:(NSInteger)index
 {
@@ -908,6 +928,8 @@ NSString * const CAPSPageMenuOptionHideTopMenuBar                       = @"hide
         [UIView animateWithDuration:duration animations:^{
             CGFloat xOffset = (CGFloat)index * self.controllerScrollView.frame.size.width;
             [self.controllerScrollView setContentOffset:CGPointMake(xOffset, self.controllerScrollView.contentOffset.y) animated:NO];
+        } completion:^(BOOL finished) {
+            [_delegate didMoveToPage:_controllerArray[index] index:index];
         }];
     }
 }

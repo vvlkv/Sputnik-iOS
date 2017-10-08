@@ -12,6 +12,7 @@
 
 @required
 - (void)newsLoaded:(id)news;
+- (void)loadFailed;
 
 @end
 

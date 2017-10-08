@@ -29,12 +29,10 @@
 
 #pragma mark - BUNewsViewControllerOutput
 
-- (void)viewDidLoad {
-}
-
 - (void)didSelectedCellAtIndex:(NSUInteger)index {
     BUNews *news = (BUNews *)[state news][index];
-    [self.router pushDetailNewsInfo:news.publicationId fromViewController:(UIViewController *)self.view];
+    [self.router pushDetailNewsInfo:news.publicationId
+                 fromViewController:(UIViewController *)self.view];
 }
 
 
@@ -46,7 +44,9 @@
 }
 
 - (void)didObtainFail {
-    [self.view failedConnection];
+    if ([[state news] count] == 0) {
+        [self.view failedConnection];
+    }
 }
 
 

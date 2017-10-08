@@ -74,17 +74,12 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    CGRect tableRect = CGRectMake(0, self.view.bounds.origin.y + 88, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - 88);
-    tableView.frame = tableRect;
+    tableView.frame = CGRectMake(0, 88, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) - 88);
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.view endEditing:YES];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 - (void)dismiss {
@@ -97,7 +92,7 @@
 }
 
 - (void)searchContentsForSearchText:(NSString *)searchString {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains %@", searchString];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains %@", (focusedIndex == 0) ? [searchString uppercaseString] : searchString];
     filteredData = [codes[focusedIndex] filteredArrayUsingPredicate:predicate];
     filteredData = [filteredData sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
         NSString *value2 = obj2;
@@ -160,10 +155,8 @@
     
     if ([cell.textLabel.text isEqualToString:selectedName]) {
         cell.contentView.backgroundColor = [[UIColor suaiBlueColor] colorWithAlphaComponent:.3f];
-//        cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
         cell.contentView.backgroundColor = [UIColor clearColor];
-//        cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
     return cell;

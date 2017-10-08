@@ -15,10 +15,15 @@
 - (void)presentSearchViewControllerWithItems:(NSArray *)items
                           fromViewController:(UIViewController *)viewController
                                 andPresenter:(id)presenter;
+
 - (void)pushDetailViewControllerFromViewController:(UIViewController *)viewController
                                         withEntity:(NSString *)entity
                                            andType:(NSUInteger)type;
 
+- (void)presentCalendarViewControllerFromViewController:(UIViewController *)viewController withData:(NSArray *)data;
+
 - (void)passAuditory:(NSString *)auditory fromNavigationViewController:(UIViewController *)viewController;
+
+- (void)navigateTabBarToSettingsViewControllerFromViewController:(UIViewController *)viewController;
 
 @end

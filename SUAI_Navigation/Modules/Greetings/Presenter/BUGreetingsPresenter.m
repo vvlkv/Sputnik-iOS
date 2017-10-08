@@ -24,6 +24,7 @@
     self = [super init];
     if (self) {
         state = [[BUGreetingsPresenterState alloc] init];
+        state.isFailViewAlreadyInit = NO;
     }
     return self;
 }
@@ -57,11 +58,7 @@
 }
 
 - (NSString *)greetingsText {
-    if (state.selectedEntitiesIndex == 0) {
-        return @"Выберите группу:";
-    } else {
-        return @"Выберите фамилию:";
-    }
+    return (state.selectedEntitiesIndex == 0) ? @"Выберите группу:" : @"Выберите фамилию:";
 }
 
 
@@ -75,7 +72,16 @@
 }
 
 - (void)didFailConnection {
-    [self.view initFailView];
+    if (!state.isFailViewAlreadyInit) {
+        [self.view initFailView];
+        state.isFailViewAlreadyInit = YES;
+    }
+}
+
+- (void)didInternetBecomeReachable {
+    if (state.isFailViewAlreadyInit) {
+        [self.view removeFailView];
+    }
 }
 
 @end

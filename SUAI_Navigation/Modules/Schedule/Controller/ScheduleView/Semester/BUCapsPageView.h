@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BUCapsPageViewDataSource.h"
 
 @interface BUCapsPageView : UIView
 
 @property (weak, nonatomic) id dataSource;
 @property (weak, nonatomic) id delegate;
+@property (weak, nonatomic) id <BUCapsPageViewDataSource> capsPageDataSource;
 
 - (void)refresh;
 - (void)moveToPage:(NSUInteger)pageIndex;

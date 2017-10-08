@@ -14,6 +14,7 @@
 #import "BUScheduleInteractor.h"
 #import "BUMainScreenViewController.h"
 #import "BURootNavigationController.h"
+#import "BUCalendarWireFrame.h"
 #import <UIKit/UIKit.h>
 
 @implementation BUScheduleRouter
@@ -43,9 +44,15 @@
     scheduleInteractor.output = schedulePresenter;
     scheduleVC.output = schedulePresenter;
     schedulePresenter.view = scheduleVC;
-    
     [viewController.navigationController pushViewController:scheduleVC
                                                    animated:YES];
+}
+
+- (void)presentCalendarViewControllerFromViewController:(UIViewController *)viewController
+                                               withData:(NSArray *)data {
+    BURootNavigationController *navVc = [[BURootNavigationController alloc] initWithRootViewController:[BUCalendarWireFrame assemblyCalendarWithData:data
+                                                                                                                               andRootViewController:viewController]];
+    [viewController presentViewController:navVc animated:YES completion:nil];
 }
 
 - (void)passAuditory:(NSString *)auditory fromNavigationViewController:(UIViewController *)viewController {
@@ -54,6 +61,11 @@
     BUMainScreenViewController *navigationController = [[myNavController childViewControllers] firstObject];
     [navigationController receiveAuditory:auditory];
     [viewController.tabBarController setSelectedIndex:2];
+}
+
+- (void)navigateTabBarToSettingsViewControllerFromViewController:(UIViewController *)viewController {
+    NSUInteger totalControllers = [[viewController.tabBarController viewControllers] count];
+    [viewController.tabBarController setSelectedIndex:totalControllers - 1];
 }
 
 @end

@@ -2,7 +2,7 @@
 //  BUNewsInteractorInput.h
 //  SUAI_Navigation
 //
-//  Created by Виктор on 01.08.17.
+//  Created by Виктор on 01.09.17.
 //  Copyright © 2017 Viktor. All rights reserved.
 //
 

@@ -34,10 +34,6 @@
     detailInfoNewsTableView.estimatedRowHeight = 101.f;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 
 #pragma mark - UITableViewDelegate
 
@@ -48,6 +44,7 @@
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
     return NO;
 }
+
 
 #pragma mark - UITableViewDataSource
 
@@ -78,6 +75,15 @@
 - (void)updateContent {
     [indicator stopAnimating];
     [self.view addSubview:detailInfoNewsTableView];
+}
+
+- (void)loadFailed {
+    UILabel *failLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 40, self.view.frame.size.width - 40, 100)];
+    failLabel.text = @"Соединение с интернетом потеряно :(";
+    failLabel.numberOfLines = 0;
+    failLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:failLabel];
+    [indicator stopAnimating];
 }
 
 @end

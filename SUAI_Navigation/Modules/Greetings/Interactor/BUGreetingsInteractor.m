@@ -12,18 +12,22 @@
 
 @interface BUGreetingsInteractor () <BUScheduleDownloaderDelegate> {
     BUScheduleDownloader *downloader;
+    BOOL internetWasUnreachable;
 }
 
 @end
 
 @implementation BUGreetingsInteractor
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         downloader = [[BUScheduleDownloader alloc] init];
+        [downloader loadCodes];
+        internetWasUnreachable = NO;
         downloader.delegate = self;
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(reachable:) name:@"buInternetBecomeReachable" object:nil];
     }
     return self;
 }
@@ -40,12 +44,25 @@
 
 - (void)codesLoaded {
     [[BUAppDataContainer instance] writeCodes:[downloader codes]];
+    [self.output didInternetBecomeReachable];
     [self.output didObtainCodes:[downloader codes]];
 }
 
 - (void)failedConnection {
+    internetWasUnreachable = YES;
     [self.output didFailConnection];
-    
+}
+
+- (void)reachable:(NSNotification *)notification {
+    if (internetWasUnreachable) {
+        [downloader loadCodes];
+    }
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"buInternetBecomeReachable"
+                                                  object:nil];
 }
 
 @end

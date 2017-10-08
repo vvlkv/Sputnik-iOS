@@ -10,6 +10,8 @@
 
 @protocol BUNewsDetailInfoViewControllerInput <NSObject>
 
+@required
 - (void)updateContent;
+- (void)loadFailed;
 
 @end

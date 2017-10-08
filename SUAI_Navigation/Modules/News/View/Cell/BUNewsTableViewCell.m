@@ -15,7 +15,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *headerLabel;
-@property (weak, nonatomic) IBOutlet UILabel *newsTextLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *newsImageView;
 
 @end
@@ -35,11 +34,6 @@
 - (void)setDate:(NSString *)date {
     _date = date;
     self.dateLabel.text = _date;
-}
-
-- (void)setText:(NSString *)text {
-    _text = text;
-    self.newsTextLabel.text = _text;
 }
 
 - (void)setHeader:(NSString *)header {

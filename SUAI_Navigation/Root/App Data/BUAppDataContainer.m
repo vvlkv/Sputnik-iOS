@@ -37,6 +37,10 @@
     return [pCodes copy];
 }
 
+- (void)writeWeekType:(NSUInteger)week {
+    [[NSUserDefaults standardUserDefaults] setObject:@(week) forKey:@"lastSavedWeekType"];
+}
+
 - (void)writeCodes:(NSDictionary *)codes {
     if ([pCodes count] == 0) {
         pCodes = [codes copy];
@@ -68,6 +72,11 @@
 - (NSUInteger)startScreenIndex {
     NSUInteger index = [[[NSUserDefaults standardUserDefaults] objectForKey:@"StartScreenIndex"] integerValue];
     return index;
+}
+
+- (NSUInteger)weekType {
+    NSUInteger week = [[[NSUserDefaults standardUserDefaults] objectForKey:@"lastSavedWeekType"] integerValue];
+    return week;
 }
 
 @end

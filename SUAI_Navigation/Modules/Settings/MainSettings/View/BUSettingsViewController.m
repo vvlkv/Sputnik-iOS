@@ -60,7 +60,7 @@
 
 - (void)showFailureMessage {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Данные не загружены :("
-                                                                   message:@"Убедитесь, что установлено соединение с интернет." preferredStyle:UIAlertControllerStyleAlert];
+                                                                   message:@"Убедитесь, что установлено соединение с интернетом." preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"ОК"
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {

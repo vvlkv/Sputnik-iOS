@@ -12,8 +12,9 @@
 @interface BUSemesterView : UIView <BUScheduleProtocol>
 
 @property (weak, nonatomic) id dataSource;
-@property (weak, nonatomic) id  delegate;
+@property (weak, nonatomic) id delegate;
 @property (weak, nonatomic) id segmentDelegate;
+@property (weak, nonatomic) id capsPageDataSource;
 
 - (void)moveToPage:(NSUInteger)pageIndex;
 - (void)updateWeekSegmentWithIndex:(NSUInteger)index;

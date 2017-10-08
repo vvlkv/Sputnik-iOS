@@ -8,6 +8,7 @@
 
 #import "BUSchedulePresenter.h"
 #import "BUScheduleStorage.h"
+#import "BUScheduleRefactor.h"
 #import "BUDay.h"
 #import "BUPair.h"
 #import "BUScheduleDataDisplayManager.h"
@@ -18,6 +19,7 @@
 @interface BUSchedulePresenter () {
     BUSchedulePresenterState *state;
     BUScheduleDataDisplayManager *displayManager;
+    BUScheduleRefactor *refactor;
 }
 
 @end
@@ -33,7 +35,7 @@
     if (self) {
         state = [[BUSchedulePresenterState alloc] init];
         displayManager = [[BUScheduleDataDisplayManager alloc] init];
-        state.isOnline = NO;
+        refactor = [[BUScheduleRefactor alloc] init];
         state.entityName = entity;
         displayManager.entityType = type;
     }
@@ -50,7 +52,6 @@
 
 - (void)didChangeWeekSegment:(NSUInteger)index {
     displayManager.weekIndex = index;
-    displayManager.schedule[0] = [self prepareDataToOutput:state.unfilteredSchedule forWeek:index];
     [self.view updateView];
 }
 
@@ -68,23 +69,29 @@
 
 - (void)didPressAlertAction:(NSString *)action {
     BOOL isDataSended = NO;
-    for (NSString *name in [state.codes[@"Semester"][@"Teachers"] allKeys]) {
-        if ([name containsString:action]) {
-            state.entityName = action;
-            [self.router pushDetailViewControllerFromViewController:(UIViewController *)self.view withEntity:name andType:1];
-            isDataSended = YES;
-        }
+    NSUInteger foundedEntityIndex = 2;
+    NSString *searchResult = nil;
+    if ((searchResult = [refactor findTeacher:action inCodes:state.codes]) != nil) {
+        foundedEntityIndex = 1;
+        isDataSended = YES;
     }
-    for (NSString *name in [state.codes[@"Semester"][@"Groups"] allKeys]) {
-        if ([name containsString:action]) {
-            state.entityName = action;
-            [self.router pushDetailViewControllerFromViewController:(UIViewController *)self.view withEntity:name andType:0];
-            isDataSended = YES;
-        }
+    else if ((searchResult = [refactor findFroup:action inCodes:state.codes]) != nil) {
+        foundedEntityIndex = 0;
+        isDataSended = YES;
     }
-    if (!isDataSended) {
+    
+    if (searchResult == nil) {
         [self.router passAuditory:action fromNavigationViewController:(UIViewController *)self.view];
+    } else {
+        [self.router pushDetailViewControllerFromViewController:(UIViewController *)self.view
+                                                     withEntity:searchResult
+                                                        andType:foundedEntityIndex];
     }
+}
+
+- (void)didPressCalendarAction {
+    NSArray *data = @[[self prepareDataToOutput:state.unfilteredSchedule forWeek:0], [self prepareDataToOutput:state.unfilteredSchedule forWeek:1]];
+    [self.router presentCalendarViewControllerFromViewController:(UIViewController *)self.view withData:data];
 }
 
 - (id <BUScheduleContentDataSource>)dataSource {
@@ -101,15 +108,19 @@
 
 - (void)didObtainSchedule:(NSArray *)schedule {
     state.unfilteredSchedule = schedule[0];
-    displayManager.schedule = [@[[self prepareDataToOutput:state.unfilteredSchedule forWeek:displayManager.weekIndex], schedule[1]] mutableCopy];
-    [self.view updateWeekSegmentWithIndex:displayManager.weekIndex];
-    [self.view obtainStartScheduleScreen:[NSCalendar currentDay]];
+    displayManager.semesterSchedule = [@[[self prepareDataToOutput:state.unfilteredSchedule forWeek:0],
+                                        [self prepareDataToOutput:state.unfilteredSchedule forWeek:1]] copy];
+    displayManager.sessionSchedule = [@[schedule[1]] copy];
     [self.view updateView];
 }
 
-- (void)didObtainDate:(NSString *)date {
+- (void)didObtainDate:(NSArray *)date {
     displayManager.date = date;
-    displayManager.weekIndex = ([date containsString:@"нечетная"]) ? 1 : 0;
+    displayManager.weekIndex = ([date[1] containsString:@"нечетная"]) ? 1 : 0;
+    [self.view obtainStartScheduleScreen:[NSCalendar currentDay]];
+    [NSCalendar weekIndex];
+    [self.view updateWeekSegmentWithIndex:displayManager.weekIndex];
+    [self.view updateDate];
 }
 
 - (void)didObtainCodes:(NSDictionary *)codes {
@@ -117,13 +128,33 @@
 }
 
 - (void)didDownloadCodes {
-    state.isOnline = YES;
+    state.connectionStatus = ConnectionStatusOnline;
     if ([self.view respondsToSelector:@selector(showSearchIcon)]) {
         [self.view showSearchIcon];
     }
-    [self.input obtainScheduleForEntity:state.entityName andType:displayManager.entityType];
+    if (state.unfilteredSchedule == nil) {
+        [self.input obtainScheduleForEntity:state.entityName andType:displayManager.entityType];
+    }
 }
 
+- (void)didFailLoading {
+    state.connectionStatus = ConnectionStatusOffline;
+    if ([self.view respondsToSelector:@selector(hideSearchIcon)]) {
+        [self.view hideSearchIcon];
+    }
+}
+
+- (void)didEntityNotSelected {
+    [self.view updateView];
+}
+
+- (void)didObtainEntityType:(NSUInteger)entityType {
+    displayManager.entityType = entityType;
+}
+
+- (void)didObtainEntity:(NSString *)entity {
+    state.entityName = entity;
+}
 
 #pragma mark - BUScheduleRouterOutput
 
@@ -148,7 +179,7 @@
     NSArray *groups = [[[[[pair groups] componentsSeparatedByString:@":"] lastObject] substringFromIndex:1] componentsSeparatedByString:@"; "];
     NSString *auditory = [pair auditory];
     NSMutableArray *contents = [NSMutableArray array];
-    if (state.codes != nil) {
+    if (state.codes != nil && state.connectionStatus == ConnectionStatusOnline) {
         if (displayManager.entityType != 1 && ![teacher containsString:@";"])
             [contents addObject:teacher];
         for (NSString *group in groups) {
@@ -156,45 +187,25 @@
                 [contents addObject:group];
         }
     }
-    [contents addObject:auditory];
+    if (![auditory containsString:@"кафедры"]) {
+        [contents addObject:auditory];
+    }
     [self.view addAlertViewWithItems:contents];
+}
+
+- (void)didPressGoToSettingsButton {
+    [self.router navigateTabBarToSettingsViewControllerFromViewController:(UIViewController *)self.view];
 }
 
 
 #pragma mark - Other
 
 - (NSArray *)prepareDataToOutput:(NSArray *)data forWeek:(NSUInteger)week {
-    NSArray *days = @[@"Понедельник", @"Вторник", @"Среда", @"Четверг", @"Пятница", @"Суббота", @"Вне"];
-    NSMutableArray *outputData = [[NSMutableArray alloc] initWithCapacity:7];
-    NSMutableArray *array = [NSMutableArray array];
-    for (int i = 0; i < 7; i++) {
-        [array addObject:[NSArray array]];
-    }
-    for (BUDay *day in data) {
-        BUDay *newDay = [[BUDay alloc] initWithDay:[day day]];
-        for (BUPair *pair in [day pairs]) {
-            if ((NSUInteger)[pair color] == (NSUInteger)week || (NSUInteger)[pair color] == 2) {
-                [newDay addPair:pair];
-            }
-        }
-        if ([[newDay pairs] count] != 0) {
-            [outputData addObject:newDay];
-        }
-    }
-    for (int i = 0; i < 7; i++) {
-        NSUInteger barIndex = [outputData indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-            if ([[(BUDay *)obj day] containsString:days[i]]) {
-                *stop = YES;
-                return YES;
-            }
-            return NO;
-        }];
-        
-        if (barIndex != NSNotFound) {
-            [array replaceObjectAtIndex:i withObject:outputData[barIndex]];
-        }
-    }
-    return array;
+    if (data == nil)
+        return nil;
+    [refactor refactorScheduleFromData:data];
+    displayManager.weekIndicators = [refactor indicators];
+    return [refactor sortedScheduleForWeek:week];
 }
 
 @end

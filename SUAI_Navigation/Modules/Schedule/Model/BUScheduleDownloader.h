@@ -23,7 +23,8 @@
 
 @property (strong, readonly) NSDictionary *codes;
 @property (weak, nonatomic) id <BUScheduleDownloaderDelegate> delegate;
-@property (strong, readonly) NSString *date;
+
+- (void)loadCodes;
 
 - (void)downloadScheduleForEntity:(NSString *)entity
                                     andType:(NSUInteger)type;

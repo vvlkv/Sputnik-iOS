@@ -21,15 +21,24 @@
 
 @implementation BUScheduleRefreshView
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.dateLabel.text = @"";
+    self.weekTypeLabel.text = @"";
+}
+
+
+#pragma mark - Setters
+
 - (void)setDate:(NSString *)date {
     _date = date;
-    [self.dateLabel setFont:[UIFont suaiRobotoFont:RobotoFontRegular size:16.f]];
+    [self.dateLabel setFont:[UIFont suaiRobotoFont:RobotoFontBold size:24.f]];
     self.dateLabel.text = date;
 }
 
 - (void)setWeek:(NSString *)week {
     _week = week;
-    [self.weekTypeLabel setFont:[UIFont suaiRobotoFont:RobotoFontRegular size:16.f]];
+    [self.weekTypeLabel setFont:[UIFont suaiRobotoFont:RobotoFontRegular size:15.f]];
     UIColor *contentColor;
     if ([_week containsString:@"нечетная"]) {
         contentColor = [UIColor suaiRedColor];

@@ -13,5 +13,7 @@
 @property (strong, nonatomic) NSMutableArray *auditories;
 @property (strong, nonatomic) NSString *tryingAuditory;
 @property (assign, nonatomic) NSUInteger findingAuditoryIndex;
+@property (assign, nonatomic) BOOL isMapLoaded;
+@property (strong, nonatomic) NSString *temporaryAuditory;
 
 @end

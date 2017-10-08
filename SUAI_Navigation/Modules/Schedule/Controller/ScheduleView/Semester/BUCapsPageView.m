@@ -8,10 +8,11 @@
 
 #import "BUCapsPageView.h"
 #import "UIColor+SUAI.h"
+#import "UIView+MenuItemIndicatorBuilder.h"
 #import "CAPSPageMenu.h"
 #import "BUScheduleContentViewController.h"
 
-@interface BUCapsPageView () <CAPSPageMenuDelegate> {
+@interface BUCapsPageView () <CAPSPageMenuDelegate, CAPSPageMenuDataSource> {
     NSMutableArray *controllerArray;
 }
 
@@ -33,7 +34,7 @@
 }
 
 - (void)initCapsPage {
-    UIColor *blueColor = [UIColor suaiBlueColor];
+    UIColor *blueColor = [UIColor suaiPurpleColor];
     NSDictionary *parameters = @{CAPSPageMenuOptionMenuItemSeparatorWidth: @(4.3),
                                  CAPSPageMenuOptionUseMenuLikeSegmentedControl: @(YES),
                                  CAPSPageMenuOptionMenuItemSeparatorPercentageHeight: @(0.1),
@@ -42,22 +43,22 @@
                                  CAPSPageMenuOptionUseMenuLikeSegmentedControl: [UIColor blackColor],
                                  CAPSPageMenuOptionSelectedMenuItemLabelColor: blueColor,
                                  CAPSPageMenuOptionBottomMenuHairlineColor: [UIColor grayColor],
-                                 CAPSPageMenuOptionViewBackgroundColor: [UIColor whiteColor]};
+                                 CAPSPageMenuOptionViewBackgroundColor: [UIColor whiteColor]
+                                 };
     _pageMenu = [[CAPSPageMenu alloc] initWithViewControllers:controllerArray
-                                                        frame:CGRectMake(0.0, 41.f, self.frame.size.width, self.frame.size.height - 41.f)
+                                                        frame:CGRectMake(0.0, 41.f + 56.f, self.frame.size.width, self.frame.size.height - 41.f - 56.f)
                                                       options:parameters];
     _pageMenu.delegate = self;
+    _pageMenu.dataSource = self;
     [self addSubview:_pageMenu.view];
 }
 
 - (void)initCapsPageViews {
-    NSString *capsTitle[7] = {@"ПН", @"ВТ", @"СР", @"ЧТ", @"ПТ", @"СБ", @"КП"};
+    NSString *capsTitle[7] = {@"ПН", @"ВТ", @"СР", @"ЧТ", @"ПТ", @"СБ", @"..."};
     controllerArray = [NSMutableArray array];
     for (int i = 0; i < 7; i++) {
         BUScheduleContentViewController *controller = [[BUScheduleContentViewController alloc] initWithIndex:i
                                                                                                      andType:ScheduleTypeSemester];
-        controller.dataSource = self.dataSource;
-        controller.delegate = self.delegate;
         controller.view.backgroundColor = [UIColor whiteColor];
         controller.title = capsTitle[i];
         [controllerArray addObject:controller];
@@ -65,6 +66,7 @@
 }
 
 - (void)refresh {
+    [_pageMenu fillMenuItemViews];
     for (BUScheduleContentViewController *viewController in controllerArray) {
         [viewController refresh];
     }
@@ -88,12 +90,19 @@
     }
 }
 
-- (void)willMoveToPage:(UIViewController *)controller index:(NSInteger)index {
- //   [controller viewWillAppear:YES];
+- (void)setCapsPageDataSource:(id<BUCapsPageViewDataSource>)capsPageDataSource {
+    _capsPageDataSource = capsPageDataSource;
 }
 
 - (void)didMoveToPage:(UIViewController *)controller index:(NSInteger)index {
     [controller viewDidAppear:YES];
+}
+
+
+#pragma mark - CAPSPageMenuDataSource
+
+- (UIView *)viewForMenuItemViewAtIndex:(NSUInteger)index {
+    return [UIView createIndicatorForWeekOfType:(WeekType)[self.capsPageDataSource capsPageView:self dayTypeAtIndex:index]];
 }
 
 @end

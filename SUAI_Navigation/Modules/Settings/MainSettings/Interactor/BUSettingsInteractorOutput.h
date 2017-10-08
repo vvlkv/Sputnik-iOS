@@ -14,5 +14,7 @@
 - (void)didObtainEntityName:(NSString *)name;
 - (void)didObtainEntityType:(NSUInteger)type;
 - (void)didObtainStartScreenIndex:(NSUInteger)index;
+- (void)didConnectionBecomReachable;
+- (void)didConnectionBecomUnreachable;
 
 @end

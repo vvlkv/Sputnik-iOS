@@ -7,6 +7,7 @@
 //
 
 #import "BUSecondStepView.h"
+#import "UIFont+SUAI.h"
 
 @interface BUSecondStepView () <UIPickerViewDelegate, UIPickerViewDataSource> {
     
@@ -14,6 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *whoAreYouLabel;
 @property (weak, nonatomic) IBOutlet UIPickerView *entityPicker;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 
 @end
 
@@ -24,7 +26,9 @@
     self.entityPicker.dataSource = self;
     self.entityPicker.delegate = self;
     self.entityPicker.layer.cornerRadius = 16.f;
+    self.whoAreYouLabel.font = [UIFont suaiRobotoFont:RobotoFontMedium size:17.f];
     self.whoAreYouLabel.textColor = [UIColor whiteColor];
+    self.backButton.titleLabel.font = [UIFont suaiRobotoFont:RobotoFontLight size:15.f];
 }
 
 - (void)reloadPicker {

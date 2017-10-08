@@ -13,7 +13,7 @@
 @required
 - (void)didPressTeacherButton;
 - (void)didPressGroupButton;
-- (void)didPressdGuestButton;
+- (void)didPressGuestButton;
 
 @end
 

@@ -10,6 +10,6 @@
 
 @interface BUSUAIParser (Date)
 
-+ (NSString*)dateFromData:(NSData *)data;
+//+ (NSString*)dateFromData:(NSData *)data;
 
 @end

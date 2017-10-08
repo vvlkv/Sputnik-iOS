@@ -14,5 +14,6 @@
 @property (strong, nonatomic) NSString *entityName;
 @property (assign, nonatomic) NSUInteger entityType;
 @property (assign, nonatomic) NSUInteger startScreenIndex;
+@property (assign, nonatomic) BOOL isOnline;
 
 @end

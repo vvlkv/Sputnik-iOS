@@ -21,6 +21,7 @@
 - (void)didChangeScheduleSegment:(NSUInteger)index;
 - (void)didPressSearchButton;
 - (void)didPressAlertAction:(NSString *)action;
+- (void)didPressCalendarAction;
 - (id <BUScheduleContentDataSource>)dataSource;
 - (id <BUScheduleContentDelegate>)delegate;
 

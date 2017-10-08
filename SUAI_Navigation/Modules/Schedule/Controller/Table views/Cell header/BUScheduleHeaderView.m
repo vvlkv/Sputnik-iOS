@@ -20,10 +20,6 @@
 
 @implementation BUScheduleHeaderView
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-}
-
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
     UIRectCorner corners = UIRectCornerTopLeft | UIRectCornerTopRight;
@@ -33,9 +29,15 @@
     CAShapeLayer* shape = [[CAShapeLayer alloc] init];
     [shape setPath:rounded.CGPath];
     self.layer.mask = shape;
-    self.timeLabel.font = [UIFont suaiRobotoFont:RobotoFontRegular size:18.f];
+    CGFloat fontSize;
+    if ([UIScreen mainScreen].bounds.size.width == 320.f) {
+        fontSize = 17.f;
+    } else {
+        fontSize = 18.f;
+    }
+    self.timeLabel.font = [UIFont suaiRobotoFont:RobotoFontRegular size:fontSize];
     self.timeLabel.textColor = [UIColor whiteColor];
-    self.auditoryLabel.font = [UIFont suaiRobotoFont:RobotoFontRegular size:18.f];
+    self.auditoryLabel.font = [UIFont suaiRobotoFont:RobotoFontRegular size:fontSize];
     self.auditoryLabel.textColor = [UIColor whiteColor];
 }
 

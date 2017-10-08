@@ -35,6 +35,7 @@
 }
 
 + (id)loadNewsFromData:(NSData *)data {
+    NSLog(@"loadNewsFromData");
     TFHpple *scheduleParser = [TFHpple hppleWithHTMLData:data];
     
     TFHppleElement *header = ((TFHppleElement *)[scheduleParser searchWithXPathQuery:@"//div[@class='header']"][0]);
@@ -52,8 +53,9 @@
         if ([[[element attributes] objectForKey:@"class"] isEqualToString:@"lead"])
             news.subHeader = [element text];
         
-        if ([element firstChildWithTagName:@"a"] != nil) {
+        if ([element firstChildWithTagName:@"a"] != nil && news.imageSource == nil) {
             news.imageSource = [[element firstChildWithTagName:@"a"] objectForKey:@"href"];
+            NSLog(@"image source: %@", news.imageSource);
         }
         
         if ([[element tagName] isEqualToString:@"p"] && ![[[element text] removeSlashes] isEqualToString:@""] && [element text] != nil) {
@@ -67,6 +69,9 @@
     
     for (TFHppleElement *textElement in textElements) {
         [text appendString:[textElement text]];
+        if ([textElements indexOfObject:textElements] != [textElements count] - 1) {
+            [text appendString:@"\n\n"];
+        }
     }
     
     news.text = text;

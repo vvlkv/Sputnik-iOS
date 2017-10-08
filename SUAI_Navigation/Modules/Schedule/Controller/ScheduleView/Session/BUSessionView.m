@@ -18,7 +18,6 @@
 @implementation BUSessionView
 
 - (instancetype)initWithFrame:(CGRect)frame {
-    
     self = [super initWithFrame:frame];
     if (self) {
         sessionTableView = [[BUScheduleContentViewController alloc] initWithIndex:0 andType:ScheduleTypeSession];

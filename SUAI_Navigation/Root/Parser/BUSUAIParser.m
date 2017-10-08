@@ -35,7 +35,6 @@
     HTMLParser *parser = [[HTMLParser alloc] initWithData:data error:&error];
     
     if (error) {
-        NSLog(@"Error: %@", error.localizedDescription);
         return nil;
     }
     
@@ -120,7 +119,6 @@
     HTMLParser *parser = [[HTMLParser alloc] initWithData:data error:&error];
     
     if (error) {
-        NSLog(@"Error: %@", error.localizedDescription);
         return nil;
     }
     

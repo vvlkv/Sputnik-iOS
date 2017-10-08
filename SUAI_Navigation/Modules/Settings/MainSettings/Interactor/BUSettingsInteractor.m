@@ -14,6 +14,22 @@
 
 #pragma mark - BUSettingsInteractorInput
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(reachable:)
+                                                     name:@"buInternetBecomeReachable"
+                                                   object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(notReachable:)
+                                                     name:@"buInternetBecomeUnreachable"
+                                                   object:nil];
+    }
+    return self;
+}
+
 - (void)obtainCodes {
     NSDictionary *codes = [[BUAppDataContainer instance] entityCodes];
     NSString *entity = [[BUAppDataContainer instance] entity];
@@ -31,6 +47,14 @@
 
 - (void)overwriteSettingsWithStartIndex:(NSUInteger)index {
     [[BUAppDataContainer instance] overwriteStartScreenIndex:index];
+}
+
+- (void)reachable:(NSNotification *)notification {
+    [self.output didConnectionBecomReachable];
+}
+
+- (void)notReachable:(NSNotification *)notification {
+    [self.output didConnectionBecomUnreachable];
 }
 
 @end

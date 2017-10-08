@@ -13,5 +13,6 @@
 @required
 - (void)didObtainCodes:(NSDictionary *)codes;
 - (void)didFailConnection;
+- (void)didInternetBecomeReachable;
 
 @end

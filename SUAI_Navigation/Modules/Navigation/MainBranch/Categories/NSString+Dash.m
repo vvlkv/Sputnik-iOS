@@ -31,4 +31,18 @@
     return [string stringByReplacingOccurrencesOfString:@"-" withString:@""];
 }
 
++ (NSString *)prepareAuditoryToLoad:(NSString *)string {
+    
+    NSString *result = string;
+    
+    if ([string containsString:@"Г"] || [string containsString:@"Л"])
+        return @"";
+    
+    if ([string containsString:@"-"]) {
+        result = [NSString deleteDash:[[string componentsSeparatedByString:@" "] lastObject]];
+    }
+    
+    return result;
+}
+
 @end

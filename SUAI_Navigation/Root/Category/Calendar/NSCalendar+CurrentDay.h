@@ -11,5 +11,8 @@
 @interface NSCalendar (CurrentDay)
 
 + (NSUInteger)currentDay;
++ (NSUInteger)weekIndex;
++ (NSUInteger)weekIndexFromDate:(NSDate *)date;
++ (NSUInteger)dayFromDate:(NSDate *)date;
 
 @end

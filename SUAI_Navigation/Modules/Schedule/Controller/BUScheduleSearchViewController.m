@@ -82,6 +82,11 @@
     [self.view addSubview:headerView];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    contentsTableView.frame = CGRectMake(0, 88, self.view.frame.size.width, self.view.frame.size.height - 88);
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -152,7 +157,7 @@
 }
 
 - (void)searchContentsForSearchText:(NSString *)searchString {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains %@", searchString];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains %@", (focusedIndex == 0) ? [searchString uppercaseString] : searchString];
     filteredData = [entities[focusedIndex] filteredArrayUsingPredicate:predicate];
     filteredData = [filteredData sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
         NSString *value2 = obj2;

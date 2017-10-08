@@ -12,8 +12,12 @@
 
 @required
 - (void)didObtainSchedule:(NSArray *)schedule;
-- (void)didObtainDate:(NSString *)date;
+- (void)didObtainDate:(NSArray *)date;
 - (void)didObtainCodes:(NSDictionary *)codes;
 - (void)didDownloadCodes;
+- (void)didFailLoading;
+- (void)didEntityNotSelected;
+- (void)didObtainEntityType:(NSUInteger)entityType;
+- (void)didObtainEntity:(NSString *)entity;
 
 @end

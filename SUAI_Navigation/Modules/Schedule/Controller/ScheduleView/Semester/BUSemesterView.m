@@ -8,9 +8,12 @@
 
 #import "BUSemesterView.h"
 #import "BUCustomSegmentedControl.h"
+#import "BUScheduleRefreshView.h"
 #import "BUCapsPageView.h"
+#import "BUScheduleContentDataSource.h"
 
 @interface BUSemesterView () {
+    BUScheduleRefreshView *dateView;
     BUCustomSegmentedControl *scheduleTypeControl;
     BUCapsPageView *capsPageView;
 }
@@ -23,16 +26,23 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        [self addDateView];
         [self addCapsPageView];
         [self addSegmentedControl];
     }
     return self;
 }
 
+- (void)addDateView {
+    dateView = (BUScheduleRefreshView *)[[NSBundle mainBundle] loadNibNamed:@"BUScheduleRefreshView" owner:self options:nil][0];
+    dateView.frame = CGRectMake(0, 0, self.frame.size.width, 56);
+    [self addSubview:dateView];
+}
+
 - (void)addSegmentedControl {
-    scheduleTypeControl = [[BUCustomSegmentedControl alloc] initWithItems:@[@"Четная", @"Нечетная"]
+    scheduleTypeControl = [[BUCustomSegmentedControl alloc] initWithItems:@[@"Нижняя", @"Верхняя"]
                                                                   andType:BUSegmentTypeNormal];
-    scheduleTypeControl.frame = CGRectMake(8, 8, self.frame.size.width - 16, 29);
+    scheduleTypeControl.frame = CGRectMake(8, 64, self.frame.size.width - 16, 29);
     [self addSubview:scheduleTypeControl];
 }
 
@@ -45,6 +55,15 @@
     [capsPageView refresh];
 }
 
+- (void)refreshDate {
+    if ([self.dataSource conformsToProtocol:@protocol(BUScheduleContentDataSource)]) {
+        dateView.date = [self.dataSource currentDate];
+    }
+    if ([self.dataSource conformsToProtocol:@protocol(BUScheduleContentDataSource)]) {
+        dateView.week = [self.dataSource currentWeek];
+    }
+}
+
 - (void)moveToPage:(NSUInteger)pageIndex {
     [capsPageView moveToPage:pageIndex];
 }
@@ -52,6 +71,7 @@
 - (void)updateWeekSegmentWithIndex:(NSUInteger)index {
     scheduleTypeControl.selectedSegmentIndex = index;
 }
+
 
 #pragma mark - Setters
 
@@ -72,6 +92,11 @@
 - (void)setSegmentDelegate:(id)segmentDelegate {
     _segmentDelegate = segmentDelegate;
     scheduleTypeControl.delegate = self.segmentDelegate;
+}
+
+- (void)setCapsPageDataSource:(id)capsPageDataSource {
+    _capsPageDataSource = capsPageDataSource;
+    capsPageView.capsPageDataSource = self.capsPageDataSource;
 }
 
 @end

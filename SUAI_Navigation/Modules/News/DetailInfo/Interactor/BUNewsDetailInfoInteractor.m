@@ -36,6 +36,10 @@
     [self.output didObtainNews:news];
 }
 
+- (void)loadFailed {
+    [self.output didLoadFailed];
+}
+
 
 #pragma mark - BUNewsDetailInfoInteractorInput
 

@@ -8,16 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "BUScheduleContentDataSource.h"
+#import "BUCapsPageViewDataSource.h"
 
-@interface BUScheduleDataDisplayManager : NSObject <BUScheduleContentDataSource>
+@interface BUScheduleDataDisplayManager : NSObject <BUScheduleContentDataSource, BUCapsPageViewDataSource>
 
 @property (assign, nonatomic) NSUInteger weekIndex;
 @property (assign, nonatomic) NSUInteger scheduleIndex;
 @property (assign, nonatomic) NSUInteger entityType;
-@property (strong, nonatomic) NSString *date;
-@property (strong, nonatomic) NSMutableArray *schedule;
-
-- (NSArray *)semesterSchedule;
-- (NSArray *)sessionSchedule;
+@property (strong, nonatomic) NSArray *date;
+@property (strong, nonatomic) NSArray *semesterSchedule;
+@property (strong, nonatomic) NSArray *sessionSchedule;
+@property (strong, nonatomic) NSDictionary *weekIndicators;
 
 @end

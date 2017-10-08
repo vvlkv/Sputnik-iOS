@@ -19,16 +19,6 @@
 
 @implementation BUNewsDetailInfoDownloader
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        
-    }
-    return self;
-}
-
-
 - (void)loadNews:(NSString *)newsId {
     [BUDownloader loadNewsPage:newsId success:^(NSData *data) {
         BUNews *loadedNews = [BUSUAIParser loadNewsFromData:data];
@@ -36,10 +26,10 @@
             loadedNews.image = [UIImage imageWithData:data];
             [self.delegate newsLoaded:loadedNews];
         } fail:^(NSString *fail) {
-            NSLog(@"ERROR:%@", fail);
+            [self.delegate loadFailed];
         }];
     } fail:^(NSString *fail) {
-        NSLog(@"ERROR:%@", fail);
+        [self.delegate loadFailed];
     }];
 }
 

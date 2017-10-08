@@ -51,11 +51,19 @@
     [sessionView refresh];
 }
 
+- (void)updateDate {
+    [super updateDate];
+    
+}
 - (void)showSearchIcon {
     UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
                                                                                   target:self
                                                                                   action:@selector(searchView:)];
     self.navigationItem.leftBarButtonItem = searchButton;
+}
+
+- (void)hideSearchIcon {
+    self.navigationItem.leftBarButtonItem = nil;
 }
 
 

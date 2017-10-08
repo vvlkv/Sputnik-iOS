@@ -12,6 +12,7 @@
 
 - (void)initGreetingsView;
 - (void)initFailView;
+- (void)removeFailView;
 - (void)reloadData;
 
 @end

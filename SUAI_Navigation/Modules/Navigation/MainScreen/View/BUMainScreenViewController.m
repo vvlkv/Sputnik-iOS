@@ -37,29 +37,21 @@
     UIBarButtonItem *cameraItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(cameraButtonPressed:)];
     cameraItem.tintColor = [UIColor blackColor];
     
-    self.navigationItem.rightBarButtonItem = cameraItem;
+   // self.navigationItem.rightBarButtonItem = cameraItem;
     
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
                                                   forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
-    self.navigationController.view.backgroundColor = [UIColor clearColor];
-    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
-    self.navigationController.navigationBar.topItem.title = @"Навигация";
     
     indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    indicator.hidesWhenStopped = true;
+    indicator.hidesWhenStopped = YES;
     indicator.frame = CGRectMake(self.view.frame.size.width/2 - 10, self.view.frame.size.height/2 - 10, 20, 20);
     [indicator startAnimating];
     [self.view addSubview:webView];
     [self.view addSubview:toolBar];
     [self.view addSubview:indicator];
     
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 
@@ -162,6 +154,7 @@
 - (void)startAnimating {
     [indicator startAnimating];
 }
+
 
 #pragma mark - Actions
 

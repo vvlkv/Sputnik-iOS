@@ -9,9 +9,7 @@
 #import "BUNewsDetailInfoTableViewCell.h"
 #import "UIFont+SUAI.h"
 
-@interface BUNewsDetailInfoTableViewCell () {
-    
-}
+@interface BUNewsDetailInfoTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *headerLabel;
@@ -29,10 +27,6 @@
     self.headerLabel.font = [UIFont suaiRobotoFont:RobotoFontBold size:18.f];
     self.subHeaderLabel.font = [UIFont suaiRobotoFont:RobotoFontLight size:18.f];
     self.newsTextLabel.font = [UIFont suaiRobotoFont:RobotoFontLight size:16.f];
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
 }
 
 - (void)setDate:(NSString *)date {

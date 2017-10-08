@@ -28,17 +28,13 @@
     [self.view addSubview:indicatorView];
     CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 64 - 49);
     self.title = @"Новости";
-    newsTableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
+    newsTableView = [[UITableView alloc] initWithFrame:frame
+                                                 style:UITableViewStylePlain];
     newsTableView.dataSource = self;
     newsTableView.delegate = self;
-    [self.output viewDidLoad];
     newsTableView.estimatedRowHeight = 100.f;
     UINib *cellNib = [UINib nibWithNibName:@"BUNewsTableViewCell" bundle:nil];
     [newsTableView registerNib:cellNib forCellReuseIdentifier:@"cellId"];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 
@@ -59,8 +55,9 @@
 }
 
 - (void)failedConnection {
-    UILabel *failLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 40, self.view.frame.size.width - 40, 30)];
-    failLabel.text = @"Соединение с интернет потеряно :(";
+    UILabel *failLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 40, self.view.frame.size.width - 40, 100)];
+    failLabel.text = @"Соединение с интернетом потеряно :(";
+    failLabel.numberOfLines = 0;
     failLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:failLabel];
     [indicatorView stopAnimating];
@@ -77,7 +74,6 @@
     BUNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     BUNews *news = [self.dataSource newsAtIndex:indexPath.row];
     cell.date = news.date;
-    cell.text = news.text;
     cell.header = news.header;
     cell.image = news.image;
     return cell;

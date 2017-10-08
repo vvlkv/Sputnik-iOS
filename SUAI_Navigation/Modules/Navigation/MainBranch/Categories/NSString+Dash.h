@@ -12,5 +12,6 @@
 
 + (NSString *)appendDash:(NSString *)string;
 + (NSString *)deleteDash:(NSString *)string;
++ (NSString *)prepareAuditoryToLoad:(NSString *)string;
 
 @end

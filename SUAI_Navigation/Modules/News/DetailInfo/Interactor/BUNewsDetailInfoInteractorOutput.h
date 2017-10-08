@@ -12,5 +12,6 @@
 
 @required
 - (void)didObtainNews:(id)news;
+- (void)didLoadFailed;
 
 @end

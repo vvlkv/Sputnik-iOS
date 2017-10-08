@@ -33,22 +33,14 @@
     [mySearchBar setValue:@"Отмена" forKey:@"_cancelButtonText"];
     mySearchBar.delegate = self;
     mySearchBar.frame = CGRectMake(0, 0, self.view.frame.size.width, 44);
-    mySearchBar.placeholder = @"Введите аудиторию";
+    mySearchBar.placeholder = @"Например, вход или 5233";
     [self.view addSubview:mySearchBar];
     [mySearchBar becomeFirstResponder];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.view endEditing:YES];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {

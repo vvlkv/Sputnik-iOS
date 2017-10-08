@@ -32,6 +32,10 @@
     [self.view updateContent];
 }
 
+- (void)didLoadFailed {
+    [self.view loadFailed];
+}
+
 
 #pragma mark - BUNewsDetailInfoDataSource
 

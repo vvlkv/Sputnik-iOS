@@ -12,7 +12,7 @@
 
 @property (strong, nonatomic) NSString *date;
 @property (strong, nonatomic) NSString *header;
-@property (strong, nonatomic) NSString *text;
+//@property (strong, nonatomic) NSString *text;
 @property (strong, nonatomic) UIImage *image;
 
 @end

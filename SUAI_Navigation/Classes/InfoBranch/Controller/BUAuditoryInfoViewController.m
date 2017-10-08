@@ -16,7 +16,7 @@
     BUInfoTableView *tableView;
 }
 
-@end
+@end 
 
 @implementation BUAuditoryInfoViewController
 
@@ -25,7 +25,7 @@
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     
     model = [[BUConcreteInfoModel alloc] initWithData:self.data];
-    tableView = [[NSBundle mainBundle] loadNibNamed:@"BUInfoTableView"
+    tableView = (BUInfoTableView *)[[NSBundle mainBundle] loadNibNamed:@"BUInfoTableView"
                                               owner:self
                                             options:nil][0];
     self.navigationController.delegate = self;

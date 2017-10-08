@@ -28,8 +28,10 @@
     self = [super init];
     if (self) {
         self.loadingCounter = 0;
-        [self addObserver:self forKeyPath:@"loadingCounter" options:0 context:nil];
-        [self loadNews];
+        [self addObserver:self
+               forKeyPath:@"loadingCounter"
+                  options:0
+                  context:nil];
     }
     return self;
 }

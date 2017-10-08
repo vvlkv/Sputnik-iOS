@@ -20,4 +20,6 @@
 
 @property (weak, nonatomic) id <BUNewsDownloaderDelegate> delegate;
 
+- (void)loadNews;
+
 @end

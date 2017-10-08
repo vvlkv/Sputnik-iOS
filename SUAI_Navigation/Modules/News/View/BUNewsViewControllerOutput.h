@@ -11,7 +11,9 @@
 @protocol BUNewsViewControllerOutput <NSObject>
 
 @required
-- (void)viewDidLoad;
 - (void)didSelectedCellAtIndex:(NSUInteger)index;
+
+@optional
+- (void)viewDidLoad;
 
 @end

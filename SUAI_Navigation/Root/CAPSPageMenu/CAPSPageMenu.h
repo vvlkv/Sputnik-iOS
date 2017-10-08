@@ -16,6 +16,14 @@
 @optional
 - (void)willMoveToPage:(UIViewController *)controller index:(NSInteger)index;
 - (void)didMoveToPage:(UIViewController *)controller index:(NSInteger)index;
+
+@end
+
+@protocol CAPSPageMenuDataSource <NSObject>
+
+@optional
+- (UIView *)viewForMenuItemViewAtIndex:(NSUInteger)index;
+
 @end
 
 @interface MenuItemView : UIView
@@ -68,6 +76,9 @@
 @property (nonatomic) BOOL hideTopMenuBar;
 
 @property (nonatomic, weak) id <CAPSPageMenuDelegate> delegate;
+@property (nonatomic, weak) id <CAPSPageMenuDataSource> dataSource;
+
+- (void)fillMenuItemViews;
 
 - (void)addPageAtIndex:(NSInteger)index;
 - (void)moveToPage:(NSInteger)index;

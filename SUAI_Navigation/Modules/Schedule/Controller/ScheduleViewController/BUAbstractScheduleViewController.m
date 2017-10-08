@@ -12,11 +12,23 @@
 
 @interface BUAbstractScheduleViewController ()<BUCustomSegmentDelegate> {
     BUSemesterView *semesterView;
+    BOOL updateAfterLoad;
+    NSUInteger initialIndex;
 }
 
 @end
 
 @implementation BUAbstractScheduleViewController
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        updateAfterLoad = NO;
+        initialIndex = 0;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,32 +36,51 @@
     semesterView.delegate = [self.output delegate];
     semesterView.dataSource = [self.output dataSource];
     semesterView.segmentDelegate = self;
+    semesterView.capsPageDataSource = [self.output dataSource];
     [self.view addSubview:semesterView];
+    if (updateAfterLoad == YES) {
+        [semesterView refresh];
+        [semesterView refreshDate];
+        [semesterView moveToPage:initialIndex];
+    }
+    UIImage *calendarImage = [UIImage imageNamed:@"Calendar.png"];
+    UIBarButtonItem *calendarItem = [[UIBarButtonItem alloc] initWithImage:calendarImage style:UIBarButtonItemStylePlain target:self action:@selector(calendarButtonPressed:)];
+    self.navigationItem.rightBarButtonItem = calendarItem;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-- (void)updateWeekSegmentWithIndex:(NSUInteger)index {
-    [semesterView updateWeekSegmentWithIndex:index];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [semesterView updateFrame:self.view.bounds];
 }
 
-- (void)updateView {
-    [semesterView refresh];
-}
+#pragma mark - BUScheduleViewControllerInput
 
 - (void)obtainStartScheduleScreen:(NSUInteger)index {
-    [semesterView moveToPage:index];
+    if (semesterView == nil) {
+        initialIndex = index;
+    } else {
+        [semesterView moveToPage:index];
+    }
 }
 
-- (void)customSegment:(BUCustomSegmentedControl *)customSegment selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
-    [self.output didChangeWeekSegment:selectedScope];
+- (void)updateView {
+    if (semesterView == nil) {
+        updateAfterLoad = YES;
+    } else {
+        [semesterView refresh];
+    }
+}
+
+- (void)updateDate {
+    [semesterView refreshDate];
+}
+
+- (void)updateWeekSegmentWithIndex:(NSUInteger)index {
+    [semesterView updateWeekSegmentWithIndex:index];
 }
 
 - (void)addAlertViewWithItems:(NSArray *)items {
@@ -75,6 +106,20 @@
                              }];
     [view addAction:cancel];
     [self presentViewController:view animated:YES completion:nil];
+}
+
+
+#pragma mark - BUCustomSegmentDelegate
+
+- (void)customSegment:(BUCustomSegmentedControl *)customSegment selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
+    [self.output didChangeWeekSegment:selectedScope];
+}
+
+
+#pragma mark - Other
+
+- (void)calendarButtonPressed:(id)sender {
+    [self.output didPressCalendarAction];
 }
 
 - (void)alertButtonPressed:(id)object {

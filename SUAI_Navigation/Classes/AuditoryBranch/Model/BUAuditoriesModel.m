@@ -51,6 +51,7 @@
     return pActualScope;
 }
 
+
 #pragma mark - DataAccess
 
 - (NSUInteger)itemsCountForSection:(NSUInteger)section {

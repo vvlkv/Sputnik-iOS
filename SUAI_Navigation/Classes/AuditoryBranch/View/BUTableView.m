@@ -97,7 +97,8 @@ typedef enum SearcBarState {
 #pragma mark - UISearchBarDelegate
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    [self.delegate tableView:self didChangedSearchText:searchText];
+    [self.delegate tableView:self
+        didChangedSearchText:searchText];
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
@@ -140,9 +141,6 @@ typedef enum SearcBarState {
                          self.frame = CGRectMake(0, xPos, CGRectGetWidth(self.frame), height);
                      }];
     barState ^= 1;
-}
-
-- (void)prepareForDismiss {
 }
 
 - (void)reloadData {

@@ -64,15 +64,22 @@
     secondView.frame = secondViewFrame;
     [self.view addSubview:firstView];
     [self.view addSubview:secondView];
+    NSLog(@"initGreetingsView");
 }
 
 - (void)initFailView {
-    failView = (BUFailView *)[[NSBundle mainBundle] loadNibNamed:@"BUFailView" owner:self options:nil][0];
+    failView = (BUFailView *)[[NSBundle mainBundle] loadNibNamed:@"BUFailView"
+                                                           owner:self
+                                                         options:nil][0];
+    
     failView.delegate = self;
     CGRect frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, self.view.frame.size.height/2);
     failView.frame = frame;
-    [failView updateConstraints];
     [self.view addSubview:failView];
+}
+
+- (void)removeFailView {
+    [failView removeFromSuperview];
 }
 
 - (void)reloadData {
@@ -83,20 +90,22 @@
 #pragma mark - BUFirtStepViewDelegate
 
 - (void)didPressTeacherButton {
-    CGRect firstViewOffset = CGRectMake(-self.view.frame.size.width, self.view.frame.size.height/2, self.view.frame.size.width, self.view.frame.size.height/2);
-    CGRect secondViewOffset = firstView.frame;
-    [self animateFirstView:firstViewOffset andSecond:secondViewOffset];
+//    CGRect firstViewOffset = CGRectMake(-self.view.frame.size.width, self.view.frame.size.height/2, self.view.frame.size.width, self.view.frame.size.height/2);
+//    CGRect secondViewOffset = firstView.frame;
+//    [self animateFirstView:firstViewOffset andSecond:secondViewOffset];
+    [self animateEntityView];
     [self.output didObtainEntitiesAtIndex:1];
 }
 
 - (void)didPressGroupButton {
-    CGRect firstViewOffset = CGRectMake(-self.view.frame.size.width, self.view.frame.size.height/2, self.view.frame.size.width, self.view.frame.size.height/2);
-    CGRect secondViewOffset = firstView.frame;
-    [self animateFirstView:firstViewOffset andSecond:secondViewOffset];
+//    CGRect firstViewOffset = CGRectMake(-self.view.frame.size.width, self.view.frame.size.height/2, self.view.frame.size.width, self.view.frame.size.height/2);
+//    CGRect secondViewOffset = firstView.frame;
+//    [self animateFirstView:firstViewOffset andSecond:secondViewOffset];
+    [self animateEntityView];
     [self.output didObtainEntitiesAtIndex:0];
 }
 
-- (void)didPressdGuestButton {
+- (void)didPressGuestButton {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -133,6 +142,12 @@
         firstView.frame = firstRect;
         secondView.frame = secondRect;
     }];
+}
+
+- (void)animateEntityView {
+    CGRect firstViewOffset = CGRectMake(-self.view.frame.size.width, self.view.frame.size.height/2, self.view.frame.size.width, self.view.frame.size.height/2);
+    CGRect secondViewOffset = firstView.frame;
+    [self animateFirstView:firstViewOffset andSecond:secondViewOffset];
 }
 
 @end

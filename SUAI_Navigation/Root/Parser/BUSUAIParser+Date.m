@@ -11,11 +11,19 @@
 
 @implementation BUSUAIParser (Date)
 
-+ (NSString*)dateFromData:(NSData *)data {
-    TFHpple *scheduleParser = [TFHpple hppleWithHTMLData:data];
-    NSString *schedulePathXQueryString = @"//div[@class='rasp']/p";
-    NSArray *items = [scheduleParser searchWithXPathQuery:schedulePathXQueryString];
-    return ((TFHppleElement *)items[0]).content;
-}
+//+ (NSString*)dateFromData:(NSData *)data {
+//    if (data == nil)
+//        return @"";
+//    NSArray *items;
+//    @try {
+//        TFHpple *scheduleParser = [TFHpple hppleWithHTMLData:data];
+//        NSString *schedulePathXQueryString = @"//div[@class='rasp']/p";
+//        items = [scheduleParser searchWithXPathQuery:schedulePathXQueryString];
+//    } @catch (NSException *exception) {
+//        return @"";
+//    } @finally {
+//        return ((TFHppleElement *)items[0]).content;
+//    }
+//}
 
 @end

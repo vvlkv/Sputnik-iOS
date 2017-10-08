@@ -35,7 +35,7 @@
 }
 
 - (IBAction)guestButton:(id)sender {
-    [self.delegate didPressdGuestButton];
+    [self.delegate didPressGuestButton];
 }
 
 @end

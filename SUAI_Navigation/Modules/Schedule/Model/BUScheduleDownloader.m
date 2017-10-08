@@ -9,7 +9,7 @@
 #import "BUScheduleDownloader.h"
 #import "BUDownloader.h"
 #import "BUSUAIParser.h"
-#import "BUSUAIParser+Date.h"
+//#import "BUSUAIParser+Date.h"
 
 @interface BUScheduleDownloader () {
     __block NSMutableDictionary *schedule;
@@ -21,8 +21,6 @@
 
 @implementation BUScheduleDownloader
 
-
-
 - (instancetype)init
 {
     self = [super init];
@@ -32,8 +30,6 @@
         date = @"";
         [self addObserver:self forKeyPath:@"schedule" options:0 context:nil];
         [self addObserver:self forKeyPath:@"codes" options:0 context:nil];
-        
-        [self loadCodes];
     }
     return self;
 }
@@ -44,8 +40,6 @@
         [BUDownloader loadURLWithType:(ScheduleType)i success:^(NSData *data) {
             [self willChangeValueForKey:@"codes"];
             codes[keys[i]] = [BUSUAIParser codesFromData:data];
-            if (i == 1)
-                date = [BUSUAIParser dateFromData:data];
             [self didChangeValueForKey:@"codes"];
         } fail:^(NSString *fail) {
             [self.delegate failedConnection];
@@ -54,7 +48,7 @@
 }
 
 - (void)downloadScheduleForEntity:(NSString *)entity
-                                    andType:(NSUInteger)type {
+                          andType:(NSUInteger)type {
     NSArray *keys = @[@"Session", @"Semester"];
     NSString *entityKey;
     for (int i = 0; i < 2; i++) {
@@ -90,10 +84,6 @@
 
 - (NSDictionary *)codes {
     return codes;
-}
-
-- (NSString *)date {
-    return date;
 }
 
 - (void)dealloc
