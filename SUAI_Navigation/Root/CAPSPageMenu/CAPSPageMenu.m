@@ -760,7 +760,6 @@ NSString * const CAPSPageMenuOptionHideTopMenuBar                       = @"hide
     for (MenuItemView *itemView in menuItemViews) {
         UIView *indicatorView = [self.dataSource viewForMenuItemViewAtIndex:[menuItemViews indexOfObject:itemView]];
         indicatorView.frame = CGRectMake(itemView.bounds.size.width*5.f/6.f - 2, 2, itemView.bounds.size.width/6.f, itemView.bounds.size.width/6.f);
-//        indicatorView.frame = CGRectMake(10, 10, 20, 20);
         [itemView addSubview:indicatorView];
     }
 }
