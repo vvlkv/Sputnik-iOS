@@ -202,7 +202,7 @@
 
 - (NSArray *)prepareDataToOutput:(NSArray *)data forWeek:(NSUInteger)week {
     if (data == nil)
-        return nil;
+        return [NSArray array];
     [refactor refactorScheduleFromData:data];
     displayManager.weekIndicators = [refactor indicators];
     return [refactor sortedScheduleForWeek:week];

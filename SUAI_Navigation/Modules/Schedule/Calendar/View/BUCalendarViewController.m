@@ -187,4 +187,8 @@
     [self.output didPressAlertAction:object];
 }
 
+- (void)didPressGoToSettingsButton {
+    [self.output didPressGoToSettingsButton];
+}
+
 @end

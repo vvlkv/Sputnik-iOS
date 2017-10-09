@@ -129,6 +129,11 @@
     }
 }
 
+- (void)didPressGoToSettingsButton {
+    [self.view dismiss];
+    [self.router navigateTabBarToSettingsViewControllerFromViewController:(UIViewController *)rootViewController];
+}
+
 - (id)dataSource {
     return displayManager;
 }

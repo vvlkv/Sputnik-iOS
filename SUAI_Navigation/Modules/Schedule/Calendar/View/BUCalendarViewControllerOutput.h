@@ -14,6 +14,7 @@
 - (void)viewDidLoad;
 - (void)didSelectDate:(NSDate *)date;
 - (void)didPressAlertAction:(NSString *)action;
+- (void)didPressGoToSettingsButton;
 - (id)dataSource;
 - (id)delegate;
 
