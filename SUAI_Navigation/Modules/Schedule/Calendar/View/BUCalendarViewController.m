@@ -52,6 +52,7 @@
 
 - (FSCalendar *)assemblyCalendar {
     FSCalendar *calendar = [[FSCalendar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/2 - 44)];
+    calendar.locale = [NSLocale localeWithLocaleIdentifier:@"ru-RU"];
     calendar.firstWeekday = 2;
     calendar.dataSource = self;
     calendar.delegate = self;
