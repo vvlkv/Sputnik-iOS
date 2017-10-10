@@ -45,7 +45,7 @@
 }
 
 - (void)didTapVkLabel:(UITapGestureRecognizer *)recognizer {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://vk.com/suainavigation"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://vk.com/suainav"]];
 }
 
 
