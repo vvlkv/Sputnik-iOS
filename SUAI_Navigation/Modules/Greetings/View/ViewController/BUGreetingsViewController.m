@@ -64,7 +64,6 @@
     secondView.frame = secondViewFrame;
     [self.view addSubview:firstView];
     [self.view addSubview:secondView];
-    NSLog(@"initGreetingsView");
 }
 
 - (void)initFailView {
