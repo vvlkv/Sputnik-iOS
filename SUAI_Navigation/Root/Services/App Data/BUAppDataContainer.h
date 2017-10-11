@@ -13,12 +13,10 @@
 @property (readonly, nonatomic) NSString *entity;
 @property (readonly, nonatomic) NSUInteger type;
 @property (readonly, nonatomic) NSUInteger startScreenIndex;
-//@property (readonly, nonatomic) NSUInteger weekType;
 
 + (instancetype)instance;
 - (NSDictionary *)entityCodes;
 
-//- (void)writeWeekType:(NSUInteger)week;
 - (void)writeCodes:(NSDictionary *)codes;
 - (void)overwriteEntityWithName:(NSString *)name andType:(NSUInteger)type;
 - (void)overwriteStartScreenIndex:(NSUInteger)index;

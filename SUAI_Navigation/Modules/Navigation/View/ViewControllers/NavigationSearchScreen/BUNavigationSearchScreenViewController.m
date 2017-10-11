@@ -7,7 +7,7 @@
 //
 
 #import "BUNavigationSearchScreenViewController.h"
-#import "BUSUAINavigationBar.h"
+#import "BUSUAIGradientNavigationBar.h"
 #import "UIFont+SUAI.h"
 
 @interface BUNavigationSearchScreenViewController () <UISearchBarDelegate> {

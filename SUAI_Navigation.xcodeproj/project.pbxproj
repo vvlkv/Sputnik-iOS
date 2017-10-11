@@ -20,12 +20,6 @@
 		5511EAAD1EC1F37E0088EAE7 /* BUMainStateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5511EAAC1EC1F37E0088EAE7 /* BUMainStateModel.m */; };
 		5511EAB91EC26C6F0088EAE7 /* BUTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5511EAB71EC26C6F0088EAE7 /* BUTableViewCell.m */; };
 		5511EABA1EC26C6F0088EAE7 /* BUTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5511EAB81EC26C6F0088EAE7 /* BUTableViewCell.xib */; };
-		55128DAE1EFE6FEB00F60929 /* BUCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55128DAC1EFE6FEB00F60929 /* BUCameraViewController.m */; };
-		55128DAF1EFE6FEB00F60929 /* BUCameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55128DAD1EFE6FEB00F60929 /* BUCameraViewController.xib */; };
-		551898BD1F16C02F0046BA33 /* BURootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 551898BC1F16C02F0046BA33 /* BURootNavigationController.m */; };
-		551898C31F16CC8E0046BA33 /* UIColor+SUAI.m in Sources */ = {isa = PBXBuildFile; fileRef = 551898C21F16CC8E0046BA33 /* UIColor+SUAI.m */; };
-		551898C61F16D2A20046BA33 /* UIImage+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 551898C51F16D2A20046BA33 /* UIImage+Gradient.m */; };
-		551898CA1F16D54D0046BA33 /* UIFont+SUAI.m in Sources */ = {isa = PBXBuildFile; fileRef = 551898C91F16D54D0046BA33 /* UIFont+SUAI.m */; };
 		551898DD1F16D7480046BA33 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 551898CC1F16D7480046BA33 /* Roboto-Black.ttf */; };
 		551898DE1F16D7480046BA33 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 551898CD1F16D7480046BA33 /* Roboto-BlackItalic.ttf */; };
 		551898DF1F16D7480046BA33 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 551898CE1F16D7480046BA33 /* Roboto-Bold.ttf */; };
@@ -97,6 +91,14 @@
 		555352551F3DD21200933844 /* BUScheduleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 555352511F3DD12700933844 /* BUScheduleTableViewCell.m */; };
 		55546BA11F69ADD400D21FF2 /* BUDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 55546BA01F69ADD400D21FF2 /* BUDateFormatter.m */; };
 		5556BF711F36FDE300A7352B /* BUGreetingsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5556BF701F36FDE300A7352B /* BUGreetingsPresenter.m */; };
+		55797FFC1F8D5B2D00B40F67 /* CAPSPageMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 55797FFB1F8D5B2D00B40F67 /* CAPSPageMenu.m */; };
+		557980021F8D5BD500B40F67 /* UIColor+SUAI.m in Sources */ = {isa = PBXBuildFile; fileRef = 55797FFF1F8D5BD500B40F67 /* UIColor+SUAI.m */; };
+		557980031F8D5BD500B40F67 /* UIImage+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 557980011F8D5BD500B40F67 /* UIImage+Gradient.m */; };
+		557980061F8D5BE600B40F67 /* UIFont+SUAI.m in Sources */ = {isa = PBXBuildFile; fileRef = 557980051F8D5BE600B40F67 /* UIFont+SUAI.m */; };
+		5579800D1F8D5DDB00B40F67 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 5579800B1F8D5DDB00B40F67 /* TBXML.m */; };
+		557980131F8D5E8100B40F67 /* BUCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 557980111F8D5E8100B40F67 /* BUCameraViewController.m */; };
+		557980141F8D5E8100B40F67 /* BUCameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 557980121F8D5E8100B40F67 /* BUCameraViewController.xib */; };
+		5579801F1F8D607100B40F67 /* BUScheduleSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5579801D1F8D607000B40F67 /* BUScheduleSearchViewController.m */; };
 		5591419D1F38BC2200A99B66 /* BUScheduleDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55C439631F37642800FB9003 /* BUScheduleDataModel.xcdatamodeld */; };
 		5593820C1F5ACFA30078AD13 /* UIView+MenuItemIndicatorBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5593820B1F5ACFA30078AD13 /* UIView+MenuItemIndicatorBuilder.m */; };
 		559C5B611F3EFB8B0089D364 /* BUGroupSettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C5B601F3EFB8B0089D364 /* BUGroupSettingsView.m */; };
@@ -110,11 +112,9 @@
 		559DB2DB1F632FF0003FC464 /* BUGuestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 559DB2DA1F632FF0003FC464 /* BUGuestView.m */; };
 		559DB2DD1F632FFB003FC464 /* BUGuestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 559DB2DC1F632FFB003FC464 /* BUGuestView.xib */; };
 		55A17C161F156256005694E5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A17C151F156236005694E5 /* AppDelegate.m */; };
-		55A17C1A1F15648D005694E5 /* BURootTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A17C191F15648D005694E5 /* BURootTabBarViewController.m */; };
 		55A236471F34DED500A2249F /* BUCustomButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A236461F34DED500A2249F /* BUCustomButtonView.m */; };
 		55A2369D1F35162A00A2249F /* BUSettingsRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A2369C1F35162A00A2249F /* BUSettingsRouter.m */; };
 		55A236A31F35175D00A2249F /* BUSettingsEntityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A236A21F35175D00A2249F /* BUSettingsEntityViewController.m */; };
-		55B3DE5C1F1A5E9500B38B5F /* CAPSPageMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B3DE5B1F1A5E9500B38B5F /* CAPSPageMenu.m */; };
 		55B3DE631F1B980B00B38B5F /* BUSchedulePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B3DE621F1B980B00B38B5F /* BUSchedulePresenter.m */; };
 		55B3DE6D1F1BA17300B38B5F /* BUDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B3DE6A1F1BA17300B38B5F /* BUDay.m */; };
 		55B3DE6E1F1BA17300B38B5F /* BUPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B3DE6C1F1BA17300B38B5F /* BUPair.m */; };
@@ -124,7 +124,6 @@
 		55B3DE801F1BA5AC00B38B5F /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B3DE7D1F1BA5AC00B38B5F /* HTMLNode.m */; };
 		55B3DE811F1BA5AC00B38B5F /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B3DE7F1F1BA5AC00B38B5F /* HTMLParser.m */; };
 		55B3DE831F1BA5E500B38B5F /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 55B3DE821F1BA5E500B38B5F /* libxml2.tbd */; };
-		55B3DE881F1BA6CC00B38B5F /* NSString+LatinEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B3DE871F1BA6CC00B38B5F /* NSString+LatinEncoding.m */; };
 		55B3DE901F1BA6F100B38B5F /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B3DE8B1F1BA6F100B38B5F /* TFHpple.m */; };
 		55B3DE911F1BA6F100B38B5F /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B3DE8D1F1BA6F100B38B5F /* TFHppleElement.m */; };
 		55B3DE921F1BA6F100B38B5F /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B3DE8F1F1BA6F100B38B5F /* XPathQuery.m */; };
@@ -140,7 +139,6 @@
 		55B88A321EB282C400FBE41E /* BUTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55B88A311EB282C400FBE41E /* BUTableView.xib */; };
 		55B88A351EB3611500FBE41E /* BUAuditoriesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B88A341EB3611500FBE41E /* BUAuditoriesModel.m */; };
 		55B88A371EB3617400FBE41E /* information.xml in Resources */ = {isa = PBXBuildFile; fileRef = 55B88A361EB3617400FBE41E /* information.xml */; };
-		55B88D571EB4C24200FBE41E /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B88D561EB4C24200FBE41E /* TBXML.m */; };
 		55B88D631EB4C25500FBE41E /* BUSUAIInfoParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B88D621EB4C25500FBE41E /* BUSUAIInfoParser.m */; };
 		55B88D671EB554E900FBE41E /* BUTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B88D661EB554E900FBE41E /* BUTableHeaderView.m */; };
 		55B88D6B1EB5550700FBE41E /* BUTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55B88D6A1EB5550700FBE41E /* BUTableHeaderView.xib */; };
@@ -173,13 +171,14 @@
 		55DB77261F1BD1B400AEBE6D /* BUScheduleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DB77251F1BD1B400AEBE6D /* BUScheduleHeaderView.m */; };
 		55DB77281F1BD1C400AEBE6D /* BUScheduleHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55DB77271F1BD1C400AEBE6D /* BUScheduleHeaderView.xib */; };
 		55DB772F1F1C07AD00AEBE6D /* BUDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DB772E1F1C07AD00AEBE6D /* BUDownloader.m */; };
-		55E70A321F1E985B009C1548 /* BUSUAIParser+Date.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E70A311F1E985B009C1548 /* BUSUAIParser+Date.m */; };
 		55E70A391F1EA1C9009C1548 /* BUAstronautView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E70A381F1EA1C9009C1548 /* BUAstronautView.m */; };
 		55E70A3B1F1EA1D0009C1548 /* BUAstronautView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55E70A3A1F1EA1D0009C1548 /* BUAstronautView.xib */; };
 		55E70A3E1F1EADD7009C1548 /* BUScheduleRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E70A3D1F1EADD7009C1548 /* BUScheduleRefreshView.m */; };
 		55E70A401F1EADDE009C1548 /* BUScheduleRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55E70A3F1F1EADDE009C1548 /* BUScheduleRefreshView.xib */; };
-		55E70A431F1FEDCE009C1548 /* BUScheduleSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E70A421F1FEDCE009C1548 /* BUScheduleSearchViewController.m */; };
-		55E70A471F1FF23D009C1548 /* BUSUAINavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E70A461F1FF23D009C1548 /* BUSUAINavigationBar.m */; };
+		55E70A471F1FF23D009C1548 /* BUSUAIGradientNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E70A461F1FF23D009C1548 /* BUSUAIGradientNavigationBar.m */; };
+		55F21FDE1F8D536D00509EDF /* BURootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F21FDD1F8D536D00509EDF /* BURootNavigationController.m */; };
+		55F21FE11F8D53A600509EDF /* BURootTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F21FE01F8D53A600509EDF /* BURootTabBarViewController.m */; };
+		55F21FEC1F8D554D00509EDF /* NSString+LatinEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F21FEB1F8D554D00509EDF /* NSString+LatinEncoding.m */; };
 		55FBAA881F38B8880008CDAC /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = 55FBAA781F38B87C0008CDAC /* main.css */; };
 		55FBAA891F38B8880008CDAC /* mainLoad.css in Resources */ = {isa = PBXBuildFile; fileRef = 55FBAA791F38B87C0008CDAC /* mainLoad.css */; };
 		55FBAA8A1F38B8880008CDAC /* menuDesktop.css in Resources */ = {isa = PBXBuildFile; fileRef = 55FBAA7A1F38B87C0008CDAC /* menuDesktop.css */; };
@@ -222,17 +221,6 @@
 		5511EAB61EC26C6F0088EAE7 /* BUTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUTableViewCell.h; sourceTree = "<group>"; };
 		5511EAB71EC26C6F0088EAE7 /* BUTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUTableViewCell.m; sourceTree = "<group>"; };
 		5511EAB81EC26C6F0088EAE7 /* BUTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BUTableViewCell.xib; sourceTree = "<group>"; };
-		55128DAB1EFE6FEB00F60929 /* BUCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUCameraViewController.h; sourceTree = "<group>"; };
-		55128DAC1EFE6FEB00F60929 /* BUCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUCameraViewController.m; sourceTree = "<group>"; };
-		55128DAD1EFE6FEB00F60929 /* BUCameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BUCameraViewController.xib; sourceTree = "<group>"; };
-		551898BB1F16C02F0046BA33 /* BURootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BURootNavigationController.h; path = ../BURootNavigationController.h; sourceTree = "<group>"; };
-		551898BC1F16C02F0046BA33 /* BURootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BURootNavigationController.m; path = ../BURootNavigationController.m; sourceTree = "<group>"; };
-		551898C11F16CC8E0046BA33 /* UIColor+SUAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SUAI.h"; sourceTree = "<group>"; };
-		551898C21F16CC8E0046BA33 /* UIColor+SUAI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SUAI.m"; sourceTree = "<group>"; };
-		551898C41F16D2A20046BA33 /* UIImage+Gradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Gradient.h"; sourceTree = "<group>"; };
-		551898C51F16D2A20046BA33 /* UIImage+Gradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Gradient.m"; sourceTree = "<group>"; };
-		551898C81F16D54D0046BA33 /* UIFont+SUAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+SUAI.h"; sourceTree = "<group>"; };
-		551898C91F16D54D0046BA33 /* UIFont+SUAI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+SUAI.m"; sourceTree = "<group>"; };
 		551898CC1F16D7480046BA33 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		551898CD1F16D7480046BA33 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
 		551898CE1F16D7480046BA33 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -360,6 +348,21 @@
 		5556BF701F36FDE300A7352B /* BUGreetingsPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUGreetingsPresenter.m; sourceTree = "<group>"; };
 		5556BF721F3702B100A7352B /* BUGreetingsViewControllerInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUGreetingsViewControllerInput.h; sourceTree = "<group>"; };
 		5556BF731F3702C100A7352B /* BUGreetingsViewControllerOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUGreetingsViewControllerOutput.h; sourceTree = "<group>"; };
+		55797FFA1F8D5B2D00B40F67 /* CAPSPageMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAPSPageMenu.h; sourceTree = "<group>"; };
+		55797FFB1F8D5B2D00B40F67 /* CAPSPageMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAPSPageMenu.m; sourceTree = "<group>"; };
+		55797FFE1F8D5BD500B40F67 /* UIColor+SUAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+SUAI.h"; path = "SUAI_Navigation/Root/Categories/UIColor/UIColor+SUAI.h"; sourceTree = SOURCE_ROOT; };
+		55797FFF1F8D5BD500B40F67 /* UIColor+SUAI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+SUAI.m"; path = "SUAI_Navigation/Root/Categories/UIColor/UIColor+SUAI.m"; sourceTree = SOURCE_ROOT; };
+		557980001F8D5BD500B40F67 /* UIImage+Gradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Gradient.h"; path = "SUAI_Navigation/Root/Categories/UIImage/UIImage+Gradient.h"; sourceTree = SOURCE_ROOT; };
+		557980011F8D5BD500B40F67 /* UIImage+Gradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Gradient.m"; path = "SUAI_Navigation/Root/Categories/UIImage/UIImage+Gradient.m"; sourceTree = SOURCE_ROOT; };
+		557980041F8D5BE600B40F67 /* UIFont+SUAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+SUAI.h"; path = "SUAI_Navigation/Root/Categories/UIFont/UIFont+SUAI.h"; sourceTree = SOURCE_ROOT; };
+		557980051F8D5BE600B40F67 /* UIFont+SUAI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+SUAI.m"; path = "SUAI_Navigation/Root/Categories/UIFont/UIFont+SUAI.m"; sourceTree = SOURCE_ROOT; };
+		5579800B1F8D5DDB00B40F67 /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TBXML.m; path = SUAI_Navigation/Root/Libraries/TBXML/TBXML.m; sourceTree = SOURCE_ROOT; };
+		5579800C1F8D5DDB00B40F67 /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TBXML.h; path = SUAI_Navigation/Root/Libraries/TBXML/TBXML.h; sourceTree = SOURCE_ROOT; };
+		557980101F8D5E8100B40F67 /* BUCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUCameraViewController.h; sourceTree = "<group>"; };
+		557980111F8D5E8100B40F67 /* BUCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUCameraViewController.m; sourceTree = "<group>"; };
+		557980121F8D5E8100B40F67 /* BUCameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BUCameraViewController.xib; sourceTree = "<group>"; };
+		5579801D1F8D607000B40F67 /* BUScheduleSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUScheduleSearchViewController.m; sourceTree = "<group>"; };
+		5579801E1F8D607100B40F67 /* BUScheduleSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUScheduleSearchViewController.h; sourceTree = "<group>"; };
 		5593820A1F5ACFA30078AD13 /* UIView+MenuItemIndicatorBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+MenuItemIndicatorBuilder.h"; sourceTree = "<group>"; };
 		5593820B1F5ACFA30078AD13 /* UIView+MenuItemIndicatorBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+MenuItemIndicatorBuilder.m"; sourceTree = "<group>"; };
 		5593820D1F5AD8EA0078AD13 /* BUCapsPageViewDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUCapsPageViewDataSource.h; sourceTree = "<group>"; };
@@ -400,8 +403,6 @@
 		559DB2DC1F632FFB003FC464 /* BUGuestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BUGuestView.xib; sourceTree = "<group>"; };
 		55A17C141F156236005694E5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		55A17C151F156236005694E5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		55A17C181F15648D005694E5 /* BURootTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BURootTabBarViewController.h; path = ../BURootTabBarViewController.h; sourceTree = "<group>"; };
-		55A17C191F15648D005694E5 /* BURootTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BURootTabBarViewController.m; path = ../BURootTabBarViewController.m; sourceTree = "<group>"; };
 		55A236451F34DED500A2249F /* BUCustomButtonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUCustomButtonView.h; sourceTree = "<group>"; };
 		55A236461F34DED500A2249F /* BUCustomButtonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUCustomButtonView.m; sourceTree = "<group>"; };
 		55A2369B1F35162A00A2249F /* BUSettingsRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUSettingsRouter.h; sourceTree = "<group>"; };
@@ -410,8 +411,6 @@
 		55A2369F1F35165000A2249F /* BUSettingsRouterOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUSettingsRouterOutput.h; sourceTree = "<group>"; };
 		55A236A11F35175D00A2249F /* BUSettingsEntityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUSettingsEntityViewController.h; sourceTree = "<group>"; };
 		55A236A21F35175D00A2249F /* BUSettingsEntityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUSettingsEntityViewController.m; sourceTree = "<group>"; };
-		55B3DE5A1F1A5E9500B38B5F /* CAPSPageMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAPSPageMenu.h; sourceTree = "<group>"; };
-		55B3DE5B1F1A5E9500B38B5F /* CAPSPageMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAPSPageMenu.m; sourceTree = "<group>"; };
 		55B3DE611F1B980B00B38B5F /* BUSchedulePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUSchedulePresenter.h; sourceTree = "<group>"; };
 		55B3DE621F1B980B00B38B5F /* BUSchedulePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUSchedulePresenter.m; sourceTree = "<group>"; };
 		55B3DE661F1B9BB700B38B5F /* BUScheduleViewControllerInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUScheduleViewControllerInput.h; sourceTree = "<group>"; };
@@ -431,8 +430,6 @@
 		55B3DE7E1F1BA5AC00B38B5F /* HTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLParser.h; sourceTree = "<group>"; };
 		55B3DE7F1F1BA5AC00B38B5F /* HTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLParser.m; sourceTree = "<group>"; };
 		55B3DE821F1BA5E500B38B5F /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
-		55B3DE861F1BA6CC00B38B5F /* NSString+LatinEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LatinEncoding.h"; sourceTree = "<group>"; };
-		55B3DE871F1BA6CC00B38B5F /* NSString+LatinEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LatinEncoding.m"; sourceTree = "<group>"; };
 		55B3DE8A1F1BA6F100B38B5F /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
 		55B3DE8B1F1BA6F100B38B5F /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
 		55B3DE8C1F1BA6F100B38B5F /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
@@ -459,8 +456,6 @@
 		55B88A331EB3611500FBE41E /* BUAuditoriesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUAuditoriesModel.h; sourceTree = "<group>"; };
 		55B88A341EB3611500FBE41E /* BUAuditoriesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUAuditoriesModel.m; sourceTree = "<group>"; };
 		55B88A361EB3617400FBE41E /* information.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = information.xml; sourceTree = "<group>"; };
-		55B88D551EB4C24200FBE41E /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
-		55B88D561EB4C24200FBE41E /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
 		55B88D611EB4C25500FBE41E /* BUSUAIInfoParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUSUAIInfoParser.h; sourceTree = "<group>"; };
 		55B88D621EB4C25500FBE41E /* BUSUAIInfoParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUSUAIInfoParser.m; sourceTree = "<group>"; };
 		55B88D651EB554E900FBE41E /* BUTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUTableHeaderView.h; sourceTree = "<group>"; };
@@ -527,18 +522,20 @@
 		55DB77301F1C11C400AEBE6D /* Typedef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Typedef.h; sourceTree = "<group>"; };
 		55E368981F1D63D400E4A02B /* BUScheduleInteractorInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUScheduleInteractorInput.h; sourceTree = "<group>"; };
 		55E70A2F1F1D655A009C1548 /* BUScheduleInteractorOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUScheduleInteractorOutput.h; sourceTree = "<group>"; };
-		55E70A301F1E985B009C1548 /* BUSUAIParser+Date.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BUSUAIParser+Date.h"; sourceTree = "<group>"; };
-		55E70A311F1E985B009C1548 /* BUSUAIParser+Date.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BUSUAIParser+Date.m"; sourceTree = "<group>"; };
 		55E70A371F1EA1C9009C1548 /* BUAstronautView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUAstronautView.h; sourceTree = "<group>"; };
 		55E70A381F1EA1C9009C1548 /* BUAstronautView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUAstronautView.m; sourceTree = "<group>"; };
 		55E70A3A1F1EA1D0009C1548 /* BUAstronautView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BUAstronautView.xib; sourceTree = "<group>"; };
 		55E70A3C1F1EADD7009C1548 /* BUScheduleRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUScheduleRefreshView.h; sourceTree = "<group>"; };
 		55E70A3D1F1EADD7009C1548 /* BUScheduleRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUScheduleRefreshView.m; sourceTree = "<group>"; };
 		55E70A3F1F1EADDE009C1548 /* BUScheduleRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BUScheduleRefreshView.xib; sourceTree = "<group>"; };
-		55E70A411F1FEDCE009C1548 /* BUScheduleSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BUScheduleSearchViewController.h; path = ../BUScheduleSearchViewController.h; sourceTree = "<group>"; };
-		55E70A421F1FEDCE009C1548 /* BUScheduleSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BUScheduleSearchViewController.m; path = ../BUScheduleSearchViewController.m; sourceTree = "<group>"; };
-		55E70A451F1FF23D009C1548 /* BUSUAINavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUSUAINavigationBar.h; sourceTree = "<group>"; };
-		55E70A461F1FF23D009C1548 /* BUSUAINavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUSUAINavigationBar.m; sourceTree = "<group>"; };
+		55E70A451F1FF23D009C1548 /* BUSUAIGradientNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUSUAIGradientNavigationBar.h; sourceTree = "<group>"; };
+		55E70A461F1FF23D009C1548 /* BUSUAIGradientNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUSUAIGradientNavigationBar.m; sourceTree = "<group>"; };
+		55F21FDC1F8D536C00509EDF /* BURootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BURootNavigationController.h; sourceTree = "<group>"; };
+		55F21FDD1F8D536D00509EDF /* BURootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BURootNavigationController.m; sourceTree = "<group>"; };
+		55F21FDF1F8D539C00509EDF /* BURootTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BURootTabBarViewController.h; sourceTree = "<group>"; };
+		55F21FE01F8D53A600509EDF /* BURootTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BURootTabBarViewController.m; sourceTree = "<group>"; };
+		55F21FEA1F8D554D00509EDF /* NSString+LatinEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LatinEncoding.h"; sourceTree = "<group>"; };
+		55F21FEB1F8D554D00509EDF /* NSString+LatinEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LatinEncoding.m"; sourceTree = "<group>"; };
 		55FBAA781F38B87C0008CDAC /* main.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = main.css; sourceTree = "<group>"; };
 		55FBAA791F38B87C0008CDAC /* mainLoad.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = mainLoad.css; sourceTree = "<group>"; };
 		55FBAA7A1F38B87C0008CDAC /* menuDesktop.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = menuDesktop.css; sourceTree = "<group>"; };
@@ -593,11 +590,8 @@
 		5502E0401F683E2700619FF7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				557980201F8D613600B40F67 /* ViewController */,
 				55497D561F6B0E5200124B8B /* View */,
-				5502E0411F683E4600619FF7 /* BUCalendarViewController.h */,
-				5502E0421F683E4600619FF7 /* BUCalendarViewController.m */,
-				55497D5D1F6B1DA800124B8B /* BUCalendarViewControllerInput.h */,
-				55497D5E1F6B1DB700124B8B /* BUCalendarViewControllerOutput.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -625,11 +619,11 @@
 		55031E301F3608680039B261 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				552C49081F3F4FE1000D381E /* Fail view */,
+				552C49081F3F4FE1000D381E /* FailView */,
 				550602A41F373B0500331DB7 /* Button */,
 				5556BF741F3702D300A7352B /* ViewController */,
-				5529C51A1F36116C00911EF8 /* FirstStep */,
-				5529C5191F36116C00911EF8 /* SecondStep */,
+				5529C51A1F36116C00911EF8 /* FirstStepView */,
+				5529C5191F36116C00911EF8 /* SecondStepView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -665,8 +659,8 @@
 		551898BE1F16CC230046BA33 /* NavigationController */ = {
 			isa = PBXGroup;
 			children = (
-				551898BB1F16C02F0046BA33 /* BURootNavigationController.h */,
-				551898BC1F16C02F0046BA33 /* BURootNavigationController.m */,
+				55F21FDC1F8D536C00509EDF /* BURootNavigationController.h */,
+				55F21FDD1F8D536D00509EDF /* BURootNavigationController.m */,
 			);
 			path = NavigationController;
 			sourceTree = "<group>";
@@ -674,32 +668,10 @@
 		551898BF1F16CC230046BA33 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				55A17C181F15648D005694E5 /* BURootTabBarViewController.h */,
-				55A17C191F15648D005694E5 /* BURootTabBarViewController.m */,
+				55F21FE01F8D53A600509EDF /* BURootTabBarViewController.m */,
+				55F21FDF1F8D539C00509EDF /* BURootTabBarViewController.h */,
 			);
 			path = TabBar;
-			sourceTree = "<group>";
-		};
-		551898C01F16CC7A0046BA33 /* Colors */ = {
-			isa = PBXGroup;
-			children = (
-				551898C11F16CC8E0046BA33 /* UIColor+SUAI.h */,
-				551898C21F16CC8E0046BA33 /* UIColor+SUAI.m */,
-				551898C41F16D2A20046BA33 /* UIImage+Gradient.h */,
-				551898C51F16D2A20046BA33 /* UIImage+Gradient.m */,
-			);
-			name = Colors;
-			path = ../Colors;
-			sourceTree = "<group>";
-		};
-		551898C71F16D53D0046BA33 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				551898C81F16D54D0046BA33 /* UIFont+SUAI.h */,
-				551898C91F16D54D0046BA33 /* UIFont+SUAI.m */,
-			);
-			name = Fonts;
-			path = ../Fonts;
 			sourceTree = "<group>";
 		};
 		551898CB1F16D70B0046BA33 /* Resources */ = {
@@ -712,24 +684,12 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		551898EE1F16DAC00046BA33 /* View Controller */ = {
+		551898EE1F16DAC00046BA33 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				5599EBBC1F3E2F6900F75941 /* Root */,
 			);
-			path = "View Controller";
-			sourceTree = "<group>";
-		};
-		5518EE641F156CAA000E5DBA /* View */ = {
-			isa = PBXGroup;
-			children = (
-				5553524E1F3DCD7E00933844 /* Table views */,
-				5553524A1F3DC03900933844 /* ScheduleViewController */,
-				555352381F3C82BF00933844 /* ScheduleView */,
-				5529E1D01F23B73100F5CA4F /* ScheduleSearchViewController */,
-			);
-			name = View;
-			path = Controller;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		5518EE651F156CAA000E5DBA /* Model */ = {
@@ -745,16 +705,16 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		5522F9D31F196A0200D2AACE /* Segmented Control */ = {
+		5522F9D31F196A0200D2AACE /* SegmentedControl */ = {
 			isa = PBXGroup;
 			children = (
 				5522F9D41F196A1500D2AACE /* BUCustomSegmentedControl.h */,
 				5522F9D51F196A1500D2AACE /* BUCustomSegmentedControl.m */,
 			);
-			path = "Segmented Control";
+			path = SegmentedControl;
 			sourceTree = "<group>";
 		};
-		5529C5191F36116C00911EF8 /* SecondStep */ = {
+		5529C5191F36116C00911EF8 /* SecondStepView */ = {
 			isa = PBXGroup;
 			children = (
 				5529C5211F3611AB00911EF8 /* BUSecondStepView.h */,
@@ -762,26 +722,17 @@
 				550602971F3728A600331DB7 /* BUSecondStepViewDataSource.h */,
 				5529C5241F3611B300911EF8 /* BUSecondStepView.xib */,
 			);
-			path = SecondStep;
+			path = SecondStepView;
 			sourceTree = "<group>";
 		};
-		5529C51A1F36116C00911EF8 /* FirstStep */ = {
+		5529C51A1F36116C00911EF8 /* FirstStepView */ = {
 			isa = PBXGroup;
 			children = (
 				5529C51C1F36118000911EF8 /* BUFirstStepView.h */,
 				5529C51D1F36118000911EF8 /* BUFirstStepView.m */,
 				5529C51F1F36118600911EF8 /* BUFirstStepView.xib */,
 			);
-			path = FirstStep;
-			sourceTree = "<group>";
-		};
-		5529E1D01F23B73100F5CA4F /* ScheduleSearchViewController */ = {
-			isa = PBXGroup;
-			children = (
-				55E70A411F1FEDCE009C1548 /* BUScheduleSearchViewController.h */,
-				55E70A421F1FEDCE009C1548 /* BUScheduleSearchViewController.m */,
-			);
-			path = ScheduleSearchViewController;
+			path = FirstStepView;
 			sourceTree = "<group>";
 		};
 		5529E1E21F23E92B00F5CA4F /* Router */ = {
@@ -795,20 +746,18 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
-		5529E1EE1F241C4800F5CA4F /* Category */ = {
+		5529E1EE1F241C4800F5CA4F /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				559382091F5ACF700078AD13 /* Menu indicator builder */,
-				55C300D51F2E373300C07CD7 /* Remove slashes */,
-				55C079131EBD1E31002B250B /* Lowercase string */,
-				55C0792C1EBE0349002B250B /* Dash string */,
-				55B3DE851F1BA6CC00B38B5F /* Encode string */,
-				5529E1F61F24BEB800F5CA4F /* Calendar */,
-				551898C01F16CC7A0046BA33 /* Colors */,
-				551898C71F16D53D0046BA33 /* Fonts */,
+				5579800A1F8D5D0C00B40F67 /* UIImage */,
+				557980091F8D5CE400B40F67 /* UIFont */,
+				557980081F8D5CB100B40F67 /* UIColor */,
+				557980071F8D5C6100B40F67 /* NSString */,
+				559382091F5ACF700078AD13 /* UIView */,
+				5529E1F61F24BEB800F5CA4F /* NSCalendar */,
 				5529E1EF1F241C4800F5CA4F /* NSArray */,
 			);
-			path = Category;
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		5529E1EF1F241C4800F5CA4F /* NSArray */ = {
@@ -820,23 +769,23 @@
 			path = NSArray;
 			sourceTree = "<group>";
 		};
-		5529E1F61F24BEB800F5CA4F /* Calendar */ = {
+		5529E1F61F24BEB800F5CA4F /* NSCalendar */ = {
 			isa = PBXGroup;
 			children = (
 				5529E1F71F24BEC900F5CA4F /* NSCalendar+CurrentDay.h */,
 				5529E1F81F24BEC900F5CA4F /* NSCalendar+CurrentDay.m */,
 			);
-			path = Calendar;
+			path = NSCalendar;
 			sourceTree = "<group>";
 		};
-		552C49081F3F4FE1000D381E /* Fail view */ = {
+		552C49081F3F4FE1000D381E /* FailView */ = {
 			isa = PBXGroup;
 			children = (
 				552C49091F3F5007000D381E /* BUFailView.h */,
 				552C490A1F3F5007000D381E /* BUFailView.m */,
 				552C490C1F3F5012000D381E /* BUFailView.xib */,
 			);
-			path = "Fail view";
+			path = FailView;
 			sourceTree = "<group>";
 		};
 		552CBA181F351BF200BAA81A /* Wireframe */ = {
@@ -1020,13 +969,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		553A0B831F2EC0D6000A58FA /* BUNavigationSearchScreenViewController */ = {
+		553A0B831F2EC0D6000A58FA /* NavigationSearchScreen */ = {
 			isa = PBXGroup;
 			children = (
 				553A0B841F2EC0FA000A58FA /* BUNavigationSearchScreenViewController.h */,
 				553A0B851F2EC0FA000A58FA /* BUNavigationSearchScreenViewController.m */,
 			);
-			path = BUNavigationSearchScreenViewController;
+			path = NavigationSearchScreen;
 			sourceTree = "<group>";
 		};
 		553A0B871F2EDA4B000A58FA /* MainSettings */ = {
@@ -1144,20 +1093,20 @@
 			path = ScheduleViewController;
 			sourceTree = "<group>";
 		};
-		5553524E1F3DCD7E00933844 /* Table views */ = {
+		5553524E1F3DCD7E00933844 /* TableViews */ = {
 			isa = PBXGroup;
 			children = (
-				559DB2D81F632FE0003FC464 /* Guest view */,
-				5553524F1F3DCD9F00933844 /* Schedule view */,
-				55E70A361F1EA1B6009C1548 /* Astronaut view */,
-				55E70A331F1E9F0B009C1548 /* Table header */,
+				559DB2D81F632FE0003FC464 /* GuestView */,
+				5553524F1F3DCD9F00933844 /* ScheduleView */,
+				55E70A361F1EA1B6009C1548 /* AstronautView */,
+				55E70A331F1E9F0B009C1548 /* TableHeader */,
 				55B3DE9B1F1BBC9300B38B5F /* Cell */,
-				55B3DE9C1F1BBC9300B38B5F /* Cell header */,
+				55B3DE9C1F1BBC9300B38B5F /* CellHeader */,
 			);
-			path = "Table views";
+			path = TableViews;
 			sourceTree = "<group>";
 		};
-		5553524F1F3DCD9F00933844 /* Schedule view */ = {
+		5553524F1F3DCD9F00933844 /* ScheduleView */ = {
 			isa = PBXGroup;
 			children = (
 				55B3DE931F1BB6E900B38B5F /* BUScheduleContentViewController.h */,
@@ -1168,7 +1117,7 @@
 				5529E1E01F23C49B00F5CA4F /* BUScheduleContentViewController+Delegate.m */,
 				55DB77291F1BF53100AEBE6D /* BUScheduleContentDataSource.h */,
 			);
-			path = "Schedule view";
+			path = ScheduleView;
 			sourceTree = "<group>";
 		};
 		555352561F3DD2DB00933844 /* Model */ = {
@@ -1223,13 +1172,162 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		559382091F5ACF700078AD13 /* Menu indicator builder */ = {
+		55797FF61F8D5AFF00B40F67 /* CAPSPageMenu */ = {
+			isa = PBXGroup;
+			children = (
+				55797FFA1F8D5B2D00B40F67 /* CAPSPageMenu.h */,
+				55797FFB1F8D5B2D00B40F67 /* CAPSPageMenu.m */,
+			);
+			path = CAPSPageMenu;
+			sourceTree = "<group>";
+		};
+		55797FFD1F8D5B9100B40F67 /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				55E70A441F1FF228009C1548 /* GradientNavigationBar */,
+				5522F9D31F196A0200D2AACE /* SegmentedControl */,
+				551898EE1F16DAC00046BA33 /* ViewController */,
+				551898BE1F16CC230046BA33 /* NavigationController */,
+				551898BF1F16CC230046BA33 /* TabBar */,
+			);
+			path = UIElements;
+			sourceTree = "<group>";
+		};
+		557980071F8D5C6100B40F67 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				55F21FEA1F8D554D00509EDF /* NSString+LatinEncoding.h */,
+				55F21FEB1F8D554D00509EDF /* NSString+LatinEncoding.m */,
+				55C300D61F2E375000C07CD7 /* NSString+RemoveSlashes.h */,
+				55C300D71F2E375000C07CD7 /* NSString+RemoveSlashes.m */,
+				55C079141EBD1E4F002B250B /* NSString+Lowercalize.h */,
+				55C079151EBD1E4F002B250B /* NSString+Lowercalize.m */,
+				55C0792D1EBE0355002B250B /* NSString+Dash.h */,
+				55C0792E1EBE0355002B250B /* NSString+Dash.m */,
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
+		557980081F8D5CB100B40F67 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				55797FFE1F8D5BD500B40F67 /* UIColor+SUAI.h */,
+				55797FFF1F8D5BD500B40F67 /* UIColor+SUAI.m */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		557980091F8D5CE400B40F67 /* UIFont */ = {
+			isa = PBXGroup;
+			children = (
+				557980041F8D5BE600B40F67 /* UIFont+SUAI.h */,
+				557980051F8D5BE600B40F67 /* UIFont+SUAI.m */,
+			);
+			path = UIFont;
+			sourceTree = "<group>";
+		};
+		5579800A1F8D5D0C00B40F67 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				557980001F8D5BD500B40F67 /* UIImage+Gradient.h */,
+				557980011F8D5BD500B40F67 /* UIImage+Gradient.m */,
+			);
+			path = UIImage;
+			sourceTree = "<group>";
+		};
+		5579801A1F8D5F4C00B40F67 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				552CBA1F1F351D7C00BAA81A /* Wireframe */,
+				5579801B1F8D603300B40F67 /* View */,
+				55B3DE671F1BA04A00B38B5F /* Interactor */,
+				55B3DE601F1B980000B38B5F /* Presenter */,
+				55B3DE681F1BA14300B38B5F /* Entity */,
+				5529E1E21F23E92B00F5CA4F /* Router */,
+				5518EE651F156CAA000E5DBA /* Model */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		5579801B1F8D603300B40F67 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5579801C1F8D605400B40F67 /* ScheduleSearchViewController */,
+				5553524E1F3DCD7E00933844 /* TableViews */,
+				555352381F3C82BF00933844 /* ScheduleView */,
+				5553524A1F3DC03900933844 /* ScheduleViewController */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5579801C1F8D605400B40F67 /* ScheduleSearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5579801E1F8D607100B40F67 /* BUScheduleSearchViewController.h */,
+				5579801D1F8D607000B40F67 /* BUScheduleSearchViewController.m */,
+			);
+			path = ScheduleSearchViewController;
+			sourceTree = "<group>";
+		};
+		557980201F8D613600B40F67 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5502E0411F683E4600619FF7 /* BUCalendarViewController.h */,
+				5502E0421F683E4600619FF7 /* BUCalendarViewController.m */,
+				55497D5D1F6B1DA800124B8B /* BUCalendarViewControllerInput.h */,
+				55497D5E1F6B1DB700124B8B /* BUCalendarViewControllerOutput.h */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		557980211F8D616E00B40F67 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				557980231F8D61C400B40F67 /* Camera */,
+				557980221F8D618A00B40F67 /* Main */,
+				553A0B831F2EC0D6000A58FA /* NavigationSearchScreen */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		557980221F8D618A00B40F67 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				559D154F1F2CCF450038F5BC /* BUMainScreenViewController.h */,
+				559D15501F2CCF450038F5BC /* BUMainScreenViewController.m */,
+				559D15551F2CDAE60038F5BC /* BUMainScreenViewControllerInput.h */,
+				559D15561F2CDAF60038F5BC /* BUMainScreenViewControllerOutput.h */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		557980231F8D61C400B40F67 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				557980101F8D5E8100B40F67 /* BUCameraViewController.h */,
+				557980111F8D5E8100B40F67 /* BUCameraViewController.m */,
+				557980121F8D5E8100B40F67 /* BUCameraViewController.xib */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		557980241F8D61F200B40F67 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				55B88A0F1EAFDA5E00FBE41E /* Web */,
+				55B88A151EAFEC0B00FBE41E /* Toolbar */,
+				55B88A191EAFEF7700FBE41E /* Button */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		559382091F5ACF700078AD13 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
 				5593820A1F5ACFA30078AD13 /* UIView+MenuItemIndicatorBuilder.h */,
 				5593820B1F5ACFA30078AD13 /* UIView+MenuItemIndicatorBuilder.m */,
 			);
-			path = "Menu indicator builder";
+			path = UIView;
 			sourceTree = "<group>";
 		};
 		5599EBBC1F3E2F6900F75941 /* Root */ = {
@@ -1250,28 +1348,6 @@
 			path = "Group view";
 			sourceTree = "<group>";
 		};
-		559D154B1F2CCC880038F5BC /* Information */ = {
-			isa = PBXGroup;
-			children = (
-				55B889D91EAE90CD00FBE41E /* AuditoryBranch */,
-				559D15601F2D11760038F5BC /* InfoBranch */,
-				55B88D521EB4C1D600FBE41E /* Entities */,
-			);
-			name = Information;
-			sourceTree = "<group>";
-		};
-		559D154C1F2CCECA0038F5BC /* MainScreen */ = {
-			isa = PBXGroup;
-			children = (
-				552CBA241F351E6F00BAA81A /* Wireframe */,
-				559D154E1F2CCEFD0038F5BC /* View */,
-				559D154D1F2CCEFD0038F5BC /* Presenter */,
-				559D15571F2D081E0038F5BC /* Router */,
-				555352561F3DD2DB00933844 /* Model */,
-			);
-			path = MainScreen;
-			sourceTree = "<group>";
-		};
 		559D154D1F2CCEFD0038F5BC /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -1286,14 +1362,8 @@
 		559D154E1F2CCEFD0038F5BC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				55B88A191EAFEF7700FBE41E /* Button */,
-				55B88A151EAFEC0B00FBE41E /* ToolbarView */,
-				55B88A0F1EAFDA5E00FBE41E /* WebView */,
-				553A0B831F2EC0D6000A58FA /* BUNavigationSearchScreenViewController */,
-				559D154F1F2CCF450038F5BC /* BUMainScreenViewController.h */,
-				559D15501F2CCF450038F5BC /* BUMainScreenViewController.m */,
-				559D15551F2CDAE60038F5BC /* BUMainScreenViewControllerInput.h */,
-				559D15561F2CDAF60038F5BC /* BUMainScreenViewControllerOutput.h */,
+				557980241F8D61F200B40F67 /* Views */,
+				557980211F8D616E00B40F67 /* ViewControllers */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1316,8 +1386,7 @@
 				559D15651F2D11760038F5BC /* Model */,
 				559D15681F2D11760038F5BC /* View */,
 			);
-			name = InfoBranch;
-			path = ../Classes/InfoBranch;
+			path = InfoBranch;
 			sourceTree = "<group>";
 		};
 		559D15611F2D11760038F5BC /* Controller */ = {
@@ -1371,14 +1440,14 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
-		559DB2D81F632FE0003FC464 /* Guest view */ = {
+		559DB2D81F632FE0003FC464 /* GuestView */ = {
 			isa = PBXGroup;
 			children = (
 				559DB2D91F632FF0003FC464 /* BUGuestView.h */,
 				559DB2DA1F632FF0003FC464 /* BUGuestView.m */,
 				559DB2DC1F632FFB003FC464 /* BUGuestView.xib */,
 			);
-			path = "Guest view";
+			path = GuestView;
 			sourceTree = "<group>";
 		};
 		55A17C0D1F156175005694E5 /* Modules */ = {
@@ -1388,7 +1457,7 @@
 				55A17C0F1F15619E005694E5 /* News */,
 				55A17C111F15619E005694E5 /* Schedule */,
 				55A17C0E1F15619E005694E5 /* Navigation */,
-				559D154B1F2CCC880038F5BC /* Information */,
+				55F21FDB1F8D529F00509EDF /* Reference */,
 				55A17C101F15619E005694E5 /* Settings */,
 			);
 			path = Modules;
@@ -1397,8 +1466,11 @@
 		55A17C0E1F15619E005694E5 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				559D154C1F2CCECA0038F5BC /* MainScreen */,
-				55B889DD1EAE90CD00FBE41E /* CameraScreen */,
+				552CBA241F351E6F00BAA81A /* Wireframe */,
+				559D154E1F2CCEFD0038F5BC /* View */,
+				559D154D1F2CCEFD0038F5BC /* Presenter */,
+				559D15571F2D081E0038F5BC /* Router */,
+				555352561F3DD2DB00933844 /* Model */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -1423,14 +1495,8 @@
 		55A17C111F15619E005694E5 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				5579801A1F8D5F4C00B40F67 /* Schedule */,
 				5502E03E1F683E1000619FF7 /* Calendar */,
-				552CBA1F1F351D7C00BAA81A /* Wireframe */,
-				5518EE641F156CAA000E5DBA /* View */,
-				55B3DE671F1BA04A00B38B5F /* Interactor */,
-				55B3DE601F1B980000B38B5F /* Presenter */,
-				55B3DE681F1BA14300B38B5F /* Entity */,
-				5529E1E21F23E92B00F5CA4F /* Router */,
-				5518EE651F156CAA000E5DBA /* Model */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -1438,19 +1504,10 @@
 		55A17C171F1562C5005694E5 /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				55546B9E1F69ADC900D21FF2 /* DateFormatter */,
-				55C439621F3763FC00FB9003 /* Core Data */,
-				55C932301F35287200D41A2A /* App Data */,
-				5529E1EE1F241C4800F5CA4F /* Category */,
-				55E70A441F1FF228009C1548 /* Navigation bar */,
-				55DB772C1F1C077100AEBE6D /* Network */,
+				55797FFD1F8D5B9100B40F67 /* UIElements */,
+				55F21FE51F8D541A00509EDF /* Services */,
+				5529E1EE1F241C4800F5CA4F /* Categories */,
 				55B3DE7A1F1BA59D00B38B5F /* Libraries */,
-				55B3DE721F1BA49E00B38B5F /* Parser */,
-				55B88D531EB4C1D600FBE41E /* InfoParser */,
-				5522F9D31F196A0200D2AACE /* Segmented Control */,
-				551898EE1F16DAC00046BA33 /* View Controller */,
-				551898BE1F16CC230046BA33 /* NavigationController */,
-				551898BF1F16CC230046BA33 /* TabBar */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -1473,16 +1530,6 @@
 				55A236A21F35175D00A2249F /* BUSettingsEntityViewController.m */,
 			);
 			path = ChooseEntity;
-			sourceTree = "<group>";
-		};
-		55B3DE591F1A5E7400B38B5F /* CAPSPageMenu */ = {
-			isa = PBXGroup;
-			children = (
-				55B3DE5A1F1A5E9500B38B5F /* CAPSPageMenu.h */,
-				55B3DE5B1F1A5E9500B38B5F /* CAPSPageMenu.m */,
-			);
-			name = CAPSPageMenu;
-			path = ../CAPSPageMenu;
 			sourceTree = "<group>";
 		};
 		55B3DE601F1B980000B38B5F /* Presenter */ = {
@@ -1527,8 +1574,6 @@
 			children = (
 				55B3DE731F1BA4C200B38B5F /* BUSUAIParser.h */,
 				55B3DE741F1BA4C200B38B5F /* BUSUAIParser.m */,
-				55E70A301F1E985B009C1548 /* BUSUAIParser+Date.h */,
-				55E70A311F1E985B009C1548 /* BUSUAIParser+Date.m */,
 				55C300D21F2E36CB00C07CD7 /* BUSUAIParser+News.h */,
 				55C300D31F2E36CB00C07CD7 /* BUSUAIParser+News.m */,
 				55B3DE751F1BA4C200B38B5F /* ParserConstants.h */,
@@ -1540,8 +1585,8 @@
 		55B3DE7A1F1BA59D00B38B5F /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				55797FF61F8D5AFF00B40F67 /* CAPSPageMenu */,
 				55B88D541EB4C20600FBE41E /* TBXML */,
-				55B3DE591F1A5E7400B38B5F /* CAPSPageMenu */,
 				55B3DE891F1BA6F100B38B5F /* TFHpple */,
 				55B3DE7B1F1BA5AC00B38B5F /* Objective-C-HMTL-Parser-master */,
 			);
@@ -1557,16 +1602,6 @@
 				55B3DE7F1F1BA5AC00B38B5F /* HTMLParser.m */,
 			);
 			path = "Objective-C-HMTL-Parser-master";
-			sourceTree = "<group>";
-		};
-		55B3DE851F1BA6CC00B38B5F /* Encode string */ = {
-			isa = PBXGroup;
-			children = (
-				55B3DE861F1BA6CC00B38B5F /* NSString+LatinEncoding.h */,
-				55B3DE871F1BA6CC00B38B5F /* NSString+LatinEncoding.m */,
-			);
-			name = "Encode string";
-			path = "../String encoding";
 			sourceTree = "<group>";
 		};
 		55B3DE891F1BA6F100B38B5F /* TFHpple */ = {
@@ -1592,14 +1627,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		55B3DE9C1F1BBC9300B38B5F /* Cell header */ = {
+		55B3DE9C1F1BBC9300B38B5F /* CellHeader */ = {
 			isa = PBXGroup;
 			children = (
 				55DB77241F1BD1B400AEBE6D /* BUScheduleHeaderView.h */,
 				55DB77251F1BD1B400AEBE6D /* BUScheduleHeaderView.m */,
 				55DB77271F1BD1C400AEBE6D /* BUScheduleHeaderView.xib */,
 			);
-			path = "Cell header";
+			path = CellHeader;
 			sourceTree = "<group>";
 		};
 		55B889B31EAE8E9800FBE41E = {
@@ -1654,8 +1689,7 @@
 				55B889DB1EAE90CD00FBE41E /* Model */,
 				55B889DC1EAE90CD00FBE41E /* View */,
 			);
-			name = AuditoryBranch;
-			path = ../Classes/AuditoryBranch;
+			path = AuditoryBranch;
 			sourceTree = "<group>";
 		};
 		55B889DA1EAE90CD00FBE41E /* Controller */ = {
@@ -1680,48 +1714,29 @@
 			isa = PBXGroup;
 			children = (
 				5511EAB51EC26C5F0088EAE7 /* Cell */,
-				55B88D9C1EB60A2400FBE41E /* TableView */,
+				55B88D9C1EB60A2400FBE41E /* Table */,
 				55B88D641EB554CB00FBE41E /* TableHeader */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		55B889DD1EAE90CD00FBE41E /* CameraScreen */ = {
-			isa = PBXGroup;
-			children = (
-				55B889DE1EAE90CD00FBE41E /* Controller */,
-			);
-			name = CameraScreen;
-			path = ../../Classes/CameraBranch;
-			sourceTree = "<group>";
-		};
-		55B889DE1EAE90CD00FBE41E /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				55128DAB1EFE6FEB00F60929 /* BUCameraViewController.h */,
-				55128DAC1EFE6FEB00F60929 /* BUCameraViewController.m */,
-				55128DAD1EFE6FEB00F60929 /* BUCameraViewController.xib */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		55B88A0F1EAFDA5E00FBE41E /* WebView */ = {
+		55B88A0F1EAFDA5E00FBE41E /* Web */ = {
 			isa = PBXGroup;
 			children = (
 				55B88A101EAFDA7B00FBE41E /* BUNavigationWebView.h */,
 				55B88A111EAFDA7B00FBE41E /* BUNavigationWebView.m */,
 				55B88A131EAFDA8400FBE41E /* BUNavigationWebView.xib */,
 			);
-			path = WebView;
+			path = Web;
 			sourceTree = "<group>";
 		};
-		55B88A151EAFEC0B00FBE41E /* ToolbarView */ = {
+		55B88A151EAFEC0B00FBE41E /* Toolbar */ = {
 			isa = PBXGroup;
 			children = (
 				55B88A161EAFEC5A00FBE41E /* BUToolbarView.h */,
 				55B88A171EAFEC5A00FBE41E /* BUToolbarView.m */,
 			);
-			name = ToolbarView;
+			name = Toolbar;
 			path = BUToolbarView;
 			sourceTree = "<group>";
 		};
@@ -1752,8 +1767,7 @@
 				55B88DFC1EBBB99B00FBE41E /* BUItem.h */,
 				55B88DFD1EBBB99B00FBE41E /* BUItem.m */,
 			);
-			name = Entities;
-			path = ../Classes/Information/Entities;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		55B88D531EB4C1D600FBE41E /* InfoParser */ = {
@@ -1762,15 +1776,14 @@
 				55B88D611EB4C25500FBE41E /* BUSUAIInfoParser.h */,
 				55B88D621EB4C25500FBE41E /* BUSUAIInfoParser.m */,
 			);
-			name = InfoParser;
-			path = ../Classes/Information/InfoParser;
+			path = InfoParser;
 			sourceTree = "<group>";
 		};
 		55B88D541EB4C20600FBE41E /* TBXML */ = {
 			isa = PBXGroup;
 			children = (
-				55B88D551EB4C24200FBE41E /* TBXML.h */,
-				55B88D561EB4C24200FBE41E /* TBXML.m */,
+				5579800C1F8D5DDB00B40F67 /* TBXML.h */,
+				5579800B1F8D5DDB00B40F67 /* TBXML.m */,
 			);
 			name = TBXML;
 			path = ../../Classes/Information/TBXML;
@@ -1786,14 +1799,14 @@
 			path = TableHeader;
 			sourceTree = "<group>";
 		};
-		55B88D9C1EB60A2400FBE41E /* TableView */ = {
+		55B88D9C1EB60A2400FBE41E /* Table */ = {
 			isa = PBXGroup;
 			children = (
 				55B88A2E1EB282BF00FBE41E /* BUTableView.h */,
 				55B88A2F1EB282BF00FBE41E /* BUTableView.m */,
 				55B88A311EB282C400FBE41E /* BUTableView.xib */,
 			);
-			name = TableView;
+			name = Table;
 			sourceTree = "<group>";
 		};
 		55BC96F21F3E210F005DDB5A /* Table */ = {
@@ -1804,26 +1817,6 @@
 				559D156B1F2D11760038F5BC /* BUInfoTableView.xib */,
 			);
 			path = Table;
-			sourceTree = "<group>";
-		};
-		55C079131EBD1E31002B250B /* Lowercase string */ = {
-			isa = PBXGroup;
-			children = (
-				55C079141EBD1E4F002B250B /* NSString+Lowercalize.h */,
-				55C079151EBD1E4F002B250B /* NSString+Lowercalize.m */,
-			);
-			name = "Lowercase string";
-			path = ../../Classes/Information/Categories;
-			sourceTree = "<group>";
-		};
-		55C0792C1EBE0349002B250B /* Dash string */ = {
-			isa = PBXGroup;
-			children = (
-				55C0792D1EBE0355002B250B /* NSString+Dash.h */,
-				55C0792E1EBE0355002B250B /* NSString+Dash.m */,
-			);
-			name = "Dash string";
-			path = ../../Modules/Navigation/MainBranch/Categories;
 			sourceTree = "<group>";
 		};
 		55C300B41F2E327C00C07CD7 /* Entity */ = {
@@ -1895,16 +1888,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		55C300D51F2E373300C07CD7 /* Remove slashes */ = {
-			isa = PBXGroup;
-			children = (
-				55C300D61F2E375000C07CD7 /* NSString+RemoveSlashes.h */,
-				55C300D71F2E375000C07CD7 /* NSString+RemoveSlashes.m */,
-			);
-			name = "Remove slashes";
-			path = "remove slashes";
-			sourceTree = "<group>";
-		};
 		55C300DD1F2E3D1D00C07CD7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1915,14 +1898,14 @@
 			path = ../Model;
 			sourceTree = "<group>";
 		};
-		55C439621F3763FC00FB9003 /* Core Data */ = {
+		55C439621F3763FC00FB9003 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				55C439631F37642800FB9003 /* BUScheduleDataModel.xcdatamodeld */,
 				55C439661F3767D400FB9003 /* BUScheduleDataManager.h */,
 				55C439671F3767D400FB9003 /* BUScheduleDataManager.m */,
 			);
-			path = "Core Data";
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		55C932301F35287200D41A2A /* App Data */ = {
@@ -1943,7 +1926,7 @@
 			path = "Start screen view";
 			sourceTree = "<group>";
 		};
-		55DB772C1F1C077100AEBE6D /* Network */ = {
+		55DB772C1F1C077100AEBE6D /* Loader */ = {
 			isa = PBXGroup;
 			children = (
 				55DB772D1F1C07AD00AEBE6D /* BUDownloader.h */,
@@ -1951,36 +1934,59 @@
 				55C300CF1F2E367400C07CD7 /* BUDownloader+News.h */,
 				55C300D01F2E367400C07CD7 /* BUDownloader+News.m */,
 			);
-			path = Network;
+			path = Loader;
 			sourceTree = "<group>";
 		};
-		55E70A331F1E9F0B009C1548 /* Table header */ = {
+		55E70A331F1E9F0B009C1548 /* TableHeader */ = {
 			isa = PBXGroup;
 			children = (
 				55E70A3C1F1EADD7009C1548 /* BUScheduleRefreshView.h */,
 				55E70A3D1F1EADD7009C1548 /* BUScheduleRefreshView.m */,
 				55E70A3F1F1EADDE009C1548 /* BUScheduleRefreshView.xib */,
 			);
-			path = "Table header";
+			path = TableHeader;
 			sourceTree = "<group>";
 		};
-		55E70A361F1EA1B6009C1548 /* Astronaut view */ = {
+		55E70A361F1EA1B6009C1548 /* AstronautView */ = {
 			isa = PBXGroup;
 			children = (
 				55E70A371F1EA1C9009C1548 /* BUAstronautView.h */,
 				55E70A381F1EA1C9009C1548 /* BUAstronautView.m */,
 				55E70A3A1F1EA1D0009C1548 /* BUAstronautView.xib */,
 			);
-			path = "Astronaut view";
+			path = AstronautView;
 			sourceTree = "<group>";
 		};
-		55E70A441F1FF228009C1548 /* Navigation bar */ = {
+		55E70A441F1FF228009C1548 /* GradientNavigationBar */ = {
 			isa = PBXGroup;
 			children = (
-				55E70A451F1FF23D009C1548 /* BUSUAINavigationBar.h */,
-				55E70A461F1FF23D009C1548 /* BUSUAINavigationBar.m */,
+				55E70A451F1FF23D009C1548 /* BUSUAIGradientNavigationBar.h */,
+				55E70A461F1FF23D009C1548 /* BUSUAIGradientNavigationBar.m */,
 			);
-			path = "Navigation bar";
+			path = GradientNavigationBar;
+			sourceTree = "<group>";
+		};
+		55F21FDB1F8D529F00509EDF /* Reference */ = {
+			isa = PBXGroup;
+			children = (
+				55B889D91EAE90CD00FBE41E /* AuditoryBranch */,
+				559D15601F2D11760038F5BC /* InfoBranch */,
+				55B88D521EB4C1D600FBE41E /* Entities */,
+			);
+			path = Reference;
+			sourceTree = "<group>";
+		};
+		55F21FE51F8D541A00509EDF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				55B88D531EB4C1D600FBE41E /* InfoParser */,
+				55C932301F35287200D41A2A /* App Data */,
+				55DB772C1F1C077100AEBE6D /* Loader */,
+				55B3DE721F1BA49E00B38B5F /* Parser */,
+				55546B9E1F69ADC900D21FF2 /* DateFormatter */,
+				55C439621F3763FC00FB9003 /* CoreData */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		55FBAA761F38B87C0008CDAC /* assets */ = {
@@ -2144,9 +2150,9 @@
 				551898EA1F16D7480046BA33 /* RobotoCondensed-Italic.ttf in Resources */,
 				551898E91F16D7480046BA33 /* RobotoCondensed-BoldItalic.ttf in Resources */,
 				55C300CE1F2E364500C07CD7 /* BUNewsTableViewCell.xib in Resources */,
-				55128DAF1EFE6FEB00F60929 /* BUCameraViewController.xib in Resources */,
 				551898E71F16D7480046BA33 /* Roboto-ThinItalic.ttf in Resources */,
 				55E70A3B1F1EA1D0009C1548 /* BUAstronautView.xib in Resources */,
+				557980141F8D5E8100B40F67 /* BUCameraViewController.xib in Resources */,
 				551898E81F16D7480046BA33 /* RobotoCondensed-Bold.ttf in Resources */,
 				551898ED1F16D7480046BA33 /* RobotoCondensed-Regular.ttf in Resources */,
 				5538D40E1F3F470A00B38AAF /* BUAboutAppViewController.xib in Resources */,
@@ -2223,6 +2229,7 @@
 				552F0E331F3F91E000B115D1 /* BUTableViewInfoCell.m in Sources */,
 				552F0E311F3F91BA00B115D1 /* BUTableViewInfoCellNamed.m in Sources */,
 				552F0E321F3F91BA00B115D1 /* BUTableViewInfoCellNormal.m in Sources */,
+				5579800D1F8D5DDB00B40F67 /* TBXML.m in Sources */,
 				552F0E301F3F919500B115D1 /* BUInfoTableView.m in Sources */,
 				55BC96F01F3E2090005DDB5A /* BUAuditoryInfoViewController.m in Sources */,
 				555352551F3DD21200933844 /* BUScheduleTableViewCell.m in Sources */,
@@ -2236,43 +2243,41 @@
 				550602A71F373B1B00331DB7 /* BUGreetingsButton.m in Sources */,
 				5529E1E51F23E93F00F5CA4F /* BUScheduleRouter.m in Sources */,
 				5522F9D61F196A1500D2AACE /* BUCustomSegmentedControl.m in Sources */,
-				551898CA1F16D54D0046BA33 /* UIFont+SUAI.m in Sources */,
+				55F21FE11F8D53A600509EDF /* BURootTabBarViewController.m in Sources */,
 				5511EAAD1EC1F37E0088EAE7 /* BUMainStateModel.m in Sources */,
-				55E70A321F1E985B009C1548 /* BUSUAIParser+Date.m in Sources */,
 				55A236A31F35175D00A2249F /* BUSettingsEntityViewController.m in Sources */,
 				5529C51E1F36118000911EF8 /* BUFirstStepView.m in Sources */,
 				55B88E031EBBB99B00FBE41E /* BUItem.m in Sources */,
 				55B88A121EAFDA7B00FBE41E /* BUNavigationWebView.m in Sources */,
+				557980031F8D5BD500B40F67 /* UIImage+Gradient.m in Sources */,
 				55B88E061EBBC10300FBE41E /* BUAbstractFacultyItem.m in Sources */,
 				5538D4081F3F43A300B38AAF /* BUAboutAppTableView.m in Sources */,
+				5579801F1F8D607100B40F67 /* BUScheduleSearchViewController.m in Sources */,
 				55E70A3E1F1EADD7009C1548 /* BUScheduleRefreshView.m in Sources */,
 				5518EE681F156CBC000E5DBA /* BUScheduleViewController.m in Sources */,
 				553A0B621F2E77F8000A58FA /* BUNewsDetailInfoViewController.m in Sources */,
 				553A0B9B1F2F10A5000A58FA /* BUInformationRouter.m in Sources */,
-				55B3DE5C1F1A5E9500B38B5F /* CAPSPageMenu.m in Sources */,
 				55031E371F3608C20039B261 /* BUGreetingsViewController.m in Sources */,
-				55E70A471F1FF23D009C1548 /* BUSUAINavigationBar.m in Sources */,
+				55E70A471F1FF23D009C1548 /* BUSUAIGradientNavigationBar.m in Sources */,
 				5538D40D1F3F470A00B38AAF /* BUAboutAppViewController.m in Sources */,
 				55B3DE761F1BA4C200B38B5F /* BUSUAIParser.m in Sources */,
 				559D154A1F2CC41E0038F5BC /* BUPairViewModel.m in Sources */,
 				55C300C41F2E32BF00C07CD7 /* BUNews.m in Sources */,
-				551898BD1F16C02F0046BA33 /* BURootNavigationController.m in Sources */,
-				55A17C1A1F15648D005694E5 /* BURootTabBarViewController.m in Sources */,
 				55C932361F352BC200D41A2A /* BUSettingsPresenterState.m in Sources */,
 				55B3DE6D1F1BA17300B38B5F /* BUDay.m in Sources */,
 				55B3DE911F1BA6F100B38B5F /* TFHppleElement.m in Sources */,
 				55C300C11F2E32B500C07CD7 /* BUNewsPresenter.m in Sources */,
 				55B88DFF1EBBB99B00FBE41E /* BUAbstractItem.m in Sources */,
+				557980061F8D5BE600B40F67 /* UIFont+SUAI.m in Sources */,
 				55C932331F35288600D41A2A /* BUAppDataContainer.m in Sources */,
+				55F21FEC1F8D554D00509EDF /* NSString+LatinEncoding.m in Sources */,
 				5553524D1F3DC06200933844 /* BUAbstractScheduleViewController.m in Sources */,
 				55B3DE631F1B980B00B38B5F /* BUSchedulePresenter.m in Sources */,
 				552CBA271F351E8100BAA81A /* BUNavigationWireFrame.m in Sources */,
-				55E70A431F1FEDCE009C1548 /* BUScheduleSearchViewController.m in Sources */,
 				559DB2DB1F632FF0003FC464 /* BUGuestView.m in Sources */,
 				5593820C1F5ACFA30078AD13 /* UIView+MenuItemIndicatorBuilder.m in Sources */,
 				553A0B811F2E8131000A58FA /* BUNewsDetailInfoDownloader.m in Sources */,
 				55497D5C1F6B1BB800124B8B /* BUCalendarPresenter.m in Sources */,
-				551898C31F16CC8E0046BA33 /* UIColor+SUAI.m in Sources */,
 				5529E2201F24E59300F5CA4F /* BUScheduleDetailInfoViewController.m in Sources */,
 				5511EAB91EC26C6F0088EAE7 /* BUTableViewCell.m in Sources */,
 				55C079161EBD1E4F002B250B /* NSString+Lowercalize.m in Sources */,
@@ -2284,7 +2289,6 @@
 				55B88A351EB3611500FBE41E /* BUAuditoriesModel.m in Sources */,
 				55D4A4E11F3F00B200B62A8E /* BUChooseStartScreenView.m in Sources */,
 				5529E1F51F241CAB00F5CA4F /* NSArray+Codes.m in Sources */,
-				55B3DE881F1BA6CC00B38B5F /* NSString+LatinEncoding.m in Sources */,
 				55C300CD1F2E364500C07CD7 /* BUNewsTableViewCell.m in Sources */,
 				5502E0471F6841A700619FF7 /* BUCalendarWireFrame.m in Sources */,
 				5556BF711F36FDE300A7352B /* BUGreetingsPresenter.m in Sources */,
@@ -2292,16 +2296,16 @@
 				55B88D631EB4C25500FBE41E /* BUSUAIInfoParser.m in Sources */,
 				553A0B6B1F2E784B000A58FA /* BUNewsDetailInfoInteractor.m in Sources */,
 				55B3DE811F1BA5AC00B38B5F /* HTMLParser.m in Sources */,
-				55B88D571EB4C24200FBE41E /* TBXML.m in Sources */,
 				55C300BB1F2E329500C07CD7 /* BUNewsViewController.m in Sources */,
 				553A0B791F2E792A000A58FA /* BUNewsDetailInfoTableViewCell.m in Sources */,
 				553A0B551F2E769F000A58FA /* BUNewsRouter.m in Sources */,
 				55B88A301EB282BF00FBE41E /* BUTableView.m in Sources */,
-				551898C61F16D2A20046BA33 /* UIImage+Gradient.m in Sources */,
 				5553523B1F3C82D600933844 /* BUSemesterView.m in Sources */,
 				5553523F1F3C840500933844 /* BUCapsPageView.m in Sources */,
 				559D155A1F2D08320038F5BC /* BUNavigationRouter.m in Sources */,
 				55329EDC1F764D9E00A01283 /* BUScheduleRefactor.m in Sources */,
+				55F21FDE1F8D536D00509EDF /* BURootNavigationController.m in Sources */,
+				55797FFC1F8D5B2D00B40F67 /* CAPSPageMenu.m in Sources */,
 				55B88E001EBBB99B00FBE41E /* BUCathedral.m in Sources */,
 				553A0B8F1F2F0C8F000A58FA /* BUSettingsPresenter.m in Sources */,
 				55497D591F6B0EBB00124B8B /* BUWeekDescriptionView.m in Sources */,
@@ -2311,6 +2315,7 @@
 				552CBA321F35206800BAA81A /* BUSettingsWireFrame.m in Sources */,
 				5529E1F91F24BEC900F5CA4F /* NSCalendar+CurrentDay.m in Sources */,
 				55B88E021EBBB99B00FBE41E /* BUFaculty.m in Sources */,
+				557980021F8D5BD500B40F67 /* UIColor+SUAI.m in Sources */,
 				555352491F3CD6FA00933844 /* BUScheduleDataDisplayManager.m in Sources */,
 				559D15541F2CDABA0038F5BC /* BUNavigationPresenter.m in Sources */,
 				5529E1E11F23C49B00F5CA4F /* BUScheduleContentViewController+Delegate.m in Sources */,
@@ -2325,7 +2330,6 @@
 				553A0B8C1F2EDA58000A58FA /* BUSettingsViewController.m in Sources */,
 				5529E1D41F23BA8700F5CA4F /* BUSchedulePresenterState.m in Sources */,
 				55B88E011EBBB99B00FBE41E /* BUDean.m in Sources */,
-				55128DAE1EFE6FEB00F60929 /* BUCameraViewController.m in Sources */,
 				5529E1ED1F23FAE400F5CA4F /* BUScheduleDownloader.m in Sources */,
 				55B88A181EAFEC5A00FBE41E /* BUToolbarView.m in Sources */,
 				552CBA1E1F351C6200BAA81A /* BUNewsWireFrame.m in Sources */,
@@ -2340,6 +2344,7 @@
 				559D15791F2D11760038F5BC /* BUConcreteInfoModel.m in Sources */,
 				55C300D11F2E367400C07CD7 /* BUDownloader+News.m in Sources */,
 				55C0792F1EBE0355002B250B /* NSString+Dash.m in Sources */,
+				557980131F8D5E8100B40F67 /* BUCameraViewController.m in Sources */,
 				55546BA11F69ADD400D21FF2 /* BUDateFormatter.m in Sources */,
 				55C300DB1F2E390B00C07CD7 /* BUNewsPresenterState.m in Sources */,
 				552CBA2B1F351F5800BAA81A /* BUInformationWireFrame.m in Sources */,

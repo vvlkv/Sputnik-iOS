@@ -11,7 +11,6 @@
 @class UIViewController;
 @interface BUCalendarWireFrame : NSObject
 
-+ (UIViewController *)assemblyCalendarWithData:(NSArray *)data;
 + (UIViewController *)assemblyCalendarWithData:(NSArray *)data andRootViewController:(UIViewController *)viewController;
 
 @end

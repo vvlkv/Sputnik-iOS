@@ -30,20 +30,6 @@
 
 @implementation BUCalendarPresenter
 
-- (instancetype)initWithData:(NSArray *)data
-{
-    self = [super init];
-    if (self) {
-        displayManager = [[BUScheduleDataDisplayManager alloc] init];
-        displayManager.semesterSchedule = [data copy];
-        state = [[BUSchedulePresenterState alloc] init];
-        state.connectionStatus = ConnectionStatusOnline;
-        state.codes = [[BUAppDataContainer instance] entityCodes];
-        refactor = [[BUScheduleRefactor alloc] init];
-    }
-    return self;
-}
-
 - (instancetype)initWithData:(NSArray *)data andRootViewController:(id)viewController
 {
     self = [super init];

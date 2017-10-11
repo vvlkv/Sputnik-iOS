@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BUSUAINavigationBar : UINavigationBar
+@interface BUSUAIGradientNavigationBar : UINavigationBar
 
 @end

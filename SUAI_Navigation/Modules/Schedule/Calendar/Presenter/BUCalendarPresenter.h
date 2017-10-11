@@ -16,7 +16,6 @@
 @property (weak, nonatomic) id <BUCalendarViewControllerInput> view;
 @property (strong, nonatomic) id <BUScheduleRouterInput> router;
 
-- (instancetype)initWithData:(NSArray *)data;
 - (instancetype)initWithData:(NSArray *)data andRootViewController:(id)viewController;
 
 @end

@@ -6,12 +6,12 @@
 //  Copyright © 2017 Viktor. All rights reserved.
 //
 
-#import "BUSUAINavigationBar.h"
+#import "BUSUAIGradientNavigationBar.h"
 #import "UIFont+SUAI.h"
 #import "UIColor+SUAI.h"
 #import "UIImage+Gradient.h"
 
-@implementation BUSUAINavigationBar
+@implementation BUSUAIGradientNavigationBar
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
