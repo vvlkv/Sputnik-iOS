@@ -14,6 +14,7 @@
 
 @interface BUCapsPageView () <CAPSPageMenuDelegate, CAPSPageMenuDataSource> {
     NSMutableArray *controllerArray;
+    BOOL isFirstLaunch;
 }
 
 @property (nonatomic) CAPSPageMenu *pageMenu;
@@ -29,6 +30,7 @@
     if (self) {
         [self initCapsPageViews];
         [self initCapsPage];
+        isFirstLaunch = YES;
     }
     return self;
 }
@@ -65,8 +67,15 @@
     }
 }
 
-- (void)refresh {
+- (void)updateDayIndicators {
     [_pageMenu fillMenuItemViews];
+}
+
+- (void)refresh {
+    if (isFirstLaunch == YES) {
+        [_pageMenu fillMenuItemViews];
+        isFirstLaunch = NO;
+    }
     for (BUScheduleContentViewController *viewController in controllerArray) {
         [viewController refresh];
     }

@@ -12,6 +12,6 @@
 
 @interface BUNewsInteractor : NSObject <BUNewsInteractorInput>
 
-@property (strong, nonatomic) id <BUNewsInteractorOutput> output;
+@property (weak, nonatomic) id <BUNewsInteractorOutput> output;
 
 @end

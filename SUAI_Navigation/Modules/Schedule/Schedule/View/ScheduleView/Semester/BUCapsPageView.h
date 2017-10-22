@@ -15,6 +15,7 @@
 @property (weak, nonatomic) id delegate;
 @property (weak, nonatomic) id <BUCapsPageViewDataSource> capsPageDataSource;
 
+- (void)updateDayIndicators;
 - (void)refresh;
 - (void)moveToPage:(NSUInteger)pageIndex;
 

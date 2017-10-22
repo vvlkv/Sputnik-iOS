@@ -28,11 +28,13 @@
           success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
               if (success) {
                   success(responseObject);
+                  [manager invalidateSessionCancelingTasks:YES];
               }
           }
           failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
               if (fail) {
                   fail(error.localizedDescription);
+                  [manager invalidateSessionCancelingTasks:YES];
               }
           }];
 }
@@ -66,11 +68,13 @@
           success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
               if (success) {
                   success(responseObject);
+                  [manager invalidateSessionCancelingTasks:YES];
               }
           }
           failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
               if (fail) {
                   fail(error.localizedDescription);
+                  [manager invalidateSessionCancelingTasks:YES];
               }
           }];
 }

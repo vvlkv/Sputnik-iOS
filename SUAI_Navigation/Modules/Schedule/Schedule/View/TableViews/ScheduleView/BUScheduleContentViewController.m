@@ -19,7 +19,6 @@
     BUAstronautView *austronautView;
     BUGuestView *guestView;
     UITableView *scheduleTableView;
-//    BUScheduleRefreshView *customRefreshView;
     NSInteger viewType;
     UIActivityIndicatorView *indicatorView;
 }
@@ -34,6 +33,7 @@
     if (self) {
         _type = type;
         _index = index;
+        self.view.opaque = YES;
     }
     return self;
 }
@@ -98,33 +98,6 @@
 - (void)addGesture:(UIGestureRecognizer *)gesture {
     [scheduleTableView addGestureRecognizer:gesture];
 }
-
-//- (void)loadCustomRefresh {
-//
-//    customRefreshView = [[NSBundle mainBundle] loadNibNamed:@"BUScheduleRefreshView"
-//                                                      owner:self
-//                                                    options:nil][0];
-//    customRefreshView.tintColor = [UIColor clearColor];
-//    customRefreshView.backgroundColor = [UIColor clearColor];
-//
-//    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-//    [refreshControl addSubview:customRefreshView];
-//    customRefreshView.frame = refreshControl.bounds;
-//
-//    refreshControl.tintColor = [UIColor clearColor];
-//    refreshControl.backgroundColor = [UIColor clearColor];
-//    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
-//
-//    if ([[[UIDevice currentDevice] systemVersion] integerValue] >= 10) {
-//        scheduleTableView.refreshControl = refreshControl;
-//    } else {
-//        [scheduleTableView addSubview:refreshControl];
-//    }
-//}
-//
-//- (void)refresh:(id)obj {
-//    [(UIRefreshControl *)obj endRefreshing];
-//}
 
 
 #pragma mark - BUGuestViewDelegate

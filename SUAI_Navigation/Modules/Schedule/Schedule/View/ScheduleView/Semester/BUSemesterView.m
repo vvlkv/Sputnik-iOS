@@ -52,7 +52,9 @@
 }
 
 - (void)refresh {
+    NSLog(@"refresh");
     [capsPageView refresh];
+    [capsPageView updateDayIndicators];
 }
 
 - (void)refreshDate {

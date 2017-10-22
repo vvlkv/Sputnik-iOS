@@ -63,6 +63,7 @@
 		552F0E321F3F91BA00B115D1 /* BUTableViewInfoCellNormal.m in Sources */ = {isa = PBXBuildFile; fileRef = 559D15731F2D11760038F5BC /* BUTableViewInfoCellNormal.m */; };
 		552F0E331F3F91E000B115D1 /* BUTableViewInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 559D156E1F2D11760038F5BC /* BUTableViewInfoCell.m */; };
 		552F0E341F3F935700B115D1 /* BUTableViewInfoCellNamed.xib in Resources */ = {isa = PBXBuildFile; fileRef = 559D15711F2D11760038F5BC /* BUTableViewInfoCellNamed.xib */; };
+		552F53FB1F9516D300610E77 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 552F53F91F9516D300610E77 /* TBXML.m */; };
 		55329EDC1F764D9E00A01283 /* BUScheduleRefactor.m in Sources */ = {isa = PBXBuildFile; fileRef = 55329EDB1F764D9E00A01283 /* BUScheduleRefactor.m */; };
 		5538D4081F3F43A300B38AAF /* BUAboutAppTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5538D4071F3F43A300B38AAF /* BUAboutAppTableView.m */; };
 		5538D40D1F3F470A00B38AAF /* BUAboutAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5538D40B1F3F470A00B38AAF /* BUAboutAppViewController.m */; };
@@ -90,12 +91,12 @@
 		555352531F3DD1CB00933844 /* BUScheduleTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 555352501F3DD12700933844 /* BUScheduleTableViewCell.xib */; };
 		555352551F3DD21200933844 /* BUScheduleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 555352511F3DD12700933844 /* BUScheduleTableViewCell.m */; };
 		55546BA11F69ADD400D21FF2 /* BUDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 55546BA01F69ADD400D21FF2 /* BUDateFormatter.m */; };
+		555685271F93C0F200B12987 /* BUIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 555685261F93C0F200B12987 /* BUIndicatorView.m */; };
 		5556BF711F36FDE300A7352B /* BUGreetingsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5556BF701F36FDE300A7352B /* BUGreetingsPresenter.m */; };
 		55797FFC1F8D5B2D00B40F67 /* CAPSPageMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 55797FFB1F8D5B2D00B40F67 /* CAPSPageMenu.m */; };
 		557980021F8D5BD500B40F67 /* UIColor+SUAI.m in Sources */ = {isa = PBXBuildFile; fileRef = 55797FFF1F8D5BD500B40F67 /* UIColor+SUAI.m */; };
 		557980031F8D5BD500B40F67 /* UIImage+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 557980011F8D5BD500B40F67 /* UIImage+Gradient.m */; };
 		557980061F8D5BE600B40F67 /* UIFont+SUAI.m in Sources */ = {isa = PBXBuildFile; fileRef = 557980051F8D5BE600B40F67 /* UIFont+SUAI.m */; };
-		5579800D1F8D5DDB00B40F67 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 5579800B1F8D5DDB00B40F67 /* TBXML.m */; };
 		557980131F8D5E8100B40F67 /* BUCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 557980111F8D5E8100B40F67 /* BUCameraViewController.m */; };
 		557980141F8D5E8100B40F67 /* BUCameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 557980121F8D5E8100B40F67 /* BUCameraViewController.xib */; };
 		5579801F1F8D607100B40F67 /* BUScheduleSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5579801D1F8D607000B40F67 /* BUScheduleSearchViewController.m */; };
@@ -281,6 +282,8 @@
 		552CBA2A1F351F5800BAA81A /* BUInformationWireFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUInformationWireFrame.m; sourceTree = "<group>"; };
 		552CBA301F35206800BAA81A /* BUSettingsWireFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUSettingsWireFrame.h; sourceTree = "<group>"; };
 		552CBA311F35206800BAA81A /* BUSettingsWireFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUSettingsWireFrame.m; sourceTree = "<group>"; };
+		552F53F91F9516D300610E77 /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
+		552F53FA1F9516D300610E77 /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
 		55329EDA1F764D9E00A01283 /* BUScheduleRefactor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUScheduleRefactor.h; sourceTree = "<group>"; };
 		55329EDB1F764D9E00A01283 /* BUScheduleRefactor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUScheduleRefactor.m; sourceTree = "<group>"; };
 		5538D4061F3F43A300B38AAF /* BUAboutAppTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUAboutAppTableView.h; sourceTree = "<group>"; };
@@ -344,6 +347,8 @@
 		555352521F3DD12700933844 /* BUScheduleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUScheduleTableViewCell.h; sourceTree = "<group>"; };
 		55546B9F1F69ADD400D21FF2 /* BUDateFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUDateFormatter.h; sourceTree = "<group>"; };
 		55546BA01F69ADD400D21FF2 /* BUDateFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUDateFormatter.m; sourceTree = "<group>"; };
+		555685251F93C0F200B12987 /* BUIndicatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUIndicatorView.h; sourceTree = "<group>"; };
+		555685261F93C0F200B12987 /* BUIndicatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUIndicatorView.m; sourceTree = "<group>"; };
 		5556BF6F1F36FDE300A7352B /* BUGreetingsPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUGreetingsPresenter.h; sourceTree = "<group>"; };
 		5556BF701F36FDE300A7352B /* BUGreetingsPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUGreetingsPresenter.m; sourceTree = "<group>"; };
 		5556BF721F3702B100A7352B /* BUGreetingsViewControllerInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUGreetingsViewControllerInput.h; sourceTree = "<group>"; };
@@ -356,8 +361,6 @@
 		557980011F8D5BD500B40F67 /* UIImage+Gradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Gradient.m"; path = "SUAI_Navigation/Root/Categories/UIImage/UIImage+Gradient.m"; sourceTree = SOURCE_ROOT; };
 		557980041F8D5BE600B40F67 /* UIFont+SUAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+SUAI.h"; path = "SUAI_Navigation/Root/Categories/UIFont/UIFont+SUAI.h"; sourceTree = SOURCE_ROOT; };
 		557980051F8D5BE600B40F67 /* UIFont+SUAI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+SUAI.m"; path = "SUAI_Navigation/Root/Categories/UIFont/UIFont+SUAI.m"; sourceTree = SOURCE_ROOT; };
-		5579800B1F8D5DDB00B40F67 /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TBXML.m; path = SUAI_Navigation/Root/Libraries/TBXML/TBXML.m; sourceTree = SOURCE_ROOT; };
-		5579800C1F8D5DDB00B40F67 /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TBXML.h; path = SUAI_Navigation/Root/Libraries/TBXML/TBXML.h; sourceTree = SOURCE_ROOT; };
 		557980101F8D5E8100B40F67 /* BUCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUCameraViewController.h; sourceTree = "<group>"; };
 		557980111F8D5E8100B40F67 /* BUCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUCameraViewController.m; sourceTree = "<group>"; };
 		557980121F8D5E8100B40F67 /* BUCameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BUCameraViewController.xib; sourceTree = "<group>"; };
@@ -833,6 +836,15 @@
 			path = Wireframe;
 			sourceTree = "<group>";
 		};
+		552F53F51F9516AF00610E77 /* TBXML */ = {
+			isa = PBXGroup;
+			children = (
+				552F53FA1F9516D300610E77 /* TBXML.h */,
+				552F53F91F9516D300610E77 /* TBXML.m */,
+			);
+			path = TBXML;
+			sourceTree = "<group>";
+		};
 		5532C8BB1F3136B50096807D /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -1138,6 +1150,15 @@
 			path = DateFormatter;
 			sourceTree = "<group>";
 		};
+		555685241F93C0E200B12987 /* IndicatorView */ = {
+			isa = PBXGroup;
+			children = (
+				555685251F93C0F200B12987 /* BUIndicatorView.h */,
+				555685261F93C0F200B12987 /* BUIndicatorView.m */,
+			);
+			path = IndicatorView;
+			sourceTree = "<group>";
+		};
 		5556BF6D1F36FDC800A7352B /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -1184,6 +1205,7 @@
 		55797FFD1F8D5B9100B40F67 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				555685241F93C0E200B12987 /* IndicatorView */,
 				55E70A441F1FF228009C1548 /* GradientNavigationBar */,
 				5522F9D31F196A0200D2AACE /* SegmentedControl */,
 				551898EE1F16DAC00046BA33 /* ViewController */,
@@ -1585,8 +1607,8 @@
 		55B3DE7A1F1BA59D00B38B5F /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				552F53F51F9516AF00610E77 /* TBXML */,
 				55797FF61F8D5AFF00B40F67 /* CAPSPageMenu */,
-				55B88D541EB4C20600FBE41E /* TBXML */,
 				55B3DE891F1BA6F100B38B5F /* TFHpple */,
 				55B3DE7B1F1BA5AC00B38B5F /* Objective-C-HMTL-Parser-master */,
 			);
@@ -1777,16 +1799,6 @@
 				55B88D621EB4C25500FBE41E /* BUSUAIInfoParser.m */,
 			);
 			path = InfoParser;
-			sourceTree = "<group>";
-		};
-		55B88D541EB4C20600FBE41E /* TBXML */ = {
-			isa = PBXGroup;
-			children = (
-				5579800C1F8D5DDB00B40F67 /* TBXML.h */,
-				5579800B1F8D5DDB00B40F67 /* TBXML.m */,
-			);
-			name = TBXML;
-			path = ../../Classes/Information/TBXML;
 			sourceTree = "<group>";
 		};
 		55B88D641EB554CB00FBE41E /* TableHeader */ = {
@@ -2232,9 +2244,9 @@
 				552F0E331F3F91E000B115D1 /* BUTableViewInfoCell.m in Sources */,
 				552F0E311F3F91BA00B115D1 /* BUTableViewInfoCellNamed.m in Sources */,
 				552F0E321F3F91BA00B115D1 /* BUTableViewInfoCellNormal.m in Sources */,
-				5579800D1F8D5DDB00B40F67 /* TBXML.m in Sources */,
 				552F0E301F3F919500B115D1 /* BUInfoTableView.m in Sources */,
 				55BC96F01F3E2090005DDB5A /* BUAuditoryInfoViewController.m in Sources */,
+				552F53FB1F9516D300610E77 /* TBXML.m in Sources */,
 				555352551F3DD21200933844 /* BUScheduleTableViewCell.m in Sources */,
 				555352531F3DD1CB00933844 /* BUScheduleTableViewCell.xib in Sources */,
 				5591419D1F38BC2200A99B66 /* BUScheduleDataModel.xcdatamodeld in Sources */,
@@ -2339,6 +2351,7 @@
 				55C300BE1F2E32AA00C07CD7 /* BUNewsInteractor.m in Sources */,
 				55C300D41F2E36CB00C07CD7 /* BUSUAIParser+News.m in Sources */,
 				55B3DE801F1BA5AC00B38B5F /* HTMLNode.m in Sources */,
+				555685271F93C0F200B12987 /* BUIndicatorView.m in Sources */,
 				553A0B681F2E783F000A58FA /* BUNewsDetailInfoPresenter.m in Sources */,
 				5502E0431F683E4600619FF7 /* BUCalendarViewController.m in Sources */,
 				55B3DE711F1BA1AA00B38B5F /* BUScheduleStorage.m in Sources */,
@@ -2488,6 +2501,8 @@
 				INFOPLIST_FILE = SUAI_Navigation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
+				MOMC_NO_WARNINGS = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "Viktor-Volkov.SUAI-Navigation";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -2503,6 +2518,8 @@
 				INFOPLIST_FILE = SUAI_Navigation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
+				MOMC_NO_WARNINGS = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "Viktor-Volkov.SUAI-Navigation";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

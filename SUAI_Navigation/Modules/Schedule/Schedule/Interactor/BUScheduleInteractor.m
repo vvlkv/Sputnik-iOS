@@ -86,11 +86,6 @@
 - (void)codesLoaded {
     [[BUAppDataContainer instance] writeCodes:[downloader codes]];
     [self.output didDownloadCodes];
-//    NSString *date = [downloader date];
-    
-//    NSUInteger weekType = [BUDateFormatter weekTypeFromDate:date];
-//    NSUInteger weekType2 = [NSCalendar weekIndex];
-//    [[BUAppDataContainer instance] writeWeekType:weekType];
     [self.output didObtainCodes:[downloader codes]];
 }
 

@@ -469,7 +469,6 @@ NSString * const CAPSPageMenuOptionHideTopMenuBar                       = @"hide
 
                                     if (![_pagesAddedSet containsObject:@(index)] && index < _controllerArray.count && index >= 0) {
                                         [self addPageAtIndex:index];
-
                                         [_pagesAddedSet addObject:@(index)];
                                     }
                                     
@@ -481,7 +480,6 @@ NSString * const CAPSPageMenuOptionHideTopMenuBar                       = @"hide
                                     NSInteger index = _currentPageIndex + 1;
                                     
                                     if (![_pagesAddedSet containsObject:@(index)] && index < _controllerArray.count && index >= 0) {
-
                                         [self addPageAtIndex:index];
                                         [_pagesAddedSet addObject:@(index)];
                                     }
@@ -509,18 +507,23 @@ NSString * const CAPSPageMenuOptionHideTopMenuBar                       = @"hide
                     
                     // Calculate current page
                     CGFloat width = _controllerScrollView.frame.size.width;
-                    NSInteger page = (NSInteger)(_controllerScrollView.contentOffset.x + (0.5 * width)) / width;
-                    
+                    //TODO
+                    //OLD REALISATION:
+                    //NSInteger page = (NSInteger)(_controllerScrollView.contentOffset.x + (0.5 * width)) / width;
+//                    CGFloat coeff = (_currentPageIndex == [_mutableMenuItems count] - 1) ? .5f : 1.f;
+                    NSInteger page = (NSInteger)(_controllerScrollView.contentOffset.x + (.5f * width)) / width;
+//                    NSLog(@"coeff value: %f", coeff);
                     // Update page if changed
                     if (page != _currentPageIndex) {
+                        NSLog(@"page != _currentPageIndex");
                         _lastPageIndex = _currentPageIndex;
                         _currentPageIndex = page;
                         
                         
                         if (![_pagesAddedSet containsObject:@(page)] && page < _controllerArray.count && page >= 0){
+                            NSLog(@"![_pagesAddedSet containsObject:@(page)] && page < _controllerArray.count && page >= 0");
                             [self addPageAtIndex:page];
                             [_pagesAddedSet addObject:@(page)];
-                            
                         }
                         
                         if (!_didTapMenuItemToScroll) {
@@ -532,16 +535,12 @@ NSString * const CAPSPageMenuOptionHideTopMenuBar                       = @"hide
                             // Make sure only up to 3 page views are in memory when fast scrolling, otherwise there should only be one in memory
                             NSInteger indexLeftTwo = page - 2;
                             if ([_pagesAddedSet containsObject:@(indexLeftTwo)]) {
-                                
                                 [_pagesAddedSet removeObject:@(indexLeftTwo)];
-                                
                                 [self removePageAtIndex:indexLeftTwo];
                             }
                             NSInteger indexRightTwo = page + 2;
                             if ([_pagesAddedSet containsObject:@(indexRightTwo)]) {
-
                                 [_pagesAddedSet removeObject:@(indexRightTwo)];
-
                                 [self removePageAtIndex:indexRightTwo];
                             }
                         }
@@ -621,6 +620,7 @@ NSString * const CAPSPageMenuOptionHideTopMenuBar                       = @"hide
 // MARK: - Handle Selection Indicator
 - (void)moveSelectionIndicator:(NSInteger)pageIndex
 {
+//    NSLog(@"moveSelectionIndicator");
     if (pageIndex >= 0 && pageIndex < _controllerArray.count) {
         [UIView animateWithDuration:0.15 animations:^{
             
@@ -758,15 +758,21 @@ NSString * const CAPSPageMenuOptionHideTopMenuBar                       = @"hide
     }
     
     for (MenuItemView *itemView in menuItemViews) {
+        
+        if ([[itemView subviews] count] > 2) {
+            [[itemView subviews][2] removeFromSuperview];
+        }
+        
         UIView *indicatorView = [self.dataSource viewForMenuItemViewAtIndex:[menuItemViews indexOfObject:itemView]];
         indicatorView.frame = CGRectMake(itemView.bounds.size.width*5.f/6.f - 2, 2, itemView.bounds.size.width/6.f, itemView.bounds.size.width/6.f);
-        [itemView addSubview:indicatorView];
+      //  [itemView addSubview:indicatorView];
     }
 }
 
 // MARK: - Remove/Add Page
 - (void)addPageAtIndex:(NSInteger)index
 {
+    NSLog(@"addPageAtIndex");
     // Call didMoveToPage delegate function
     UIViewController *currentController = _controllerArray[index];
     if ([_delegate respondsToSelector:@selector(willMoveToPage:index:)]) {
@@ -894,6 +900,7 @@ NSString * const CAPSPageMenuOptionHideTopMenuBar                       = @"hide
  */
 - (void)moveToPage:(NSInteger)index
 {
+    NSLog(@"moveToPage");
     if (index >= 0 && index < _controllerArray.count) {
         // Update page if changed
         if (index != _currentPageIndex) {

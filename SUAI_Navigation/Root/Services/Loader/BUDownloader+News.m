@@ -24,11 +24,13 @@
           success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
               if (success) {
                   success(responseObject);
+                  [manager invalidateSessionCancelingTasks:YES];
               }
           }
           failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
               if (fail) {
                   fail(error.localizedDescription);
+                  [manager invalidateSessionCancelingTasks:YES];
               }
           }];
 }
@@ -52,6 +54,7 @@
         [[NSFileManager defaultManager] removeItemAtPath:[filePath path] error:&error];
         if (success) {
             success(data);
+            [manager invalidateSessionCancelingTasks:YES];
         }
     }];
     [downloadTask resume];
@@ -73,11 +76,13 @@
           success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
               if (success) {
                   success(responseObject);
+                  [manager invalidateSessionCancelingTasks:YES];
               }
           }
           failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
               if (fail) {
                   fail(error.localizedDescription);
+                  [manager invalidateSessionCancelingTasks:YES];
               }
           }];
 }

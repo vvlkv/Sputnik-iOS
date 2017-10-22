@@ -89,17 +89,11 @@
 #pragma mark - BUFirtStepViewDelegate
 
 - (void)didPressTeacherButton {
-//    CGRect firstViewOffset = CGRectMake(-self.view.frame.size.width, self.view.frame.size.height/2, self.view.frame.size.width, self.view.frame.size.height/2);
-//    CGRect secondViewOffset = firstView.frame;
-//    [self animateFirstView:firstViewOffset andSecond:secondViewOffset];
     [self animateEntityView];
     [self.output didObtainEntitiesAtIndex:1];
 }
 
 - (void)didPressGroupButton {
-//    CGRect firstViewOffset = CGRectMake(-self.view.frame.size.width, self.view.frame.size.height/2, self.view.frame.size.width, self.view.frame.size.height/2);
-//    CGRect secondViewOffset = firstView.frame;
-//    [self animateFirstView:firstViewOffset andSecond:secondViewOffset];
     [self animateEntityView];
     [self.output didObtainEntitiesAtIndex:0];
 }

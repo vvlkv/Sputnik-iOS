@@ -12,7 +12,7 @@
 
 @interface BUNewsDetailInfoInteractor : NSObject <BUNewsDetailInfoInteractorInput>
 
-@property (strong, nonatomic) id <BUNewsDetailInfoInteractorOutput> output;
+@property (weak, nonatomic) id <BUNewsDetailInfoInteractorOutput> output;
 
 - (instancetype)initWithNewsId:(NSString *)newsId;
 

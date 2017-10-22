@@ -15,7 +15,7 @@
 
 @interface BUNewsDetailInfoPresenter : NSObject <BUNewsDetailInfoInteractorOutput, BUNewsDetailInfoViewControllerOutput, BUNewsDetailInfoDataSource>
 
-@property (weak, nonatomic) id <BUNewsDetailInfoViewControllerInput> view;
+@property (strong, nonatomic) id <BUNewsDetailInfoViewControllerInput> view;
 @property (strong, nonatomic) id <BUNewsDetailInfoInteractorInput> input;
 
 @end

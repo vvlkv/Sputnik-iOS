@@ -8,48 +8,44 @@
 
 #import "UIView+MenuItemIndicatorBuilder.h"
 #import "UIColor+SUAI.h"
+#import "BUIndicatorView.h"
 
 @implementation UIView (MenuItemIndicatorBuilder)
 
 + (UIView *)createIndicatorForWeekOfType:(WeekType)weekType {
-    UIView *indicatorViewBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
-    indicatorViewBackground.layer.cornerRadius = 2.f;
+    UIView *indicatorViewBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
     
-    UIImage *indicatorImage;
+    BUIndicatorView *topView = [[BUIndicatorView alloc] initWithFrame:CGRectMake(0, 0, indicatorViewBackground.frame.size.width, indicatorViewBackground.frame.size.height/2)
+                                                      andRoundCorners:UIRectCornerTopRight | UIRectCornerTopLeft];
+    
+    BUIndicatorView *bottomView = [[BUIndicatorView alloc] initWithFrame:CGRectMake(0, indicatorViewBackground.frame.size.height/2, indicatorViewBackground.frame.size.width, indicatorViewBackground.frame.size.height/2)
+                                                         andRoundCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight];
+    
+    bottomView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin;
+    topView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
+    [indicatorViewBackground addSubview:topView];
+    [indicatorViewBackground addSubview:bottomView];
     
     switch (weekType) {
-        case WeekTypeRed:
-//            indicatorViewBackground.backgroundColor = [UIColor suaiRedColor];
+        case WeekTypeRed: {
+            topView.backgroundColor = [UIColor suaiRedColor];
+            bottomView.backgroundColor = [UIColor suaiRedColor];
             break;
-        case WeekTypeBlue:
-//            indicatorViewBackground.backgroundColor = [UIColor suaiBlueColor];
+        }
+        case WeekTypeBlue: {
+            topView.backgroundColor = [UIColor suaiBlueColor];
+            bottomView.backgroundColor = [UIColor suaiBlueColor];
             break;
+        }
         case WeekTypeBoth: {
-//            indicatorViewBackground.backgroundColor = [UIColor clearColor];
-//            UIView *upperView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 5)];
-//            upperView.backgroundColor = [UIColor suaiRedColor];
-//            CALayer *layer = [CALayer layer];
-//            UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRoundedRect:upperView.bounds
-//                                                             byRoundingCorners:(UIRectCornerTopLeft|UIRectCornerTopRight)
-//                                                                   cornerRadii:CGSizeMake(2.0, 2.0)];
-//            layer.shadowPath = shadowPath.CGPath;
-//            upperView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
-//            upperView.layer.mask = layer;
-//
-//            UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 5, 10, 5)];
-//            bottomView.backgroundColor = [UIColor suaiBlueColor];
-//            [indicatorViewBackground addSubview:upperView];
-//            [indicatorViewBackground addSubview:bottomView];
+            topView.backgroundColor = [UIColor suaiRedColor];
+            bottomView.backgroundColor = [UIColor suaiBlueColor];
             break;
         }
         default:
             break;
     }
-    UIImageView *indicatorImageView = [[UIImageView alloc] initWithFrame:indicatorViewBackground.frame];
-    indicatorImageView.image = indicatorImage;
-    indicatorImageView.contentMode = UIViewContentModeScaleAspectFit;
-    indicatorImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
-    [indicatorViewBackground addSubview:indicatorImageView];
+    
     return indicatorViewBackground;
 }
 
