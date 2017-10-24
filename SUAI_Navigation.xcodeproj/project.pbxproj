@@ -17,6 +17,11 @@
 		5506029E1F372D9E00331DB7 /* BUGreetingsPresenterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 5506029D1F372D9E00331DB7 /* BUGreetingsPresenterState.m */; };
 		550602A11F372DBA00331DB7 /* BUGreetingsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 550602A01F372DBA00331DB7 /* BUGreetingsInteractor.m */; };
 		550602A71F373B1B00331DB7 /* BUGreetingsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 550602A61F373B1B00331DB7 /* BUGreetingsButton.m */; };
+		550FE7C31F9FA0F20026ABA9 /* BURightPanelMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 550FE7BD1F9FA0F20026ABA9 /* BURightPanelMapView.m */; };
+		550FE7C41F9FA0F20026ABA9 /* BULeftPanelMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 550FE7BE1F9FA0F20026ABA9 /* BULeftPanelMapView.m */; };
+		550FE7C51F9FA0F20026ABA9 /* BUPanelMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 550FE7BF1F9FA0F20026ABA9 /* BUPanelMapView.m */; };
+		550FE7CA1F9FA1000026ABA9 /* BULeftPanelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 550FE7C61F9FA0FF0026ABA9 /* BULeftPanelButton.m */; };
+		550FE7CB1F9FA1000026ABA9 /* BURightPanelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 550FE7C91F9FA0FF0026ABA9 /* BURightPanelButton.m */; };
 		5511EAAD1EC1F37E0088EAE7 /* BUMainStateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5511EAAC1EC1F37E0088EAE7 /* BUMainStateModel.m */; };
 		5511EAB91EC26C6F0088EAE7 /* BUTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5511EAB71EC26C6F0088EAE7 /* BUTableViewCell.m */; };
 		5511EABA1EC26C6F0088EAE7 /* BUTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5511EAB81EC26C6F0088EAE7 /* BUTableViewCell.xib */; };
@@ -217,6 +222,16 @@
 		550602A31F372DD700331DB7 /* BUGreetingsInteractorOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUGreetingsInteractorOutput.h; sourceTree = "<group>"; };
 		550602A51F373B1B00331DB7 /* BUGreetingsButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUGreetingsButton.h; sourceTree = "<group>"; };
 		550602A61F373B1B00331DB7 /* BUGreetingsButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUGreetingsButton.m; sourceTree = "<group>"; };
+		550FE7BD1F9FA0F20026ABA9 /* BURightPanelMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BURightPanelMapView.m; sourceTree = "<group>"; };
+		550FE7BE1F9FA0F20026ABA9 /* BULeftPanelMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BULeftPanelMapView.m; sourceTree = "<group>"; };
+		550FE7BF1F9FA0F20026ABA9 /* BUPanelMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUPanelMapView.m; sourceTree = "<group>"; };
+		550FE7C01F9FA0F20026ABA9 /* BURightPanelMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BURightPanelMapView.h; sourceTree = "<group>"; };
+		550FE7C11F9FA0F20026ABA9 /* BUPanelMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUPanelMapView.h; sourceTree = "<group>"; };
+		550FE7C21F9FA0F20026ABA9 /* BULeftPanelMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BULeftPanelMapView.h; sourceTree = "<group>"; };
+		550FE7C61F9FA0FF0026ABA9 /* BULeftPanelButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BULeftPanelButton.m; sourceTree = "<group>"; };
+		550FE7C71F9FA0FF0026ABA9 /* BURightPanelButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BURightPanelButton.h; sourceTree = "<group>"; };
+		550FE7C81F9FA0FF0026ABA9 /* BULeftPanelButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BULeftPanelButton.h; sourceTree = "<group>"; };
+		550FE7C91F9FA0FF0026ABA9 /* BURightPanelButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BURightPanelButton.m; sourceTree = "<group>"; };
 		5511EAAB1EC1F37E0088EAE7 /* BUMainStateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUMainStateModel.h; sourceTree = "<group>"; };
 		5511EAAC1EC1F37E0088EAE7 /* BUMainStateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUMainStateModel.m; sourceTree = "<group>"; };
 		5511EAB61EC26C6F0088EAE7 /* BUTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUTableViewCell.h; sourceTree = "<group>"; };
@@ -647,6 +662,19 @@
 				550602A61F373B1B00331DB7 /* BUGreetingsButton.m */,
 			);
 			path = Button;
+			sourceTree = "<group>";
+		};
+		550FE7BC1F9FA0F20026ABA9 /* Panel */ = {
+			isa = PBXGroup;
+			children = (
+				550FE7BD1F9FA0F20026ABA9 /* BURightPanelMapView.m */,
+				550FE7BE1F9FA0F20026ABA9 /* BULeftPanelMapView.m */,
+				550FE7BF1F9FA0F20026ABA9 /* BUPanelMapView.m */,
+				550FE7C01F9FA0F20026ABA9 /* BURightPanelMapView.h */,
+				550FE7C11F9FA0F20026ABA9 /* BUPanelMapView.h */,
+				550FE7C21F9FA0F20026ABA9 /* BULeftPanelMapView.h */,
+			);
+			path = Panel;
 			sourceTree = "<group>";
 		};
 		5511EAB51EC26C5F0088EAE7 /* Cell */ = {
@@ -1336,6 +1364,7 @@
 		557980241F8D61F200B40F67 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				550FE7BC1F9FA0F20026ABA9 /* Panel */,
 				55B88A0F1EAFDA5E00FBE41E /* Web */,
 				55B88A151EAFEC0B00FBE41E /* Toolbar */,
 				55B88A191EAFEF7700FBE41E /* Button */,
@@ -1765,6 +1794,10 @@
 		55B88A191EAFEF7700FBE41E /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				550FE7C81F9FA0FF0026ABA9 /* BULeftPanelButton.h */,
+				550FE7C61F9FA0FF0026ABA9 /* BULeftPanelButton.m */,
+				550FE7C71F9FA0FF0026ABA9 /* BURightPanelButton.h */,
+				550FE7C91F9FA0FF0026ABA9 /* BURightPanelButton.m */,
 				55A236451F34DED500A2249F /* BUCustomButtonView.h */,
 				55A236461F34DED500A2249F /* BUCustomButtonView.m */,
 			);
@@ -2244,6 +2277,7 @@
 				552F0E331F3F91E000B115D1 /* BUTableViewInfoCell.m in Sources */,
 				552F0E311F3F91BA00B115D1 /* BUTableViewInfoCellNamed.m in Sources */,
 				552F0E321F3F91BA00B115D1 /* BUTableViewInfoCellNormal.m in Sources */,
+				550FE7C51F9FA0F20026ABA9 /* BUPanelMapView.m in Sources */,
 				552F0E301F3F919500B115D1 /* BUInfoTableView.m in Sources */,
 				55BC96F01F3E2090005DDB5A /* BUAuditoryInfoViewController.m in Sources */,
 				552F53FB1F9516D300610E77 /* TBXML.m in Sources */,
@@ -2255,6 +2289,7 @@
 				55B3DE791F1BA51700B38B5F /* BUScheduleInteractor.m in Sources */,
 				5506029E1F372D9E00331DB7 /* BUGreetingsPresenterState.m in Sources */,
 				55A17C161F156256005694E5 /* AppDelegate.m in Sources */,
+				550FE7C31F9FA0F20026ABA9 /* BURightPanelMapView.m in Sources */,
 				550602A71F373B1B00331DB7 /* BUGreetingsButton.m in Sources */,
 				5529E1E51F23E93F00F5CA4F /* BUScheduleRouter.m in Sources */,
 				5522F9D61F196A1500D2AACE /* BUCustomSegmentedControl.m in Sources */,
@@ -2262,6 +2297,7 @@
 				5511EAAD1EC1F37E0088EAE7 /* BUMainStateModel.m in Sources */,
 				55A236A31F35175D00A2249F /* BUSettingsEntityViewController.m in Sources */,
 				5529C51E1F36118000911EF8 /* BUFirstStepView.m in Sources */,
+				550FE7C41F9FA0F20026ABA9 /* BULeftPanelMapView.m in Sources */,
 				55B88E031EBBB99B00FBE41E /* BUItem.m in Sources */,
 				55B88A121EAFDA7B00FBE41E /* BUNavigationWebView.m in Sources */,
 				557980031F8D5BD500B40F67 /* UIImage+Gradient.m in Sources */,
@@ -2296,11 +2332,13 @@
 				5529E2201F24E59300F5CA4F /* BUScheduleDetailInfoViewController.m in Sources */,
 				5511EAB91EC26C6F0088EAE7 /* BUTableViewCell.m in Sources */,
 				55C079161EBD1E4F002B250B /* NSString+Lowercalize.m in Sources */,
+				550FE7CA1F9FA1000026ABA9 /* BULeftPanelButton.m in Sources */,
 				55B88A1F1EB0F8EA00FBE41E /* BUAuditoryViewController.m in Sources */,
 				550602A11F372DBA00331DB7 /* BUGreetingsInteractor.m in Sources */,
 				553A0B861F2EC0FA000A58FA /* BUNavigationSearchScreenViewController.m in Sources */,
 				55E70A391F1EA1C9009C1548 /* BUAstronautView.m in Sources */,
 				55B3DE6E1F1BA17300B38B5F /* BUPair.m in Sources */,
+				550FE7CB1F9FA1000026ABA9 /* BURightPanelButton.m in Sources */,
 				55B88A351EB3611500FBE41E /* BUAuditoriesModel.m in Sources */,
 				55D4A4E11F3F00B200B62A8E /* BUChooseStartScreenView.m in Sources */,
 				5529E1F51F241CAB00F5CA4F /* NSArray+Codes.m in Sources */,
