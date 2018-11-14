@@ -18,7 +18,6 @@
 		550602A11F372DBA00331DB7 /* BUGreetingsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 550602A01F372DBA00331DB7 /* BUGreetingsInteractor.m */; };
 		550602A71F373B1B00331DB7 /* BUGreetingsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 550602A61F373B1B00331DB7 /* BUGreetingsButton.m */; };
 		550AD45D2138710900FB24E3 /* information.json in Resources */ = {isa = PBXBuildFile; fileRef = 550AD45C2138710900FB24E3 /* information.json */; };
-		550AD62C213AD76000FB24E3 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 550AD62B213AD76000FB24E3 /* assets */; };
 		550FE7C31F9FA0F20026ABA9 /* BURightPanelMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 550FE7BD1F9FA0F20026ABA9 /* BURightPanelMapView.m */; };
 		550FE7C41F9FA0F20026ABA9 /* BULeftPanelMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 550FE7BE1F9FA0F20026ABA9 /* BULeftPanelMapView.m */; };
 		550FE7C51F9FA0F20026ABA9 /* BUPanelMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 550FE7BF1F9FA0F20026ABA9 /* BUPanelMapView.m */; };
@@ -113,6 +112,50 @@
 		555685271F93C0F200B12987 /* BUIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 555685261F93C0F200B12987 /* BUIndicatorView.m */; };
 		5556BF711F36FDE300A7352B /* BUGreetingsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5556BF701F36FDE300A7352B /* BUGreetingsPresenter.m */; };
 		55617776201905F200075060 /* BUScheduleViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55617775201905F200075060 /* BUScheduleViewController.storyboard */; };
+		5578E480219CA1420052E9CD /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 5578E44F219CA1410052E9CD /* index.html */; };
+		5578E481219CA1420052E9CD /* mainLoad.css in Resources */ = {isa = PBXBuildFile; fileRef = 5578E451219CA1410052E9CD /* mainLoad.css */; };
+		5578E482219CA1420052E9CD /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = 5578E452219CA1410052E9CD /* bootstrap.min.css */; };
+		5578E483219CA1420052E9CD /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = 5578E453219CA1410052E9CD /* main.css */; };
+		5578E484219CA1420052E9CD /* desktopMain.css in Resources */ = {isa = PBXBuildFile; fileRef = 5578E454219CA1410052E9CD /* desktopMain.css */; };
+		5578E485219CA1420052E9CD /* modernizr-2.6.2.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 5578E456219CA1410052E9CD /* modernizr-2.6.2.min.js */; };
+		5578E486219CA1420052E9CD /* pathFinder.js in Resources */ = {isa = PBXBuildFile; fileRef = 5578E457219CA1410052E9CD /* pathFinder.js */; };
+		5578E487219CA1420052E9CD /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 5578E458219CA1410052E9CD /* main.js */; };
+		5578E488219CA1420052E9CD /* interaction-web.js in Resources */ = {isa = PBXBuildFile; fileRef = 5578E459219CA1410052E9CD /* interaction-web.js */; };
+		5578E489219CA1420052E9CD /* bootstrap.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 5578E45A219CA1410052E9CD /* bootstrap.min.js */; };
+		5578E48A219CA1420052E9CD /* jquery-1.10.2.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 5578E45B219CA1410052E9CD /* jquery-1.10.2.min.js */; };
+		5578E48B219CA1420052E9CD /* descriptions.js in Resources */ = {isa = PBXBuildFile; fileRef = 5578E45C219CA1410052E9CD /* descriptions.js */; };
+		5578E48C219CA1420052E9CD /* bm-v2.min.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5578E45E219CA1410052E9CD /* bm-v2.min.svg */; };
+		5578E48D219CA1420052E9CD /* bm-v.min.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5578E45F219CA1410052E9CD /* bm-v.min.svg */; };
+		5578E48E219CA1420052E9CD /* information_unauth.json in Resources */ = {isa = PBXBuildFile; fileRef = 5578E460219CA1410052E9CD /* information_unauth.json */; };
+		5578E48F219CA1420052E9CD /* versions.json in Resources */ = {isa = PBXBuildFile; fileRef = 5578E461219CA1410052E9CD /* versions.json */; };
+		5578E490219CA1420052E9CD /* sinonims.json in Resources */ = {isa = PBXBuildFile; fileRef = 5578E462219CA1410052E9CD /* sinonims.json */; };
+		5578E491219CA1420052E9CD /* information_full.json in Resources */ = {isa = PBXBuildFile; fileRef = 5578E463219CA1410052E9CD /* information_full.json */; };
+		5578E492219CA1420052E9CD /* sputnik_m.png in Resources */ = {isa = PBXBuildFile; fileRef = 5578E465219CA1410052E9CD /* sputnik_m.png */; };
+		5578E493219CA1420052E9CD /* i8.png in Resources */ = {isa = PBXBuildFile; fileRef = 5578E466219CA1410052E9CD /* i8.png */; };
+		5578E494219CA1420052E9CD /* guap-main.png in Resources */ = {isa = PBXBuildFile; fileRef = 5578E467219CA1410052E9CD /* guap-main.png */; };
+		5578E495219CA1420052E9CD /* ibmp.png in Resources */ = {isa = PBXBuildFile; fileRef = 5578E468219CA1410052E9CD /* ibmp.png */; };
+		5578E496219CA1420052E9CD /* fspo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5578E469219CA1410052E9CD /* fspo.png */; };
+		5578E497219CA1420052E9CD /* i1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5578E46A219CA1410052E9CD /* i1.png */; };
+		5578E498219CA1420052E9CD /* fdpo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5578E46B219CA1410052E9CD /* fdpo.png */; };
+		5578E499219CA1420052E9CD /* i2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5578E46C219CA1410052E9CD /* i2.png */; };
+		5578E49A219CA1420052E9CD /* i3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5578E46D219CA1410052E9CD /* i3.png */; };
+		5578E49B219CA1420052E9CD /* i7.png in Resources */ = {isa = PBXBuildFile; fileRef = 5578E46E219CA1410052E9CD /* i7.png */; };
+		5578E49C219CA1420052E9CD /* i6.png in Resources */ = {isa = PBXBuildFile; fileRef = 5578E46F219CA1410052E9CD /* i6.png */; };
+		5578E49D219CA1420052E9CD /* i4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5578E470219CA1410052E9CD /* i4.png */; };
+		5578E49E219CA1420052E9CD /* i5.png in Resources */ = {isa = PBXBuildFile; fileRef = 5578E471219CA1410052E9CD /* i5.png */; };
+		5578E49F219CA1420052E9CD /* indo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5578E472219CA1410052E9CD /* indo.png */; };
+		5578E4A0219CA1420052E9CD /* bm-v.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5578E473219CA1410052E9CD /* bm-v.svg */; };
+		5578E4A1219CA1420052E9CD /* fontawesome-webfont.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5578E475219CA1410052E9CD /* fontawesome-webfont.svg */; };
+		5578E4A2219CA1420052E9CD /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5578E476219CA1410052E9CD /* FontAwesome.otf */; };
+		5578E4A3219CA1420052E9CD /* glyphicons-halflings-regular.woff in Resources */ = {isa = PBXBuildFile; fileRef = 5578E477219CA1410052E9CD /* glyphicons-halflings-regular.woff */; };
+		5578E4A4219CA1420052E9CD /* glyphicons-halflings-regular.eot in Resources */ = {isa = PBXBuildFile; fileRef = 5578E478219CA1410052E9CD /* glyphicons-halflings-regular.eot */; };
+		5578E4A5219CA1420052E9CD /* glyphicons-halflings-regular.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = 5578E479219CA1410052E9CD /* glyphicons-halflings-regular.woff2 */; };
+		5578E4A6219CA1420052E9CD /* glyphicons-halflings-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5578E47A219CA1410052E9CD /* glyphicons-halflings-regular.ttf */; };
+		5578E4A7219CA1420052E9CD /* fontawesome-webfont.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = 5578E47B219CA1410052E9CD /* fontawesome-webfont.woff2 */; };
+		5578E4A8219CA1420052E9CD /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5578E47C219CA1410052E9CD /* fontawesome-webfont.ttf */; };
+		5578E4A9219CA1420052E9CD /* fontawesome-webfont.woff in Resources */ = {isa = PBXBuildFile; fileRef = 5578E47D219CA1410052E9CD /* fontawesome-webfont.woff */; };
+		5578E4AA219CA1420052E9CD /* glyphicons-halflings-regular.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5578E47E219CA1410052E9CD /* glyphicons-halflings-regular.svg */; };
+		5578E4AB219CA1420052E9CD /* fontawesome-webfont.eot in Resources */ = {isa = PBXBuildFile; fileRef = 5578E47F219CA1410052E9CD /* fontawesome-webfont.eot */; };
 		55797FFC1F8D5B2D00B40F67 /* CAPSPageMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 55797FFB1F8D5B2D00B40F67 /* CAPSPageMenu.m */; };
 		557980021F8D5BD500B40F67 /* UIColor+SUAI.m in Sources */ = {isa = PBXBuildFile; fileRef = 55797FFF1F8D5BD500B40F67 /* UIColor+SUAI.m */; };
 		557980031F8D5BD500B40F67 /* UIImage+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 557980011F8D5BD500B40F67 /* UIImage+Gradient.m */; };
@@ -252,7 +295,6 @@
 		550602A51F373B1B00331DB7 /* BUGreetingsButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUGreetingsButton.h; sourceTree = "<group>"; };
 		550602A61F373B1B00331DB7 /* BUGreetingsButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUGreetingsButton.m; sourceTree = "<group>"; };
 		550AD45C2138710900FB24E3 /* information.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = information.json; sourceTree = "<group>"; };
-		550AD62B213AD76000FB24E3 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		550FE7BD1F9FA0F20026ABA9 /* BURightPanelMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BURightPanelMapView.m; sourceTree = "<group>"; };
 		550FE7BE1F9FA0F20026ABA9 /* BULeftPanelMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BULeftPanelMapView.m; sourceTree = "<group>"; };
 		550FE7BF1F9FA0F20026ABA9 /* BUPanelMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUPanelMapView.m; sourceTree = "<group>"; };
@@ -437,6 +479,50 @@
 		5556BF721F3702B100A7352B /* BUGreetingsViewControllerInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUGreetingsViewControllerInput.h; sourceTree = "<group>"; };
 		5556BF731F3702C100A7352B /* BUGreetingsViewControllerOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUGreetingsViewControllerOutput.h; sourceTree = "<group>"; };
 		55617775201905F200075060 /* BUScheduleViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BUScheduleViewController.storyboard; sourceTree = "<group>"; };
+		5578E44F219CA1410052E9CD /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		5578E451219CA1410052E9CD /* mainLoad.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = mainLoad.css; sourceTree = "<group>"; };
+		5578E452219CA1410052E9CD /* bootstrap.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = bootstrap.min.css; sourceTree = "<group>"; };
+		5578E453219CA1410052E9CD /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = main.css; sourceTree = "<group>"; };
+		5578E454219CA1410052E9CD /* desktopMain.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = desktopMain.css; sourceTree = "<group>"; };
+		5578E456219CA1410052E9CD /* modernizr-2.6.2.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "modernizr-2.6.2.min.js"; sourceTree = "<group>"; };
+		5578E457219CA1410052E9CD /* pathFinder.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = pathFinder.js; sourceTree = "<group>"; };
+		5578E458219CA1410052E9CD /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
+		5578E459219CA1410052E9CD /* interaction-web.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "interaction-web.js"; sourceTree = "<group>"; };
+		5578E45A219CA1410052E9CD /* bootstrap.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = bootstrap.min.js; sourceTree = "<group>"; };
+		5578E45B219CA1410052E9CD /* jquery-1.10.2.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-1.10.2.min.js"; sourceTree = "<group>"; };
+		5578E45C219CA1410052E9CD /* descriptions.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = descriptions.js; sourceTree = "<group>"; };
+		5578E45E219CA1410052E9CD /* bm-v2.min.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "bm-v2.min.svg"; sourceTree = "<group>"; };
+		5578E45F219CA1410052E9CD /* bm-v.min.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "bm-v.min.svg"; sourceTree = "<group>"; };
+		5578E460219CA1410052E9CD /* information_unauth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = information_unauth.json; sourceTree = "<group>"; };
+		5578E461219CA1410052E9CD /* versions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = versions.json; sourceTree = "<group>"; };
+		5578E462219CA1410052E9CD /* sinonims.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sinonims.json; sourceTree = "<group>"; };
+		5578E463219CA1410052E9CD /* information_full.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = information_full.json; sourceTree = "<group>"; };
+		5578E465219CA1410052E9CD /* sputnik_m.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sputnik_m.png; sourceTree = "<group>"; };
+		5578E466219CA1410052E9CD /* i8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i8.png; sourceTree = "<group>"; };
+		5578E467219CA1410052E9CD /* guap-main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guap-main.png"; sourceTree = "<group>"; };
+		5578E468219CA1410052E9CD /* ibmp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ibmp.png; sourceTree = "<group>"; };
+		5578E469219CA1410052E9CD /* fspo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fspo.png; sourceTree = "<group>"; };
+		5578E46A219CA1410052E9CD /* i1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i1.png; sourceTree = "<group>"; };
+		5578E46B219CA1410052E9CD /* fdpo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fdpo.png; sourceTree = "<group>"; };
+		5578E46C219CA1410052E9CD /* i2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i2.png; sourceTree = "<group>"; };
+		5578E46D219CA1410052E9CD /* i3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i3.png; sourceTree = "<group>"; };
+		5578E46E219CA1410052E9CD /* i7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i7.png; sourceTree = "<group>"; };
+		5578E46F219CA1410052E9CD /* i6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i6.png; sourceTree = "<group>"; };
+		5578E470219CA1410052E9CD /* i4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i4.png; sourceTree = "<group>"; };
+		5578E471219CA1410052E9CD /* i5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i5.png; sourceTree = "<group>"; };
+		5578E472219CA1410052E9CD /* indo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = indo.png; sourceTree = "<group>"; };
+		5578E473219CA1410052E9CD /* bm-v.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "bm-v.svg"; sourceTree = "<group>"; };
+		5578E475219CA1410052E9CD /* fontawesome-webfont.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "fontawesome-webfont.svg"; sourceTree = "<group>"; };
+		5578E476219CA1410052E9CD /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
+		5578E477219CA1410052E9CD /* glyphicons-halflings-regular.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "glyphicons-halflings-regular.woff"; sourceTree = "<group>"; };
+		5578E478219CA1410052E9CD /* glyphicons-halflings-regular.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = "glyphicons-halflings-regular.eot"; sourceTree = "<group>"; };
+		5578E479219CA1410052E9CD /* glyphicons-halflings-regular.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "glyphicons-halflings-regular.woff2"; sourceTree = "<group>"; };
+		5578E47A219CA1410052E9CD /* glyphicons-halflings-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "glyphicons-halflings-regular.ttf"; sourceTree = "<group>"; };
+		5578E47B219CA1410052E9CD /* fontawesome-webfont.woff2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.woff2"; sourceTree = "<group>"; };
+		5578E47C219CA1410052E9CD /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
+		5578E47D219CA1410052E9CD /* fontawesome-webfont.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.woff"; sourceTree = "<group>"; };
+		5578E47E219CA1410052E9CD /* glyphicons-halflings-regular.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "glyphicons-halflings-regular.svg"; sourceTree = "<group>"; };
+		5578E47F219CA1410052E9CD /* fontawesome-webfont.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.eot"; sourceTree = "<group>"; };
 		55797FFA1F8D5B2D00B40F67 /* CAPSPageMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAPSPageMenu.h; sourceTree = "<group>"; };
 		55797FFB1F8D5B2D00B40F67 /* CAPSPageMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAPSPageMenu.m; sourceTree = "<group>"; };
 		55797FFE1F8D5BD500B40F67 /* UIColor+SUAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+SUAI.h"; path = "SUAI_Navigation/Root/Categories/UIColor/UIColor+SUAI.h"; sourceTree = SOURCE_ROOT; };
@@ -1060,7 +1146,7 @@
 		5532C8BC1F3136EB0096807D /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				550AD62B213AD76000FB24E3 /* assets */,
+				5578E44E219CA1410052E9CD /* assets */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -1390,6 +1476,97 @@
 				5556BF731F3702C100A7352B /* BUGreetingsViewControllerOutput.h */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5578E44E219CA1410052E9CD /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				5578E44F219CA1410052E9CD /* index.html */,
+				5578E450219CA1410052E9CD /* css */,
+				5578E455219CA1410052E9CD /* js */,
+				5578E45D219CA1410052E9CD /* resources */,
+				5578E474219CA1410052E9CD /* fonts */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		5578E450219CA1410052E9CD /* css */ = {
+			isa = PBXGroup;
+			children = (
+				5578E451219CA1410052E9CD /* mainLoad.css */,
+				5578E452219CA1410052E9CD /* bootstrap.min.css */,
+				5578E453219CA1410052E9CD /* main.css */,
+				5578E454219CA1410052E9CD /* desktopMain.css */,
+			);
+			path = css;
+			sourceTree = "<group>";
+		};
+		5578E455219CA1410052E9CD /* js */ = {
+			isa = PBXGroup;
+			children = (
+				5578E456219CA1410052E9CD /* modernizr-2.6.2.min.js */,
+				5578E457219CA1410052E9CD /* pathFinder.js */,
+				5578E458219CA1410052E9CD /* main.js */,
+				5578E459219CA1410052E9CD /* interaction-web.js */,
+				5578E45A219CA1410052E9CD /* bootstrap.min.js */,
+				5578E45B219CA1410052E9CD /* jquery-1.10.2.min.js */,
+				5578E45C219CA1410052E9CD /* descriptions.js */,
+			);
+			path = js;
+			sourceTree = "<group>";
+		};
+		5578E45D219CA1410052E9CD /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				5578E45E219CA1410052E9CD /* bm-v2.min.svg */,
+				5578E45F219CA1410052E9CD /* bm-v.min.svg */,
+				5578E460219CA1410052E9CD /* information_unauth.json */,
+				5578E461219CA1410052E9CD /* versions.json */,
+				5578E462219CA1410052E9CD /* sinonims.json */,
+				5578E463219CA1410052E9CD /* information_full.json */,
+				5578E464219CA1410052E9CD /* icons */,
+				5578E473219CA1410052E9CD /* bm-v.svg */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		5578E464219CA1410052E9CD /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				5578E465219CA1410052E9CD /* sputnik_m.png */,
+				5578E466219CA1410052E9CD /* i8.png */,
+				5578E467219CA1410052E9CD /* guap-main.png */,
+				5578E468219CA1410052E9CD /* ibmp.png */,
+				5578E469219CA1410052E9CD /* fspo.png */,
+				5578E46A219CA1410052E9CD /* i1.png */,
+				5578E46B219CA1410052E9CD /* fdpo.png */,
+				5578E46C219CA1410052E9CD /* i2.png */,
+				5578E46D219CA1410052E9CD /* i3.png */,
+				5578E46E219CA1410052E9CD /* i7.png */,
+				5578E46F219CA1410052E9CD /* i6.png */,
+				5578E470219CA1410052E9CD /* i4.png */,
+				5578E471219CA1410052E9CD /* i5.png */,
+				5578E472219CA1410052E9CD /* indo.png */,
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
+		5578E474219CA1410052E9CD /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5578E475219CA1410052E9CD /* fontawesome-webfont.svg */,
+				5578E476219CA1410052E9CD /* FontAwesome.otf */,
+				5578E477219CA1410052E9CD /* glyphicons-halflings-regular.woff */,
+				5578E478219CA1410052E9CD /* glyphicons-halflings-regular.eot */,
+				5578E479219CA1410052E9CD /* glyphicons-halflings-regular.woff2 */,
+				5578E47A219CA1410052E9CD /* glyphicons-halflings-regular.ttf */,
+				5578E47B219CA1410052E9CD /* fontawesome-webfont.woff2 */,
+				5578E47C219CA1410052E9CD /* fontawesome-webfont.ttf */,
+				5578E47D219CA1410052E9CD /* fontawesome-webfont.woff */,
+				5578E47E219CA1410052E9CD /* glyphicons-halflings-regular.svg */,
+				5578E47F219CA1410052E9CD /* fontawesome-webfont.eot */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 		55797FF61F8D5AFF00B40F67 /* CAPSPageMenu */ = {
@@ -2376,39 +2553,79 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5578E487219CA1420052E9CD /* main.js in Resources */,
 				55228D80205D4D0D006A134F /* BUToolbarView.xib in Resources */,
+				5578E480219CA1420052E9CD /* index.html in Resources */,
 				559DB2DD1F632FFB003FC464 /* BUGuestView.xib in Resources */,
+				5578E4A7219CA1420052E9CD /* fontawesome-webfont.woff2 in Resources */,
+				5578E4A9219CA1420052E9CD /* fontawesome-webfont.woff in Resources */,
+				5578E4AB219CA1420052E9CD /* fontawesome-webfont.eot in Resources */,
 				554CB4C22019137F004B2149 /* BUScheduleDetailInfoViewController.storyboard in Resources */,
+				5578E496219CA1420052E9CD /* fspo.png in Resources */,
+				5578E493219CA1420052E9CD /* i8.png in Resources */,
 				55FAC4F31FBF6378001BC129 /* BUReferenceHeaderTableViewCell.xib in Resources */,
+				5578E4A8219CA1420052E9CD /* fontawesome-webfont.ttf in Resources */,
 				551931751FC224ED00FD602A /* BUReferenceDefaultTableViewCell.xib in Resources */,
+				5578E49D219CA1420052E9CD /* i4.png in Resources */,
+				5578E49B219CA1420052E9CD /* i7.png in Resources */,
 				5529C5251F3611B300911EF8 /* BUSecondStepView.xib in Resources */,
+				5578E4A0219CA1420052E9CD /* bm-v.svg in Resources */,
 				552C490D1F3F5012000D381E /* BUFailView.xib in Resources */,
+				5578E48C219CA1420052E9CD /* bm-v2.min.svg in Resources */,
+				5578E498219CA1420052E9CD /* fdpo.png in Resources */,
 				55031E381F3608C20039B261 /* BUGreetingsViewController.xib in Resources */,
+				5578E48D219CA1420052E9CD /* bm-v.min.svg in Resources */,
+				5578E49C219CA1420052E9CD /* i6.png in Resources */,
+				5578E483219CA1420052E9CD /* main.css in Resources */,
+				5578E4A4219CA1420052E9CD /* glyphicons-halflings-regular.eot in Resources */,
 				5529C5201F36118600911EF8 /* BUFirstStepView.xib in Resources */,
 				551898E11F16D7480046BA33 /* Roboto-Italic.ttf in Resources */,
 				55FAC4E91FBF5C7C001BC129 /* BUReferenceHeadTableViewCell.xib in Resources */,
+				5578E492219CA1420052E9CD /* sputnik_m.png in Resources */,
 				553A0B7A1F2E792A000A58FA /* BUNewsDetailInfoTableViewCell.xib in Resources */,
 				55B889CF1EAE8E9800FBE41E /* LaunchScreen.storyboard in Resources */,
 				551898DF1F16D7480046BA33 /* Roboto-Bold.ttf in Resources */,
+				5578E49F219CA1420052E9CD /* indo.png in Resources */,
+				5578E497219CA1420052E9CD /* i1.png in Resources */,
+				5578E495219CA1420052E9CD /* ibmp.png in Resources */,
 				551898EB1F16D7480046BA33 /* RobotoCondensed-Light.ttf in Resources */,
 				55E70A401F1EADDE009C1548 /* BUScheduleRefreshView.xib in Resources */,
+				5578E4AA219CA1420052E9CD /* glyphicons-halflings-regular.svg in Resources */,
 				5552183F1FC459A8007F96D6 /* BUReferenceLinkTableViewCell.xib in Resources */,
+				5578E486219CA1420052E9CD /* pathFinder.js in Resources */,
+				5578E491219CA1420052E9CD /* information_full.json in Resources */,
+				5578E489219CA1420052E9CD /* bootstrap.min.js in Resources */,
+				5578E48A219CA1420052E9CD /* jquery-1.10.2.min.js in Resources */,
 				55B889CC1EAE8E9800FBE41E /* Assets.xcassets in Resources */,
+				5578E4A2219CA1420052E9CD /* FontAwesome.otf in Resources */,
 				551898DD1F16D7480046BA33 /* Roboto-Black.ttf in Resources */,
+				5578E484219CA1420052E9CD /* desktopMain.css in Resources */,
 				551898EA1F16D7480046BA33 /* RobotoCondensed-Italic.ttf in Resources */,
+				5578E490219CA1420052E9CD /* sinonims.json in Resources */,
 				551898E91F16D7480046BA33 /* RobotoCondensed-BoldItalic.ttf in Resources */,
-				550AD62C213AD76000FB24E3 /* assets in Resources */,
 				55C300CE1F2E364500C07CD7 /* BUNewsTableViewCell.xib in Resources */,
+				5578E48B219CA1420052E9CD /* descriptions.js in Resources */,
+				5578E481219CA1420052E9CD /* mainLoad.css in Resources */,
+				5578E4A6219CA1420052E9CD /* glyphicons-halflings-regular.ttf in Resources */,
 				551898E71F16D7480046BA33 /* Roboto-ThinItalic.ttf in Resources */,
+				5578E48F219CA1420052E9CD /* versions.json in Resources */,
 				55E70A3B1F1EA1D0009C1548 /* BUAstronautView.xib in Resources */,
 				557980141F8D5E8100B40F67 /* BUCameraViewController.xib in Resources */,
 				550AD45D2138710900FB24E3 /* information.json in Resources */,
 				551898E81F16D7480046BA33 /* RobotoCondensed-Bold.ttf in Resources */,
 				55617776201905F200075060 /* BUScheduleViewController.storyboard in Resources */,
+				5578E485219CA1420052E9CD /* modernizr-2.6.2.min.js in Resources */,
 				551898ED1F16D7480046BA33 /* RobotoCondensed-Regular.ttf in Resources */,
 				557D93201FCAFB3100D200E3 /* BUReferenceTimeTableViewCell.xib in Resources */,
 				5538D40E1F3F470A00B38AAF /* BUAboutAppViewController.xib in Resources */,
+				5578E4A5219CA1420052E9CD /* glyphicons-halflings-regular.woff2 in Resources */,
+				5578E49E219CA1420052E9CD /* i5.png in Resources */,
+				5578E4A1219CA1420052E9CD /* fontawesome-webfont.svg in Resources */,
 				554CB4C6201917C5004B2149 /* BUMainScreenViewController.storyboard in Resources */,
+				5578E482219CA1420052E9CD /* bootstrap.min.css in Resources */,
+				5578E488219CA1420052E9CD /* interaction-web.js in Resources */,
+				5578E49A219CA1420052E9CD /* i3.png in Resources */,
+				5578E4A3219CA1420052E9CD /* glyphicons-halflings-regular.woff in Resources */,
 				551898E21F16D7480046BA33 /* Roboto-Light.ttf in Resources */,
 				55FAC4EE1FBF5F7B001BC129 /* BUReferenceCathedraTableViewCell.xib in Resources */,
 				551898E41F16D7480046BA33 /* Roboto-Medium.ttf in Resources */,
@@ -2418,8 +2635,11 @@
 				551898E31F16D7480046BA33 /* Roboto-LightItalic.ttf in Resources */,
 				551898EC1F16D7480046BA33 /* RobotoCondensed-LightItalic.ttf in Resources */,
 				551898E51F16D7480046BA33 /* Roboto-MediumItalic.ttf in Resources */,
+				5578E48E219CA1420052E9CD /* information_unauth.json in Resources */,
 				551898E01F16D7480046BA33 /* Roboto-BoldItalic.ttf in Resources */,
 				551898E61F16D7480046BA33 /* Roboto-Thin.ttf in Resources */,
+				5578E494219CA1420052E9CD /* guap-main.png in Resources */,
+				5578E499219CA1420052E9CD /* i2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
