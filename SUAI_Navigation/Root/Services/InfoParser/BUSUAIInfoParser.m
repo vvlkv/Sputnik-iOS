@@ -54,35 +54,35 @@
 - (NSArray *)loadFaculties:(TBXMLElement *)faculties {
     
     NSMutableArray *objects = [NSMutableArray array];
-    TBXMLElement *faculty = faculties->firstChild;
-    TBXMLElement *element;
-    NSArray *attributes;
-    
-    do {
-        element = (faculty->firstChild);
-        NSString *facultNumber = [TBXML valueOfAttributeNamed:@"number" forElement:faculty];
-        NSString *facultName = [TBXML valueOfAttributeNamed:@"name" forElement:faculty];
-        BUFaculty *facultEntity = [[BUFaculty alloc] initWithNumber:facultNumber
-                                                            andName:facultName];
-        [objects addObject:facultEntity];
-        do {
-            if ([[TBXML elementName:element] isEqualToString:@"Dean"]) {
-                
-                attributes = @[@"Auditorium", @"Telephone", @"HeaderName|name"];
-                BUDean *dean = (BUDean *)[self loadEntity:element withAttributes:attributes andClass:[BUDean class]];
-                [dean setHeader:[facultEntity title]];
-                facultEntity.dean = dean;
-                
-            } else {
-                
-                attributes = @[@"name", @"Auditorium", @"number", @"Telephone", @"HeaderName|headerName"];
-                BUCathedral *cathedral = (BUCathedral *)[self loadEntity:element withAttributes:attributes andClass:[BUCathedral class]];
-                [cathedral setHeader:cathedral.name];
-                [facultEntity addCathedral:cathedral];
-            }
-        } while ((element = element->nextSibling));
-    } while ((faculty = faculty->nextSibling));
-    
+//    TBXMLElement *faculty = faculties->firstChild;
+//    TBXMLElement *element;
+//    NSArray *attributes;
+//
+//    do {
+//        element = (faculty->firstChild);
+//        NSString *facultNumber = [TBXML valueOfAttributeNamed:@"number" forElement:faculty];
+//        NSString *facultName = [TBXML valueOfAttributeNamed:@"name" forElement:faculty];
+//        BUFaculty *facultEntity = [[BUFaculty alloc] initWithNumber:facultNumber
+//                                                            andName:facultName];
+//        [objects addObject:facultEntity];
+//        do {
+//            if ([[TBXML elementName:element] isEqualToString:@"Dean"]) {
+//
+//                attributes = @[@"Auditorium", @"Telephone", @"HeaderName|name"];
+//                BUDean *dean = (BUDean *)[self loadEntity:element withAttributes:attributes andClass:[BUDean class]];
+//                [dean setHeader:[facultEntity title]];
+//                facultEntity.dean = dean;
+//
+//            } else {
+//
+//                attributes = @[@"name", @"Auditorium", @"number", @"Telephone", @"HeaderName|headerName"];
+//                BUCathedral *cathedral = (BUCathedral *)[self loadEntity:element withAttributes:attributes andClass:[BUCathedral class]];
+//                [cathedral setHeader:cathedral.name];
+//                [facultEntity addCathedral:cathedral];
+//            }
+//        } while ((element = element->nextSibling));
+//    } while ((faculty = faculty->nextSibling));
+//
     return [objects copy];
 }
 

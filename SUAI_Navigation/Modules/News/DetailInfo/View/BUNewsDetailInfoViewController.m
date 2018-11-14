@@ -7,12 +7,12 @@
 //
 
 #import "BUNewsDetailInfoViewController.h"
+#import "SVProgressHUD.h"
 #import "BUNewsDetailInfoTableViewCell.h"
 #import "BUNews.h"
 
 @interface BUNewsDetailInfoViewController () <UITableViewDelegate, UITableViewDataSource> {
     UITableView *detailInfoNewsTableView;
-    UIActivityIndicatorView *indicator;
 }
 
 @end
@@ -21,19 +21,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    CGRect frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) - 64 - 49);
-    detailInfoNewsTableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    detailInfoNewsTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     detailInfoNewsTableView.delegate = self;
     detailInfoNewsTableView.dataSource = self;
-    indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    indicator.frame = CGRectMake(CGRectGetWidth(self.view.frame)/2 - 10, CGRectGetHeight(self.view.frame)/2 - 10 - 64, 20, 20);
-    indicator.hidesWhenStopped = YES;
-    [indicator startAnimating];
-    [self.view addSubview:indicator];
     [self.output viewDidLoad];
+    [SVProgressHUD show];
     detailInfoNewsTableView.estimatedRowHeight = 101.f;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    detailInfoNewsTableView.frame = self.view.bounds;
+}
 
 #pragma mark - UITableViewDelegate
 
@@ -73,17 +73,25 @@
 #pragma mark - BUNewsDetailInfoViewControllerInput
 
 - (void)updateContent {
-    [indicator stopAnimating];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+        });
+    });
     [self.view addSubview:detailInfoNewsTableView];
 }
 
 - (void)loadFailed {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+        });
+    });
     UILabel *failLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 40, self.view.frame.size.width - 40, 100)];
     failLabel.text = @"Соединение с интернетом потеряно :(";
     failLabel.numberOfLines = 0;
     failLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:failLabel];
-    [indicator stopAnimating];
 }
 
 @end

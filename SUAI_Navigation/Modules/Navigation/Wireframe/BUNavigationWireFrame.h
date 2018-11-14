@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ModuleWireframe.h"
 
 @class UIViewController;
-@interface BUNavigationWireFrame : NSObject
-
-+ (UIViewController *)assemblyNavigation;
+@interface BUNavigationWireFrame : NSObject <ModuleWireframe>
 
 @end

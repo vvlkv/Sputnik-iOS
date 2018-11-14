@@ -14,8 +14,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.layer.borderColor = [[UIColor blackColor] CGColor];
-        self.layer.borderWidth = 1.f;
         [self appendButtonImageWithType:type];
     }
     return self;

@@ -7,11 +7,14 @@
 //
 
 #import "BUNavigationWebView.h"
+#import <WebKit/WebKit.h>
 
-@interface BUNavigationWebView() <UIWebViewDelegate> {
-}
+const NSString *floorsDescription[] = {@"main_map",@"first_floor", @"second_floor", @"third_floor", @"fourth_floor"};
+const NSString *zoomDescription[] = {@"HandleButtonZoom(-1.25)", @"HandleButtonZoom(1.25)"};
 
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@interface BUNavigationWebView() <UIWebViewDelegate, WKUIDelegate, WKNavigationDelegate>
+
+@property (strong, nonatomic) WKWebView *webView;
 
 @end
 
@@ -19,44 +22,69 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.backgroundColor = [UIColor whiteColor];
-    self.webView.delegate = self;
-    self.webView.scalesPageToFit = NO;
-    self.webView.scrollView.scrollEnabled = NO;
+    [self initWebView];
+}
+
+- (void)initWebView {
+    WKPreferences *prefs = [[WKPreferences alloc] init];
+    prefs.javaScriptEnabled = YES;
+    WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
+    configuration.preferences = prefs;
+    
+    [configuration.preferences setValue:@YES forKey:@"allowFileAccessFromFileURLs"];
+    
+    self.webView = [[WKWebView alloc] initWithFrame:[self bounds] configuration:configuration];
+    self.webView.UIDelegate = self;
+    self.webView.navigationDelegate = self;
+    
+    [self.webView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
     self.webView.scrollView.bounces = NO;
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"];
-    NSString *htmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-    if (htmlString) {
-        [self.webView loadHTMLString:htmlString baseURL:[[NSBundle mainBundle] resourceURL]];
-    }
+    self.webView.scrollView.scrollEnabled = NO;
+    [self addSubview:self.webView];
+    [self sendSubviewToBack:self.webView];
+    
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"index" withExtension:@"html" subdirectory:@"assets"];
+    NSString *folderString = [[url URLByDeletingLastPathComponent] absoluteString];
+    NSURL *folderURL = [NSURL fileURLWithPath:folderString isDirectory:YES];
+    [self.webView loadFileURL:url allowingReadAccessToURL:folderURL];
 }
 
 - (void)refreshMap {
-    [self.webView stringByEvaluatingJavaScriptFromString:@"ToNewFloor('main_map')"];
+    [self.webView evaluateJavaScript:@"ToNewFloor('main_map')" completionHandler:nil];
 }
 
-- (NSInteger)showAuditory:(NSString *)auditory {
-    NSString *js = [NSString stringWithFormat:@"SetNewAudFromAndroid(false, '%@')", auditory];
-    [self.webView stringByEvaluatingJavaScriptFromString:js];
-    NSString *retValue = [self.webView stringByEvaluatingJavaScriptFromString:@"RoomFinder(false)"];
-    return [retValue integerValue];
+- (void)showAuditory:(NSString *)auditory errCode:(void (^)(NSInteger code))errorCode {
+    NSString *js = [NSString stringWithFormat:@"SetRoomName(false, '%@')", auditory];
+    [self.webView evaluateJavaScript:js completionHandler:nil];
+    [self.webView evaluateJavaScript:@"RoomFinder(false)" completionHandler:^(id _Nullable ident, NSError * _Nullable error) {
+        errorCode([ident integerValue]);
+    }];
+}
+
+- (void)changeFloor:(NSUInteger)floorNumber {
+    NSString *js = [NSString stringWithFormat:@"ToNewFloor('%@')", floorsDescription[floorNumber]];
+    [self.webView evaluateJavaScript:js completionHandler:nil];
+}
+
+- (void)changeZoom:(NSUInteger)zoom {
+    [self.webView evaluateJavaScript:[NSString stringWithFormat:@"%@", zoomDescription[zoom]] completionHandler:nil];
 }
 
 - (void)showPathFrom:(NSString *)start to:(NSString *)finish {
-    [self.webView stringByEvaluatingJavaScriptFromString:@"ClearLastResult()"];
-    NSString *jsFirst = [NSString stringWithFormat:@"SetNewAudFromAndroid(true, '%@')", start];
-    NSString *jsSecond = [NSString stringWithFormat:@"SetNewAudFromAndroid(false, '%@')", finish];
-    [self.webView stringByEvaluatingJavaScriptFromString:jsFirst];
-    [self.webView stringByEvaluatingJavaScriptFromString:jsSecond];
-    [self.webView stringByEvaluatingJavaScriptFromString:@"FindPath()"];
+    NSString *jsFirst = [NSString stringWithFormat:@"SetRoomName(true, '%@')", start];
+    NSString *jsSecond = [NSString stringWithFormat:@"SetRoomName(false, '%@')", finish];
+    [self.webView evaluateJavaScript:jsFirst completionHandler:nil];
+    [self.webView evaluateJavaScript:jsSecond completionHandler:nil];
+    [self.webView evaluateJavaScript:@"FindPath()" completionHandler:nil];
 }
 
-#pragma mark - UIWebViewDelegate
+#pragma mark - WKNavigationDelegate
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [self.webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitUserSelect='none'"];
-    [self.webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitTouchCallout='none'"];
+- (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
+    [self.webView evaluateJavaScript:@"document.documentElement.style.webkitUserSelect='none'" completionHandler:nil];
+    [self.webView evaluateJavaScript:@"document.documentElement.style.webkitTouchCallout='none'" completionHandler:nil];
     [self.delegate webViewDidFinishLoad:self];
 }
+
 
 @end

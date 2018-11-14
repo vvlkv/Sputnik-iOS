@@ -12,10 +12,12 @@
 
 + (UIColor *)suaiPurpleColor;
 + (UIColor *)suaiBlueColor;
++ (UIColor *)suaiDarkBlueColor;
 + (UIColor *)suaiRedColor;
 + (UIColor *)suaiLightGreenColor;
 + (UIColor *)suaiLightPurpleColor;
 + (UIColor *)suaiGrayColor;
++ (UIColor *)suaiReferenceBackgroundGrayColor;
 + (CAGradientLayer *)suaiGradientColorFrom:(UIColor *)fromColor to:(UIColor *)toColor;
 
 @end

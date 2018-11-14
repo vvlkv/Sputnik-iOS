@@ -111,12 +111,12 @@
             dispatch_sync(dispatch_get_main_queue(), ^{
                 result = [metadataObj stringValue];
                 [UIView animateWithDuration:0.2 animations:^{
-                    scanView.frame = CGRectMake(object.bounds.origin.x , object.bounds.origin.y + 64, CGRectGetWidth(object.bounds), CGRectGetHeight(object.bounds));
+                    self->scanView.frame = CGRectMake(object.bounds.origin.x , object.bounds.origin.y + 64, CGRectGetWidth(object.bounds), CGRectGetHeight(object.bounds));
                 }];
             });
             [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
             dispatch_async(dispatch_get_main_queue(), ^{
-                metadataResult = result;
+                self->metadataResult = result;
                 [self dismissViewControllerAnimated:YES completion:nil];
             });
         }

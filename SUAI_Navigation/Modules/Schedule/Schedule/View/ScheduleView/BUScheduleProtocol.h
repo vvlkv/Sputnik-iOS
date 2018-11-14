@@ -12,7 +12,6 @@
 
 @required
 - (void)refresh;
-- (void)updateFrame:(CGRect)frame;
 
 @optional
 - (void)refreshDate;

@@ -47,6 +47,7 @@
 
 - (void)overwriteSettingsWithStartIndex:(NSUInteger)index {
     [[BUAppDataContainer instance] overwriteStartScreenIndex:index];
+    [self.output didObtainStartScreenIndex:index];
 }
 
 - (void)reachable:(NSNotification *)notification {

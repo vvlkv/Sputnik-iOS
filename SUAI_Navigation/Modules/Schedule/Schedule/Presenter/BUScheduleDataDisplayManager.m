@@ -7,6 +7,7 @@
 //
 
 #import "BUScheduleDataDisplayManager.h"
+#import "BUScheduleContentViewController.h"
 #import "BUPair.h"
 #import "BUPairViewModel.h"
 #import "BUDay.h"
@@ -16,18 +17,32 @@
 
 #pragma mark - BUScheduleContentDataSource
 
-- (NSUInteger)viewTypeAtIndex:(NSUInteger)index andType:(NSUInteger)type {
-    if ([[self semesterSchedule] count] == 0 && [self sessionSchedule] == 0) {
-        return -1;
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _weekIndex = 3;
     }
-    if (type == 0) {
+    return self;
+}
+
+- (void)typeOfViewForViewController:(BUScheduleContentViewController *)vc {
+    NSUInteger index = [vc index];
+    ScheduleType type = [vc type];
+    
+    if (type == ScheduleTypeSemester) {
         if ([[self semesterSchedule][index] isKindOfClass:[NSArray class]]) {
-            return 0;
+            [vc showAustronaut];
+        } else {
+            [vc showSchedule];
         }
-    } else if ([[self sessionSchedule] count] == 0) {
-        return 0;
+    } else {
+        if ([[self sessionSchedule] count] == 0) {
+            [vc showAustronaut];
+        } else {
+            [vc showSchedule];
+        }
     }
-    return 1;
 }
 
 - (NSString *)titleForViewAtIndex:(NSUInteger)index andType:(NSUInteger)type {
@@ -81,7 +96,7 @@
     
     if (day == 6) {
         pairViewModel.subInfo = @"";
-    } else if ([self entityType] == 0) {
+    } else if ([self entityType] == EntityTypeGroup) {
         pairViewModel.subInfo = [[[[currentPair teacherName] componentsSeparatedByString:@":"] lastObject] substringFromIndex:1];
     } else {
         pairViewModel.subInfo = [[[[currentPair groups] componentsSeparatedByString:@":"] lastObject] substringFromIndex:1];
@@ -97,13 +112,6 @@
     return [self weekIndex];
 }
 
-- (NSString *)currentDate {
-    return [self date][0];
-}
-
-- (NSString *)currentWeek {
-    return [self date][1];
-}
 
 #pragma mark - BUCapsPageViewDataSource
 
@@ -111,6 +119,7 @@
     NSUInteger value = [_weekIndicators[[NSString stringWithFormat:@"%ld", (unsigned long)dayType]] integerValue];
     return value;
 }
+
 
 #pragma mark - Root
 

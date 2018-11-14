@@ -23,6 +23,7 @@ typedef enum BUSegmentType {
 
 @interface BUCustomSegmentedControl : UISegmentedControl
 
+@property (readonly, nonatomic) BUSegmentType type;
 @property (weak, nonatomic) id <BUCustomSegmentDelegate> delegate;
 
 - (instancetype)initWithItems:(NSArray *)items andType:(BUSegmentType)type;

@@ -132,8 +132,8 @@
 
 - (void)animateFirstView:(CGRect)firstRect andSecond:(CGRect)secondRect {
     [UIView animateWithDuration:0.3 animations:^{
-        firstView.frame = firstRect;
-        secondView.frame = secondRect;
+        self->firstView.frame = firstRect;
+        self->secondView.frame = secondRect;
     }];
 }
 

@@ -15,8 +15,9 @@
 @property (readonly, nonatomic) NSUInteger startScreenIndex;
 
 + (instancetype)instance;
-- (NSDictionary *)entityCodes;
 
+- (NSDictionary *)entityCodes;
+- (void)loadCodes;
 - (void)writeCodes:(NSDictionary *)codes;
 - (void)overwriteEntityWithName:(NSString *)name andType:(NSUInteger)type;
 - (void)overwriteStartScreenIndex:(NSUInteger)index;

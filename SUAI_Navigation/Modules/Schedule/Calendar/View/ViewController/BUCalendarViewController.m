@@ -26,8 +26,23 @@
 
 @implementation BUCalendarViewController
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+    }
+    return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor];
+    [self setEdgesForExtendedLayout:UIRectEdgeNone];
     UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithTitle:@"Назад"
                                                                    style:UIBarButtonItemStylePlain
                                                                   target:self
@@ -84,12 +99,10 @@
     BUScheduleContentViewController *scheduleTableView = [[BUScheduleContentViewController alloc] initWithIndex:0
                                                                                                         andType:ScheduleTypeSemester];
     CGRect scheduleFrame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, self.view.frame.size.height/2);
-    CGRect scheduleBounds = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/2 - 64);
     scheduleTableView.view.frame = scheduleFrame;
     scheduleTableView.dataSource = [self.output dataSource];
     scheduleTableView.delegate = [self.output delegate];
     [self.view addSubview:scheduleTableView.view];
-    [scheduleTableView updateSubviewsFrame:scheduleBounds];
     return scheduleTableView;
 }
 
@@ -101,9 +114,7 @@
     calendar.frame = (CGRect){calendar.frame.origin,bounds.size};
     weekView.frame = (CGRect){0, bounds.size.height, weekView.frame.size};
     CGRect scheduleFrame = (CGRect){0, bounds.size.height + 44, self.view.frame.size.width, self.view.frame.size.height - bounds.size.height - 44};
-    CGRect scheduleBounds = (CGRect){0, 0, self.view.frame.size.width, self.view.frame.size.height - bounds.size.height - 44};
     scheduleTableView.view.frame = scheduleFrame;
-    [scheduleTableView updateSubviewsFrame:scheduleBounds];
 }
 
 - (nullable UIColor *)calendar:(FSCalendar *)calendar appearance:(FSCalendarAppearance *)appearance titleDefaultColorForDate:(NSDate *)date {

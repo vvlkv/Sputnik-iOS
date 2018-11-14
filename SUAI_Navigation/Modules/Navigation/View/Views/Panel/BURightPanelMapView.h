@@ -8,16 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BUPanelMapView.h"
-//@class BURightPanelMapView;
-//@protocol BURightPanelMapViewDelegate <NSObject>
-//
-//@required
-//- (void)panelView:(BURightPanelMapView *)panelView didPressOnButtonWithTag:(NSUInteger)tag;
-//
-//@end
 
 @interface BURightPanelMapView : BUPanelMapView
-
-//@property (weak, nonatomic) id <BURightPanelMapViewDelegate> delegate;
 
 @end

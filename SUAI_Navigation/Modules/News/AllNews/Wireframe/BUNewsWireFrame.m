@@ -14,7 +14,7 @@
 
 @implementation BUNewsWireFrame
 
-+ (UIViewController *)assemblyNews {
++ (UIViewController *)assembly {
     BUNewsRouter *router = [[BUNewsRouter alloc] init];
     BUNewsPresenter *presenter = [[BUNewsPresenter alloc] init];
     BUNewsInteractor *interactor = [[BUNewsInteractor alloc] init];

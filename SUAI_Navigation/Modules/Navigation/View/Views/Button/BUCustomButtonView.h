@@ -23,7 +23,7 @@
 
 @property (weak, nonatomic) id <BUCustomButtonViewDelegate> delegate;
 
-@property (assign, nonatomic) BOOL isCancelButtonVisible;
 - (void)setTitle:(NSString *)title;
+- (void)setCancelButtonVisibility:(BOOL)isVisible;
 
 @end

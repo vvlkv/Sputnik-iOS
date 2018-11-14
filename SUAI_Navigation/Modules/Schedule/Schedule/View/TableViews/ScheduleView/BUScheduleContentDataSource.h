@@ -14,16 +14,12 @@
 
 @required
 
-- (NSUInteger)viewTypeAtIndex:(NSUInteger)index andType:(NSUInteger)type;
+- (void)typeOfViewForViewController:(BUScheduleContentViewController *)vc;
+//- (NSUInteger)viewTypeAtIndex:(NSUInteger)index andType:(NSUInteger)type;
 - (NSString *)titleForViewAtIndex:(NSUInteger)index andType:(NSUInteger)type;
 - (NSUInteger)numberOfSectionsInTableView:(BUScheduleContentViewController *)tableView atIndex:(NSUInteger)index andType:(NSUInteger)type;
 - (BUPairViewModel *)pairAtIndex:(NSUInteger)section dayIndex:(NSUInteger)index andType:(NSUInteger)type;
 - (NSUInteger)colorForHeaderCellType:(NSUInteger)type;
-- (NSString *)currentDate;
-- (NSString *)currentWeek;
-
-//@optional
-//- (NSDictionary *)viewsForMenuItemView;
 
 @end
 

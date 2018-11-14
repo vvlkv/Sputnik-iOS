@@ -14,15 +14,16 @@
 
 @required
 - (void)viewDidLoad;
+- (void)viewDidLoadWithWeekSegmentIndex:(NSUInteger)index;
 - (void)didChangeWeekSegment:(NSUInteger)index;
-
+- (void)didChangeScheduleSegment:(NSUInteger)index;
 
 @optional
-- (void)didChangeScheduleSegment:(NSUInteger)index;
 - (void)didPressSearchButton;
 - (void)didPressAlertAction:(NSString *)action;
 - (void)didPressCalendarAction;
-- (id <BUScheduleContentDataSource>)dataSource;
+- (void)didPressGoToSettingsButton;
+- (id)dataSource;
 - (id <BUScheduleContentDelegate>)delegate;
 
 @end

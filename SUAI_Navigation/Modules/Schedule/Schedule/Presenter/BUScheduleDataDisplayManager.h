@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Typedef.h"
 #import "BUScheduleContentDataSource.h"
 #import "BUCapsPageViewDataSource.h"
 
@@ -14,8 +15,7 @@
 
 @property (assign, nonatomic) NSUInteger weekIndex;
 @property (assign, nonatomic) NSUInteger scheduleIndex;
-@property (assign, nonatomic) NSUInteger entityType;
-@property (strong, nonatomic) NSArray *date;
+@property (assign, nonatomic) EntityType entityType;
 @property (strong, nonatomic) NSArray *semesterSchedule;
 @property (strong, nonatomic) NSArray *sessionSchedule;
 @property (strong, nonatomic) NSDictionary *weekIndicators;

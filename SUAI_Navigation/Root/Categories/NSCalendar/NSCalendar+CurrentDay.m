@@ -21,8 +21,9 @@
 + (NSUInteger)weekIndexFromDate:(NSDate *)date {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     calendar.minimumDaysInFirstWeek = 7;
+    calendar.firstWeekday = 2;
     NSUInteger dayIndex = [[calendar components: NSCalendarUnitWeekOfYear fromDate:date] weekOfYear];
-    return dayIndex % 2;
+    return (dayIndex + 1) % 2;
 }
 
 + (NSUInteger)dayFromDate:(NSDate *)date {

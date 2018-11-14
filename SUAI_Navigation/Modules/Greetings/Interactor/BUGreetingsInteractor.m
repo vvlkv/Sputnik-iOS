@@ -10,8 +10,8 @@
 #import "BUScheduleDownloader.h"
 #import "BUAppDataContainer.h"
 
-@interface BUGreetingsInteractor () <BUScheduleDownloaderDelegate> {
-    BUScheduleDownloader *downloader;
+@interface BUGreetingsInteractor () {
+//    BUScheduleDownloader *downloader;
     BOOL internetWasUnreachable;
 }
 
@@ -22,12 +22,13 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        downloader = [[BUScheduleDownloader alloc] init];
-        [downloader loadCodes];
         internetWasUnreachable = NO;
-        downloader.delegate = self;
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(reachable:) name:@"buInternetBecomeReachable" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(unreachable:) name:@"buInternetBecomeUnreachable" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(gotCodes:) name:@"buCodesLoaded" object:nil];
     }
     return self;
 }
@@ -42,26 +43,40 @@
 
 #pragma mark - BUScheduleDownloaderDelegate
 
-- (void)codesLoaded {
-    [[BUAppDataContainer instance] writeCodes:[downloader codes]];
+//- (void)codesLoaded {
+//    [[BUAppDataContainer instance] writeCodes:[downloader codes]];
+//    [self.output didInternetBecomeReachable];
+//    [self.output didObtainCodes:[downloader codes]];
+//}
+
+- (void)gotCodes:(NSNotification *)notification {
+    NSDictionary *codes = [notification.userInfo valueForKey:@"codes"];
     [self.output didInternetBecomeReachable];
-    [self.output didObtainCodes:[downloader codes]];
+    if (codes != nil) {
+        [self.output didObtainCodes:codes];
+    }
 }
 
 - (void)failedConnection {
-    internetWasUnreachable = YES;
     [self.output didFailConnection];
 }
 
 - (void)reachable:(NSNotification *)notification {
-    if (internetWasUnreachable) {
-        [downloader loadCodes];
-    }
+}
+
+- (void)unreachable:(NSNotification *)notification {
+    [self.output didFailConnection];
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:@"buInternetBecomeReachable"
+                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"buCodesLoaded"
+                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"buInternetBecomeUnreachable"
                                                   object:nil];
 }
 

@@ -9,12 +9,16 @@
 #import "BUMainScreenViewController.h"
 #import "BUNavigationWebView.h"
 #import "BUToolbarView.h"
+#import "BURightPanelMapView.h"
+#import "BULeftPanelMapView.h"
+#import "SVPRogressHUD.h"
 
-@interface BUMainScreenViewController () <BUNavigationDelegate, BUToolbarViewDelegate> {
-    BUNavigationWebView *webView;
-    BUToolbarView *toolBar;
-    UIActivityIndicatorView *indicator;
+@interface BUMainScreenViewController () <BUNavigationDelegate, BUToolbarViewDelegate, BUPanelMapViewDelegate> {
+
 }
+
+@property (weak, nonatomic) IBOutlet BUToolbarView *toolBar;
+@property (weak, nonatomic) IBOutlet BUNavigationWebView *webView;
 
 @end
 
@@ -22,74 +26,66 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-    webView = [[NSBundle mainBundle] loadNibNamed:@"BUNavigationWebView"
-                                            owner:self
-                                          options:nil][0];
-    webView.delegate = self;
-    webView.backgroundColor = [UIColor whiteColor];
-    CGRect webFrame = CGRectMake(0, -64, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) + 64);
-    webView.frame = webFrame;
-    CGFloat toolbarPosition = self.view.frame.size.height - 44.f - 49.f;
-    toolBar = [[BUToolbarView alloc] initWithFrame:CGRectMake(0, toolbarPosition, self.view.frame.size.width, 44.f)];
-    toolBar.toolBarDelegate = self;
-    
+    self.webView.delegate = self;
+    self.toolBar.toolBarDelegate = self;
     UIBarButtonItem *cameraItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(cameraButtonPressed:)];
     cameraItem.tintColor = [UIColor blackColor];
-    
-   // self.navigationItem.rightBarButtonItem = cameraItem;
-    
+    [SVProgressHUD show];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
                                                   forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
-    
-    indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    indicator.hidesWhenStopped = YES;
-    indicator.frame = CGRectMake(self.view.frame.size.width/2 - 10, self.view.frame.size.height/2 - 10, 20, 20);
-    [indicator startAnimating];
-    [self.view addSubview:webView];
-    [self.view addSubview:toolBar];
-    [self.view addSubview:indicator];
-    
+    self.navigationController.view.backgroundColor = [UIColor clearColor];
+}
+
+- (void)appendRightPanel {
+    CGRect panelFrame = CGRectMake(self.view.frame.size.width - 64 - 16, self.view.frame.size.height/2 - 140, 52, 280);
+    BURightPanelMapView *rightPanel = [[BURightPanelMapView alloc] initWithFrame:panelFrame];
+    rightPanel.delegate = self;
+    [self.view addSubview:rightPanel];
+}
+
+- (void)appendLeftPanel {
+    CGRect panelFrame = CGRectMake(16, self.view.frame.size.height/2 - 45, 41, 90);
+    BULeftPanelMapView *leftPanel = [[BULeftPanelMapView alloc] initWithFrame:panelFrame];
+    leftPanel.delegate = self;
+    [self.view addSubview:leftPanel];
 }
 
 
 #pragma mark - BUMainScreenViewControllerInput
 
-- (void)showAuditory:(NSString *)auditory withAcknowledge:(BOOL)ack {
-    if (ack) {
-        [self.output didWebViewLoadedWithCode:[webView showAuditory:auditory]];
-    } else {
-        [webView showAuditory:auditory];
-    }
-}
-
-- (NSInteger)showAuditory:(NSString *)auditory {
-    return [webView showAuditory:auditory];
+- (void)showAuditory:(NSString *)auditory errCode:(void (^)(NSInteger))errorCode {
+    [self.webView showAuditory:auditory errCode:^(NSInteger code) {
+        errorCode(code);
+    }];
 }
 
 - (void)setContent:(NSString *)content forButtonAtIndex:(NSUInteger)index {
     if (index == 0) {
-        [toolBar setFromTitle:content];
+        [self.toolBar setFromTitle:content];
     } else {
-        [toolBar setToTitle:content];
+        [self.toolBar setToTitle:content];
     }
 }
 
 - (void)showPathFrom:(NSString *)fromAuditory to:(NSString *)toAuditory {
-    [webView showPathFrom:fromAuditory to:toAuditory];
+    [self.webView showPathFrom:fromAuditory to:toAuditory];
 }
 
 - (void)showStartScreen {
-    [webView refreshMap];
+    [self.webView refreshMap];
 }
 
 #pragma mark - BUNavigationDelegate
 
 - (void)webViewDidFinishLoad:(BUNavigationWebView *)webView {
     [self.output didWebViewLoaded];
-    [indicator stopAnimating];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+        });
+    });
 }
 
 
@@ -110,7 +106,7 @@
 - (void)showNormalAlert {
     UIAlertController *view = [UIAlertController
                                alertControllerWithTitle:@"Маршрут построен"
-                               message:@"Следуйте за зеленой линией"
+                               message:@"Следуйте за красной линией"
                                preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction* ok = [UIAlertAction
                          actionWithTitle:@"Начать движение"
@@ -138,23 +134,41 @@
 }
 
 - (void)showNormalRoute {
-    [indicator startAnimating];
+    [SVProgressHUD show];
     [self performSelector:@selector(normalRouteSelected) withObject:nil afterDelay:0.4];
 }
 
 - (void)normalRouteSelected {
     [self.output didNormalRouteSelected];
-    [indicator stopAnimating];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+        });
+    });
 }
 
 - (void)stopAnimating {
-    [indicator stopAnimating];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+        });
+    });
 }
 
 - (void)startAnimating {
-    [indicator startAnimating];
+    [SVProgressHUD show];
 }
 
+
+#pragma mark - BUPanelMapViewDelegate
+
+- (void)panelView:(BUPanelMapView *)panelView didPressOnButtonWithTag:(NSUInteger)tag {
+    if ([panelView isMemberOfClass:[BURightPanelMapView class]]) {
+        [self.webView changeFloor:tag];
+    } else {
+        [self.webView changeZoom:tag];
+    }
+}
 
 #pragma mark - Actions
 

@@ -11,8 +11,8 @@
 @protocol BUMainScreenViewControllerInput <NSObject>
 
 @required
-- (void)showAuditory:(NSString *)auditory withAcknowledge:(BOOL)ack;
-- (NSInteger)showAuditory:(NSString *)auditory;
+//- (NSInteger)showAuditory:(NSString *)auditory;
+- (void)showAuditory:(NSString *)auditory errCode:(void (^)(NSInteger code))errorCode;
 - (void)setContent:(NSString *)content forButtonAtIndex:(NSUInteger)index;
 - (void)showPathFrom:(NSString *)fromAuditory to:(NSString *)toAuditory;
 - (void)showStartScreen;

@@ -13,8 +13,10 @@
 
 @implementation BUNavigationWireFrame
 
-+ (UIViewController *)assemblyNavigation {
-    BUMainScreenViewController *navigationVC = [[BUMainScreenViewController alloc] init];
++ (UIViewController *)assembly {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"BUMainScreenViewController" bundle:nil];
+//    BUMainScreenViewController *navigationVC = [[BUMainScreenViewController alloc] init];
+    BUMainScreenViewController *navigationVC = (BUMainScreenViewController *)[sb instantiateViewControllerWithIdentifier:@"MainNavigationID"];
     BUNavigationPresenter *navigationPresenter = [[BUNavigationPresenter alloc] init];
     BUNavigationRouter *navigationRouter = [[BUNavigationRouter alloc] init];
     navigationVC.output = navigationPresenter;

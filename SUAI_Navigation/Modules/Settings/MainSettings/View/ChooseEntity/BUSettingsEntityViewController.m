@@ -8,16 +8,17 @@
 
 #import "BUSettingsEntityViewController.h"
 #import "BUCustomSegmentedControl.h"
+#import "BUNewStyleSearchController.h"
 #import "UIColor+SUAI.h"
 
-@interface BUSettingsEntityViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, BUCustomSegmentDelegate> {
+@interface BUSettingsEntityViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating> {
     UITableView *tableView;
-    UISearchBar *mySearchBar;
     NSUInteger focusedIndex;
     NSArray *filteredData;
     NSArray *codes;
     NSIndexPath *lastIndex;
     NSString *selectedName;
+    BUNewStyleSearchController *search;
     BOOL isFounded;
 }
 
@@ -32,49 +33,52 @@
         codes = contents;
         focusedIndex = 0;
         filteredData = [[NSArray alloc] init];
-        isFounded = NO;
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.edgesForExtendedLayout = UIRectEdgeAll;
     UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithTitle:@"Назад"
                                                                    style:UIBarButtonItemStylePlain
                                                                   target:self
                                                                   action:@selector(dismiss)];
     self.navigationItem.leftBarButtonItem = cancelItem;
-    
-    
-    
-    CGRect tableRect = CGRectMake(0, self.view.bounds.origin.y + 88, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - 88);
-    tableView = [[UITableView alloc] initWithFrame:tableRect style:UITableViewStylePlain];
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    [self.view addSubview:tableView];
-    
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 88)];
-    headerView.backgroundColor = [UIColor colorWithRed:248.f/255.f green:248.f/255.f blue:248.f/255.f alpha:.8f];
-    
-    
-    mySearchBar = [[UISearchBar alloc] init];
-    mySearchBar.searchBarStyle = UISearchBarStyleMinimal;
-    [mySearchBar setValue:@"Отмена" forKey:@"_cancelButtonText"];
-    mySearchBar.delegate = self;
-    mySearchBar.frame = CGRectMake(0, 0, self.view.frame.size.width, 44);
-    mySearchBar.placeholder = @"Введите номер группы";
-    [headerView addSubview:mySearchBar];
-    BUCustomSegmentedControl *segment = [[BUCustomSegmentedControl alloc] initWithItems:@[@"Группы", @"Преподаватели"] andType:BUSegmentTypeNormal];
-    segment.delegate = self;
-    segment.frame = CGRectMake(8, 52, self.view.frame.size.width - 16, 29);
-    [headerView addSubview:segment];
-    [self.view addSubview:headerView];
+    [self initTableView];
+    [self initSearchBar];
 }
 
+- (void)initTableView {
+    tableView = [[UITableView alloc] init];
+    tableView.dataSource = self;
+    tableView.delegate = self;
+    [self.view addSubview:tableView];
+}
+
+- (void)initSearchBar {
+    search = [[BUNewStyleSearchController alloc] initWithSearchResultsController:nil];
+    search.searchBar.placeholder = @"Например, 1740М или Бритов. Г. С.";
+    search.searchBar.scopeButtonTitles = @[@"Группы", @"Преподаватели"];
+    search.searchBar.delegate = self;
+    self.definesPresentationContext = YES;
+    search.obscuresBackgroundDuringPresentation = NO;
+    if (@available(iOS 11.0, *)) {
+        tableView.frame = (CGRect){self.view.bounds.origin, self.view.bounds.size.width, self.view.bounds.size.height};
+//        self.navigationController.navigationBar.prefersLargeTitles = YES;
+        self.navigationItem.searchController = search;
+//        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
+        self.navigationItem.hidesSearchBarWhenScrolling = NO;
+    } else {
+        tableView.frame = (CGRect){self.view.bounds.origin, self.view.bounds.size.width, self.view.bounds.size.height};
+        tableView.tableHeaderView = search.searchBar;
+    }
+    self.definesPresentationContext = YES;
+    search.searchResultsUpdater = self;
+}
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    tableView.frame = CGRectMake(0, 88, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) - 88);
+//    tableView.frame = CGRectMake(0, 88, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) - 88);
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -110,55 +114,53 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UIBarButtonItem *okItem = [[UIBarButtonItem alloc] initWithTitle:@"Сохранить"
-                                                               style:UIBarButtonItemStylePlain
-                                                              target:self
-                                                              action:@selector(conform)];
-    self.navigationItem.rightBarButtonItem = okItem;
+//    UIBarButtonItem *okItem = [[UIBarButtonItem alloc] initWithTitle:@"Сохранить"
+//                                                               style:UIBarButtonItemStylePlain
+//                                                              target:self
+//                                                              action:@selector(conform)];
+//    self.navigationItem.rightBarButtonItem = okItem;
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     lastIndex = indexPath;
-    if (![mySearchBar.text isEqualToString:@""]) {
+    if (![search.searchBar.text isEqualToString:@""]) {
         selectedName = filteredData[indexPath.row];
+        [self.output didFoundNewEntity:selectedName ofType:focusedIndex];
     } else {
         selectedName = codes[focusedIndex][indexPath.row];
+        [self.output didFoundNewEntity:selectedName ofType:focusedIndex];
     }
-    [tableView reloadData];
+    [search.searchBar resignFirstResponder];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
+//    [tableView reloadData];
 }
+
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (![mySearchBar.text isEqualToString:@""]) {
+    if (![search.searchBar.text isEqualToString:@""]) {
         return [filteredData count];
     }
     return [codes[focusedIndex] count];
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    [mySearchBar resignFirstResponder];
+    [search.searchBar resignFirstResponder];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellID = @"cellID";
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
     
-    if (![mySearchBar.text isEqualToString:@""]) {
+    if (![search.searchBar.text isEqualToString:@""]) {
         cell.textLabel.text = filteredData[indexPath.row];
     } else {
         cell.textLabel.text = codes[focusedIndex][indexPath.row];
     }
-    
-    if ([cell.textLabel.text isEqualToString:selectedName]) {
-        cell.contentView.backgroundColor = [[UIColor suaiBlueColor] colorWithAlphaComponent:.3f];
-    } else {
-        cell.contentView.backgroundColor = [UIColor clearColor];
-    }
-    
     return cell;
 }
 
@@ -181,13 +183,15 @@
     [tableView reloadData];
 }
 
-
-#pragma mark - BUCustomSegmentDelegate
-
-- (void)customSegment:(BUCustomSegmentedControl *)customSegment selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
+- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
     focusedIndex = selectedScope;
-    mySearchBar.placeholder = (selectedScope == 0) ? @"Введите номер группы" : @"Введите фамилию преподавателя";
-    [self searchContentsForSearchText:mySearchBar.text];
+    search.searchBar.placeholder = (selectedScope == 0) ? @"Например, 1740М" : @"Например, Бритов Г. С.";
+    [self searchContentsForSearchText:search.searchBar.text];
+}
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    NSString *searchString = [[searchController searchBar] text];
+    [self searchContentsForSearchText:searchString];
 }
 
 @end

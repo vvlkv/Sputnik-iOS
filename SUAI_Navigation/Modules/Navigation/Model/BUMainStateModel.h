@@ -13,7 +13,9 @@
 
 @required
 - (void)resetStateToDefault:(BUMainStateModel *)stateModel;
-- (NSInteger)stateModel:(BUMainStateModel *)stateModel showAuditory:(NSString *)auditory;
+//- (NSInteger)stateModel:(BUMainStateModel *)stateModel showAuditory:(NSString *)auditory;
+- (void)stateModel:(BUMainStateModel *)stateModel
+      showAuditory:(NSString *)auditory withErrCode:(void(^)(NSInteger code))retBlock;
 - (void)stateModel:(BUMainStateModel *)stateModel showPathFrom:(NSString *)from to:(NSString *)to;
 - (void)showAlertController;
 

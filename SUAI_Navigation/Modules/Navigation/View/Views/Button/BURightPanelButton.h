@@ -10,6 +10,8 @@
 
 @interface BURightPanelButton : UIButton
 
+@property (assign, nonatomic) BOOL isSelected;
+
 - (instancetype)initWithFrame:(CGRect)frame
                      andDigit:(NSUInteger)digit;
 

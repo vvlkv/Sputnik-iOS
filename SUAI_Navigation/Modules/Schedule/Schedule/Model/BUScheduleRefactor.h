@@ -14,7 +14,7 @@
 
 - (void)refactorScheduleFromData:(NSArray *)data;
 - (NSArray *)sortedScheduleForWeek:(NSUInteger)week;
-- (NSString *)findTeacher:(NSString *)teacher inCodes:(NSDictionary *)codes;
-- (NSString *)findFroup:(NSString *)group inCodes:(NSDictionary *)codes;
+- (NSString *)findTeacher:(NSString *)teacher;
+- (NSString *)findGroup:(NSString *)teacher;
 
 @end

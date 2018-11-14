@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) id<BUScheduleInteractorOutput> output;
 
-- (instancetype)initAsRoot:(BOOL)isRoot;
+- (instancetype)initWithEntity:(NSString *)e
+                        ofType:(NSUInteger)t;
 
 @end

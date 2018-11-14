@@ -17,7 +17,7 @@
         CGFloat yPos;
         NSUInteger digit;
         for (NSUInteger i = 0; i < 2; i++) {
-            digit = 2 - i;
+            digit = 1 - i;
             yPos = frame.size.width * i + 8 * i;
             BULeftPanelButton *button = [[BULeftPanelButton alloc] initWithFrame:CGRectMake(0, yPos, frame.size.width, frame.size.width)
                                                                           andButtonType:(LeftPanelButtonType)i];

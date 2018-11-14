@@ -14,10 +14,10 @@
 - (void)didObtainSchedule:(NSArray *)schedule;
 - (void)didObtainDate:(NSArray *)date;
 - (void)didObtainCodes:(NSDictionary *)codes;
-- (void)didDownloadCodes;
 - (void)didFailLoading;
 - (void)didEntityNotSelected;
 - (void)didObtainEntityType:(NSUInteger)entityType;
 - (void)didObtainEntity:(NSString *)entity;
+- (void)didNotShowAlert;
 
 @end

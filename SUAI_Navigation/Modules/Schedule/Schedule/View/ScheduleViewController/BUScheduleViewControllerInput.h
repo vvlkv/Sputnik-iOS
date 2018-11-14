@@ -12,13 +12,16 @@
 
 @required
 - (void)obtainStartScheduleScreen:(NSUInteger)index;
-- (void)updateView;
-- (void)updateDate;
+- (void)loadScheduleView;
+- (void)update;
 - (void)updateWeekSegmentWithIndex:(NSUInteger)index;
 - (void)addAlertViewWithItems:(NSArray *)items;
 
 @optional
+- (void)loadFailView;
+- (void)updateDate:(NSString *)date andWeek:(NSString *)week;
 - (void)showSearchIcon;
 - (void)hideSearchIcon;
+- (void)showNewScheduleAlert;
 
 @end

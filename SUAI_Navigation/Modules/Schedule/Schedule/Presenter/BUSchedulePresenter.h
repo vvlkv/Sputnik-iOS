@@ -22,6 +22,4 @@
 @property (strong, nonatomic) id <BUScheduleInteractorInput> input;
 @property (strong, nonatomic) id <BUScheduleRouterInput> router;
 
-- (instancetype)initWithEntity:(NSString *)entity andType:(NSUInteger)type;
-
 @end

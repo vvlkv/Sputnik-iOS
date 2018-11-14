@@ -15,12 +15,13 @@
 
 @implementation BUScheduleWireFrame
 
-+ (UIViewController *)assemblySchedule {
-    BUScheduleViewController *scheduleVC = [[BUScheduleViewController alloc] init];
-    NSString *entity = [[BUAppDataContainer instance] entity];
-    NSUInteger type = [[BUAppDataContainer instance] type];
-    BUSchedulePresenter *schedulePresenter = [[BUSchedulePresenter alloc] initWithEntity:entity andType:type];
-    BUScheduleInteractor *scheduleInteractor = [[BUScheduleInteractor alloc] initAsRoot:YES];
++ (UIViewController *)assembly {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"BUScheduleViewController"
+                                                 bundle:nil];
+    
+    BUScheduleViewController *scheduleVC = (BUScheduleViewController *)[sb instantiateViewControllerWithIdentifier:@"BUScheduleID"];
+    BUSchedulePresenter *schedulePresenter = [[BUSchedulePresenter alloc] init];
+    BUScheduleInteractor *scheduleInteractor = [[BUScheduleInteractor alloc] init];
     BUScheduleRouter *scheduleRouter = [[BUScheduleRouter alloc] init];
     schedulePresenter.input = scheduleInteractor;
     schedulePresenter.router = scheduleRouter;

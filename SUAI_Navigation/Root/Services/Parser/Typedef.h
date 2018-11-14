@@ -12,6 +12,6 @@
 typedef enum EntityType {
     EntityTypeGroup,
     EntityTypeTeacher
-}EntityType;
+} EntityType;
 
 #endif /* Typedef_h */

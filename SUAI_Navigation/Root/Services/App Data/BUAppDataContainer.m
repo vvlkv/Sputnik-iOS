@@ -7,9 +7,13 @@
 //
 
 #import "BUAppDataContainer.h"
+#import "BUDownloader.h"
+#import "BUScheduleDownloader.h"
 
-@interface BUAppDataContainer () {
+@interface BUAppDataContainer () <BUScheduleDownloaderDelegate> {
     NSDictionary *pCodes;
+    BOOL onLoading;
+    BUScheduleDownloader *downloader;
 }
 
 @end
@@ -19,7 +23,9 @@
 - (instancetype) initPrivate {
     self = [super init];
     if (self) {
-        pCodes = [NSDictionary dictionary];
+        downloader = [[BUScheduleDownloader alloc] init];
+        pCodes = nil;
+        onLoading = false;
     }
     return self;
 }
@@ -33,6 +39,25 @@
     return instance;
 }
 
+- (void)loadCodes {
+    if (pCodes == nil && !onLoading) {
+        onLoading = true;
+        downloader.delegate = self;
+        [downloader loadCodes];
+    }
+}
+
+- (void)codesLoaded {
+    [self writeCodes:[downloader codes]];
+    NSDictionary *msg = [NSDictionary dictionaryWithObject:[downloader codes] forKey:@"codes"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"buCodesLoaded"
+                                                        object:nil
+                                                      userInfo:msg];
+}
+
+- (void)failedConnection {
+}
+
 - (NSDictionary *)entityCodes {
     return [pCodes copy];
 }
@@ -42,8 +67,8 @@
 }
 
 - (void)writeCodes:(NSDictionary *)codes {
-    if ([pCodes count] == 0) {
-        pCodes = [codes copy];
+    if (pCodes == nil && [codes count] == 2) {
+        pCodes = [[NSDictionary alloc] initWithDictionary:codes];
     }
 }
 

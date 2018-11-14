@@ -117,28 +117,40 @@
     NSMutableDictionary *contents = [[NSMutableDictionary alloc] init];
     NSError *error;
     HTMLParser *parser = [[HTMLParser alloc] initWithData:data error:&error];
-    
+
     if (error) {
         return nil;
     }
-    
+
     HTMLNode *node = [parser body];
-    
-    
     NSString *fields[2] = {@"Groups", @"Teachers"};
     NSArray *classes = [[node findChildOfClass:@"form"] findChildTags:@"span"];
     for (NSInteger i = 0; i < 2; i++) {
         NSMutableDictionary *keys = [[NSMutableDictionary alloc] init];
         NSArray *options = [classes[i] findChildTags:@"option"];
-        
+
         for (HTMLNode *node in options) {
-            keys[[[node contents] latinEncoding]] = [node getAttributeNamed:@"value"];
+            if ([node contents] != nil)
+                keys[[[node contents] latinEncoding]] = [node getAttributeNamed:@"value"];
         }
         contents[fields[i]] = keys;
     }
     return contents;
 }
 
+//+ (NSInteger *)weekIndexFromData:(NSData *)data {
+//    
+//    TFHpple *dateParser = [TFHpple hppleWithHTMLData:data];
+//    NSString *schedulePathXQueryString = @"//div[@class='rasp']";
+//    NSArray *elements = [dateParser searchWithXPathQuery:schedulePathXQueryString];
+//    NSArray *childs = [elements[0] children];
+//    for (TFHppleElement *element in childs) {
+//        if ([[element tagName] isEqualToString:@"p"]) {
+//            NSLog(@"%@", [element content]);
+//        }
+//    }
+//    return 0;
+//}
 + (NSArray *)scheduleFromData:(NSData *)data {
     NSMutableArray *content = [[NSMutableArray alloc] init];
     TFHpple *scheduleParser = [TFHpple hppleWithHTMLData:data];

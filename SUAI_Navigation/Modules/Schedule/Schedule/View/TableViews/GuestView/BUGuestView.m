@@ -25,6 +25,7 @@
     [super awakeFromNib];
     self.messageLabel.text = @"Выберите, пожалуйста, группу или преподавателя в настройках";
     self.messageLabel.font = [UIFont suaiRobotoFont:RobotoFontMedium size:17.f];
+    self.backgroundColor = [UIColor whiteColor];
 }
 
 - (IBAction)jumpToSettingsButton:(id)sender {

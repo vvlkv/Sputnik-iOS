@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BUAbstractScheduleViewController.h"
-#import "BUScheduleViewControllerInput.h"
 
-@interface BUScheduleViewController : BUAbstractScheduleViewController <BUScheduleViewControllerInput>
+@interface BUScheduleViewController : BUAbstractScheduleViewController
 
 @end

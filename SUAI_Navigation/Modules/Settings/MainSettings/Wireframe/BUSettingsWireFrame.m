@@ -14,7 +14,7 @@
 
 @implementation BUSettingsWireFrame
 
-+ (UIViewController *)assemblySettings {
++ (UIViewController *)assembly {
     BUSettingsViewController *settingsVC = [[BUSettingsViewController alloc] init];
     BUSettingsRouter *router = [[BUSettingsRouter alloc] init];
     BUSettingsInteractor *interactor = [[BUSettingsInteractor alloc] init];
@@ -24,7 +24,8 @@
     presenter.input = interactor;
     interactor.output = presenter;
     settingsVC.output = presenter;
-    settingsVC.dataSource = presenter;
+//    settingsVC.dataSource = presenter;
     return settingsVC;
 }
+
 @end

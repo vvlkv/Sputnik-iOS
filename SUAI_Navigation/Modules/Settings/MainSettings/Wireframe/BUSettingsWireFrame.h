@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ModuleWireframe.h"
 
 @class UIViewController;
-@interface BUSettingsWireFrame : NSObject
+@interface BUSettingsWireFrame : NSObject <ModuleWireframe>
 
-+ (UIViewController *)assemblySettings;
+//+ (UIViewController *)assemblySettings;
 
 @end

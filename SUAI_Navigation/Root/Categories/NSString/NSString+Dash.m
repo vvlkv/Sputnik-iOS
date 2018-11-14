@@ -27,6 +27,14 @@
     return string;
 }
 
++ (NSString *)prepareToCall:(NSString *)number {
+    NSString *goodNumber = [number stringByReplacingOccurrencesOfString:@"(" withString:@""];
+    goodNumber = [goodNumber stringByReplacingOccurrencesOfString:@")" withString:@""];
+    goodNumber = [goodNumber stringByReplacingOccurrencesOfString:@" " withString:@""];
+    goodNumber = [goodNumber stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    return goodNumber;
+}
+
 + (NSString *)deleteDash:(NSString *)string {
     return [string stringByReplacingOccurrencesOfString:@"-" withString:@""];
 }
@@ -38,9 +46,11 @@
     if ([string containsString:@"Г"] || [string containsString:@"Л"])
         return @"";
     
-    if ([string containsString:@"-"]) {
+    if ([string containsString:@"Б.М. "])
+        result = [result stringByReplacingOccurrencesOfString:@"Б.М. " withString:@""];
+    
+    if ([string containsString:@"-"])
         result = [NSString deleteDash:[[string componentsSeparatedByString:@" "] lastObject]];
-    }
     
     return result;
 }

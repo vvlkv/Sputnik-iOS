@@ -14,5 +14,6 @@
 - (void)didSetStartIndex:(NSUInteger)index;
 - (void)didPressAboutApp;
 - (void)viewDidLoad;
+- (id)dataSource;
 
 @end

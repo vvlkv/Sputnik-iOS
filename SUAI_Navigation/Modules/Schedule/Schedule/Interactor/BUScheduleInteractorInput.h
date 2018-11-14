@@ -11,9 +11,10 @@
 @protocol BUScheduleInteractorInput <NSObject>
 
 @required
-- (void)obtainScheduleForEntity:(NSString *)entity andType:(NSUInteger)type;
+- (void)obtainSchedule;
 
 @optional
-- (void)obtainSchedule;
+- (void)obtainDate;
+- (void)reloadSchedule:(NSArray *)schedule;
 
 @end

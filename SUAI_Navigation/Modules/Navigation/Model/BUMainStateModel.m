@@ -119,9 +119,14 @@ typedef enum LastAuditory {
 - (void)prepareToExecute {
     
     if (![auditories[lastSettedAuditory] isEqualToString:@""]) {
-        if ([self.delegate stateModel:self showAuditory:auditories[lastSettedAuditory]] < 0) {
-            [self resetAuditoryForDirection:lastSettedAuditory];
-        }
+        __weak typeof(self) welf = self;
+        [self.delegate stateModel:self showAuditory:auditories[lastSettedAuditory] withErrCode:^(NSInteger code) {
+            if (code < 0) {
+                [welf resetAuditoryForDirection:self->lastSettedAuditory];
+            }
+        }];
+//        if ([self.delegate stateModel:self showAuditory:auditories[lastSettedAuditory]] < 0) {
+//        }
     } else if ([auditories[lastSettedAuditory^1] isEqualToString:@""]) {
         [self.delegate resetStateToDefault:self];
     }

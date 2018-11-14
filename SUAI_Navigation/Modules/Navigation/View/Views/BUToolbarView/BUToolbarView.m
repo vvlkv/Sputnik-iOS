@@ -9,60 +9,77 @@
 #import "BUToolbarView.h"
 #import "BUCustomButtonView.h"
 
-@interface BUToolbarView () <BUCustomButtonViewDelegate> {
-    BUCustomButtonView *fromButtonView;
-    BUCustomButtonView *toButtonView;
-}
+@interface BUToolbarView () <BUCustomButtonViewDelegate>
+
+@property (strong, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet BUCustomButtonView *fromButtonView;
+@property (weak, nonatomic) IBOutlet BUCustomButtonView *toButtonView;
+@property (weak, nonatomic) IBOutlet UIButton *arrowButton;
 
 @end
 
 @implementation BUToolbarView
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame
+{
     self = [super initWithFrame:frame];
-    [self setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionBottom barMetrics:UIBarMetricsDefault];
-    self.clipsToBounds = YES;
-    self.backgroundColor = [UIColor colorWithRed:1.f green:1.f blue:1.f alpha:0.5f];
-    [self setButtons];
+    if (self) {
+      //  [self commonInit];
+    }
     return self;
 }
 
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self commonInit];
+    }
+    return self;
+}
+
+- (void)commonInit {
+    [[NSBundle mainBundle] loadNibNamed:@"BUToolbarView" owner:self options:nil];
+    [self addSubview:_contentView];
+    _contentView.frame = self.bounds;
+    _contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+}
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    [self tuneToolbar];
+}
+
+- (void)tuneToolbar {
+    self.clipsToBounds = YES;
+    self.backgroundColor = [UIColor colorWithRed:1.f green:1.f blue:1.f alpha:0.5f];
+    [self setButtons];
+}
+
 - (void)setButtons {
-    CGFloat buttonWidth = ([UIScreen mainScreen].bounds.size.width / 2.f - 23.f - 16.f * 2.f);
+
+    self.fromButtonView.delegate = self;
+    [self.fromButtonView setTitle:@"Откуда"];
+    [self.fromButtonView setCancelButtonVisibility:NO];
     
-    fromButtonView = [[BUCustomButtonView alloc] initWithFrame:CGRectMake(0, 0, buttonWidth, 30)];
-    fromButtonView.delegate = self;
-    [fromButtonView setTitle:@"Откуда"];
-    fromButtonView.isCancelButtonVisible = NO;
+    self.toButtonView.delegate = self;
+    [self.toButtonView setTitle:@"Куда"];
+    [self.toButtonView setCancelButtonVisibility:NO];
     
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:fromButtonView];
-    leftItem.width = fromButtonView.frame.size.width;
-    UIButton *middle = [[UIButton alloc] init];
-    middle.frame = CGRectMake(0, 0, 46, 30);
-    [middle setImage:[UIImage imageNamed:@"Arrow"] forState:UIControlStateNormal];
-    [middle addTarget:self action:@selector(invert) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *centreItem = [[UIBarButtonItem alloc] initWithCustomView:middle];
-    centreItem.width = middle.frame.size.width;
-    
-    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-    toButtonView = [[BUCustomButtonView alloc] initWithFrame:CGRectMake(0, 0, buttonWidth, 30)];
-    toButtonView.delegate = self;
-    [toButtonView setTitle:@"Куда"];
-    toButtonView.isCancelButtonVisible = NO;
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:toButtonView];
-    rightItem.width = toButtonView.frame.size.width;
-    NSArray *items = [[NSArray alloc] initWithObjects:leftItem, flexibleSpace, centreItem, flexibleSpace, rightItem, nil];
-    self.items = items;
+    [[self.arrowButton imageView] setContentMode:UIViewContentModeScaleAspectFit];
+    UIImage *arrowImage = [[UIImage imageNamed:@"Arrow"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [self.arrowButton setImage:arrowImage forState:UIControlStateNormal];
+    [self.arrowButton addTarget:self action:@selector(invert) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)setFromTitle:(NSString *)title {
-    [fromButtonView setTitle:title];
-    fromButtonView.isCancelButtonVisible = YES;
+    [self.fromButtonView setTitle:title];
+    [self.fromButtonView setCancelButtonVisibility:YES];
 }
 
 - (void)setToTitle:(NSString *)title {
-    [toButtonView setTitle:title];
-    toButtonView.isCancelButtonVisible = YES;
+    [self.toButtonView setTitle:title];
+    [self.toButtonView setCancelButtonVisibility:YES];
 }
 
 #pragma mark - Actions
@@ -79,7 +96,7 @@
 #pragma mark - BUCustomButtonViewDelegate
 
 - (void)didPressedAuditoryButton:(BUCustomButtonView *)button {
-    if ([button isEqual:fromButtonView]) {
+    if ([button isEqual:_fromButtonView]) {
         [self fromAction];
     } else {
         [self toAction];
@@ -87,15 +104,20 @@
 }
 
 - (void)didPressedCancelButton:(BUCustomButtonView *)button {
-    if ([button isEqual:fromButtonView]) {
-        [self.toolBarDelegate toolbarView:self cancelButtonPressed:0];
-        [fromButtonView setTitle:@"Откуда"];
-        fromButtonView.isCancelButtonVisible = NO;
+    NSString *title;
+    NSUInteger buttonIndex;
+    
+    if ([button isEqual:_fromButtonView]) {
+        title = @"Откуда";
+        buttonIndex = 0;
     } else {
-        [self.toolBarDelegate toolbarView:self cancelButtonPressed:1];
-        [toButtonView setTitle:@"Куда"];
-        toButtonView.isCancelButtonVisible = NO;
+        title = @"Куда";
+        buttonIndex = 1;
     }
+    
+    [self.toolBarDelegate toolbarView:self cancelButtonPressed:buttonIndex];
+    [button setTitle:title];
+    [button setCancelButtonVisibility:NO];
 }
 
 - (void)invert {

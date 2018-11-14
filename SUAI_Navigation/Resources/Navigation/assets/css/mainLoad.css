@@ -1,62 +1,78 @@
 body {
-	overflow:hidden;
+    overflow:hidden;
+	position:fixed; 					/* prevent overscroll bounce*/
+	-webkit-overflow-scrolling: touch; 	/* iOS velocity scrolling */
+    overflow:hidden;
 }
 html,body {
-	height: 100%;
-	width: 100%;
-}
-#block_background{
-	display: none;
+   height: 100%;
+   width: 100%;
 }
 #mainDiv{
 	display: none;
 }
-.message {
-	font-size: 12px;	
-	margin: 0px;
-	padding: 5px 0px 0px 0px;
-	min-height: 6px;
-	max-height: 14px;
-	min-width: 25%;
-	max-width: 50%;
-	width: auto;
+
+#preloader {
+    background-color: #fff;
+    bottom: auto;
+    height: 100%;
+    left: auto;
+    position: fixed;
+    right: auto;
+    top: auto;
+    width: 100%;
+    z-index: 9999;
 }
-.message p 
-{
-	margin: 0;
+.barlittle_load {
+	background-color:#005aaa;  
+	background-image: -moz-linear-gradient(0deg, #005aaa 50%, #005ddd); 
+	background-image: -webkit-linear-gradient(0deg, #005aaa 50%, #005ddd);
+	width:10px;
+	height:10px;
+	float:left;
+	margin-left:5px;
+    opacity:0.1;
+	-moz-transform:scale(0.7);
+	-webkit-transform:scale(0.7);
+	-moz-animation:move 1s infinite linear;
+	-webkit-animation:move 1s infinite linear;
 }
-.message.critical {
-	border: 1px solid #f5d1d1;
-	background:#fdd no-repeat 3px 3px;
-	color: #800 !important;	
-}
-#MenuButton{
-	display: none;
-}
-.modalDialog
-{
-	display:block;
-	position: fixed;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size:80%;
-	right: 0;
-	bottom: 0;
-	background: rgba(0, 0, 0, 0.3);
-	z-index: 99999;
-	top: 0%;
-	left: 0%;
-}
-.modalDialog > div
-{
-	width: 80%;
+
+.contentBar_load {
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
 	position: relative;
-	left:centre;
-	border-radius: 10px;
+	margin: 0 auto;
+	width: 100px;
+	height: 60px;
 }
-.openModalData
-{
-	margin: 2% auto;
-	left: 0;
-	right: 0;
-	text-align: center;
+#block_1_load{
+ 	-moz-animation-delay: .4s;
+	-webkit-animation-delay: .4s;
+ }
+#block_2_load{
+ 	-moz-animation-delay: .3s;
+	-webkit-animation-delay: .3s;
+}
+#block_3_load{
+ 	-moz-animation-delay: .2s;
+	-webkit-animation-delay: .2s;
+}
+#block_4_load{
+ 	-moz-animation-delay: .3s;
+	-webkit-animation-delay: .3s;
+}
+#block_5_load{
+ 	-moz-animation-delay: .4s;
+	-webkit-animation-delay: .4s;
+}
+@-moz-keyframes move{
+	0%{-moz-transform: scale(1.2);opacity:1;}
+	100%{-moz-transform: scale(0.7);opacity:0.1;}
+}
+@-webkit-keyframes move{
+	0%{-webkit-transform: scale(1.2);opacity:1;}
+	100%{-webkit-transform: scale(0.7);opacity:0.1;}
 }

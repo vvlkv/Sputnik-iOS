@@ -9,12 +9,19 @@
 #import "BUCustomSegmentedControl.h"
 #import "UIColor+SUAI.h"
 
+@interface BUCustomSegmentedControl () {
+    BUSegmentType pType;
+}
+
+@end
+
 @implementation BUCustomSegmentedControl
 
 - (instancetype)initWithItems:(NSArray *)items andType:(BUSegmentType)type
 {
     self = [super initWithItems:items];
     if (self) {
+        pType = type;
         UIColor *purpleColor = [UIColor suaiPurpleColor];
         self.tintColor = purpleColor;
         self.selectedSegmentIndex = 0;
@@ -37,6 +44,10 @@
 
 - (void)segmentChanged:(id)sender {
     [self.delegate customSegment:self selectedScopeButtonIndexDidChange:[self selectedSegmentIndex]];
+}
+
+- (BUSegmentType)type {
+    return pType;
 }
 
 @end

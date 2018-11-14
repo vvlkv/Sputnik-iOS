@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "BURootViewController.h"
 
-@interface BUAboutAppViewController : UIViewController
+@interface BUAboutAppViewController : BURootViewController
 
 @end

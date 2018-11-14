@@ -7,36 +7,24 @@
 //
 
 #import "BUScheduleSearchViewController.h"
-#import "UIFont+SUAI.h"
+#import "BUNewStyleSearchController.h"
 #import "BUSUAIGradientNavigationBar.h"
-#import "UIFont+SUAI.h"
 #import "BUCustomSegmentedControl.h"
+#import "UIFont+SUAI.h"
 
-@interface BUScheduleSearchViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UINavigationBarDelegate, BUCustomSegmentDelegate> {
+@interface BUScheduleSearchViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UINavigationBarDelegate, UISearchResultsUpdating> {
     UITableView *contentsTableView;
     NSArray *filteredData;
     NSArray *entities;
-    UISearchBar *mySearchBar;
     NSUInteger focusedIndex;
     NSUInteger selectedCellIndex;
+    BUNewStyleSearchController *search;
     BOOL isFounded;
 }
 
 @end
 
 @implementation BUScheduleSearchViewController
-
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        focusedIndex = 0;
-        filteredData = [[NSArray alloc] init];
-        entities = [[NSMutableArray alloc] initWithCapacity:2];
-        isFounded = NO;
-    }
-    return self;
-}
 
 - (instancetype)initWithContents:(NSArray *)contents
 {
@@ -51,6 +39,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeAll;
     self.view.backgroundColor = [UIColor whiteColor];
     UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithTitle:@"Назад"
                                                                    style:UIBarButtonItemStylePlain
@@ -58,37 +47,36 @@
                                                                   action:@selector(dismiss)];
     self.navigationItem.leftBarButtonItem = cancelItem;
     self.navigationItem.title = @"Поиск расписания";
-    CGRect tableFrame = CGRectMake(0, 88, self.view.frame.size.width, self.view.frame.size.height - 88);
-    contentsTableView = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];
+    [self initTableView];
+    [self initSearchBar];
+}
+
+- (void)initSearchBar {
+    search = [[BUNewStyleSearchController alloc] initWithSearchResultsController:nil];
+    search.searchBar.placeholder = @"Например, 1740М или Бритов. Г. С.";
+    search.searchBar.scopeButtonTitles = @[@"Группы", @"Преподаватели"];
+    search.searchBar.delegate = self;
+    self.definesPresentationContext = YES;
+    search.obscuresBackgroundDuringPresentation = NO;
+    if (@available(iOS 11.0, *)) {
+        contentsTableView.frame = (CGRect){self.view.bounds.origin, self.view.bounds.size.width, self.view.bounds.size.height};
+        self.navigationController.navigationBar.prefersLargeTitles = YES;
+        self.navigationItem.searchController = search;
+        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
+        self.navigationItem.hidesSearchBarWhenScrolling = NO;
+    } else {
+        contentsTableView.frame = (CGRect){self.view.bounds.origin, self.view.bounds.size.width, self.view.bounds.size.height};
+        contentsTableView.tableHeaderView = search.searchBar;
+    }
+    self.definesPresentationContext = YES;
+    search.searchResultsUpdater = self;
+}
+
+- (void)initTableView {
+    contentsTableView = [[UITableView alloc] init];
     contentsTableView.dataSource = self;
     contentsTableView.delegate = self;
     [self.view addSubview:contentsTableView];
-    
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 88)];
-    headerView.backgroundColor = [UIColor colorWithRed:248.f/255.f green:248.f/255.f blue:248.f/255.f alpha:.8f];
-    
-    
-    mySearchBar = [[UISearchBar alloc] init];
-    mySearchBar.searchBarStyle = UISearchBarStyleMinimal;
-    [mySearchBar setValue:@"Отмена" forKey:@"_cancelButtonText"];
-    mySearchBar.delegate = self;
-    mySearchBar.frame = CGRectMake(0, 0, self.view.frame.size.width, 44);
-    mySearchBar.placeholder = @"Введите номер группы";
-    [headerView addSubview:mySearchBar];
-    BUCustomSegmentedControl *segment = [[BUCustomSegmentedControl alloc] initWithItems:@[@"Группы", @"Преподаватели"] andType:BUSegmentTypeNormal];
-    segment.delegate = self;
-    segment.frame = CGRectMake(8, 52, self.view.frame.size.width - 16, 29);
-    [headerView addSubview:segment];
-    [self.view addSubview:headerView];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    contentsTableView.frame = CGRectMake(0, 88, self.view.frame.size.width, self.view.frame.size.height - 88);
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 - (void)dismiss {
@@ -99,7 +87,7 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (![mySearchBar.text isEqualToString:@""]) {
+    if (![search.searchBar.text isEqualToString:@""]) {
         return [filteredData count];
     }
     return [entities[focusedIndex] count];
@@ -112,7 +100,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
     [cell.textLabel setFont:[UIFont suaiRobotoFont:RobotoFontRegular size:16]];
-    if (![mySearchBar.text isEqualToString:@""]) {
+    if (![search.searchBar.text isEqualToString:@""]) {
         cell.textLabel.text = filteredData[indexPath.row];
     } else {
         cell.textLabel.text = entities[focusedIndex][indexPath.row];
@@ -126,6 +114,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     selectedCellIndex = indexPath.row;
     isFounded = YES;
+    [search.searchBar resignFirstResponder];
+    [self dismissViewControllerAnimated:YES completion:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -137,7 +127,7 @@
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     if (isFounded) {
-        if (![mySearchBar.text isEqualToString:@""]) {
+        if (![search.searchBar.text isEqualToString:@""]) {
             [self.output didObtainNewSchedule:filteredData[selectedCellIndex] ofType:focusedIndex];
         }
         else {
@@ -147,14 +137,11 @@
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    [mySearchBar resignFirstResponder];
+    [search.searchBar resignFirstResponder];
 }
+
 
 #pragma mark - UISearchBarDelegate
-
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    [self searchContentsForSearchText:searchText];
-}
 
 - (void)searchContentsForSearchText:(NSString *)searchString {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains %@", (focusedIndex == 0) ? [searchString uppercaseString] : searchString];
@@ -170,12 +157,6 @@
     [contentsTableView reloadData];
 }
 
-- (void)customSegment:(BUCustomSegmentedControl *)customSegment selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
-    focusedIndex = selectedScope;
-    mySearchBar.placeholder = (selectedScope == 0) ? @"Введите номер группы" : @"Введите фамилию преподавателя";
-    [self searchContentsForSearchText:mySearchBar.text];
-}
-
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
     [searchBar setShowsCancelButton:YES animated:YES];
     return YES;
@@ -186,6 +167,17 @@
     searchBar.text = @"";
     [searchBar resignFirstResponder];
     [contentsTableView reloadData];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
+    focusedIndex = selectedScope;
+    search.searchBar.placeholder = (selectedScope == 0) ? @"Например, 1740М" : @"Например, Бритов Г. С.";
+    [self searchContentsForSearchText:search.searchBar.text];
+}
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    NSString *searchString = [[searchController searchBar] text];
+    [self searchContentsForSearchText:searchString];
 }
 
 @end

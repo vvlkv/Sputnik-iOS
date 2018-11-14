@@ -8,10 +8,12 @@
 
 #import "BUSettingsPresenter.h"
 #import "BUSettingsPresenterState.h"
+#import "BUSettingsDataDisplayManager.h"
 #import "NSArray+Codes.h"
 
 @interface BUSettingsPresenter () {
     BUSettingsPresenterState *state;
+    BUSettingsDataDisplayManager *displayManager;
 }
 
 @end
@@ -23,6 +25,7 @@
     self = [super init];
     if (self) {
         state = [[BUSettingsPresenterState alloc] init];
+        displayManager = [[BUSettingsDataDisplayManager alloc] init];
     }
     return self;
 }
@@ -42,6 +45,7 @@
 
 - (void)didSetStartIndex:(NSUInteger)index {
     [self.input overwriteSettingsWithStartIndex:index];
+    [self.view updateSettings];
 }
 
 - (void)viewDidLoad {
@@ -53,6 +57,10 @@
     [self.router pushAboutAppViewControllerFromViewController:(UIViewController *)self.view];
 }
 
+- (id)dataSource {
+    return displayManager;
+}
+
 #pragma mark - BUSettingsInteractorOutput
 
 - (void)didObtainCodes:(NSDictionary *)codes {
@@ -60,15 +68,16 @@
 }
 
 - (void)didObtainEntityName:(NSString *)name {
-    state.entityName = name;
+    [displayManager entityName:name];
 }
 
 - (void)didObtainEntityType:(NSUInteger)type {
-    state.entityType = type;
+    NSString *typeName = (type == 0) ? @"Группа" : @"Преподаватель";
+    [displayManager entityType:typeName];
 }
 
 - (void)didObtainStartScreenIndex:(NSUInteger)index {
-    state.startScreenIndex = index;
+    [displayManager startScreen:index];
 }
 
 - (void)didConnectionBecomReachable {
@@ -82,25 +91,11 @@
 #pragma mark - BUSettingsRouterOutput
 
 - (void)didFoundNewEntity:(NSString *)entity ofType:(NSUInteger)type {
-    state.entityName = entity;
-    state.entityType = type;
+    NSString *typeName = (type == 0) ? @"Группа" : @"Преподаватель";
+    [displayManager entityName:entity];
+    [displayManager entityType:typeName];
     [self.input overwriteSettingsWithEntiyName:entity andType:type];
     [self.view updateSettings];
-}
-
-
-#pragma mark - BUSettingsViewControllerDataSource
-
-- (NSString *)entityType {
-    return ([state entityType] == 0) ? @"Группа" : @"Преподаватель";
-}
-
-- (NSString *)entityName {
-    return [state entityName];
-}
-
-- (NSUInteger)startIndex {
-    return [state startScreenIndex];
 }
 
 @end

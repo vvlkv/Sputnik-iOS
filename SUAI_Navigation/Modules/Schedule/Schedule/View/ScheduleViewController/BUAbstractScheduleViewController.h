@@ -11,12 +11,17 @@
 #import "BUScheduleViewControllerInput.h"
 #import "BUScheduleViewControllerOutput.h"
 
+@class BUCapsPageView;
+@class BUCustomSegmentedControl;
 @interface BUAbstractScheduleViewController : BURootViewController <BUScheduleViewControllerInput>
 
 @property (strong, nonatomic) id <BUScheduleViewControllerOutput> output;
 @property (weak, nonatomic) id <BUScheduleContentDataSource> tableContent;
 @property (weak, nonatomic) id <BUScheduleContentDelegate> delegate;
 
+@property (readonly, nonatomic) BUCustomSegmentedControl *weekTypeSegmentedControl;
+
 - (void)animateSessionViewToRect:(CGRect)sessionRect andSemesterView:(CGRect)semesterRect;
+- (void)animateViewForIndex:(NSUInteger)index;
 
 @end

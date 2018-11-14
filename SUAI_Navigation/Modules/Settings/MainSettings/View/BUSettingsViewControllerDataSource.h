@@ -7,12 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BUSettingsViewModelItemType.h"
 
 @protocol BUSettingsViewControllerDataSource <NSObject>
 
 @required
-- (NSString *)entityType;
-- (NSString *)entityName;
-- (NSUInteger)startIndex;
-
+//- (NSString *)entityType;
+//- (NSString *)entityName;
+//- (NSUInteger)startIndex;
+- (BUSettingsViewModelItemType)itemTypeAtIndex:(NSUInteger)index;
+- (NSUInteger)numberOfSections;
+- (NSUInteger)numberOfRowsInSection:(NSUInteger)section;
+- (NSString *)titleForHeaderInSection:(NSUInteger)index;
+- (NSString *)titleForCellAtSection:(NSUInteger)section andRow:(NSUInteger)row;
+- (NSString *)subTitleForCellAtSection:(NSUInteger)section andRow:(NSUInteger)row;
+- (NSUInteger)startScreenIndex;
 @end

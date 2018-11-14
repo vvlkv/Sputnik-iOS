@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ModuleWireframe.h"
 
 @class UIViewController;
-@interface BUNewsWireFrame : NSObject
-
-+ (UIViewController *)assemblyNews;
+@interface BUNewsWireFrame : NSObject <ModuleWireframe>
 
 @end

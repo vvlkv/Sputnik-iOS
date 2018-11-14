@@ -20,7 +20,9 @@
 @property (weak, nonatomic) id <BUNavigationDelegate> delegate;
 
 - (void)refreshMap;
-- (NSInteger)showAuditory:(NSString *)auditory;
+- (void)showAuditory:(NSString *)auditory errCode:(void (^)(NSInteger code))errorCode;
+- (void)changeFloor:(NSUInteger)floorNumber;
+- (void)changeZoom:(NSUInteger)zoom;
 - (void)showPathFrom:(NSString *)start to:(NSString *)finish;
 
 @end

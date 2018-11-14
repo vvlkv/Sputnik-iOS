@@ -13,9 +13,12 @@
 
 @class UIViewController;
 @interface BUNavigationPresenter () <BUMainStateModelDelegate> {
-    BUNavigationPresenterState *state;
-    BUMainStateModel *stateModel;
+//    BUNavigationPresenterState *state;
+//    BUMainStateModel *stateModel;
 }
+
+@property (strong, nonatomic) BUNavigationPresenterState *state;
+@property (strong, nonatomic) BUMainStateModel *stateModel;
 
 @end
 
@@ -25,11 +28,11 @@
 {
     self = [super init];
     if (self) {
-        state = [[BUNavigationPresenterState alloc] init];
-        stateModel = [[BUMainStateModel alloc] init];
-        stateModel.delegate = self;
-        state.isMapLoaded = NO;
-        state.temporaryAuditory = @"";
+        self.stateModel = [[BUMainStateModel alloc] init];
+        self.stateModel.delegate = self;
+        self.state = [[BUNavigationPresenterState alloc] init];
+        self.state.isMapLoaded = NO;
+        self.state.temporaryAuditory = @"";
     }
     return self;
 }
@@ -42,7 +45,7 @@
 }
 
 - (void)didFoundAuditory:(NSString *)auditory {
-    [stateModel setAuditory:auditory forDirection:state.findingAuditoryIndex];
+    [self.stateModel setAuditory:auditory forDirection:self.state.findingAuditoryIndex];
     [self performSelector:@selector(execute) withObject:nil afterDelay:0.01];
 }
 
@@ -50,20 +53,20 @@
 #pragma mark - BUMainScreenViewControllerOutput
 
 - (void)didWebViewLoaded {
-    state.isMapLoaded = YES;
-    if (![state.temporaryAuditory isEqualToString:@""]) {
+    self.state.isMapLoaded = YES;
+    if (![self.state.temporaryAuditory isEqualToString:@""]) {
         [self showTemporaryAuditory];
     }
 }
 
 - (void)didButtonPressed:(NSUInteger)index {
-    state.findingAuditoryIndex = index;
+    self.state.findingAuditoryIndex = index;
     [self.router presentSearchViewControllerFromViewController:(UIViewController *)self.view andPresenter:self];
 }
 
 - (void)didCancelButtonPressed:(NSUInteger)index {
-    [stateModel resetAuditoryForDirection:index];
-    [stateModel prepareToExecute];
+    [self.stateModel resetAuditoryForDirection:index];
+    [self.stateModel prepareToExecute];
 }
 
 - (void)didCameraButtonPressed {
@@ -71,7 +74,7 @@
 }
 
 - (void)didArrowPressed {
-    NSArray *auditories = [stateModel auditories];
+    NSArray *auditories = [self.stateModel auditories];
     if (![auditories containsObject:@""]) {
         [self.view setContent:auditories[0] forButtonAtIndex:1];
         [self.view setContent:auditories[1] forButtonAtIndex:0];
@@ -81,16 +84,16 @@
 }
 
 - (void)invert {
-    if ([stateModel revertAuditories]) {
-        [stateModel prepareToExecute];
+    if ([self.stateModel revertAuditories]) {
+        [self.stateModel prepareToExecute];
         [self.view stopAnimating];
     }
 }
 
 - (void)didWebViewLoadedWithCode:(NSInteger)code {
     if (code > 0) {
-        state.auditories[state.findingAuditoryIndex] = state.tryingAuditory;
-        [self.view setContent:state.tryingAuditory forButtonAtIndex:state.findingAuditoryIndex];
+        self.state.auditories[self.state.findingAuditoryIndex] = self.state.tryingAuditory;
+        [self.view setContent:self.state.tryingAuditory forButtonAtIndex:self.state.findingAuditoryIndex];
     }
 }
 
@@ -102,20 +105,20 @@
                               message:@"У нас пока что есть навигация только для Б.М."
                             andAction:@"Обидно"];
     } else {
-        if (state.isMapLoaded) {
-            state.findingAuditoryIndex = 1;
-            [stateModel setAuditory:aud forDirection:state.findingAuditoryIndex];
+        if (self.state.isMapLoaded) {
+            self.state.findingAuditoryIndex = 1;
+            [self.stateModel setAuditory:aud forDirection:self.state.findingAuditoryIndex];
             [self performSelector:@selector(execute) withObject:nil afterDelay:0.01];
         } else {
-            state.temporaryAuditory = aud;
+            self.state.temporaryAuditory = aud;
         }
     }
 }
 
 - (void)showTemporaryAuditory {
-    state.findingAuditoryIndex = 1;
-    [stateModel setAuditory:state.temporaryAuditory forDirection:state.findingAuditoryIndex];
-    [self performSelector:@selector(execute) withObject:nil afterDelay:0.5];
+    self.state.findingAuditoryIndex = 1;
+    [self.stateModel setAuditory:self.state.temporaryAuditory forDirection:self.state.findingAuditoryIndex];
+    [self performSelector:@selector(execute) withObject:nil afterDelay:1];
 }
 
 #pragma mark - BUMainStateModelDelegate
@@ -124,16 +127,43 @@
     [self.view showStartScreen];
 }
 
-- (NSInteger)stateModel:(BUMainStateModel *)stateModel showAuditory:(NSString *)auditory {
-    NSInteger errCode = [self.view showAuditory:auditory];
-    if (errCode < 0) {
-        [self.view showAlertWithTitle:@"Простите, аудитория не найдена :("
-                              message:@"Попробуйте найти аудиторию рядом"
-                            andAction:@"Попробовать"];
-    } else {
-        [self.view setContent:auditory forButtonAtIndex:state.findingAuditoryIndex];
-    }
-    return errCode;
+//- (NSInteger)stateModel:(BUMainStateModel *)stateModel showAuditory:(NSString *)auditory {
+//    __weak typeof(self) welf = self;
+//    [self.view showAuditory:auditory errCode:^(NSInteger code) {
+//        if (code < 0) {
+//            [welf.view showAlertWithTitle:@"Простите, аудитория не найдена :("
+//                                  message:@"Попробуйте найти аудиторию рядом"
+//                                andAction:@"Попробовать"];
+//        } else {
+//            [welf.view setContent:auditory forButtonAtIndex:welf.state.findingAuditoryIndex];
+//        }
+//    }];
+////    NSInteger errCode = [self.view showAuditory:auditory];
+////    if (errCode < 0) {
+////        [self.view showAlertWithTitle:@"Простите, аудитория не найдена :("
+////                              message:@"Попробуйте найти аудиторию рядом"
+////                            andAction:@"Попробовать"];
+////    } else {
+////        [self.view setContent:auditory forButtonAtIndex:state.findingAuditoryIndex];
+////    }
+//    return errCode;
+//}
+
+- (void)stateModel:(BUMainStateModel *)stateModel
+      showAuditory:(NSString *)auditory
+       withErrCode:(void (^)(NSInteger))retBlock {
+    
+    __weak typeof(self) welf = self;
+    [self.view showAuditory:auditory errCode:^(NSInteger code) {
+        if (code < 0) {
+            [welf.view showAlertWithTitle:@"Простите, аудитория не найдена :("
+                                  message:@"Попробуйте найти аудиторию рядом"
+                                andAction:@"Попробовать"];
+        } else {
+            [welf.view setContent:auditory forButtonAtIndex:welf.state.findingAuditoryIndex];
+        }
+        retBlock(code);
+    }];
 }
 
 - (void)stateModel:(BUMainStateModel *)stateModel showPathFrom:(NSString *)from to:(NSString *)to {
@@ -152,11 +182,11 @@
 }
 
 - (void)didNormalRouteSelected {
-    [stateModel showNormalPath];
+    [self.stateModel showNormalPath];
 }
 
 - (void)execute {
-    [stateModel prepareToExecute];
+    [self.stateModel prepareToExecute];
     [self.view stopAnimating];
 }
 
@@ -174,17 +204,19 @@
     }
     
     if ([paths count] == 1) {
-        NSInteger errCode = [self.view showAuditory:paths[0]];
-        if (errCode < 0) {
-            [self.view showAlertWithTitle:@"Простите, аудитория не найдена :("
-                                  message:@"Попробуйте найти аудиторию рядом"
-                                andAction:@"Попробовать"];
-        } else {
-            [stateModel setAuditory:paths[0] forDirection:0];
-            [self performSelector:@selector(execute) withObject:nil afterDelay:0.01];
-        }
+        __weak typeof(self) welf = self;
+        [self.view showAuditory:paths[0] errCode:^(NSInteger code) {
+            if (code < 0) {
+                [self.view showAlertWithTitle:@"Простите, аудитория не найдена :("
+                                      message:@"Попробуйте найти аудиторию рядом"
+                                    andAction:@"Попробовать"];
+            } else {
+                [welf.stateModel setAuditory:paths[0] forDirection:0];
+                [self performSelector:@selector(execute) withObject:nil afterDelay:0.01];
+            }
+        }];
     } else if ([paths count] == 2) {
-        [stateModel setPathFrom:paths[0] to:paths[1]];
+        [self.stateModel setPathFrom:paths[0] to:paths[1]];
         [self performSelector:@selector(execute) withObject:nil afterDelay:0.01];
     }
 }

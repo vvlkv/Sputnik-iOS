@@ -8,14 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-/*typedef enum ScheduleType {
-    ScheduleTypeSession,
-    ScheduleTypeSemester
-}ScheduleType;*/
-
 @interface BUSUAIParser : NSObject
 
 + (NSDictionary *)codesFromData:(NSData *)data;
 + (NSArray *)scheduleFromData:(NSData *)data;
+//+ (NSString *)weekFromData:(NSData *)data;
 
 @end

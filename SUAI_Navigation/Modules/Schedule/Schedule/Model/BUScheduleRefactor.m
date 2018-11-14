@@ -7,6 +7,7 @@
 //
 
 #import "BUScheduleRefactor.h"
+#import "BUAppDataContainer.h"
 #import "BUDay.h"
 #import "BUPair.h"
 
@@ -41,16 +42,32 @@
     return [self fillIndicatorsFromArray:filledContent];
 }
 
-- (NSString *)findTeacher:(NSString *)teacher inCodes:(NSDictionary *)codes {
-    return [self findEntity:teacher OfType:1 andCodes:codes[@"Semester"][@"Teachers"]];
+- (NSString *)findTeacher:(NSString *)teacher {
+    return [self findEntity:teacher ofType:1];
 }
 
-- (NSString *)findFroup:(NSString *)group inCodes:(NSDictionary *)codes {
-    return [self findEntity:group OfType:0 andCodes:codes[@"Semester"][@"Groups"]];
+- (NSString *)findGroup:(NSString *)teacher {
+    return [self findEntity:teacher ofType:0];
 }
 
 - (NSString *)findEntity:(NSString *)entity OfType:(NSUInteger)type andCodes:(NSDictionary *)codes {
     for (NSString *name in [codes allKeys]) {
+        if ([name containsString:entity]) {
+            return name;
+        }
+    }
+    return nil;
+}
+
+- (NSString *)findEntity:(NSString *)entity ofType:(NSUInteger)type {
+    NSDictionary *codes = [[BUAppDataContainer instance] entityCodes];
+    NSDictionary *searchCodes = (type == 0) ? codes[@"Semester"][@"Groups"] : codes[@"Semester"][@"Teachers"];
+    for (NSString *name in [searchCodes allKeys]) {
+        if ([name isEqualToString:entity]) {
+            return name;
+        }
+    }
+    for (NSString *name in [searchCodes allKeys]) {
         if ([name containsString:entity]) {
             return name;
         }

@@ -18,7 +18,7 @@
 
 @end
 
-@interface BUToolbarView : UIToolbar
+@interface BUToolbarView : UIView
 
 @property (weak, nonatomic) id <BUToolbarViewDelegate> toolBarDelegate;
 

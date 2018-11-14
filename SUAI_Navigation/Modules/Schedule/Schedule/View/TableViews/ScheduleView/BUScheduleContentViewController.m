@@ -15,12 +15,9 @@
 #import "BUScheduleContentViewController+Delegate.h"
 #import "BUScheduleContentViewController+DataSource.h"
 
-@interface BUScheduleContentViewController () <BUGuestViewDelegate> {
+@interface BUScheduleContentViewController () {
     BUAstronautView *austronautView;
-    BUGuestView *guestView;
     UITableView *scheduleTableView;
-    NSInteger viewType;
-    UIActivityIndicatorView *indicatorView;
 }
 
 @end
@@ -33,77 +30,41 @@
     if (self) {
         _type = type;
         _index = index;
-        self.view.opaque = YES;
     }
     return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    austronautView = (BUAstronautView *)[[NSBundle mainBundle] loadNibNamed:@"BUAstronautView"
-                                                                      owner:self
-                                                                    options:nil][0];
-    CGRect tableViewFrame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
-    scheduleTableView = [[UITableView alloc] initWithFrame:tableViewFrame
-                                                     style:UITableViewStyleGrouped];
-    scheduleTableView.delegate = self;
-    scheduleTableView.dataSource = self;
-    [scheduleTableView setShowsHorizontalScrollIndicator:NO];
-    [scheduleTableView setShowsVerticalScrollIndicator:NO];
-    scheduleTableView.backgroundColor = [UIColor whiteColor];
-    UINib *nib = [UINib nibWithNibName:@"BUScheduleTableViewCell"
-                                bundle:nil];
-    [scheduleTableView registerNib:nib forCellReuseIdentifier:@"cellId"];
-    indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    indicatorView.hidesWhenStopped = YES;
-    [indicatorView startAnimating];
-    indicatorView.frame = CGRectMake(self.view.frame.size.width/2 - 10, 40, 20, 20);
-    [self.view addSubview:indicatorView];
-    [self viewDidLayoutSubviews];
-}
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    austronautView.frame = self.view.bounds;
-    scheduleTableView.frame = self.view.bounds;
-    guestView.frame = self.view.bounds;
-}
-
 - (void)refresh {
-    [indicatorView stopAnimating];
-    for (UIView *view in self.view.subviews) {
-        [view removeFromSuperview];
-    }
-    if ([self.dataSource viewTypeAtIndex:_index andType:_type] == 0) {
-        austronautView.message = [self.dataSource titleForViewAtIndex:_index andType:_type];
-        [self.view addSubview:austronautView];
-    } else if ([self.dataSource viewTypeAtIndex:_index andType:_type] == 1) {
-        [self.view addSubview:scheduleTableView];
-        [scheduleTableView reloadData];
+    [self.dataSource typeOfViewForViewController:self];
+}
+
+- (void)showSchedule {
+    if (scheduleTableView == nil) {
+        scheduleTableView = [[UITableView alloc] initWithFrame:self.view.frame
+                                                         style:UITableViewStyleGrouped];
+        scheduleTableView.delegate = self;
+        scheduleTableView.dataSource = self;
+        [scheduleTableView setShowsHorizontalScrollIndicator:NO];
+        [scheduleTableView setShowsVerticalScrollIndicator:NO];
+        scheduleTableView.backgroundColor = [UIColor whiteColor];
+        UINib *nib = [UINib nibWithNibName:@"BUScheduleTableViewCell"
+                                    bundle:nil];
+        [scheduleTableView registerNib:nib forCellReuseIdentifier:@"cellId"];
     } else {
-        guestView = [[NSBundle mainBundle] loadNibNamed:@"BUGuestView"
-                                                               owner:self
-                                                             options:nil][0];
-        guestView.frame = self.view.frame;
-        guestView.delegate = self;
-        [self.view addSubview:guestView];
+        [scheduleTableView reloadData];
     }
+    self.view = scheduleTableView;
 }
 
-- (void)updateSubviewsFrame:(CGRect)frame {
-    scheduleTableView.frame = frame;
-    austronautView.frame = frame;
-}
-
-- (void)addGesture:(UIGestureRecognizer *)gesture {
-    [scheduleTableView addGestureRecognizer:gesture];
-}
-
-
-#pragma mark - BUGuestViewDelegate
-
-- (void)didPressJumpToSettingsButtonInGuestView:(BUGuestView *)guestView {
-    [self.delegate didPressGoToSettingsButton];
+- (void)showAustronaut {
+    if (austronautView == nil) {
+        austronautView = (BUAstronautView *)[[NSBundle mainBundle] loadNibNamed:@"BUAstronautView"
+                                                                          owner:self
+                                                                        options:nil][0];
+        austronautView.message = [self.dataSource titleForViewAtIndex:_index andType:_type];
+        austronautView.frame = self.view.frame;
+    }
+    self.view = austronautView;
 }
 
 @end

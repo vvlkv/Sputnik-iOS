@@ -9,11 +9,11 @@
 #import "BUScheduleDownloader.h"
 #import "BUDownloader.h"
 #import "BUSUAIParser.h"
+#import "BUAppDataContainer.h"
 
 @interface BUScheduleDownloader () {
     __block NSMutableDictionary *schedule;
     __block NSMutableDictionary *codes;
-    __block NSString *date;
 }
 
 @end
@@ -26,7 +26,6 @@
     if (self) {
         codes = [NSMutableDictionary dictionary];
         schedule = [NSMutableDictionary dictionary];
-        date = @"";
         [self addObserver:self forKeyPath:@"schedule" options:0 context:nil];
         [self addObserver:self forKeyPath:@"codes" options:0 context:nil];
     }
@@ -38,7 +37,7 @@
     for (int i = 0; i < 2; i++) {
         [BUDownloader loadURLWithType:(ScheduleType)i success:^(NSData *data) {
             [self willChangeValueForKey:@"codes"];
-            codes[keys[i]] = [BUSUAIParser codesFromData:data];
+            self->codes[keys[i]] = [BUSUAIParser codesFromData:data];
             [self didChangeValueForKey:@"codes"];
         } fail:^(NSString *fail) {
             [self.delegate failedConnection];
@@ -46,22 +45,44 @@
     }
 }
 
-- (void)downloadScheduleForEntity:(NSString *)entity
-                          andType:(NSUInteger)type {
+- (void)loadScheduleForEntity:(NSString *)entity
+                      andType:(NSUInteger)type {
     NSArray *keys = @[@"Session", @"Semester"];
     NSString *entityKey;
+    NSDictionary *entityCodes = [[BUAppDataContainer instance] entityCodes];
     for (int i = 0; i < 2; i++) {
-        entityKey = (type == 0) ? codes[keys[i]][@"Groups"][entity] : codes[keys[i]][@"Teachers"][entity];
+        entityKey = (type == 0) ? entityCodes[keys[i]][@"Groups"][entity] : codes[keys[i]][@"Teachers"][entity];
         [BUDownloader loadScheduleOfType:(ScheduleType)i
                                   entity:(EntityType)type
                                 entityId:entityKey
                                  success:^(NSData *data) {
                                      [self willChangeValueForKey:@"schedule"];
-                                     schedule[keys[i]] = [BUSUAIParser scheduleFromData:data];
+                                     self->schedule[keys[i]] = [BUSUAIParser scheduleFromData:data];
                                      [self didChangeValueForKey:@"schedule"];
                                 } fail:^(NSString *fail) {
                                     [self.delegate failedConnection];
                                 }];
+    }
+}
+
+- (void)loadScheduleForEntity:(NSString *)entity
+                       ofType:(NSUInteger)type
+                   usingCodes:(NSDictionary *)cds {
+    NSArray *keys = @[@"Session", @"Semester"];
+    NSString *entityKey;
+//    NSDictionary *entityCodes = [[BUAppDataContainer instance] entityCodes];
+    for (int i = 0; i < 2; i++) {
+        entityKey = (type == 0) ? cds[keys[i]][@"Groups"][entity] : cds[keys[i]][@"Teachers"][entity];
+        [BUDownloader loadScheduleOfType:(ScheduleType)i
+                                  entity:(EntityType)type
+                                entityId:entityKey
+                                 success:^(NSData *data) {
+                                     [self willChangeValueForKey:@"schedule"];
+                                     self->schedule[keys[i]] = [BUSUAIParser scheduleFromData:data];
+                                     [self didChangeValueForKey:@"schedule"];
+                                 } fail:^(NSString *fail) {
+                                     [self.delegate failedConnection];
+                                 }];
     }
 }
 
@@ -75,7 +96,7 @@
     
     if ([keyPath isEqualToString:@"schedule"]) {
         if ([schedule count] == 2) {
-            [self.delegate dataLoaded:schedule];
+            [self.delegate scheduleLoaded:schedule];
             [schedule removeAllObjects];
         }
     }
@@ -85,8 +106,7 @@
     return codes;
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     [self removeObserver:self forKeyPath:@"schedule" context:nil];
     [self removeObserver:self forKeyPath:@"codes" context:nil];
 }

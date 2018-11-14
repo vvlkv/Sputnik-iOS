@@ -15,7 +15,7 @@
 #import "BUSettingsInteractorOutput.h"
 #import "BUSettingsViewControllerDataSource.h"
 
-@interface BUSettingsPresenter : NSObject <BUSettingsViewControllerOutput, BUSettingsInteractorOutput, BUSettingsRouterOutput, BUSettingsViewControllerDataSource>
+@interface BUSettingsPresenter : NSObject <BUSettingsViewControllerOutput, BUSettingsInteractorOutput, BUSettingsRouterOutput>
 
 @property (weak, nonatomic) id <BUSettingsViewControllerInput> view;
 @property (strong, nonatomic) id <BUSettingsRouterInput> router;

@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ModuleWireframe.h"
 
 @class UIViewController;
-@interface BUScheduleWireFrame : NSObject
-
-+ (UIViewController *)assemblySchedule;
+@interface BUScheduleWireFrame : NSObject <ModuleWireframe>
 
 @end

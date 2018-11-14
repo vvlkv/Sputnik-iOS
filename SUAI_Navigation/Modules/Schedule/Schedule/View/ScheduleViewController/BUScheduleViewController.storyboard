@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Schedule View Controller-->
+        <scene sceneID="vwT-my-oih">
+            <objects>
+                <viewController storyboardIdentifier="BUScheduleID" id="tQB-5R-3by" customClass="BUScheduleViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wZ6-3M-teh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G2c-pT-eK1" customClass="BUCapsPageView">
+                                <rect key="frame" x="0.0" y="120" width="320" height="266"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="G2c-pT-eK1" firstAttribute="leading" secondItem="wZ6-3M-teh" secondAttribute="leading" id="9vd-oW-RRN"/>
+                            <constraint firstItem="TGc-pP-mm9" firstAttribute="bottom" secondItem="G2c-pT-eK1" secondAttribute="bottom" constant="45" id="cDs-Hj-zja"/>
+                            <constraint firstItem="G2c-pT-eK1" firstAttribute="top" secondItem="TGc-pP-mm9" secondAttribute="top" constant="56" id="gxP-IC-Sf3"/>
+                            <constraint firstItem="G2c-pT-eK1" firstAttribute="trailing" secondItem="wZ6-3M-teh" secondAttribute="trailing" id="hZd-ap-Nof"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TGc-pP-mm9"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="capsPageView" destination="G2c-pT-eK1" id="yIw-NN-aEC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c5b-aA-cUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-247.19999999999999" y="4.9475262368815596"/>
+        </scene>
+    </scenes>
+</document>

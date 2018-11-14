@@ -8,79 +8,69 @@
 
 #import "BUAbstractScheduleViewController.h"
 #import "BUCustomSegmentedControl.h"
-#import "BUSemesterView.h"
+#import "BUScheduleRefreshView.h"
+#import "BUCapsPageView.h"
 
-@interface BUAbstractScheduleViewController ()<BUCustomSegmentDelegate> {
-    BUSemesterView *semesterView;
-    BOOL updateAfterLoad;
-    NSUInteger initialIndex;
+@interface BUAbstractScheduleViewController () {
+    CGFloat capsPageHeight;
 }
+
+@property (weak, nonatomic) IBOutlet BUCapsPageView *capsPageView;
 
 @end
 
 @implementation BUAbstractScheduleViewController
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        updateAfterLoad = NO;
-        initialIndex = 0;
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    semesterView = [[BUSemesterView alloc] initWithFrame:self.view.frame];
-    semesterView.delegate = [self.output delegate];
-    semesterView.dataSource = [self.output dataSource];
-    semesterView.segmentDelegate = self;
-    semesterView.capsPageDataSource = [self.output dataSource];
-    [self.view addSubview:semesterView];
-    if (updateAfterLoad == YES) {
-        [semesterView refresh];
-        [semesterView refreshDate];
-        [semesterView moveToPage:initialIndex];
+    [self addCapsPageView];
+    [self addCalendarItem];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self showTabBarUpperLine:NO];
+    if (self.capsPageView != nil) {
+        [self.output didChangeWeekSegment:self.weekTypeSegmentedControl.selectedSegmentIndex];
     }
+    [_capsPageView layoutSubviews];
+}
+
+
+- (void)addCapsPageView {
+    self.capsPageView.delegate = [self.output delegate];
+    self.capsPageView.dataSource = [self.output dataSource];
+    self.capsPageView.capsPageDataSource = [self.output dataSource];
+}
+
+- (void)addCalendarItem {
     UIImage *calendarImage = [UIImage imageNamed:@"Calendar.png"];
     UIBarButtonItem *calendarItem = [[UIBarButtonItem alloc] initWithImage:calendarImage style:UIBarButtonItemStylePlain target:self action:@selector(calendarButtonPressed:)];
     self.navigationItem.rightBarButtonItem = calendarItem;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [semesterView updateFrame:self.view.bounds];
-}
 
 #pragma mark - BUScheduleViewControllerInput
 
 - (void)obtainStartScheduleScreen:(NSUInteger)index {
-    if (semesterView == nil) {
-        initialIndex = index;
-    } else {
-        [semesterView moveToPage:index];
-    }
+    [self.capsPageView moveToPage:index];
 }
 
-- (void)updateView {
-    if (semesterView == nil) {
-        updateAfterLoad = YES;
-    } else {
-        [semesterView refresh];
-    }
+- (void)loadScheduleView {
+    [self.capsPageView refresh];
 }
 
-- (void)updateDate {
-    [semesterView refreshDate];
+- (void)update {
+    [self.capsPageView refresh];
 }
 
 - (void)updateWeekSegmentWithIndex:(NSUInteger)index {
-    [semesterView updateWeekSegmentWithIndex:index];
+    self.weekTypeSegmentedControl.selectedSegmentIndex = index;
+}
+
+- (void)showTabBarUpperLine:(BOOL)isShown {
+    UITabBar *tabBar = [[self tabBarController] tabBar];
+    tabBar.clipsToBounds = !isShown;
 }
 
 - (void)addAlertViewWithItems:(NSArray *)items {
@@ -108,13 +98,19 @@
     [self presentViewController:view animated:YES completion:nil];
 }
 
-
-#pragma mark - BUCustomSegmentDelegate
-
-- (void)customSegment:(BUCustomSegmentedControl *)customSegment selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
-    [self.output didChangeWeekSegment:selectedScope];
+- (BUCustomSegmentedControl *)weekTypeSegmentedControl {
+    for (UIView *view in [self.navigationController.view subviews]) {
+        if ([view isKindOfClass:[UIView class]]) {
+            for (UIView *subView in [view subviews]) {
+                if ([subView isKindOfClass:[BUCustomSegmentedControl class]]) {
+                    if ([((BUCustomSegmentedControl *)subView) type] == BUSegmentTypeNormal)
+                        return (BUCustomSegmentedControl *)subView;
+                }
+            }
+        }
+    }
+    return nil;
 }
-
 
 #pragma mark - Other
 
@@ -126,10 +122,17 @@
     [self.output didPressAlertAction:object];
 }
 
-- (void)animateSessionViewToRect:(CGRect)sessionRect andSemesterView:(CGRect)semesterRect {
+- (void)animateViewForIndex:(NSUInteger)index {
+    CGRect capsPageRect = self.capsPageView.frame;
+    capsPageRect.origin.x = (index == 0) ? 0 : -self.view.frame.size.width;
     [UIView animateWithDuration:.3 animations:^{
-        semesterView.frame = semesterRect;
+        self.capsPageView.frame = capsPageRect;
     }];
 }
 
+- (void)animateSessionViewToRect:(CGRect)sessionRect andSemesterView:(CGRect)semesterRect {
+    [UIView animateWithDuration:.3 animations:^{
+        self.capsPageView.frame = semesterRect;
+    }];
+}
 @end

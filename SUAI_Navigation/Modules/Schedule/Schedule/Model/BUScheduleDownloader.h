@@ -15,7 +15,8 @@
 - (void)failedConnection;
 
 @optional
-- (void)dataLoaded:(NSDictionary *)data;
+- (void)scheduleLoaded:(NSDictionary *)data;
+- (void)weekLoaded:(NSInteger)weekIndex;
 
 @end
 
@@ -26,7 +27,11 @@
 
 - (void)loadCodes;
 
-- (void)downloadScheduleForEntity:(NSString *)entity
-                                    andType:(NSUInteger)type;
+- (void)loadScheduleForEntity:(NSString *)entity
+                      andType:(NSUInteger)type;
+
+- (void)loadScheduleForEntity:(NSString *)entity
+                       ofType:(NSUInteger)type
+                   usingCodes:(NSDictionary *)cds;
 
 @end

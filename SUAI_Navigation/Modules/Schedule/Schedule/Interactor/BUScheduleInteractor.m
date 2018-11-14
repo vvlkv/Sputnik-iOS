@@ -10,8 +10,6 @@
 #import "BUScheduleStorage.h"
 #import "BUScheduleDownloader.h"
 #import "BUDateFormatter.h"
-#import "BUDay.h"
-#import "BUPair.h"
 #import "BUAppDataContainer.h"
 #import "NSCalendar+CurrentDay.h"
 
@@ -19,25 +17,46 @@
     BUScheduleDownloader *downloader;
     BUScheduleStorage *storage;
     BUDateFormatter *dateFormatter;
+    NSString *entity;
+    NSUInteger type;
     BOOL isRoot;
+    BOOL isCheckedNewSchedule;
 }
 
 @end
 
 @implementation BUScheduleInteractor
 
-- (instancetype)initAsRoot:(BOOL)root {
+- (instancetype)init
+{
+    self = [self initWithEntity:[[BUAppDataContainer instance] entity]
+                         ofType:[[BUAppDataContainer instance] type]];
+    if (self) {
+        isRoot = YES;
+        isCheckedNewSchedule = NO;
+    }
+    return self;
+}
+
+- (instancetype)initWithEntity:(NSString *)e
+                        ofType:(NSUInteger)t
+{
     self = [super init];
     if (self) {
+        isRoot = NO;
+        entity = e;
+        type = t;
         downloader = [[BUScheduleDownloader alloc] init];
         dateFormatter = [[BUDateFormatter alloc] init];
         downloader.delegate = self;
-        [downloader loadCodes];
-        isRoot = root;
         storage = [[BUScheduleStorage alloc] init];
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(settingsChanged:)
                                                      name:@"buSettingsChanged"
+                                                   object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(haveCodes:)
+                                                     name:@"buCodesLoaded"
                                                    object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(reachable:)
@@ -51,32 +70,37 @@
     return self;
 }
 
-
 #pragma mark - BUScheduleInteractorInput
 #pragma mark - Required
 
-- (void)obtainScheduleForEntity:(NSString *)entity andType:(NSUInteger)type {
-    if (entity != nil) {
-         [downloader downloadScheduleForEntity:entity andType:type];
-    } else {
-        [self.output didEntityNotSelected];
-    }
-}
-
-#pragma mark - Optional
-
 - (void)obtainSchedule {
-//    [self.output didObtainDate:[dateFormatter dateFromWeek:[[BUAppDataContainer instance] weekType]]];
-    [self.output didObtainDate:[dateFormatter dateFromWeek:[NSCalendar weekIndex]]];
+    NSDictionary *codes = [[BUAppDataContainer instance] entityCodes];
     if (isRoot) {
         NSArray *scheduleFromDataBase = [storage loadScheduleFromDataBase];
         if ([scheduleFromDataBase[0] count] != 0) {
             [self.output didObtainSchedule:scheduleFromDataBase];
+            [self obtainPersonInfo];
+            if (codes != nil) {
+                [downloader loadScheduleForEntity:entity ofType:type usingCodes:codes];
+            }
+        } else if (entity == nil) {
+            [self.output didEntityNotSelected];
         }
+    } else {
+        [downloader loadScheduleForEntity:entity
+                                   ofType:type
+                               usingCodes:codes];
     }
-    if ([[BUAppDataContainer instance] entity] == nil) {
-        [self.output didEntityNotSelected];
-    }
+}
+
+- (void)obtainDate {
+    if (isRoot)
+        [self.output didObtainDate:[dateFormatter dateFromWeek:[NSCalendar weekIndex]]];
+}
+
+- (void)reloadSchedule:(NSArray *)schedule {
+    [storage deleteAllEntities];
+    [storage writeScheduleToDataBase:schedule];
 }
 
 
@@ -84,42 +108,61 @@
 #pragma mark - Required
 
 - (void)codesLoaded {
-    [[BUAppDataContainer instance] writeCodes:[downloader codes]];
-    [self.output didDownloadCodes];
     [self.output didObtainCodes:[downloader codes]];
+    if (isRoot) {
+        [downloader loadScheduleForEntity:entity andType:type];
+    }
 }
 
 - (void)failedConnection {
     [self.output didFailLoading];
 }
 
+
 #pragma mark - Optional
 
-- (void)dataLoaded:(NSDictionary *)data {
-    [self.output didObtainSchedule:@[data[@"Semester"], data[@"Session"]]];
+- (void)scheduleLoaded:(NSDictionary *)data {
+    BOOL isMock = NO;
+    NSArray *mock = isMock ? [NSArray array] : data[@"Session"];
+    [self.output didObtainSchedule:@[data[@"Semester"], mock]];
+    [self obtainPersonInfo];
     if ([[storage loadScheduleFromDataBase][0] count] == 0 && isRoot) {
-        [storage writeScheduleToDataBase:@[data[@"Semester"], data[@"Session"]]];
+        [storage writeScheduleToDataBase:@[data[@"Semester"], mock]];
     }
 }
-
 
 #pragma mark - Root
 
 - (void)settingsChanged:(NSNotification *)notification {
     [storage deleteAllEntities];
-    NSUInteger entityType = [[BUAppDataContainer instance] type];
-    NSString *entityName = [[BUAppDataContainer instance] entity];
-    [downloader downloadScheduleForEntity:entityName andType:entityType];
-    [self.output didObtainEntityType:entityType];
-    [self.output didObtainEntity:entityName];
+    type = [[BUAppDataContainer instance] type];
+    entity = [[BUAppDataContainer instance] entity];
+    NSDictionary *codes = [[BUAppDataContainer instance] entityCodes];
+    [downloader loadScheduleForEntity:entity ofType:type usingCodes:codes];
+    [self.output didNotShowAlert];
 }
 
+- (void)obtainPersonInfo {
+    [self.output didObtainEntityType:type];
+    [self.output didObtainEntity:entity];
+}
 
 #pragma mark - Internet
 
+- (void)haveCodes:(NSNotification *)notification {
+    NSDictionary *codes = [[BUAppDataContainer instance] entityCodes];
+    if (codes != NULL) {
+        [self.output didObtainCodes:codes];
+        if (isRoot) {
+            [downloader loadScheduleForEntity:entity andType:type];
+        }
+    }
+}
+
 - (void)reachable:(NSNotification *)notification {
-    if ([[downloader codes] count] != 0) {
-        [downloader loadCodes];
+    NSDictionary *codes = [[BUAppDataContainer instance] entityCodes];
+    if (codes != NULL) {
+        [self.output didObtainCodes:codes];
     }
 }
 
@@ -129,6 +172,7 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"buSettingsChanged" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"buCodesLoaded" object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"buInternetBecomeReachable" object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"buInternetBecomeUnreachable" object:nil];
 }

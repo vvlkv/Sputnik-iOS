@@ -10,7 +10,6 @@
 #import "BUScheduleSearchViewController.h"
 #import "BUScheduleDetailInfoViewController.h"
 #import "BUSchedulePresenter.h"
-#import "BUScheduleViewController.h"
 #import "BUScheduleInteractor.h"
 #import "BUMainScreenViewController.h"
 #import "BURootNavigationController.h"
@@ -34,10 +33,11 @@
 - (void)pushDetailViewControllerFromViewController:(UIViewController *)viewController
                                         withEntity:(NSString *)entity
                                            andType:(NSUInteger)type {
-    BUScheduleDetailInfoViewController *scheduleVC = [[BUScheduleDetailInfoViewController alloc] init];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"BUScheduleDetailInfoViewController" bundle:nil];
+    BUScheduleDetailInfoViewController *scheduleVC = (BUScheduleDetailInfoViewController *)[sb instantiateViewControllerWithIdentifier:@"BUScheduleDetailID"];
     scheduleVC.title = [[entity componentsSeparatedByString:@"-"] firstObject];
-    BUSchedulePresenter *schedulePresenter = [[BUSchedulePresenter alloc] initWithEntity:entity andType:type];
-    BUScheduleInteractor *scheduleInteractor = [[BUScheduleInteractor alloc] initAsRoot:NO];
+    BUSchedulePresenter *schedulePresenter = [[BUSchedulePresenter alloc] init];
+    BUScheduleInteractor *scheduleInteractor = [[BUScheduleInteractor alloc] initWithEntity:entity ofType:type];
     BUScheduleRouter *scheduleRouter = [[BUScheduleRouter alloc] init];
     schedulePresenter.input = scheduleInteractor;
     schedulePresenter.router = scheduleRouter;

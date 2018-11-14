@@ -23,8 +23,9 @@ typedef enum ScheduleType {
 @property (strong, nonatomic) id <BUScheduleContentDelegate> delegate;
 
 - (instancetype)initWithIndex:(NSUInteger)index andType:(ScheduleType)type;
+//- (void)updateSubviewsFrame:(CGRect)frame;
 - (void)refresh;
-- (void)updateSubviewsFrame:(CGRect)frame;
-- (void)addGesture:(UIGestureRecognizer *)gesture;
+- (void)showSchedule;
+- (void)showAustronaut;
 
 @end

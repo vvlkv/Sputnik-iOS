@@ -12,6 +12,7 @@
 
 + (NSString *)appendDash:(NSString *)string;
 + (NSString *)deleteDash:(NSString *)string;
++ (NSString *)prepareToCall:(NSString *)number;
 + (NSString *)prepareAuditoryToLoad:(NSString *)string;
 
 @end

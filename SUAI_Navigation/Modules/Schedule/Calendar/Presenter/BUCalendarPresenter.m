@@ -73,7 +73,7 @@
     
     NSString *teacher = [[[[[pair teacherName] componentsSeparatedByString:@" -"] firstObject] componentsSeparatedByString:@": "] lastObject];
     NSArray *groups = [[[[[pair groups] componentsSeparatedByString:@":"] lastObject] substringFromIndex:1] componentsSeparatedByString:@"; "];
-    NSString *auditory = [pair auditory];
+//    NSString *auditory = [pair auditory];
     NSMutableArray *contents = [NSMutableArray array];
     if (state.codes != nil && state.connectionStatus == ConnectionStatusOnline) {
         if (displayManager.entityType != 1 && ![teacher containsString:@";"])
@@ -83,9 +83,9 @@
                 [contents addObject:group];
         }
     }
-    if (![auditory containsString:@"кафедры"]) {
-        [contents addObject:auditory];
-    }
+//    if (![auditory containsString:@"кафедры"]) {
+//        [contents addObject:auditory];
+//    }
     [self.view addAlertViewWithItems:contents];
 }
 
@@ -95,12 +95,12 @@
     NSUInteger foundedEntityIndex = 2;
     NSString *searchResult = nil;
     
-    if ((searchResult = [refactor findTeacher:action inCodes:state.codes]) != nil) {
+    if ((searchResult = [refactor findTeacher:action]) != nil) {
         state.entityName = searchResult;
         foundedEntityIndex = 1;
         isDataSended = YES;
     }
-    else if ((searchResult = [refactor findFroup:action inCodes:state.codes]) != nil) {
+    else if ((searchResult = [refactor findGroup:action]) != nil) {
         state.entityName = searchResult;
         foundedEntityIndex = 0;
         isDataSended = YES;

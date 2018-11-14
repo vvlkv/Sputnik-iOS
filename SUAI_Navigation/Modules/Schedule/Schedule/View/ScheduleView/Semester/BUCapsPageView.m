@@ -30,25 +30,30 @@
     if (self) {
         [self initCapsPageViews];
         [self initCapsPage];
-        isFirstLaunch = YES;
     }
     return self;
 }
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    [self initCapsPageViews];
+    [self initCapsPage];
+}
+
 - (void)initCapsPage {
-    UIColor *blueColor = [UIColor suaiPurpleColor];
+    UIColor *purpleColor = [UIColor suaiPurpleColor];
     NSDictionary *parameters = @{CAPSPageMenuOptionMenuItemSeparatorWidth: @(4.3),
                                  CAPSPageMenuOptionUseMenuLikeSegmentedControl: @(YES),
                                  CAPSPageMenuOptionMenuItemSeparatorPercentageHeight: @(0.1),
                                  CAPSPageMenuOptionScrollMenuBackgroundColor: [UIColor whiteColor],
-                                 CAPSPageMenuOptionSelectionIndicatorColor: blueColor,
+                                 CAPSPageMenuOptionSelectionIndicatorColor: purpleColor,
                                  CAPSPageMenuOptionUseMenuLikeSegmentedControl: [UIColor blackColor],
-                                 CAPSPageMenuOptionSelectedMenuItemLabelColor: blueColor,
+                                 CAPSPageMenuOptionSelectedMenuItemLabelColor: purpleColor,
                                  CAPSPageMenuOptionBottomMenuHairlineColor: [UIColor grayColor],
                                  CAPSPageMenuOptionViewBackgroundColor: [UIColor whiteColor]
                                  };
     _pageMenu = [[CAPSPageMenu alloc] initWithViewControllers:controllerArray
-                                                        frame:CGRectMake(0.0, 41.f + 56.f, self.frame.size.width, self.frame.size.height - 41.f - 56.f)
+                                                        frame:self.bounds
                                                       options:parameters];
     _pageMenu.delegate = self;
     _pageMenu.dataSource = self;
@@ -61,7 +66,6 @@
     for (int i = 0; i < 7; i++) {
         BUScheduleContentViewController *controller = [[BUScheduleContentViewController alloc] initWithIndex:i
                                                                                                      andType:ScheduleTypeSemester];
-        controller.view.backgroundColor = [UIColor whiteColor];
         controller.title = capsTitle[i];
         [controllerArray addObject:controller];
     }
@@ -72,10 +76,6 @@
 }
 
 - (void)refresh {
-    if (isFirstLaunch == YES) {
-        [_pageMenu fillMenuItemViews];
-        isFirstLaunch = NO;
-    }
     for (BUScheduleContentViewController *viewController in controllerArray) {
         [viewController refresh];
     }
@@ -102,11 +102,9 @@
 - (void)setCapsPageDataSource:(id<BUCapsPageViewDataSource>)capsPageDataSource {
     _capsPageDataSource = capsPageDataSource;
 }
-
+//
 - (void)didMoveToPage:(UIViewController *)controller index:(NSInteger)index {
-    [controller viewDidAppear:YES];
 }
-
 
 #pragma mark - CAPSPageMenuDataSource
 

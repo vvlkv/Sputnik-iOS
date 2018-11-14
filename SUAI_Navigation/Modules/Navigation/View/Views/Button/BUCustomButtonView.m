@@ -23,30 +23,44 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor suaiBlueColor];
-        self.layer.cornerRadius = 5.f;
-        self.userInteractionEnabled = YES;
-        auditoryButton = [[UIButton alloc] initWithFrame:self.frame];
-        [auditoryButton addTarget:self action:@selector(auditoryButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [auditoryButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [auditoryButton.titleLabel setFont:[UIFont suaiRobotoFont:RobotoFontRegular size:18.f]];
-        cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(frame.size.width - 30, frame.size.height/2 - 15, 30, 30)];
-        [cancelButton addTarget:self action:@selector(cancelButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [cancelButton setImage:[UIImage imageNamed:@"Close"] forState:UIControlStateNormal];
-        [self addSubview:auditoryButton];
-        [self addSubview:cancelButton];
+        [self initialize];
     }
     return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self initialize];
+    }
+    return self;
+}
+
+- (void)initialize {
+    self.backgroundColor = [UIColor suaiBlueColor];
+    self.layer.cornerRadius = 5.f;
+    self.userInteractionEnabled = YES;
+    auditoryButton = [[UIButton alloc] initWithFrame:self.bounds];
+    auditoryButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [auditoryButton addTarget:self action:@selector(auditoryButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [auditoryButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [auditoryButton.titleLabel setFont:[UIFont suaiRobotoFont:RobotoFontRegular size:18.f]];
+    cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(self.bounds.size.width - 30, 0, 30, self.bounds.size.height)];
+    cancelButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [cancelButton addTarget:self action:@selector(cancelButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [cancelButton setImage:[UIImage imageNamed:@"Close"] forState:UIControlStateNormal];
+    [self addSubview:auditoryButton];
+    [self addSubview:cancelButton];
 }
 
 - (void)setTitle:(NSString *)title {
     [auditoryButton setTitle:title forState:UIControlStateNormal];
 }
 
-- (void)setIsCancelButtonVisible:(BOOL)isCancelButtonVisible {
-    _isCancelButtonVisible = isCancelButtonVisible;
-    cancelButton.hidden = _isCancelButtonVisible ^ 1;
-    cancelButton.userInteractionEnabled = _isCancelButtonVisible;
+- (void)setCancelButtonVisibility:(BOOL)isVisible {
+    cancelButton.hidden = isVisible ^ 1;
+    cancelButton.userInteractionEnabled = isVisible;
 }
 
 - (void)auditoryButtonPressed:(id)target {

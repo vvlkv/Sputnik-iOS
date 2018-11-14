@@ -17,29 +17,38 @@
 
 @implementation BURootNavigationController
 
-- (instancetype)initWithRootViewController:(UIViewController *)rootViewController
-{
-    self = [super initWithRootViewController:rootViewController];
-    if (self) {
-        [self configureBarColor];
-    }
-    return self;
+- (void)configureBarColor {
+    [self.navigationBar setBackIndicatorImage:[UIImage new]];
+    self.navigationBar.shadowImage = [UIImage new];
+    self.navigationBar.translucent = YES;
+    self.navigationBar.backgroundColor = [UIColor clearColor];
+    
+    
+    CAGradientLayer *layer = [UIColor suaiGradientColorFrom:[UIColor suaiBlueColor] to:[UIColor suaiLightPurpleColor]];
+    layer.frame = CGRectMake(0, 0, self.navigationBar.bounds.size.width, self.navigationBar.bounds.size.height);
+    UIGraphicsBeginImageContext(layer.bounds.size);
+    [layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    self.navigationBar.barTintColor = [UIColor colorWithPatternImage:image];
+    
 }
 
-- (void)configureBarColor {
-    self.navigationBar.barTintColor = [UIColor clearColor];
+- (void)initializeNavBarStyle {
+    UINavigationBar *navBar = [[self navigationController] navigationBar];
+    [navBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    navBar.shadowImage = [UIImage new];
+    navBar.translucent = YES;
+    
+    UIView *behindView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIApplication sharedApplication].statusBarFrame.size.width, [UIApplication sharedApplication].statusBarFrame.size.height + navBar.frame.size.height)];
     CAGradientLayer *layer = [UIColor suaiGradientColorFrom:[UIColor suaiBlueColor] to:[UIColor suaiLightPurpleColor]];
-    layer.frame = CGRectMake(0, 0, self.navigationBar.bounds.size.width, self.navigationBar.bounds.size.height + 20);
-    [self.navigationBar setBackgroundImage:[UIImage imageFromLayer:layer] forBarMetrics:UIBarMetricsDefault];
+    layer.frame = behindView.bounds;
+    [behindView.layer insertSublayer:layer atIndex:0];
+    [self.navigationController.view insertSubview:behindView belowSubview:navBar];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureBarColor];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 @end

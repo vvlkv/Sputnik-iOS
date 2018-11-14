@@ -21,20 +21,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     indicatorView.frame = CGRectMake(self.view.frame.size.width/2 - 10, self.view.frame.size.height/2 - 10 - 64, 20, 20);
     indicatorView.hidesWhenStopped = YES;
     [indicatorView startAnimating];
     [self.view addSubview:indicatorView];
-    CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 64 - 49);
     self.title = @"Новости";
-    newsTableView = [[UITableView alloc] initWithFrame:frame
+    self.automaticallyAdjustsScrollViewInsets = YES;
+    newsTableView = [[UITableView alloc] initWithFrame:self.view.bounds
                                                  style:UITableViewStylePlain];
     newsTableView.dataSource = self;
     newsTableView.delegate = self;
     newsTableView.estimatedRowHeight = 100.f;
     UINib *cellNib = [UINib nibWithNibName:@"BUNewsTableViewCell" bundle:nil];
     [newsTableView registerNib:cellNib forCellReuseIdentifier:@"cellId"];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    newsTableView.frame = self.view.bounds;
 }
 
 

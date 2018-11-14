@@ -39,9 +39,9 @@
 - (void)loadNews {
     __weak typeof(self) welf = self;
     [BUDownloader loadNewsPageWithSuccess:^(NSData *data) {
-        news = [BUSUAIParser allNewsFromData:data];
-        totalNews = [news count];
-        for (BUNews *currentNews in news) {
+        self->news = [BUSUAIParser allNewsFromData:data];
+        self->totalNews = [self->news count];
+        for (BUNews *currentNews in self->news) {
             [BUDownloader loadImage:currentNews.imageSource success:^(NSData *data) {
                 currentNews.image = [UIImage imageWithData:data];
                 welf.loadingCounter++;

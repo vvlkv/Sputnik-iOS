@@ -18,6 +18,10 @@
     return [UIColor colorWithRed:0.f green:90.f/255.f blue:170.f/255.f alpha:1.f];
 }
 
++ (UIColor *)suaiDarkBlueColor {
+    return [UIColor colorWithRed:0.f green:44.f/255.f blue:95.f/255.f alpha:1.f];
+}
+
 + (UIColor *)suaiRedColor {
     return [UIColor colorWithRed:231.f/255.f green:15.f/255.f blue:71.f/255.f alpha:1.f];
 }
@@ -32,6 +36,10 @@
 
 + (UIColor *)suaiGrayColor {
     return [UIColor colorWithRed:216.f/255.f green:216.f/255.f blue:216.f/255.f alpha:1.f];
+}
+
++ (UIColor *)suaiReferenceBackgroundGrayColor {
+    return [UIColor colorWithRed:245.f/255.f green:245.f/255.f blue:245.f/255.f alpha:1.f];
 }
 
 + (CAGradientLayer *)suaiGradientColorFrom:(UIColor *)fromColor to:(UIColor *)toColor {
