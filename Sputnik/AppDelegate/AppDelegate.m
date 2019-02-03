@@ -16,6 +16,7 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [SUAI instance];
     BUTabBarViewController *tabBar = [[BUTabBarViewController alloc] init];
     BUTabBarPresenter *presenter = [[BUTabBarPresenter alloc] init];
