@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main Screen View Controller-->
+        <scene sceneID="qtc-lB-yDR">
+            <objects>
+                <viewController storyboardIdentifier="MainNavigationID" id="Ukl-1z-v4y" customClass="BUMainScreenViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hEr-oC-zgL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SnX-UL-27F" customClass="BUNavigationWebView">
+                                <rect key="frame" x="0.0" y="-64" width="375" height="682"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Do6-OW-NGq" customClass="BUToolbarView">
+                                        <rect key="frame" x="0.0" y="638" width="375" height="44"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="gkf-0M-li4"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Do6-OW-NGq" firstAttribute="leading" secondItem="SnX-UL-27F" secondAttribute="leading" id="Wiq-k9-Rok"/>
+                                    <constraint firstAttribute="trailing" secondItem="Do6-OW-NGq" secondAttribute="trailing" id="oF8-B6-8Iu"/>
+                                    <constraint firstAttribute="bottom" secondItem="Do6-OW-NGq" secondAttribute="bottom" id="otZ-2P-N6q"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="SnX-UL-27F" firstAttribute="bottom" secondItem="8M0-cM-8SR" secondAttribute="bottom" id="3gu-x4-81a"/>
+                            <constraint firstItem="SnX-UL-27F" firstAttribute="leading" secondItem="8M0-cM-8SR" secondAttribute="leading" id="CFr-0z-U6f"/>
+                            <constraint firstItem="SnX-UL-27F" firstAttribute="top" secondItem="hEr-oC-zgL" secondAttribute="top" constant="-64" id="gcH-ue-SpD"/>
+                            <constraint firstItem="SnX-UL-27F" firstAttribute="trailing" secondItem="8M0-cM-8SR" secondAttribute="trailing" id="vAG-DB-Sa0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8M0-cM-8SR"/>
+                    </view>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="toolBar" destination="Do6-OW-NGq" id="pU8-7A-yZU"/>
+                        <outlet property="webView" destination="SnX-UL-27F" id="SLB-Rs-g0z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IEd-ya-yKW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="173.59999999999999" y="72.413793103448285"/>
+        </scene>
+    </scenes>
+</document>

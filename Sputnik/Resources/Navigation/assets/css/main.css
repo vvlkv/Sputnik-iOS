@@ -1,0 +1,75 @@
+body {
+}
+#mainDiv{
+	display: block;
+}
+.caption{
+    font-size: 14px;
+	font-family: Georgia, serif;
+} 
+.number {
+    opacity:1;
+    fill: #000000;
+}
+.corpus
+{
+	opacity:0;
+    fill: #0066FF;
+	pointer-events:all;
+}
+.corpus:hover{
+	opacity: 0.85;
+	pointer-events:all;
+	cursor:pointer;
+}
+.floorLink{
+	opacity:0;
+    fill: #0066FF;
+	pointer-events:all;
+}
+.floorLink:hover{
+	opacity: 0.3;
+	pointer-events:all;
+	cursor:pointer;
+}
+.zoom{
+	opacity:0;
+    pointer-events:all;
+}
+.zoom:hover{
+	cursor:pointer;
+	fill:#0066FF;
+	opacity: 0.5;
+	pointer-events:all;
+}
+.stairs{
+	opacity:0;
+    pointer-events:all;
+}
+.mini_map_style{
+	opacity:0;
+	fill:#090909;
+	pointer-events:all;
+}
+.mini_map_style:hover{
+	opacity: 0.1;
+	cursor:pointer;
+}
+.pathlink{
+	opacity:0;
+	fill:#E3003B;
+}
+.auditorium{
+	fill:#FDAD35;
+	opacity:0;
+}
+.icon_mainAuds{
+	opacity:1;
+}
+.icon_mainAuds:hover{
+	cursor:pointer;
+}
+.sector{
+	fill:#FDAD35;
+	opacity:0;
+}
