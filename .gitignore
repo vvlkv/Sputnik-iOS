@@ -76,3 +76,6 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+
+SUAI_Navigation/Resources/Navigation/
+SUAI_Navigation/Resources/Information/
