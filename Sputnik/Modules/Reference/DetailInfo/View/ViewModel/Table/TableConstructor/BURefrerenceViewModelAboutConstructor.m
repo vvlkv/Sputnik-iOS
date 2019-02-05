@@ -27,7 +27,7 @@
     } else if ([entityName containsString:@"департамент"]) {
         aboutItem.value = @"О департаменте";
     } else {
-        aboutItem.value = @"Ничегошеньки";
+        aboutItem.value = @"Undefined name";
     }
     [rows addObject:aboutItem];
     return rows;

@@ -44,9 +44,11 @@ const NSString *zoomDescription[] = {@"HandleButtonZoom(-1.25)", @"HandleButtonZ
     [self sendSubviewToBack:self.webView];
     
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"index" withExtension:@"html" subdirectory:@"assets"];
-    NSString *folderString = [[url URLByDeletingLastPathComponent] absoluteString];
-    NSURL *folderURL = [NSURL fileURLWithPath:folderString isDirectory:YES];
-    [self.webView loadFileURL:url allowingReadAccessToURL:folderURL];
+    if (url != nil) {
+        NSString *folderString = [[url URLByDeletingLastPathComponent] absoluteString];
+        NSURL *folderURL = [NSURL fileURLWithPath:folderString isDirectory:YES];
+        [self.webView loadFileURL:url allowingReadAccessToURL:folderURL];
+    }
 }
 
 - (void)refreshMap {

@@ -148,6 +148,7 @@
 		55C75FCA2205ADB100B2B1C0 /* BUTabBarPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C75FC92205ADB100B2B1C0 /* BUTabBarPresenter.m */; };
 		55C7E3D81FC3669700934DB5 /* BUReferenceViewModelHeaderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C7E3D71FC3669700934DB5 /* BUReferenceViewModelHeaderItem.m */; };
 		55C932331F35288600D41A2A /* BUAppDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C932321F35288600D41A2A /* BUAppDataContainer.m */; };
+		55CAF23C2208BCF8001C8E47 /* information_mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 55CAF23B2208BCF8001C8E47 /* information_mock.json */; };
 		55DB77261F1BD1B400AEBE6D /* BUScheduleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DB77251F1BD1B400AEBE6D /* BUScheduleHeaderView.m */; };
 		55DB77281F1BD1C400AEBE6D /* BUScheduleHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55DB77271F1BD1C400AEBE6D /* BUScheduleHeaderView.xib */; };
 		55DD6D012207225900848E0F /* UIFont+SUAI.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DD6D002207225900848E0F /* UIFont+SUAI.m */; };
@@ -496,6 +497,7 @@
 		55C7E3D71FC3669700934DB5 /* BUReferenceViewModelHeaderItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUReferenceViewModelHeaderItem.m; sourceTree = "<group>"; };
 		55C932311F35288600D41A2A /* BUAppDataContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUAppDataContainer.h; sourceTree = "<group>"; };
 		55C932321F35288600D41A2A /* BUAppDataContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUAppDataContainer.m; sourceTree = "<group>"; };
+		55CAF23B2208BCF8001C8E47 /* information_mock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = information_mock.json; sourceTree = "<group>"; };
 		55DB77241F1BD1B400AEBE6D /* BUScheduleHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUScheduleHeaderView.h; sourceTree = "<group>"; };
 		55DB77251F1BD1B400AEBE6D /* BUScheduleHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUScheduleHeaderView.m; sourceTree = "<group>"; };
 		55DB77271F1BD1C400AEBE6D /* BUScheduleHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BUScheduleHeaderView.xib; sourceTree = "<group>"; };
@@ -576,7 +578,6 @@
 		55FE427921FF8DA8006495DB /* BUSputnikCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BUSputnikCoreData.xcdatamodel; sourceTree = "<group>"; };
 		7A4E64D6A42B484558758B5D /* Pods-Sputnik.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sputnik.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sputnik/Pods-Sputnik.release.xcconfig"; sourceTree = "<group>"; };
 		8855F69534F0E575886A449E /* Pods-Sputnik.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sputnik.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sputnik/Pods-Sputnik.debug.xcconfig"; sourceTree = "<group>"; };
-		E7CB149DA4301820D64934AD /* libPods-SUAI_Navigation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SUAI_Navigation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -878,6 +879,7 @@
 		5532C8BD1F3136EB0096807D /* Information */ = {
 			isa = PBXGroup;
 			children = (
+				55CAF23B2208BCF8001C8E47 /* information_mock.json */,
 				550AD45C2138710900FB24E3 /* information.json */,
 			);
 			path = Information;
@@ -2012,7 +2014,6 @@
 			isa = PBXGroup;
 			children = (
 				55B3DE821F1BA5E500B38B5F /* libxml2.tbd */,
-				E7CB149DA4301820D64934AD /* libPods-SUAI_Navigation.a */,
 				32EF7BF720A97B10A69ACCBC /* libPods-Sputnik.a */,
 			);
 			name = Frameworks;
@@ -2088,6 +2089,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55228D80205D4D0D006A134F /* BUToolbarView.xib in Resources */,
+				55CAF23C2208BCF8001C8E47 /* information_mock.json in Resources */,
 				55FAC4F31FBF6378001BC129 /* BUReferenceHeaderTableViewCell.xib in Resources */,
 				551931751FC224ED00FD602A /* BUReferenceDefaultTableViewCell.xib in Resources */,
 				5529C5251F3611B300911EF8 /* BUSecondStepView.xib in Resources */,

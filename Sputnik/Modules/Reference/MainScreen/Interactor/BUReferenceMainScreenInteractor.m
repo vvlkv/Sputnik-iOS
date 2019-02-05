@@ -21,8 +21,12 @@
 {
     self = [super init];
     if (self) {
+        var *informationFileName = @"information";
+#if (DEBUG)
+        informationFileName = @"information_mock";
+#endif
         NSData *jsonData = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle]
-                                                                   pathForResource:@"information" ofType:@"json"]];
+                                                                   pathForResource:informationFileName ofType:@"json"]];
         parser = [[BUSUAIJSONParser alloc] initWithData:jsonData];
         parser.delegate = self;
     }

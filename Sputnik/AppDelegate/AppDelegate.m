@@ -18,8 +18,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [SUAI instance];
-    BUTabBarViewController *tabBar = [[BUTabBarViewController alloc] init];
-    BUTabBarPresenter *presenter = [[BUTabBarPresenter alloc] init];
+    var *tabBar = [[BUTabBarViewController alloc] init];
+    var *presenter = [[BUTabBarPresenter alloc] init];
     tabBar.output = presenter;
     presenter.view = tabBar;
     self.window.backgroundColor = [UIColor whiteColor];

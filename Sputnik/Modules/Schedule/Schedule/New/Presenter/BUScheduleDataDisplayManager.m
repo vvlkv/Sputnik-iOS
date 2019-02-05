@@ -8,14 +8,13 @@
 
 #import "BUScheduleDataDisplayManager.h"
 #import "BUPairViewModel.h"
-#import "BUPairViewModel.h"
 
 #import "SUAISchedule.h"
 #import "SUAIDay.h"
 #import "SUAIPair.h"
 #import "SUAIAuditory.h"
 #import "SUAIEntity.h"
-
+#import "SUAITime.h"
 #import "UIColor+SUAI.h"
 
 @interface BUScheduleDataDisplayManager() {
@@ -98,16 +97,17 @@
     SUAIPair *pairModel;
     if ([tableView type] == ScheduleTypeSemester) {
         pairModel = [_expandedDays[day] pairs][pair];
-        pairVM.time = [pairModel time];
+        pairVM.time = [[pairModel time] stringValue];
         pairVM.type = [pairModel lessonType];
     } else {
         SUAIDay *day = _schedule.session[pair];
         pairModel = [day pairs][0];
-        pairVM.time = [NSString stringWithFormat:@"%@ (%@:00-..)", [day name], [pairModel.time containsString:@"1"] ? @"10" : @"14"];
-        pairVM.type = [[[pairModel time] componentsSeparatedByString:@" "] firstObject];
+        let *pairTime = [[pairModel time] stringValue];
+        pairVM.time = [NSString stringWithFormat:@"%@ (%@:00-..)", [day name], [pairTime containsString:@"1"] ? @"10" : @"14"];
+        pairVM.type = [[pairTime componentsSeparatedByString:@" "] firstObject];
     }
     pairVM.name = [pairModel name];
-    if ([[_schedule entity] type] == Group) {
+    if ([[_schedule entity] type] == EntityTypeGroup) {
         pairVM.subInfo = [[pairModel teachers] componentsJoinedByString:@" "];
     } else {
         pairVM.subInfo = [[pairModel groups] componentsJoinedByString:@"; "];

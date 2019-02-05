@@ -22,6 +22,7 @@
 #import "SUAIDay.h"
 #import "SUAIPair.h"
 #import "SUAIAuditory.h"
+#import "SUAITime.h"
 
 #import <CoreData/CoreData.h>
 
@@ -100,16 +101,16 @@
 - (BUPairModel *)p_savePair:(SUAIPair *)pair inContext:(NSManagedObjectContext *)context {
     var *pairModel = (BUPairModel *)[self p_initEntityWithName:@"BUPairModel" inContext:context];
     pairModel.name = pair.name;
-    pairModel.time = pair.time;
+    pairModel.time = [pair.time stringValue];
     pairModel.lessonType = pair.lessonType;
     pairModel.color = (NSUInteger)pair.color;
     for (NSString *teacher in [pair teachers]) {
-        var *teacherModel = (BUTeacherModel *)[self p_initEntityWithName:@"BUTeacherModel" inContext:context];// [[BUTeacherModel alloc] initWithContext:context];
+        var *teacherModel = (BUTeacherModel *)[self p_initEntityWithName:@"BUTeacherModel" inContext:context];
         teacherModel.name = teacher;
         [pairModel addTeachersObject:teacherModel];
     }
     for (NSString *group in [pair groups]) {
-        var *groupModel = (BUGroupModel *)[self p_initEntityWithName:@"BUGroupModel" inContext:context];// [[BUGroupModel alloc] initWithContext:context];
+        var *groupModel = (BUGroupModel *)[self p_initEntityWithName:@"BUGroupModel" inContext:context];
         groupModel.name = group;
         [pairModel addGroupsObject:groupModel];
     }
@@ -143,7 +144,7 @@
         pair.name = [pairModel name];
         pair.color = (WeekType)[pairModel color];
         pair.lessonType = [pairModel lessonType];
-        pair.time = [pairModel time];
+        pair.time = [[SUAITime alloc] initWithTimeString:[pairModel time]];
         NSMutableArray *contents = [NSMutableArray array];
         for (BUTeacherModel *teacher in [pairModel teachers]) {
             [contents addObject:[teacher name]];
@@ -165,7 +166,7 @@
     return [[SUAIEntity alloc] initWithName:[entityModel name]
                                 sessionCode:[entityModel sessionCode]
                                semesterCode:[entityModel semesterCode]
-                                       type:(Entity)[entityModel type]];
+                                       type:(EntityType)[entityModel type]];
 }
 
 @end
