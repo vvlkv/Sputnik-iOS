@@ -16,6 +16,7 @@
 <img src="img/nav.png" width="300"> <img src="img/nav_route.png" width="300">
 ### Справочник
 Справочник содержит необходимую информацию о деканатах, отделах, институтах, кафедр и т. д. В исходниках справочник **тестовыми** данными.
+
 <img src="img/ref.png" width="300"> <img src="img/ref_cath.png" width="300"> <img src="img/ref_inst.png" width="300">
 ## Установка
 1. Скачайте репозиторий;
