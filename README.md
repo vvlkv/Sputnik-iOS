@@ -7,16 +7,15 @@
 ### Новости
 Новости университета, которые загружаются с официального [сайта](http://new.guap.ru/pubs). Доступны только те новости, которые находятся на первой странице.
 <img src="img/news.png" width="300"> <img src="img/news_detail.png" width="300">
-![News screen](img/news.png) ![news detail](img/news_detail.png)
 ### Расписание
 Расписание загружается как [семестра](rasp.guap.ru), так и [сессии](raspsess.guap.ru). Доступен просмотр расписания группы, преподавателя или аудитории, доступен выбор одного расписания, которое хранится оффлайн. Имеется календарь.
-![Schedule main](img/schedule_main.png) ![Schedule calendar](img/schedule_calendar.png)
+<img src="img/schedule_main.png" width="300"> <img src="img/schedule_calendar.png" width="300">
 ### Навигация
 Навигация позволяет прокладывать маршруты между аудиториями для главного корпуса, который находится по адресу ул. Большая Морская, д. 67. Исходники карт **не включены** (карты работать не будут).
-![Schedule main](img/nav.png) ![Schedule calendar](img/nav_route.png)
+<img src="img/nav.png" width="300"> <img src="img/nav_route.png" width="300">
 ### Справочник
 Справочник содержит необходимую информацию о деканатах, отделах, институтах, кафедр и т. д. В исходниках справочник **тестовыми** данными.
-![Ref](img/ref.png) ![Ref cath](img/ref_cath.png) ![Ref cath](img/ref_inst.png)
+<img src="img/ref.png" width="300"> <img src="img/ref_cath.png" width="300"> <img src="img/ref_inst.png" width="300">
 ## Установка
 1. Скачайте репозиторий;
 2. В терминале перейдите в корневую папку проекта и установите зависимости:
