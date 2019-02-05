@@ -1,5 +1,5 @@
 # Sputnik-iOS
-<img src="https://github.com/vvlkv/Sputnik-iOS/tree/master/img/ic_satellite_1024.png" width="300" height="300">
+![](https://github.com/vvlkv/Sputnik-iOS/tree/master/img/ic_satellite_1024.png =300x300)
 
 Исходники приложения [Спутник ГУАП](https://itunes.apple.com/ru/app/спутник-гуап/id1234040508?l=en&mt=8)
 ## О приложении
