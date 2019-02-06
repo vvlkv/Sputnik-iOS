@@ -20,31 +20,6 @@
 
 @implementation BUGreetingsInteractor
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-//        [[NSNotificationCenter defaultCenter] addObserver:self
-//                                                 selector:@selector(p_internetReachabilityChanged:)
-//                                                     name:kSUAIReachabilityNotification object:nil];
-//        [[NSNotificationCenter defaultCenter] addObserver:self
-//                                                 selector:@selector(p_codesLoaded)
-//                                                     name:kSUAIEntityLoadedNotification object:nil];
-    }
-    return self;
-}
-
-//- (void)p_internetReachabilityChanged:(NSNotification *)notification {
-//    BOOL isReachable = [[notification object] boolValue];
-//    if (!isReachable) {
-//        [self.output didFailConnection];
-//    }
-//}
-
-//- (void)p_codesLoaded {
-//    [self.output didObtainGroupCodes:[[[SUAI instance] schedule] groups]
-//                        teacherCodes:[[[SUAI instance] schedule] teachers]];
-//}
-
 #pragma mark - BUGreetingsInteractorInput
 
 - (void)obtainCodes {
@@ -59,11 +34,6 @@
     [[BUAppDataContainer instance] overwriteEntityWithName:entity andType:type];
     [[NSNotificationCenter defaultCenter] postNotificationName:kSputnikDidChangeEntityNotification
                                                         object:nil];
-}
-
-- (void)dealloc {
-//    [[NSNotificationCenter defaultCenter] removeObserver:self name:kSUAIReachabilityNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] removeObserver:self name:kSUAIEntityLoadedNotification object:nil];
 }
 
 @end
