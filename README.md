@@ -1,27 +1,32 @@
 # Sputnik-iOS
-![Logo](img/ic_satellite_1024.png =100x100)
-Исходники приложения [Спутник ГУАП](https://itunes.apple.com/ru/app/спутник-гуап/id1234040508?l=en&mt=8)
-## О приложении
-Официальное iOS приложение университета [ГУАП](http://new.guap.ru), разработанное командой [Спутник ГУАП](http://sputnik.guap.ru).
-### Новости
-Новости университета, которые загружаются с официального [сайта](http://new.guap.ru/pubs). Доступны только те новости, которые находятся на первой странице.
-![News screen](img/news.png) ![news detail](img/news_detail.png)
-### Расписание
-Расписание загружается как [семестра](rasp.guap.ru), так и [сессии](raspsess.guap.ru). Доступен просмотр расписания группы, преподавателя или аудитории, доступен выбор одного расписания, которое хранится оффлайн. Имеется календарь.
-![Schedule main](img/schedule_main.png) ![Schedule calendar](img/schedule_calendar.png)
-### Навигация
-Навигация позволяет прокладывать маршруты между аудиториями для главного корпуса, который находится по адресу ул. Большая Морская, д. 67. Исходники карт **не включены** (карты работать не будут).
-![Schedule main](img/nav.png) ![Schedule calendar](img/nav_route.png)
-### Справочник
-Справочник содержит необходимую информацию о деканатах, отделах, институтах, кафедр и т. д. В исходниках справочник **тестовыми** данными.
-![Ref](img/ref.png) ![Ref cath](img/ref_cath.png) ![Ref cath](img/ref_inst.png)
-## Установка
-1. Скачайте репозиторий;
-2. В терминале перейдите в корневую папку проекта и установите зависимости:
+<img src="img/ic_satellite_1024.png" width="300" height="300">
+
+Source code of [Спутник ГУАП](https://itunes.apple.com/ru/app/спутник-гуап/id1234040508?l=en&mt=8) app.
+## About App
+Official iOS app of [SUAI University](http://new.guap.ru) developed by [Sputnik SUAI](http://sputnik.guap.ru) team.
+### News
+University news are obtained from official [site](http://new.guap.ru/pubs). Only news of first page available.
+
+<img src="img/news.png" width="300"> <img src="img/news_detail.png" width="300">
+### Schedule
+Both [semester](rasp.guap.ru) and [session](raspsess.guap.ru) are available. It's possible to obtain schedule of groups, teachers or auditories. User can set base entity which will be available offline. Calendar also included.
+
+<img src="img/schedule_main.png" width="300"> <img src="img/schedule_calendar.png" width="300">
+### Navigation
+Navigation module allows to find auditory make routes between auditories of main building of university placed on Bolshaya Morskaya str., 67. Sources of navigation html **is not included** (i.e. navigation will not work).
+
+<img src="img/nav.png" width="300"> <img src="img/nav_route.png" width="300">
+### Reference information
+Reference information module contains information about institutes, departments. In sources real reference information replaced by **test** data.
+
+<img src="img/ref.png" width="300"> <img src="img/ref_cath.png" width="300"> <img src="img/ref_inst.png" width="300">
+## How to install
+1. Download repo;
+2. Using terminal go to root folder and install CocoaPods dependencies:
 ```bash
 pod install
 ```
-3. Откройте Sputnik.xcworkspace.
-4. Удалите папку Navigation, находящуюся в папке Sputnik/Resources
-5. Удалите файл information.json, находящийся в папке Sputnik/Resources/Information
-6. cmd + R
+3. Open Sputnik.xcworkspace;
+4. Delete Navigation folder placed in Sputnik/Resources;
+5. Delete information.json placed in Sputnik/Resources/Information;
+6. cmd + R.
