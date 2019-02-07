@@ -12,6 +12,8 @@
 #import "BURootNavigationController.h"
 #import "BUScheduleSearchViewController.h"
 
+#import "BUNotificationsWireframe.h"
+
 @implementation BUSettingsRouter
 
 
@@ -36,9 +38,16 @@
     [vc presentViewController:navVC animated:YES completion:nil];
 }
 
+- (void)pushNotificationCenterFromViewController:(UIViewController *)vc {
+    var *notificationsVC = [BUNotificationsWireframe assembly];
+    [vc.navigationController pushViewController:notificationsVC animated:YES];
+}
+
 - (void)pushAboutAppViewControllerFromViewController:(UIViewController *)viewController {
     BUAboutAppViewController *aboutViewController = [[BUAboutAppViewController alloc] init];
     [viewController.navigationController pushViewController:aboutViewController animated:YES];
 }
+
+
 
 @end

@@ -61,10 +61,11 @@
         case BUSettingsViewModelItemTypeStartScreen:
             [self didSetStartIndex:rowIndex];
             break;
+        case BUSettingsViewModelItemTypeNotificationCenter:
+            [self.router pushNotificationCenterFromViewController:(UIViewController *)self.view];
+            break;
         case BUSettingsViewModelItemTypeAbout:
             [self didPressAboutApp];
-            break;
-        default:
             break;
     }
 }

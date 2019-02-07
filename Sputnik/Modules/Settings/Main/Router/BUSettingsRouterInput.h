@@ -13,7 +13,7 @@
 
 @required
 - (void)presentSearchViewControllerFromViewController:(__kindof UIViewController *)vc;
-
+- (void)pushNotificationCenterFromViewController:(UIViewController *)vc;
 - (void)pushAboutAppViewControllerFromViewController:(UIViewController *)viewController;
 
 @end

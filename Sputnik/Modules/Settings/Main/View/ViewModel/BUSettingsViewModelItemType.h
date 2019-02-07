@@ -12,6 +12,7 @@
 typedef enum BUSettingsViewModelItemType {
     BUSettingsViewModelItemTypeEntity,
     BUSettingsViewModelItemTypeStartScreen,
+    BUSettingsViewModelItemTypeNotificationCenter,
     BUSettingsViewModelItemTypeAbout
 } BUSettingsViewModelItemType;
 

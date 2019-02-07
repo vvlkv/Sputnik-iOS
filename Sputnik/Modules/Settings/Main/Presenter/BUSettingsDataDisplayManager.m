@@ -9,6 +9,7 @@
 #import "BUSettingsDataDisplayManager.h"
 #import "BUSettingsViewModelEntity.h"
 #import "BUSettingsViewModelStartScreen.h"
+#import "BUSettingsViewModelNotifications.h"
 #import "BUSettingsViewModelAbout.h"
 
 @interface BUSettingsDataDisplayManager () {
@@ -25,10 +26,11 @@ static NSString *const cellIdentifier = @"CellID";
 {
     self = [super init];
     if (self) {
-        BUSettingsViewModelEntity *entity = [[BUSettingsViewModelEntity alloc] init];
-        BUSettingsViewModelStartScreen *startScreen = [[BUSettingsViewModelStartScreen alloc] init];
-        BUSettingsViewModelAbout *about = [[BUSettingsViewModelAbout alloc] init];
-        contents = @[entity, startScreen, about];
+        let *entity = [[BUSettingsViewModelEntity alloc] init];
+        let *startScreen = [[BUSettingsViewModelStartScreen alloc] init];
+        let *notifications = [[BUSettingsViewModelNotifications alloc] init];
+        let *about = [[BUSettingsViewModelAbout alloc] init];
+        contents = @[entity, startScreen, notifications, about];
     }
     return self;
 }
@@ -41,6 +43,10 @@ static NSString *const cellIdentifier = @"CellID";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [contents[section] rowsCount];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [contents[section] headerTitle];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -67,14 +73,18 @@ static NSString *const cellIdentifier = @"CellID";
             }
             return cell;
         }
+        case BUSettingsViewModelItemTypeNotificationCenter: {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.textLabel.text = title;
+            return cell;
+        }
         case BUSettingsViewModelItemTypeAbout: {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.textLabel.text = title;
             return cell;
         }
-        default:
-            return nil;
     }
 }
 
