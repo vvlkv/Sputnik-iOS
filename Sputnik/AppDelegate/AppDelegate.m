@@ -12,12 +12,15 @@
 #import "BUGreetingsWireFrame.h"
 #import "BUAppDataContainer.h"
 #import "SUAI.h"
+#import "BUNotificationCenter.h"
+#import "SputnikConst.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [SUAI instance];
+    [BUNotificationCenter instance];
     var *tabBar = [[BUTabBarViewController alloc] init];
     var *presenter = [[BUTabBarPresenter alloc] init];
     tabBar.output = presenter;
@@ -32,7 +35,8 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"wakeUP" object:self];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kSputnikApplicationDidBecomeActive
+                                                            object:self];
     });
 }
 

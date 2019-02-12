@@ -7,7 +7,6 @@
 //
 
 #import "BUAppDataContainer.h"
-//#import "BUScheduleDownloader.h"
 #import "NSCalendar+CurrentDay.h"
 
 
@@ -29,7 +28,6 @@
 - (void)overwriteEntityWithName:(NSString *)name andType:(NSUInteger)type {
     [[NSUserDefaults standardUserDefaults] setObject:name forKey:@"Entity"];
     [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%ld", (unsigned long)type] forKey:@"Type"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"buSettingsChanged" object:self];
 }
 
 - (void)overwriteStartScreenIndex:(NSUInteger)index {

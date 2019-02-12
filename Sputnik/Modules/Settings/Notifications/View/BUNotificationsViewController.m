@@ -15,6 +15,8 @@
 
 @end
 
+static NSString *sliderCellName = @"BUSliderTableViewCell";
+
 @implementation BUNotificationsViewController
 
 - (void)viewDidLoad {
@@ -22,20 +24,22 @@
     self.title = @"Центр уведомлений";
     notificationsTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     [self.view addSubview:notificationsTableView];
+    UINib *nib = [UINib nibWithNibName:sliderCellName bundle:nil];
+    [notificationsTableView registerNib:nib forCellReuseIdentifier:@"sliderID"];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Сохранить"
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:self
+                                                                             action:@selector(p_didTapOnSaveButton)];
+    [self.output viewDidLoad];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.output viewDidLoad];
+- (void)reloadData {
+    [self p_reloadWithAnimation];
 }
 
 - (void)dataSource:(id <UITableViewDataSource>)dataSource {
     notificationsTableView.dataSource = dataSource;
-    [UIView transitionWithView:notificationsTableView duration:.35f
-                       options:UIViewAnimationOptionTransitionCrossDissolve
-                    animations:^{
-        [self->notificationsTableView reloadData];
-    } completion:nil];
+    [self p_reloadWithAnimation];
 }
 
 - (void)showNeedGrantNotificationsMessage {
@@ -49,6 +53,18 @@
     }];
     [alert addAction:goTosettingsAction];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)p_didTapOnSaveButton {
+    [self.output didTapOnSave];
+}
+
+- (void)p_reloadWithAnimation {
+    [UIView transitionWithView:notificationsTableView duration:.2f
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        [self->notificationsTableView reloadData];
+                    } completion:nil];
 }
 
 @end

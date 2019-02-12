@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isGranted;
 @property (nonatomic, assign) BOOL isNotifyDay;
 @property (nonatomic, assign) BOOL isNotifyPair;
+@property (nonatomic, assign) NSUInteger pairNotifyTime;
 
 @end
 

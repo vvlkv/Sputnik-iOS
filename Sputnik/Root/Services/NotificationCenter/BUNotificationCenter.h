@@ -23,8 +23,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id<BUNotificationCenterOutput> output;
 
-@property (nonatomic, readonly) BOOL isGranted;
+@property (nonatomic, assign) BOOL isNotifyDay;
+@property (nonatomic, assign) BOOL isNotifyPair;
+@property (nonatomic, assign) NSUInteger notifyPairBeforeTime;
 
+@property (nonatomic, readonly) BOOL isSystemGranted;
+
++ (instancetype)instance;
+
+- (BUNotificationSettings *)currentSettings;
+- (void)commitNotificationsWithSchedule:(SUAISchedule *)schedule;
 - (void)commitNotificationsSettings:(BUNotificationSettings *)settings
                        withSchedule:(SUAISchedule *)schedule;
 

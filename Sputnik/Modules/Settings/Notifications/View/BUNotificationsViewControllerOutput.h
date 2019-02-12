@@ -11,6 +11,7 @@
 
 @protocol BUNotificationsViewControllerOutput <NSObject>
 
+- (void)didTapOnSave;
 - (void)viewDidLoad;
 
 @end

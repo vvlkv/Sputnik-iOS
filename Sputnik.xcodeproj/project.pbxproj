@@ -82,7 +82,9 @@
 		5556BF711F36FDE300A7352B /* BUGreetingsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5556BF701F36FDE300A7352B /* BUGreetingsPresenter.m */; };
 		5572C71A220CD30A00380CF6 /* BUSliderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5572C718220CD30A00380CF6 /* BUSliderTableViewCell.m */; };
 		5572C71B220CD30A00380CF6 /* BUSliderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5572C719220CD30A00380CF6 /* BUSliderTableViewCell.xib */; };
-		5572C71E220CD69B00380CF6 /* BUNotificationsViewModelCheckDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 5572C71D220CD69B00380CF6 /* BUNotificationsViewModelCheckDay.m */; };
+		5572C71E220CD69B00380CF6 /* BUNotificationsViewModelDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 5572C71D220CD69B00380CF6 /* BUNotificationsViewModelDay.m */; };
+		5572C721220DFEE400380CF6 /* BUNotificationsViewModelPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 5572C720220DFEE400380CF6 /* BUNotificationsViewModelPair.m */; };
+		5572C724220E00E600380CF6 /* BUNotificationsViewModelGrants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5572C723220E00E600380CF6 /* BUNotificationsViewModelGrants.m */; };
 		5578E4AD219CAC210052E9CD /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 5578E4AC219CAC210052E9CD /* assets */; };
 		55797FFC1F8D5B2D00B40F67 /* CAPSPageMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 55797FFB1F8D5B2D00B40F67 /* CAPSPageMenu.m */; };
 		557980021F8D5BD500B40F67 /* UIColor+SUAI.m in Sources */ = {isa = PBXBuildFile; fileRef = 55797FFF1F8D5BD500B40F67 /* UIColor+SUAI.m */; };
@@ -356,8 +358,13 @@
 		5572C717220CD30A00380CF6 /* BUSliderTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUSliderTableViewCell.h; sourceTree = "<group>"; };
 		5572C718220CD30A00380CF6 /* BUSliderTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUSliderTableViewCell.m; sourceTree = "<group>"; };
 		5572C719220CD30A00380CF6 /* BUSliderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BUSliderTableViewCell.xib; sourceTree = "<group>"; };
-		5572C71C220CD69B00380CF6 /* BUNotificationsViewModelCheckDay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUNotificationsViewModelCheckDay.h; sourceTree = "<group>"; };
-		5572C71D220CD69B00380CF6 /* BUNotificationsViewModelCheckDay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUNotificationsViewModelCheckDay.m; sourceTree = "<group>"; };
+		5572C71C220CD69B00380CF6 /* BUNotificationsViewModelDay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUNotificationsViewModelDay.h; sourceTree = "<group>"; };
+		5572C71D220CD69B00380CF6 /* BUNotificationsViewModelDay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUNotificationsViewModelDay.m; sourceTree = "<group>"; };
+		5572C71F220DFEE400380CF6 /* BUNotificationsViewModelPair.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUNotificationsViewModelPair.h; sourceTree = "<group>"; };
+		5572C720220DFEE400380CF6 /* BUNotificationsViewModelPair.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUNotificationsViewModelPair.m; sourceTree = "<group>"; };
+		5572C722220E00E600380CF6 /* BUNotificationsViewModelGrants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUNotificationsViewModelGrants.h; sourceTree = "<group>"; };
+		5572C723220E00E600380CF6 /* BUNotificationsViewModelGrants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUNotificationsViewModelGrants.m; sourceTree = "<group>"; };
+		5572C7252213417600380CF6 /* BUSputnikCoreData 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "BUSputnikCoreData 2.xcdatamodel"; sourceTree = "<group>"; };
 		5578E4AC219CAC210052E9CD /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		55797FFA1F8D5B2D00B40F67 /* CAPSPageMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAPSPageMenu.h; sourceTree = "<group>"; };
 		55797FFB1F8D5B2D00B40F67 /* CAPSPageMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAPSPageMenu.m; sourceTree = "<group>"; };
@@ -1659,8 +1666,12 @@
 			isa = PBXGroup;
 			children = (
 				55A8F7C2220CCF33009BB3A9 /* BUNotificationsViewModelItem.h */,
-				5572C71C220CD69B00380CF6 /* BUNotificationsViewModelCheckDay.h */,
-				5572C71D220CD69B00380CF6 /* BUNotificationsViewModelCheckDay.m */,
+				5572C722220E00E600380CF6 /* BUNotificationsViewModelGrants.h */,
+				5572C723220E00E600380CF6 /* BUNotificationsViewModelGrants.m */,
+				5572C71C220CD69B00380CF6 /* BUNotificationsViewModelDay.h */,
+				5572C71D220CD69B00380CF6 /* BUNotificationsViewModelDay.m */,
+				5572C71F220DFEE400380CF6 /* BUNotificationsViewModelPair.h */,
+				5572C720220DFEE400380CF6 /* BUNotificationsViewModelPair.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2360,6 +2371,7 @@
 				55B88A121EAFDA7B00FBE41E /* BUNavigationWebView.m in Sources */,
 				557980031F8D5BD500B40F67 /* UIImage+Gradient.m in Sources */,
 				55E70A3E1F1EADD7009C1548 /* BUScheduleRefreshView.m in Sources */,
+				5572C721220DFEE400380CF6 /* BUNotificationsViewModelPair.m in Sources */,
 				5595BB7D1FB8C45B00FDA98B /* BUSubdivision.m in Sources */,
 				551232FD1FEEED9600D6066D /* BUSettingsDataDisplayManager.m in Sources */,
 				553A0B621F2E77F8000A58FA /* BUNewsDetailInfoViewController.m in Sources */,
@@ -2371,7 +2383,7 @@
 				5538D40D1F3F470A00B38AAF /* BUAboutAppViewController.m in Sources */,
 				559D154A1F2CC41E0038F5BC /* BUPairViewModel.m in Sources */,
 				5595BB811FB8C96100FDA98B /* BUReferenceMainScreenInteractor.m in Sources */,
-				5572C71E220CD69B00380CF6 /* BUNotificationsViewModelCheckDay.m in Sources */,
+				5572C71E220CD69B00380CF6 /* BUNotificationsViewModelDay.m in Sources */,
 				5595BB921FB8D2B600FDA98B /* BUReferenceViewController+DataSource.m in Sources */,
 				55FAC4F21FBF6378001BC129 /* BUReferenceHeaderTableViewCell.m in Sources */,
 				55C300C11F2E32B500C07CD7 /* BUNewsPresenter.m in Sources */,
@@ -2460,6 +2472,7 @@
 				55C300BE1F2E32AA00C07CD7 /* BUNewsInteractor.m in Sources */,
 				557D93101FC8BE3D00D200E3 /* BUReferenceViewModelBaseItem.m in Sources */,
 				55BD124A1FAF4278001EDFCA /* BUReferenceViewController.m in Sources */,
+				5572C724220E00E600380CF6 /* BUNotificationsViewModelGrants.m in Sources */,
 				553A0B681F2E783F000A58FA /* BUNewsDetailInfoPresenter.m in Sources */,
 				55B3DE711F1BA1AA00B38B5F /* BUScheduleStorage.m in Sources */,
 				557D931B1FCAF63100D200E3 /* BUReferenceViewModelTimeItem.m in Sources */,
@@ -2681,9 +2694,10 @@
 		55FE427821FF8DA8006495DB /* BUSputnikCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				5572C7252213417600380CF6 /* BUSputnikCoreData 2.xcdatamodel */,
 				55FE427921FF8DA8006495DB /* BUSputnikCoreData.xcdatamodel */,
 			);
-			currentVersion = 55FE427921FF8DA8006495DB /* BUSputnikCoreData.xcdatamodel */;
+			currentVersion = 5572C7252213417600380CF6 /* BUSputnikCoreData 2.xcdatamodel */;
 			path = BUSputnikCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

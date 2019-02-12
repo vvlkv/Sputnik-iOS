@@ -9,3 +9,4 @@
 #import "SputnikConst.h"
 
 NSString *const kSputnikDidChangeEntityNotification = @"kSputnikDidChangeEntityNotification";
+NSString *const kSputnikApplicationDidBecomeActive = @"kSputnikApplicationDidBecomeActive";

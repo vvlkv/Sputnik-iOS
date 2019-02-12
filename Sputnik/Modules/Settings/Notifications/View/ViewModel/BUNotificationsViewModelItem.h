@@ -11,11 +11,18 @@
 
 @class UITableViewCell;
 @class UITableView;
+@protocol BUNotificationsViewModelItem;
+@protocol BUNotificationsViewModelItemOutput <NSObject>
+- (void)item:(id<BUNotificationsViewModelItem>)item didChangeSwitchStatus:(BOOL)newVal;
+
+@end
+
 @protocol BUNotificationsViewModelItem <NSObject>
 
+@property(nonatomic, weak) id<BUNotificationsViewModelItemOutput> output;
 @required
 - (NSUInteger)rowsCount;
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndex:(NSUInteger)index;
 
 @optional
 - (NSString *)footer;

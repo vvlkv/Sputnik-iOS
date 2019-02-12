@@ -91,7 +91,8 @@
 
 - (BUDayModel *)p_saveDay:(SUAIDay *)day inContext:(NSManagedObjectContext *)context {
     var *dayModel = (BUDayModel *)[self p_initEntityWithName:@"BUDayModel" inContext:context];
-    dayModel.name = day.name;
+    dayModel.name = [day name];
+    dayModel.weekday = [day weekday];
     for (SUAIPair *pair in [day pairs]) {
         [dayModel addPairsObject:[self p_savePair:pair inContext:context]];
     }
@@ -132,7 +133,7 @@
 - (NSArray<SUAIDay *> *)p_loadDays:(NSOrderedSet<BUDayModel *> *)dayModels {
     NSMutableArray<SUAIDay *> *days = [NSMutableArray array];
     for (BUDayModel *dayModel in dayModels) {
-        [days addObject:[[SUAIDay alloc] initWithName:[dayModel name] andPairs:[self p_loadPairs:[dayModel pairs]]]];
+        [days addObject:[[SUAIDay alloc] initWithName:[dayModel name] weekday:[dayModel weekday] andPairs:[self p_loadPairs:[dayModel pairs]]]];
     }
     return [days copy];
 }

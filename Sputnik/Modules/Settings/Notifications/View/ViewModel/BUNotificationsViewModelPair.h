@@ -1,5 +1,5 @@
 //
-//  BUNotificationsViewModelCheckDay.h
+//  BUNotificationsViewModelPair.h
 //  Sputnik
 //
 //  Created by Виктор on 08/02/2019.
@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BUNotificationsViewModelGrants.h"
 #import "BUNotificationsViewModelItem.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BUNotificationsViewModelCheckDay : NSObject<BUNotificationsViewModelItem>
+@interface BUNotificationsViewModelPair : BUNotificationsViewModelGrants<BUNotificationsViewModelItem>
+
+@property (nonatomic, assign, readonly) NSUInteger value;
 
 - (instancetype)initWithGrants:(BOOL)isGranted
                   initialValue:(NSUInteger)initial;

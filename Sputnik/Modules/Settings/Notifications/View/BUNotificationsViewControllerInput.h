@@ -12,6 +12,7 @@
 @protocol UITableViewDataSource;
 @protocol BUNotificationsViewControllerInput <NSObject>
 
+- (void)reloadData;
 - (void)dataSource:(id <UITableViewDataSource>)dataSource;
 - (void)showNeedGrantNotificationsMessage;
 

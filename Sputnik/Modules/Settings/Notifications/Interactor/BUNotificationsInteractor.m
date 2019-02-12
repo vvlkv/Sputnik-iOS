@@ -36,17 +36,17 @@
 
 - (void)obtainNotificationsSettings {
     var *settings = [[BUNotificationSettings alloc] init];
-    settings.isGranted = [_center isGranted];
-    [self.output didObtainNotificationSettings:settings];
+    settings.isGranted = [_center isSystemGranted];
+//    [self.output didObtainNotificationSettings:settings];
 }
 
 
 #pragma mark - BUNotificationCenterOutput
 
 - (void)didChangeNotificationPermission:(BOOL)isGranted {
-    var *settings = [[BUNotificationSettings alloc] init];
-    settings.isGranted = [_center isGranted];
-    [self.output didObtainNotificationSettings:settings];
+//    var *settings = [[BUNotificationSettings alloc] init];
+//    settings.isGranted = [_center isSystemGranted];
+//    [self.output didObtainNotificationSettings:settings];
 }
 
 @end

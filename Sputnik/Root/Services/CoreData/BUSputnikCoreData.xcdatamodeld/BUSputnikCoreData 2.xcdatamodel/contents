@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C54" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="BUAuditoryModel" representedClassName="BUAuditoryModel" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="BUDayModel" representedClassName="BUDayModel" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weekday" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="pairs" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="BUPairModel" syncable="YES"/>
+    </entity>
+    <entity name="BUEntityModel" representedClassName="BUEntityModel" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="semesterCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sessionCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="BUGroupModel" representedClassName="BUGroupModel" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="BUPairModel" representedClassName="BUPairModel" syncable="YES" codeGenerationType="class">
+        <attribute name="color" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lessonType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="auditory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BUAuditoryModel" syncable="YES"/>
+        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="BUGroupModel" syncable="YES"/>
+        <relationship name="teachers" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="BUTeacherModel" syncable="YES"/>
+    </entity>
+    <entity name="BUScheduleModel" representedClassName="BUScheduleModel" syncable="YES" codeGenerationType="class">
+        <relationship name="entityObject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BUEntityModel" syncable="YES"/>
+        <relationship name="semester" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="BUDayModel" syncable="YES"/>
+        <relationship name="session" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="BUDayModel" syncable="YES"/>
+    </entity>
+    <entity name="BUTeacherModel" representedClassName="BUTeacherModel" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="BUAuditoryModel" positionX="-12456" positionY="-17190" width="128" height="60"/>
+        <element name="BUDayModel" positionX="-12438" positionY="-17172" width="128" height="90"/>
+        <element name="BUEntityModel" positionX="-12402" positionY="-17145" width="128" height="105"/>
+        <element name="BUGroupModel" positionX="-12492" positionY="-17262" width="128" height="60"/>
+        <element name="BUPairModel" positionX="-12474" positionY="-17244" width="128" height="150"/>
+        <element name="BUScheduleModel" positionX="-12420" positionY="-17154" width="128" height="90"/>
+        <element name="BUTeacherModel" positionX="-12501.4921875" positionY="-17278.7578125" width="128" height="58"/>
+    </elements>
+</model>
