@@ -16,6 +16,7 @@
 #import "SUAIDay.h"
 #import "SUAIPair.h"
 #import "SUAITime.h"
+#import "SUAIAuditory.h"
 
 #import "SputnikConst.h"
 
@@ -28,6 +29,7 @@
 
 @end
 
+static NSString *const isNotificationsAllowedName = @"isNotificationsAllowed";
 static NSString *const notifyDayName = @"notifyDay";
 static NSString *const notifyPairName = @"notifyPair";
 static NSString *const notifyPairTimeName = @"notifyPairTime";
@@ -90,11 +92,21 @@ static NSUInteger const minutesInHour = 60;
     [_defaultCenter removeAllPendingNotificationRequests];
 }
 
-- (UNMutableNotificationContent *)p_createNotificationContentForPair:(SUAIPair *)pair {
+- (UNMutableNotificationContent *)p_createNotificationContentForPair:(SUAIPair *)pair timeBefore:(NSUInteger)time {
     var *content = [[UNMutableNotificationContent alloc] init];
-    content.title = [NSString stringWithFormat:@"Через %lu минут на пару", (unsigned long)time];
-    content.body = [NSString stringWithFormat:@"(%@) - %@ - %@", [pair lessonType], [pair name], [pair auditory]];
+    NSString *minuteName = @"минут";
+    if (time == 1)
+        minuteName = @"минуту";
+    if (time > 1 && time < 5)
+        minuteName = @"минуты";
+    NSString *partOfText = [NSString stringWithFormat:@"Через %zd %@", time, minuteName];
+    if (time == 0)
+        partOfText = @"Cейчас";
+    content.title = [NSString stringWithFormat:@"%@ на пару", partOfText];
+    content.body = [NSString stringWithFormat:@"(%@) - %@ - %@", [pair lessonType], [pair name], [[pair auditory] fullDescription]];
     content.sound = [UNNotificationSound defaultSound];
+    NSLog(@"%@", [content title]);
+    NSLog(@"%@", [content body]);
     return content;
 }
 
@@ -122,7 +134,7 @@ static NSUInteger const minutesInHour = 60;
                          minutesBefore:(NSUInteger)time {
     for (SUAIPair *pair in pairs) {
         if ([self p_canRegisterPairWithType:[pair color] onWeekday:weekday]) {
-            var *content = [self p_createNotificationContentForPair:pair];
+            var *content = [self p_createNotificationContentForPair:pair timeBefore:time];
             let timeBefore = [[pair time] minutesSinceMidnight] - time;
             var *calendarTrigger = [self p_createNotificationTriggerForWeekday:weekday time:timeBefore];
             var *identifier = [NSString stringWithFormat:@"pair:%lu", (unsigned long)[pair hash]];
@@ -160,7 +172,7 @@ static NSUInteger const minutesInHour = 60;
 
 - (BUNotificationSettings *)currentSettings {
     var *settings = [[BUNotificationSettings alloc] init];
-    settings.isGranted = [self isSystemGranted];
+    settings.isGranted = [self isNotificationAllowed];
     settings.isNotifyPair = [self isNotifyPair];
     settings.isNotifyDay = [self isNotifyDay];
     settings.pairNotifyTime = [self notifyPairBeforeTime];
@@ -177,13 +189,18 @@ static NSUInteger const minutesInHour = 60;
                        withSchedule:(SUAISchedule *)schedule {
     if (schedule == nil)
         return;
+    self.isNotificationAllowed = [settings isGranted];
     self.isNotifyDay = [settings isNotifyDay];
     self.isNotifyPair = [settings isNotifyPair];
     self.notifyPairBeforeTime = [settings pairNotifyTime];
     [self p_clearNotifications];
+    if (![settings isGranted] || ![self isSystemGranted])
+        return;
     if ([settings isNotifyPair]) {
         let *semester = [schedule semester];
         for (SUAIDay *day in semester) {
+            if ([day weekday] == 1)
+                continue;
             if ([settings isNotifyDay])
                 [self p_registerNotificationForDayAtWeekday:[day weekday] withHash:[day hash]];
             if ([settings isNotifyPair])
@@ -200,6 +217,17 @@ static NSUInteger const minutesInHour = 60;
 }
 
 #pragma mark - Access
+
+- (void)setIsNotificationAllowed:(BOOL)isNotificationAllowed {
+    [[NSUserDefaults standardUserDefaults] setObject:@(isNotificationAllowed) forKey:isNotificationsAllowedName];
+}
+
+- (BOOL)isNotificationAllowed {
+    id obj = [[NSUserDefaults standardUserDefaults] objectForKey:isNotificationsAllowedName];
+    if (obj == nil)
+        return NO;
+    return [obj boolValue];
+}
 
 - (void)setIsNotifyDay:(BOOL)isNotifyDay {
     [[NSUserDefaults standardUserDefaults] setObject:@(isNotifyDay) forKey:notifyDayName];

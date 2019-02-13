@@ -12,7 +12,10 @@
 @protocol UITableViewDataSource;
 @protocol BUNotificationsViewControllerInput <NSObject>
 
-- (void)reloadData;
+- (void)insertSections;
+- (void)deleteSections;
+- (void)reloadSectionsInSet:(NSIndexSet *)set;
+//- (void)reloadData;
 - (void)dataSource:(id <UITableViewDataSource>)dataSource;
 - (void)showNeedGrantNotificationsMessage;
 

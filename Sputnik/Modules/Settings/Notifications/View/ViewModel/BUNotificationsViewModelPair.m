@@ -14,6 +14,8 @@
     NSUInteger _value;
 }
 
+@property (nonatomic, weak) BUSliderTableViewCell *cell;
+
 @end
 
 @implementation BUNotificationsViewModelPair
@@ -30,14 +32,14 @@
 }
 
 - (NSUInteger)value {
-    return _value;
+    return [_cell sliderValue];
 }
 
 - (UITableViewCell *)p_configureSliderTableViewCell:(UITableView *)tableView {
-    BUSliderTableViewCell *cell = (BUSliderTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"sliderID"];
-    cell.sliderValue = _value;
-    cell.titleValue = @"Присылать уведомления за %d минут";
-    return cell;
+    _cell = (BUSliderTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"sliderID"];
+    _cell.sliderValue = _value;
+    _cell.titleValue = @"Присылать уведомления за %d %@";
+    return _cell;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndex:(NSUInteger)index {

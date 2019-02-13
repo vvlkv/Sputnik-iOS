@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="73.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="5" maxValue="90" translatesAutoresizingMaskIntoConstraints="NO" id="ASA-Rj-HDT">
+                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="1" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="ASA-Rj-HDT">
                         <rect key="frame" x="14" y="32" width="292" height="32"/>
                         <connections>
                             <action selector="didChangeSliderValue:" destination="KGk-i7-Jjw" eventType="valueChanged" id="cKK-Ak-CWb"/>

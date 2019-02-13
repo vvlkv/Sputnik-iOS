@@ -25,7 +25,10 @@
 }
 
 - (void)viewDidLoad {
-    [self.input obtainNews];
+    if (_news == nil)
+        [self.input obtainNews];
+    else
+        [self.view updateContent];
 }
 
 

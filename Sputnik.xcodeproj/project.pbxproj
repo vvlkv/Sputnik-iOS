@@ -1483,8 +1483,8 @@
 		55A17C0F1F15619E005694E5 /* News */ = {
 			isa = PBXGroup;
 			children = (
-				553A0B581F2E77A7000A58FA /* DetailInfo */,
 				553A0B571F2E7798000A58FA /* AllNews */,
+				553A0B581F2E77A7000A58FA /* DetailInfo */,
 			);
 			path = News;
 			sourceTree = "<group>";

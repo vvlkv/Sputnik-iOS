@@ -16,6 +16,7 @@
 
 @interface BUNotificationsDataDisplayManager()<BUNotificationsViewModelItemOutput> {
     BUNotificationSettings *_settings;
+    BUNotificationsViewModelGrants *_grantsSection;
     BUNotificationsViewModelDay *_daySection;
     BUNotificationsViewModelPair *_pairSection;
     NSArray<id<BUNotificationsViewModelItem>> *_sections;
@@ -29,13 +30,13 @@
     self = [super init];
     if (self) {
         _settings = settings;
-        var grantsSection = [[BUNotificationsViewModelGrants alloc] initWithGrants:_settings.isGranted];
-        grantsSection.output = self;
+        _grantsSection = [[BUNotificationsViewModelGrants alloc] initWithGrants:_settings.isGranted];
+        _grantsSection.output = self;
         _daySection = [[BUNotificationsViewModelDay alloc] initWithGrants:_settings.isNotifyDay initialValue:0];
         _daySection.output = self;
-        _pairSection = [[BUNotificationsViewModelPair alloc] initWithGrants:_settings.isNotifyPair initialValue:10];
+        _pairSection = [[BUNotificationsViewModelPair alloc] initWithGrants:_settings.isNotifyPair initialValue:[_settings pairNotifyTime]];
         _pairSection.output = self;
-        _sections = @[grantsSection, _daySection, _pairSection];
+        _sections = @[_grantsSection, _daySection, _pairSection];
     }
     return self;
 }
@@ -54,24 +55,33 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return _settings.isGranted ? [_sections count] : 1;
+    return [_grantsSection isGranted] ? [_sections count] : 1;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    if ([_sections[section] respondsToSelector:@selector(footer)]) {
+        return [_sections[section] footer];
+    }
+    return @"";
 }
 
 
 #pragma mark - BUNotificationsViewModelItemOutput
 
 - (void)item:(id<BUNotificationsViewModelItem>)item didChangeSwitchStatus:(BOOL)newVal {
-    if ([item isMemberOfClass:[BUNotificationsViewModelGrants class]])
-        [self.output didChangeAllowNotificationsSwitch:newVal];
-    else
-        [self.output didChangeSwitchState];
+    [self.output didChangeSwitch:newVal atSection:[_sections indexOfObject:item]];
+//    if ([item isMemberOfClass:[BUNotificationsViewModelGrants class]])
+//        [self.output didChangeAllowNotificationsSwitch:newVal];
+//    else
+//        [self.output didChangeSwitchState];
 }
 
 
 - (BUNotificationSettings *)settings {
-    _settings.isNotifyDay = _daySection.isGranted;
-    _settings.isNotifyPair = _pairSection.isGranted;
-    _settings.pairNotifyTime = _pairSection.value;
+    _settings.isGranted = [_grantsSection isGranted];
+    _settings.isNotifyDay = [_daySection isGranted];
+    _settings.isNotifyPair = [_pairSection isGranted];
+    _settings.pairNotifyTime = [_pairSection value];
     return _settings;
 }
 @end

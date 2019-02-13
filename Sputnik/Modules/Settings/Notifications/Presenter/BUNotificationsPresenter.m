@@ -28,31 +28,23 @@
 
 @implementation BUNotificationsPresenter
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         _storage = [[BUScheduleStorage alloc] init];
-//        _center = [[BUNotificationCenter alloc] init];
-//        _center.output = self;
+        [BUNotificationCenter instance].output = self;
     }
     return self;
 }
-
-#pragma mark - BUNotificationsInteractorOutput
-
-//- (void)didObtainNotificationSettings:(BUNotificationSettings *)settings {
-//    _displayManager = [[BUNotificationsDataDisplayManager alloc] initWithNotificationSettings:settings];
-//    _displayManager.output = self;
-//    [self.view dataSource:_displayManager];
-//}
 
 
 #pragma mark - BUNotificationsViewControllerOutput
 
 - (void)viewDidLoad {
-//    [self.input obtainNotificationsSettings];
     var *settings = [[BUNotificationCenter instance] currentSettings];
+    let isSystemGranted = [[BUNotificationCenter instance] isSystemGranted];
+    if (isSystemGranted == NO)
+        settings.isGranted = NO;
     _displayManager = [[BUNotificationsDataDisplayManager alloc] initWithNotificationSettings:settings];
     _displayManager.output = self;
     [self.view dataSource:_displayManager];
@@ -65,22 +57,25 @@
 
 #pragma mark - BUNotificationsDataDisplayManagerOutput
 
-- (void)didChangeSwitchState {
-    [self.view reloadData];
+- (void)didChangeSwitch:(BOOL)newValue atSection:(NSUInteger)sectionIndex {
+    if (sectionIndex == 0) {
+        if (newValue == YES) {
+            if (![[BUNotificationCenter instance] isSystemGranted]) {
+                [self.view showNeedGrantNotificationsMessage];
+            } else
+                [self.view insertSections];
+        }
+        else
+            [self.view deleteSections];
+    }
+    if (sectionIndex == 2)
+        [self.view reloadSectionsInSet:[NSIndexSet indexSetWithIndex:sectionIndex]];
 }
-
-- (void)didChangeAllowNotificationsSwitch:(BOOL)newValue {
-    if (![[BUNotificationCenter instance] isSystemGranted] && newValue == YES)
-        [self.view showNeedGrantNotificationsMessage];
-    else
-        [self.view reloadData];
-}
-
 
 #pragma mark - BUNotificationCenterOutput
 
 - (void)didChangeNotificationPermission:(BOOL)isGranted {
-    var *settings = [[BUNotificationSettings alloc] init];
+    var *settings = [[BUNotificationCenter instance] currentSettings];
     settings.isGranted = [[BUNotificationCenter instance] isSystemGranted];
     _displayManager = [[BUNotificationsDataDisplayManager alloc] initWithNotificationSettings:settings];
     _displayManager.output = self;

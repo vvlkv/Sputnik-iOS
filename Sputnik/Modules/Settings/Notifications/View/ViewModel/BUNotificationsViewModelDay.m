@@ -37,17 +37,15 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndex:(NSUInteger)index {
-    switch (index) {
-        case 0:
-            return [super configureSwitchCell:tableView withTextLabel:@"Напоминать о начале учебного дня"];
-        case 1:
-            return [self p_configureSliderTableViewCell:tableView];
-    }
-    return nil;
+    return [super configureSwitchCell:tableView withTextLabel:@"Напоминать об учебном дне"];
 }
 
 - (NSUInteger)rowsCount {
-    return [super isGranted] ? 2 : 1;
+    return 1;
+}
+
+- (NSString *)footer {
+    return @"В 12 часов придет уведомление о начале учебного дня";
 }
 
 @end

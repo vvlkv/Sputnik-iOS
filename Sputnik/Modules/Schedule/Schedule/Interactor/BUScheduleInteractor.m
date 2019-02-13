@@ -15,6 +15,7 @@
 #import "SUAISchedule.h"
 #import "BUDateFormatter.h"
 #import "NSCalendar+CurrentDay.h"
+#import "BUNotificationCenter.h"
 
 #import "SputnikConst.h"
 
@@ -75,6 +76,7 @@
 - (void)writeScheduleToCoreData:(SUAISchedule *)schedule {
     [_storage clear];
     [_storage save:schedule];
+    [[BUNotificationCenter instance] commitNotificationsWithSchedule:schedule];
 }
 
 

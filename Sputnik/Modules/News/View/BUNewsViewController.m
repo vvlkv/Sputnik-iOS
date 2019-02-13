@@ -26,8 +26,8 @@ static NSString *const cellIdentifier = @"cellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self p_configureNewsTableView];
-    [self.output viewDidLoad];
     [self showActivityIndicator];
+    [self.output viewDidLoad];
 }
 
 

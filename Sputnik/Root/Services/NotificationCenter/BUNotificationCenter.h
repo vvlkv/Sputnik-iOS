@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id<BUNotificationCenterOutput> output;
 
+@property (nonatomic, assign) BOOL isNotificationAllowed;
 @property (nonatomic, assign) BOOL isNotifyDay;
 @property (nonatomic, assign) BOOL isNotifyPair;
 @property (nonatomic, assign) NSUInteger notifyPairBeforeTime;

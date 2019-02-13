@@ -46,6 +46,10 @@ CGFloat const weekDescriptionHeight = 44.f;
     [self p_configureTableView];
     [self p_configureGesture];
     [self.output viewDidLoad];
+    var *currentDate = [NSDate date];
+    [calendar selectDate:currentDate];
+    scheduleTableView.index = [NSCalendar dayFromDate:currentDate];
+    [self.output didSelectDate:currentDate];
 }
 
 - (void)p_configureCalendar {
@@ -137,6 +141,7 @@ CGFloat const weekDescriptionHeight = 44.f;
 }
 
 - (void)calendar:(FSCalendar *)calendar didSelectDate:(NSDate *)date atMonthPosition:(FSCalendarMonthPosition)monthPosition {
+    NSLog(@"selected: %@", date);
     scheduleTableView.index = [NSCalendar dayFromDate:date];
     [self.output didSelectDate:date];
     weekView.weekDescription = [BUDateFormatter dateFromData:date];
