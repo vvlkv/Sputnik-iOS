@@ -17,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BUNotificationsDataDisplayManager : NSObject<UITableViewDataSource>
 
-
 @property (nonatomic, strong, readonly) BUNotificationSettings *settings;
 
 @property (nonatomic, weak) id<BUNotificationsDataDisplayManagerOutput> output;

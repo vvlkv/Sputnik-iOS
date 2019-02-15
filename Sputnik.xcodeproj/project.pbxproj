@@ -138,7 +138,6 @@
 		55A8F7A8220B796E009BB3A9 /* BUNotificationsWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A8F7A7220B796E009BB3A9 /* BUNotificationsWireframe.m */; };
 		55A8F7AC220B7FD2009BB3A9 /* BUNotificationsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A8F7AB220B7FD2009BB3A9 /* BUNotificationsPresenter.m */; };
 		55A8F7AF220B8027009BB3A9 /* BUNotificationsDataDisplayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A8F7AE220B8027009BB3A9 /* BUNotificationsDataDisplayManager.m */; };
-		55A8F7B5220B8367009BB3A9 /* BUNotificationsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A8F7B4220B8367009BB3A9 /* BUNotificationsInteractor.m */; };
 		55A8F7B9220B8397009BB3A9 /* BUNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A8F7B8220B8397009BB3A9 /* BUNotificationCenter.m */; };
 		55A8F7BD220B842F009BB3A9 /* BUNotificationSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A8F7BC220B842F009BB3A9 /* BUNotificationSettings.m */; };
 		55AD0E621FEFE3EF00935F35 /* BUSettingsViewModelStartScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AD0E611FEFE3EF00935F35 /* BUSettingsViewModelStartScreen.m */; };
@@ -485,14 +484,10 @@
 		55A8F7AE220B8027009BB3A9 /* BUNotificationsDataDisplayManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUNotificationsDataDisplayManager.m; sourceTree = "<group>"; };
 		55A8F7B0220B8161009BB3A9 /* BUNotificationsViewControllerInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUNotificationsViewControllerInput.h; sourceTree = "<group>"; };
 		55A8F7B1220B81A8009BB3A9 /* BUNotificationsViewControllerOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUNotificationsViewControllerOutput.h; sourceTree = "<group>"; };
-		55A8F7B3220B8367009BB3A9 /* BUNotificationsInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUNotificationsInteractor.h; sourceTree = "<group>"; };
-		55A8F7B4220B8367009BB3A9 /* BUNotificationsInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUNotificationsInteractor.m; sourceTree = "<group>"; };
 		55A8F7B7220B8397009BB3A9 /* BUNotificationCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUNotificationCenter.h; sourceTree = "<group>"; };
 		55A8F7B8220B8397009BB3A9 /* BUNotificationCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUNotificationCenter.m; sourceTree = "<group>"; };
 		55A8F7BB220B842F009BB3A9 /* BUNotificationSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUNotificationSettings.h; sourceTree = "<group>"; };
 		55A8F7BC220B842F009BB3A9 /* BUNotificationSettings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUNotificationSettings.m; sourceTree = "<group>"; };
-		55A8F7BE220B8499009BB3A9 /* BUNotificationsInteractorInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUNotificationsInteractorInput.h; sourceTree = "<group>"; };
-		55A8F7BF220B84A8009BB3A9 /* BUNotificationsInteractorOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUNotificationsInteractorOutput.h; sourceTree = "<group>"; };
 		55A8F7C0220CBF48009BB3A9 /* BUNotificationsDataDisplayManagerOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUNotificationsDataDisplayManagerOutput.h; sourceTree = "<group>"; };
 		55A8F7C2220CCF33009BB3A9 /* BUNotificationsViewModelItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUNotificationsViewModelItem.h; sourceTree = "<group>"; };
 		55AD0E601FEFE3EF00935F35 /* BUSettingsViewModelStartScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUSettingsViewModelStartScreen.h; sourceTree = "<group>"; };
@@ -1592,7 +1587,6 @@
 			children = (
 				55A8F7A5220B7957009BB3A9 /* Wireframe */,
 				55A8F7BA220B841D009BB3A9 /* Entity */,
-				55A8F7B2220B8356009BB3A9 /* Interactor */,
 				55A8F7A9220B7E83009BB3A9 /* Presenter */,
 				55A8F7A1220B7893009BB3A9 /* View */,
 			);
@@ -1631,17 +1625,6 @@
 				55A8F7C0220CBF48009BB3A9 /* BUNotificationsDataDisplayManagerOutput.h */,
 			);
 			path = Presenter;
-			sourceTree = "<group>";
-		};
-		55A8F7B2220B8356009BB3A9 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				55A8F7B3220B8367009BB3A9 /* BUNotificationsInteractor.h */,
-				55A8F7B4220B8367009BB3A9 /* BUNotificationsInteractor.m */,
-				55A8F7BE220B8499009BB3A9 /* BUNotificationsInteractorInput.h */,
-				55A8F7BF220B84A8009BB3A9 /* BUNotificationsInteractorOutput.h */,
-			);
-			path = Interactor;
 			sourceTree = "<group>";
 		};
 		55A8F7B6220B8385009BB3A9 /* NotificationCenter */ = {
@@ -2458,7 +2441,6 @@
 				55BD12471FAF4209001EDFCA /* BUReferenceWireFrame.m in Sources */,
 				551898F11F16DAD90046BA33 /* BURootViewController.m in Sources */,
 				5595BB5D1FB8C44E00FDA98B /* BUSUAIJSONParser.m in Sources */,
-				55A8F7B5220B8367009BB3A9 /* BUNotificationsInteractor.m in Sources */,
 				55B889C11EAE8E9800FBE41E /* main.m in Sources */,
 				553A0B8C1F2EDA58000A58FA /* BUSettingsViewController.m in Sources */,
 				55FE419F21F64417006495DB /* BUCalendarPresenter.m in Sources */,

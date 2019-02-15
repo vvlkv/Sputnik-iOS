@@ -29,6 +29,7 @@
 
 @end
 
+static NSString *const accessRequestedName = @"accessRequested";
 static NSString *const isNotificationsAllowedName = @"isNotificationsAllowed";
 static NSString *const notifyDayName = @"notifyDay";
 static NSString *const notifyPairName = @"notifyPair";
@@ -164,10 +165,20 @@ static NSUInteger const minutesInHour = 60;
 - (void)p_registerNotificationForDayAtWeekday:(NSUInteger)weekday withHash:(NSUInteger)hash {
     var *content = [self p_createNotificationContentForDay];
     var *calendarTrigger = [self p_createNotificationTriggerForWeekday:weekday time:0];
-    var *identifier = [NSString stringWithFormat:@"day:%lu", hash];
+    var *identifier = [NSString stringWithFormat:@"day:%lu", (unsigned long)hash];
     var *request = [UNNotificationRequest requestWithIdentifier:identifier content:content trigger:calendarTrigger];
-    [_defaultCenter addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+    [_defaultCenter addNotificationRequest:request withCompletionHandler:nil];
+}
+
+- (void)activatePermissions {
+    if ([self accessRequested])
+        return;
+    UNAuthorizationOptions options = UNAuthorizationOptionBadge | UNAuthorizationOptionAlert | UNAuthorizationOptionSound;
+    __weak typeof(self) welf = self;
+    [_defaultCenter requestAuthorizationWithOptions:options completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        welf.isSystemGranted = granted;
     }];
+    self.accessRequested = YES;
 }
 
 - (BUNotificationSettings *)currentSettings {
@@ -217,6 +228,17 @@ static NSUInteger const minutesInHour = 60;
 }
 
 #pragma mark - Access
+
+- (void)setAccessRequested:(BOOL)accessRequested {
+    [[NSUserDefaults standardUserDefaults] setObject:@(accessRequested) forKey:accessRequestedName];
+}
+
+- (BOOL)accessRequested {
+    id obj = [[NSUserDefaults standardUserDefaults] objectForKey:accessRequestedName];
+    if (obj == nil)
+        return NO;
+    return [obj boolValue];
+}
 
 - (void)setIsNotificationAllowed:(BOOL)isNotificationAllowed {
     [[NSUserDefaults standardUserDefaults] setObject:@(isNotificationAllowed) forKey:isNotificationsAllowedName];

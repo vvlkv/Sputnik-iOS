@@ -29,13 +29,6 @@
     return self;
 }
 
-- (UITableViewCell *)p_configureSliderTableViewCell:(UITableView *)tableView {
-    BUSliderTableViewCell *cell = (BUSliderTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"sliderID"];
-    cell.sliderValue = _value;
-    cell.titleValue = @"Присылать уведомления за %d минут";
-    return cell;
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndex:(NSUInteger)index {
     return [super configureSwitchCell:tableView withTextLabel:@"Напоминать об учебном дне"];
 }

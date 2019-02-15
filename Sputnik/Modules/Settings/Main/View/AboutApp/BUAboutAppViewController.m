@@ -36,10 +36,6 @@
     [self.siteLabel addGestureRecognizer:tapOnSiteGesture];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 - (void)didTapSiteLabel:(UITapGestureRecognizer *)recognizer {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://sputnik.guap.ru"]];
 }

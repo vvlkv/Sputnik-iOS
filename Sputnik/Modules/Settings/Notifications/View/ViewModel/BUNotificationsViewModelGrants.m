@@ -53,7 +53,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndex:(NSUInteger)index {
-    return [self configureSwitchCell:tableView withTextLabel:@"Допуск уведомлений"];
+    return [self configureSwitchCell:tableView withTextLabel:@"Включить уведомления"];
 }
 
 - (void)p_allowNotificationsChanged:(UISwitch *)sw {

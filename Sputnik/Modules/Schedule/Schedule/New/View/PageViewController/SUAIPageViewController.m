@@ -8,11 +8,12 @@
 
 #import "SUAIPageViewController.h"
 #import "SUAIPageControl.h"
-
+//#define SCROLL
 @interface SUAIPageViewController () <UIPageViewControllerDelegate, UIPageViewControllerDataSource, SUAIPageControlDelegate> {
     NSArray <__kindof UIViewController *> *_viewControllers;
     NSUInteger activeIndex;
     NSUInteger lastTappedIndex;
+    UIScrollView *scrollView;
 }
 
 @property (strong, nonatomic) UIPageViewController *pageViewControler;
@@ -65,19 +66,41 @@ NSUInteger const pageHeight = 34;
 }
 
 - (void)configurePageViewController {
+#ifdef SCROLL
+    scrollView = [[UIScrollView alloc] init];
+    scrollView.translatesAutoresizingMaskIntoConstraints = NO;
+//    scrollView.contentSize = CGSizeMake(self.view.bounds.size.width * [_viewControllers count], scrollView.bounds.size.height);
+    scrollView.pagingEnabled = YES;
+//    scrollView.delegate = self;
+    scrollView.alwaysBounceHorizontal = YES;
+    for (int i = 0; i < [_viewControllers count]; i++) {
+        UIViewController *viewController = _viewControllers[i];
+        viewController.view.frame = CGRectMake(i * self.view.bounds.size.width, 0, self.view.bounds.size.width, scrollView.bounds.size.height);
+        [scrollView addSubview:viewController.view];
+    }
+    [self.view addSubview:scrollView];
+    [[scrollView.topAnchor constraintEqualToAnchor:_pageControl.bottomAnchor] setActive:YES];
+    [[scrollView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor] setActive:YES];
+    [[scrollView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor] setActive:YES];
+//    [[scrollView.rightAnchor constraintEqualToSystemSpacingAfterAnchor:self.view.rightAnchor multiplier:0.25f] setActive:YES];
+    [[scrollView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor] setActive:YES];
+    scrollView.contentSize = CGSizeMake(self.view.bounds.size.width * [_viewControllers count], scrollView.bounds.size.height);
+#else
     _pageViewControler = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
                                                          navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
                                                                        options:nil];
     _pageViewControler.view.frame = CGRectMake(0, pageHeight, self.view.bounds.size.width, self.view.bounds.size.height - pageHeight);
+    NSLog(@"%@", NSStringFromCGRect(_pageViewControler.view.frame));
     _pageViewControler.delegate = self;
     _pageViewControler.dataSource = self;
     [_pageViewControler setViewControllers:@[_viewControllers[activeIndex]]
-                                     direction:UIPageViewControllerNavigationDirectionReverse
-                                      animated:NO
-                                    completion:nil];
+                                 direction:UIPageViewControllerNavigationDirectionReverse
+                                  animated:NO
+                                completion:nil];
     [self addChildViewController:_pageViewControler];
     [self.view addSubview:_pageViewControler.view];
     [_pageViewControler didMoveToParentViewController:self];
+#endif
 }
 
 

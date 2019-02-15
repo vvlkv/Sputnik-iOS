@@ -16,11 +16,9 @@
 #import "BUScheduleStorage.h"
 
 #import "BUNotificationsViewControllerInput.h"
-#import "BUNotificationsInteractorInput.h"
 
 @interface BUNotificationsPresenter()<BUNotificationsDataDisplayManagerOutput, BUNotificationCenterOutput> {
     BUNotificationsDataDisplayManager *_displayManager;
-//    BUNotificationCenter *_center;
     BUScheduleStorage *_storage;
 }
 
@@ -52,6 +50,7 @@
 
 - (void)didTapOnSave {
     [[BUNotificationCenter instance] commitNotificationsSettings:_displayManager.settings withSchedule:[_storage load]];
+    [((UIViewController *)self.view).navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -61,7 +60,10 @@
     if (sectionIndex == 0) {
         if (newValue == YES) {
             if (![[BUNotificationCenter instance] isSystemGranted]) {
-                [self.view showNeedGrantNotificationsMessage];
+                if ([[BUNotificationCenter instance] accessRequested])
+                    [self.view showNeedGrantNotificationsMessage];
+                else
+                    [[BUNotificationCenter instance] activatePermissions];
             } else
                 [self.view insertSections];
         }

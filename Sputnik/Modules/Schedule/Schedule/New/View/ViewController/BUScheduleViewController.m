@@ -90,6 +90,7 @@
     NSLayoutConstraint *width = [sessionViewController.view.widthAnchor constraintEqualToConstant:screenWidth];
     NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:sessionViewController.view attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_pageVC.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0];
     [self.view addConstraints:@[top, bottom, width, left]];
+    
 }
 
 - (void)p_configureTitleView:(NSString *)name {

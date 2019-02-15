@@ -11,8 +11,6 @@
 
 @protocol BUNotificationsDataDisplayManagerOutput <NSObject>
 
-- (void)didChangeSwitchState;
-- (void)didChangeAllowNotificationsSwitch:(BOOL)newValue;
 - (void)didChangeSwitch:(BOOL)newValue atSection:(NSUInteger)sectionIndex;
 
 @end

@@ -7,17 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BUNotificationsInteractorOutput.h"
 #import "BUNotificationsViewControllerOutput.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol BUNotificationsInteractorInput;
 @protocol BUNotificationsViewControllerInput;
 
-@interface BUNotificationsPresenter : NSObject <BUNotificationsInteractorOutput, BUNotificationsViewControllerOutput>
+@interface BUNotificationsPresenter : NSObject <BUNotificationsViewControllerOutput>
 
-@property (nonatomic, strong) id<BUNotificationsInteractorInput> input;
 @property (nonatomic, weak) id<BUNotificationsViewControllerInput> view;
 
 @end

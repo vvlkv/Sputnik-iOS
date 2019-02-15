@@ -70,10 +70,6 @@
 
 - (void)item:(id<BUNotificationsViewModelItem>)item didChangeSwitchStatus:(BOOL)newVal {
     [self.output didChangeSwitch:newVal atSection:[_sections indexOfObject:item]];
-//    if ([item isMemberOfClass:[BUNotificationsViewModelGrants class]])
-//        [self.output didChangeAllowNotificationsSwitch:newVal];
-//    else
-//        [self.output didChangeSwitchState];
 }
 
 
