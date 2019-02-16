@@ -90,7 +90,6 @@ NSUInteger const pageHeight = 34;
                                                          navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
                                                                        options:nil];
     _pageViewControler.view.frame = CGRectMake(0, pageHeight, self.view.bounds.size.width, self.view.bounds.size.height - pageHeight);
-    NSLog(@"%@", NSStringFromCGRect(_pageViewControler.view.frame));
     _pageViewControler.delegate = self;
     _pageViewControler.dataSource = self;
     [_pageViewControler setViewControllers:@[_viewControllers[activeIndex]]

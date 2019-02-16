@@ -141,7 +141,6 @@ CGFloat const weekDescriptionHeight = 44.f;
 }
 
 - (void)calendar:(FSCalendar *)calendar didSelectDate:(NSDate *)date atMonthPosition:(FSCalendarMonthPosition)monthPosition {
-    NSLog(@"selected: %@", date);
     scheduleTableView.index = [NSCalendar dayFromDate:date];
     [self.output didSelectDate:date];
     weekView.weekDescription = [BUDateFormatter dateFromData:date];

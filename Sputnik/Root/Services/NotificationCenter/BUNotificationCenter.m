@@ -106,8 +106,6 @@ static NSUInteger const minutesInHour = 60;
     content.title = [NSString stringWithFormat:@"%@ на пару", partOfText];
     content.body = [NSString stringWithFormat:@"(%@) - %@ - %@", [pair lessonType], [pair name], [[pair auditory] fullDescription]];
     content.sound = [UNNotificationSound defaultSound];
-    NSLog(@"%@", [content title]);
-    NSLog(@"%@", [content body]);
     return content;
 }
 
@@ -125,7 +123,6 @@ static NSUInteger const minutesInHour = 60;
     components.weekday = weekday;
     components.hour = time / minutesInHour;
     components.minute = time % minutesInHour;
-    NSLog(@"%lu %lu %lu", [components weekday], [components hour], [components minute]);
     var *calendarTrigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:components repeats:true];
     return calendarTrigger;
 }
