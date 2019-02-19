@@ -29,7 +29,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.edgesForExtendedLayout = UIRectEdgeAll;
     self.title = @"Справочник";
     [self initSearchResultsController];
     [self initTableView];

@@ -8,6 +8,7 @@
 
 #import "BUSettingsViewController.h"
 #import "UIViewController+Anchor.h"
+
 @interface BUSettingsViewController ()<UITableViewDelegate> {
     UITableView *settingsTableView;
 }
@@ -19,15 +20,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Настройки";
-    settingsTableView = [[UITableView alloc] initWithFrame:self.view.bounds
+    settingsTableView = [[UITableView alloc] initWithFrame:self.view.frame
                                                      style:UITableViewStyleGrouped];
     settingsTableView.translatesAutoresizingMaskIntoConstraints = NO;
     settingsTableView.delegate = self;
     [self.view addSubview:settingsTableView];
-    [[settingsTableView.topAnchor constraintEqualToAnchor:self.topAnchor] setActive:YES];
-    [[settingsTableView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor] setActive:YES];
-    [[settingsTableView.leftAnchor constraintEqualToAnchor:self.leftAnchor] setActive:YES];
-    [[settingsTableView.rightAnchor constraintEqualToAnchor:self.rightAnchor] setActive:YES];
+    [[settingsTableView.topAnchor constraintEqualToAnchor:self.view.topAnchor] setActive:YES];
+    [[settingsTableView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor] setActive:YES];
+    [[settingsTableView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor] setActive:YES];
+    [[settingsTableView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor] setActive:YES];
     [self.output viewDidLoad];
 }
 

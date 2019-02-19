@@ -23,20 +23,22 @@ static NSString *sliderCellName = @"BUSliderTableViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Центр уведомлений";
-    notificationsTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    notificationsTableView = [[UITableView alloc] initWithFrame:self.view.bounds
+                                                          style:UITableViewStyleGrouped];
     notificationsTableView.translatesAutoresizingMaskIntoConstraints = NO;
     notificationsTableView.delegate = self;
     [self.view addSubview:notificationsTableView];
-    [[notificationsTableView.topAnchor constraintEqualToAnchor:self.topAnchor] setActive:YES];
-    [[notificationsTableView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor] setActive:YES];
-    [[notificationsTableView.leftAnchor constraintEqualToAnchor:self.leftAnchor] setActive:YES];
-    [[notificationsTableView.rightAnchor constraintEqualToAnchor:self.rightAnchor] setActive:YES];
+    [[notificationsTableView.topAnchor constraintEqualToAnchor:self.view.topAnchor] setActive:YES];
+    [[notificationsTableView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor] setActive:YES];
+    [[notificationsTableView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor] setActive:YES];
+    [[notificationsTableView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor] setActive:YES];
     UINib *nib = [UINib nibWithNibName:sliderCellName bundle:nil];
     [notificationsTableView registerNib:nib forCellReuseIdentifier:@"sliderID"];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Сохранить"
                                                                               style:UIBarButtonItemStylePlain
                                                                              target:self
                                                                              action:@selector(p_didTapOnSaveButton)];
+    notificationsTableView.estimatedRowHeight = 75.f;
     [self.output viewDidLoad];
 }
 
@@ -57,10 +59,6 @@ static NSString *sliderCellName = @"BUSliderTableViewCell";
     [notificationsTableView deleteSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:UITableViewRowAnimationFade];
     [notificationsTableView endUpdates];
 }
-
-//- (void)reloadData {
-//    [self p_reloadWithAnimation];
-//}
 
 - (void)dataSource:(id <UITableViewDataSource>)dataSource {
     notificationsTableView.dataSource = dataSource;
@@ -83,15 +81,6 @@ static NSString *sliderCellName = @"BUSliderTableViewCell";
 - (void)p_didTapOnSaveButton {
     [self.output didTapOnSave];
 }
-
-//- (void)p_reloadWithAnimation {
-//    [notificationsTableView reloadSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:UITableViewRowAnimationFade];
-////    [UIView transitionWithView:notificationnsinsTableView duration:.2f
-////                       options:UIViewAnimationOptionTransitionCrossDissolve
-////                    animations:^{
-////                        [self->notificationsTableView reloadData];
-////                    } completion:nil];
-//}
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     return [[UIView alloc] init];
