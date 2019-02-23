@@ -9,10 +9,9 @@
 #import "SUAIPageViewController.h"
 #import "SUAIPageControl.h"
 #define SCROLL
-@interface SUAIPageViewController () <UIPageViewControllerDelegate, UIPageViewControllerDataSource, SUAIPageControlDelegate, UIScrollViewDelegate> {
+@interface SUAIPageViewController () <UIPageViewControllerDelegate, SUAIPageControlDelegate, UIScrollViewDelegate> {
     NSArray <__kindof UIViewController *> *_viewControllers;
     NSUInteger activeIndex;
-//    NSUInteger lastTappedIndex;
     UIScrollView *scrollView;
 }
 
@@ -35,7 +34,6 @@ NSUInteger const pageHeight = 34;
     if (self) {
         _viewControllers = viewControllers;
         activeIndex = index;
-//        lastTappedIndex = index;
     }
     return self;
 }
