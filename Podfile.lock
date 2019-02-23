@@ -6,19 +6,22 @@ PODS:
 
 DEPENDENCIES:
   - FSCalendar
-  - SUAI
+  - SUAI (from `/Users/v.v.alexeevich.95/Code/iOS/Libraries/SUAI/`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - FSCalendar
     - HTMLKit
-    - SUAI
+
+EXTERNAL SOURCES:
+  SUAI:
+    :path: "/Users/v.v.alexeevich.95/Code/iOS/Libraries/SUAI/"
 
 SPEC CHECKSUMS:
   FSCalendar: 3a5ed3636e2ba1b83ebebfcf0c2603105a6f5efe
   HTMLKit: 91dbd983c94f264c6ddea27d317f5a66368dd20b
-  SUAI: 148b0fc842bc47281ff291647d80246bc5d297ee
+  SUAI: 76e27f681b28bd7f61f0dc5ebe99d29d2a4d03a6
 
-PODFILE CHECKSUM: 5dcc1569b4e8ad14c16ebc40823e3e6eb62c640c
+PODFILE CHECKSUM: ca11f892bc3592a7d411d69fec9400e9866101bd
 
 COCOAPODS: 1.5.3

@@ -8,11 +8,11 @@
 
 #import "SUAIPageViewController.h"
 #import "SUAIPageControl.h"
-//#define SCROLL
-@interface SUAIPageViewController () <UIPageViewControllerDelegate, UIPageViewControllerDataSource, SUAIPageControlDelegate> {
+#define SCROLL
+@interface SUAIPageViewController () <UIPageViewControllerDelegate, UIPageViewControllerDataSource, SUAIPageControlDelegate, UIScrollViewDelegate> {
     NSArray <__kindof UIViewController *> *_viewControllers;
     NSUInteger activeIndex;
-    NSUInteger lastTappedIndex;
+//    NSUInteger lastTappedIndex;
     UIScrollView *scrollView;
 }
 
@@ -35,7 +35,7 @@ NSUInteger const pageHeight = 34;
     if (self) {
         _viewControllers = viewControllers;
         activeIndex = index;
-        lastTappedIndex = index;
+//        lastTappedIndex = index;
     }
     return self;
 }
@@ -69,22 +69,26 @@ NSUInteger const pageHeight = 34;
 #ifdef SCROLL
     scrollView = [[UIScrollView alloc] init];
     scrollView.translatesAutoresizingMaskIntoConstraints = NO;
-//    scrollView.contentSize = CGSizeMake(self.view.bounds.size.width * [_viewControllers count], scrollView.bounds.size.height);
     scrollView.pagingEnabled = YES;
-//    scrollView.delegate = self;
     scrollView.alwaysBounceHorizontal = YES;
+    scrollView.delegate = self;
+    scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.showsVerticalScrollIndicator = NO;
+    CGRect activeRect = CGRectZero;
     for (int i = 0; i < [_viewControllers count]; i++) {
         UIViewController *viewController = _viewControllers[i];
-        viewController.view.frame = CGRectMake(i * self.view.bounds.size.width, 0, self.view.bounds.size.width, scrollView.bounds.size.height);
+        viewController.view.frame = CGRectMake(i * self.view.bounds.size.width, 0, scrollView.bounds.size.width, scrollView.bounds.size.height);
         [scrollView addSubview:viewController.view];
+        if (i == activeIndex)
+            activeRect = viewController.view.frame;
     }
     [self.view addSubview:scrollView];
     [[scrollView.topAnchor constraintEqualToAnchor:_pageControl.bottomAnchor] setActive:YES];
     [[scrollView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor] setActive:YES];
     [[scrollView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor] setActive:YES];
-//    [[scrollView.rightAnchor constraintEqualToSystemSpacingAfterAnchor:self.view.rightAnchor multiplier:0.25f] setActive:YES];
     [[scrollView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor] setActive:YES];
     scrollView.contentSize = CGSizeMake(self.view.bounds.size.width * [_viewControllers count], scrollView.bounds.size.height);
+    [scrollView setContentOffset:activeRect.origin animated:YES];
 #else
     _pageViewControler = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
                                                          navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
@@ -102,7 +106,7 @@ NSUInteger const pageHeight = 34;
 #endif
 }
 
-
+#ifndef SCROLL
 #pragma mark - UIPageViewControllerDelegate
 
 - (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewControllers {
@@ -136,16 +140,28 @@ NSUInteger const pageHeight = 34;
     return _viewControllers[index];
 }
 
+#endif
+
 #pragma mark - SUAIPageControlDelegate
 
 - (void)pageControl:(SUAIPageControl *)pageControl didTapOnSectionAtIndex:(NSUInteger)index {
-    if (index == lastTappedIndex)
-        return;
+#ifndef SCROLL
     UIPageViewControllerNavigationDirection direction = index > lastTappedIndex ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse;
     lastTappedIndex = index;
     [_pageViewControler setViewControllers:@[_viewControllers[index]]
                                  direction:direction
                                   animated:true completion:nil];
+#else
+    CGRect scrollToRect = CGRectMake(scrollView.frame.size.width * index, 0, CGRectGetWidth(scrollView.bounds), CGRectGetHeight(scrollView.bounds));
+    [scrollView setContentOffset:scrollToRect.origin animated:YES];
+#endif
+}
+
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    _pageControl.offset = scrollView.contentOffset.x;
 }
 
 @end

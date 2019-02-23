@@ -51,8 +51,9 @@ const CGFloat selectorLineWidth = 3.f;
     CGFloat xPos = [touch locationInView:self].x;
     for (int i = 0; i < pagesCount; i++) {
         NSRange range = NSMakeRange(lineSize * i, lineSize);
-        if (xPos > range.location && xPos < range.location + range.length)
-            self.currentPage = i;
+        if (xPos > range.location && xPos < range.location + range.length) {
+            [self.delegate pageControl:self didTapOnSectionAtIndex:i];
+        }
     }
 }
 
@@ -157,7 +158,6 @@ const CGFloat selectorLineWidth = 3.f;
 }
 
 - (void)animateLineFromOldPos:(NSUInteger)old toNewPos:(NSUInteger)new {
-    [self.delegate pageControl:self didTapOnSectionAtIndex:new];
     [_lineLayer removeAllAnimations];
     CGFloat offset = (CGFloat)new - (CGFloat)old;
     CGFloat diff = offset * lineSize;
@@ -166,10 +166,18 @@ const CGFloat selectorLineWidth = 3.f;
     animation.duration = .2f;
     animation.fromValue = [NSValue valueWithCGPoint:_lineLayer.position];
     animation.toValue = [NSValue valueWithCGPoint:CGPointMake(_lineLayer.position.x + diff, _lineLayer.position.y)];
-    [_lineLayer addAnimation:animation forKey:@"animatePosition"];
+    [_lineLayer addAnimation:animation forKey:@"position"];
     _lineLayer.position = CGPointMake(_lineLayer.position.x + diff, _lineLayer.position.y);
     titleLayers[old].foregroundColor = [UIColor lightGrayColor].CGColor;
     titleLayers[new].foregroundColor = [UIColor suaiPurpleColor].CGColor;
+}
+
+- (void)setOffset:(CGFloat)offset {
+    _offset = offset;
+    CGFloat position = offset / [[UIScreen mainScreen] bounds].size.width;
+    var possiblePos = (NSUInteger)(position + .5f);
+    if (_currentPage != possiblePos)
+        self.currentPage = possiblePos;
 }
 
 @end

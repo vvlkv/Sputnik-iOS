@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SUAIPageControl : UIView
 
 @property (assign, nonatomic) NSUInteger currentPage;
+@property (nonatomic, assign) CGFloat offset;
 @property (weak, nonatomic) id<SUAIPageControlDelegate> delegate;
 
 - (instancetype)initWithTitles:(NSArray<NSString *> *)titles startIndex:(NSUInteger)index;
