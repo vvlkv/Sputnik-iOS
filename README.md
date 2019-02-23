@@ -28,5 +28,4 @@ pod install
 ```
 3. Open Sputnik.xcworkspace;
 4. Delete Navigation folder placed in Sputnik/Resources;
-5. Delete information.json placed in Sputnik/Resources/Information;
-6. cmd + R.
+5. cmd + R.
