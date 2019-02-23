@@ -34,4 +34,4 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 
 Sputnik/Resources/Navigation/
-Sputnik/Resources/Information/information.json
+##Sputnik/Resources/Information/information.json
