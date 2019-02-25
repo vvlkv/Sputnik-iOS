@@ -78,15 +78,6 @@
     self.tabBar.items[4].selectedImage = [[UIImage imageNamed:@"SettingsFill"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 }
 
-//- (void)viewDidAppear:(BOOL)animated {
-//    [super viewDidAppear:animated];
-//    NSString *isFirstLaunch = [[NSUserDefaults standardUserDefaults] objectForKey:@"isFirstLaunch"];
-//    isFirstLaunch = nil;
-//    if (isFirstLaunch == nil) {
-//        [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"isFirstLaunch"];
-//    }
-//}
-
 - (void)presentGreetings {
     UIViewController *greetingsVC = [BUGreetingsWireFrame assemblyGreetings];
     [self presentViewController:greetingsVC animated:YES completion:nil];
