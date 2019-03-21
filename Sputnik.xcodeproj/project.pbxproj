@@ -101,6 +101,8 @@
 		557D932A1FCCBAD700D200E3 /* BUSearchResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 557D93291FCCBAD700D200E3 /* BUSearchResultsTableViewController.m */; };
 		557D932E1FCCBD6700D200E3 /* BUReferenceSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 557D932D1FCCBD6700D200E3 /* BUReferenceSearcher.m */; };
 		557D93311FCCD06700D200E3 /* BUNewStyleSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 557D93301FCCD06700D200E3 /* BUNewStyleSearchController.m */; };
+		558B7D5B22441AC8009994FD /* ChooseEntityMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 558B7D5A22441AC8009994FD /* ChooseEntityMessageView.m */; };
+		558B7D5D22441AD9009994FD /* ChooseEntityMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 558B7D5C22441AD9009994FD /* ChooseEntityMessageView.xib */; };
 		558EAB221FB8F8FF00A1EAEC /* BUReferenceMainScreenRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 558EAB211FB8F8FF00A1EAEC /* BUReferenceMainScreenRouter.m */; };
 		558EAB2C1FBA34F000A1EAEC /* BUReferenceDetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 558EAB2B1FBA34F000A1EAEC /* BUReferenceDetailInfoViewController.m */; };
 		5595479F1FBCC2C500604771 /* BUReferenceTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5595479E1FBCC2C500604771 /* BUReferenceTableView.m */; };
@@ -393,6 +395,9 @@
 		557D932D1FCCBD6700D200E3 /* BUReferenceSearcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUReferenceSearcher.m; sourceTree = "<group>"; };
 		557D932F1FCCD06700D200E3 /* BUNewStyleSearchController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUNewStyleSearchController.h; sourceTree = "<group>"; };
 		557D93301FCCD06700D200E3 /* BUNewStyleSearchController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUNewStyleSearchController.m; sourceTree = "<group>"; };
+		558B7D5922441AC8009994FD /* ChooseEntityMessageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseEntityMessageView.h; sourceTree = "<group>"; };
+		558B7D5A22441AC8009994FD /* ChooseEntityMessageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseEntityMessageView.m; sourceTree = "<group>"; };
+		558B7D5C22441AD9009994FD /* ChooseEntityMessageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseEntityMessageView.xib; sourceTree = "<group>"; };
 		558EAB201FB8F8FF00A1EAEC /* BUReferenceMainScreenRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUReferenceMainScreenRouter.h; sourceTree = "<group>"; };
 		558EAB211FB8F8FF00A1EAEC /* BUReferenceMainScreenRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUReferenceMainScreenRouter.m; sourceTree = "<group>"; };
 		558EAB231FB8F94B00A1EAEC /* BUReferenceMainScreenRouterInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUReferenceMainScreenRouterInput.h; sourceTree = "<group>"; };
@@ -1155,6 +1160,9 @@
 				5522F9D31F196A0200D2AACE /* SegmentedControl */,
 				551898EE1F16DAC00046BA33 /* ViewController */,
 				551898BE1F16CC230046BA33 /* NavigationController */,
+				558B7D5922441AC8009994FD /* ChooseEntityMessageView.h */,
+				558B7D5A22441AC8009994FD /* ChooseEntityMessageView.m */,
+				558B7D5C22441AD9009994FD /* ChooseEntityMessageView.xib */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -2280,6 +2288,7 @@
 				557D93201FCAFB3100D200E3 /* BUReferenceTimeTableViewCell.xib in Resources */,
 				5538D40E1F3F470A00B38AAF /* BUAboutAppViewController.xib in Resources */,
 				554CB4C6201917C5004B2149 /* BUMainScreenViewController.storyboard in Resources */,
+				558B7D5D22441AD9009994FD /* ChooseEntityMessageView.xib in Resources */,
 				551898E21F16D7480046BA33 /* Roboto-Light.ttf in Resources */,
 				55FAC4EE1FBF5F7B001BC129 /* BUReferenceCathedraTableViewCell.xib in Resources */,
 				551898E41F16D7480046BA33 /* Roboto-Medium.ttf in Resources */,
@@ -2449,6 +2458,7 @@
 				552CBA1E1F351C6200BAA81A /* BUNewsWireFrame.m in Sources */,
 				55C300BE1F2E32AA00C07CD7 /* BUNewsInteractor.m in Sources */,
 				557D93101FC8BE3D00D200E3 /* BUReferenceViewModelBaseItem.m in Sources */,
+				558B7D5B22441AC8009994FD /* ChooseEntityMessageView.m in Sources */,
 				55BD124A1FAF4278001EDFCA /* BUReferenceViewController.m in Sources */,
 				5572C724220E00E600380CF6 /* BUNotificationsViewModelGrants.m in Sources */,
 				553A0B681F2E783F000A58FA /* BUNewsDetailInfoPresenter.m in Sources */,

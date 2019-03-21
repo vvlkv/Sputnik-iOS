@@ -19,7 +19,7 @@
 @end
 
 NSString *const newsCellName = @"BUNewsTableViewCell";
-static NSString *const cellIdentifier = @"cellID";
+NSString *const cellIdentifier = @"cellID";
 
 @implementation BUNewsViewController
 
@@ -71,6 +71,7 @@ static NSString *const cellIdentifier = @"cellID";
 }
 
 - (void)showFailMessage {
+    [self hideActivityIndicator];
     [self showInternetFailView];
 }
 

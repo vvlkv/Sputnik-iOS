@@ -76,9 +76,9 @@
 
 - (void)updateContent {
     [self hideActivityIndicator];
+    [self hideInternetFailView];
     detailInfoNewsTableView.hidden = NO;
     [detailInfoNewsTableView reloadData];
-    
 }
 
 - (void)loadFailed {

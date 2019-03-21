@@ -9,20 +9,22 @@
 #import "BURootViewController.h"
 #import "BUActivityIndicatorView.h"
 #import "UIFont+SUAI.h"
+#import "ChooseEntityMessageView.h"
 
-@interface BURootViewController () {
+@interface BURootViewController()<ChooseEntityMessageViewDelegate> {
     BUActivityIndicatorView *_indicatorView;
-    UIView *_failView;
+    ChooseEntityMessageView *messageView;
 }
 
 @end
+
+NSString *const kMessageViewName = @"ChooseEntityMessageView";
 
 @implementation BURootViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     _indicatorView = [[BUActivityIndicatorView alloc] initWithFrame:self.view.bounds];
-    _failView = [[UIView alloc] initWithFrame:self.view.bounds];
     self.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],
                                                                       NSFontAttributeName:[UIFont suaiRobotoFont:RobotoFontMedium size:17.f]}];
@@ -37,6 +39,10 @@
     if (@available(iOS 11.0, *)) {
         self.navigationController.navigationBar.largeTitleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     }
+    
+    messageView = (ChooseEntityMessageView *)[[NSBundle mainBundle] loadNibNamed:kMessageViewName
+                                                                           owner:self
+                                                                         options:nil][0];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -61,43 +67,15 @@
 }
 
 - (void)showFailView:(NSString *)message action:(void(^)(void))action {
-    
-    _failView.backgroundColor = [UIColor whiteColor];
-    UILabel *messageLabel = [[UILabel alloc] init];
-    messageLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    messageLabel.textAlignment = NSTextAlignmentCenter;
-    messageLabel.numberOfLines = 0;
-    [messageLabel setFont:[UIFont suaiRobotoFont:RobotoFontMedium size:13.f]];
-    messageLabel.text = message;
-    [_failView addSubview:messageLabel];
-    [[NSLayoutConstraint constraintWithItem:messageLabel
-                                  attribute:NSLayoutAttributeCenterX
-                                  relatedBy:NSLayoutRelationEqual toItem:_failView
-                                  attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0] setActive:YES];
-    
-    [[NSLayoutConstraint constraintWithItem:messageLabel
-                                  attribute:NSLayoutAttributeCenterY
-                                  relatedBy:NSLayoutRelationEqual toItem:_failView
-                                  attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0] setActive:YES];
-    
-    [[messageLabel.leftAnchor constraintEqualToAnchor:_failView.leftAnchor] setActive:YES];
-    [[messageLabel.rightAnchor constraintEqualToAnchor:_failView.rightAnchor] setActive:YES];
-    
-    if (action != nil) {
-        var *btn = [UIButton buttonWithType:UIButtonTypeSystem];
-        [btn setTitle:@"Перейти в настройки" forState:UIControlStateNormal];
-        btn.translatesAutoresizingMaskIntoConstraints = NO;
-        [btn addTarget:self action:@selector(p_navigateToSettings) forControlEvents:UIControlEventTouchUpInside];
-        [_failView addSubview:btn];
-        [[btn.topAnchor constraintEqualToAnchor:messageLabel.bottomAnchor] setActive:YES];
-        [[btn.centerXAnchor constraintEqualToAnchor:_failView.centerXAnchor] setActive:YES];
-    }
-    
-    if (![self.view.subviews containsObject:_failView])
-        [self.view addSubview:_failView];
+    messageView.delegate = self;
+    messageView.messageText = message;
+    messageView.isButtonHidden = action == nil;
+    messageView.contentMode = UIViewContentModeCenter;
+    messageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.view addSubview:messageView];
 }
 
-- (void)p_navigateToSettings {
+- (void)didTapOnGoToSettingsButtonInMessageView:(ChooseEntityMessageView *)messageView {
     NSUInteger totalControllers = [[self.tabBarController viewControllers] count];
     [self.tabBarController setSelectedIndex:totalControllers - 1];
 }
@@ -107,7 +85,7 @@
 }
 
 - (void)hideInternetFailView {
-    [_failView removeFromSuperview];
+    [messageView removeFromSuperview];
 }
 
 

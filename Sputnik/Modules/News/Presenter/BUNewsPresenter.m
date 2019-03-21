@@ -44,7 +44,7 @@
 }
 
 - (void)didChangeInternetReachability:(BOOL)isReachable {
-    if (_news == nil)
+    if (_news == nil && isReachable)
         [self.input obtainNews];
 }
 
