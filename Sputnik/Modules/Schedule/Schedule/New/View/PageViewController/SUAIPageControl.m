@@ -125,7 +125,7 @@ const CGFloat selectorLineWidth = 3.f;
         CAShapeLayer *layer = [[CAShapeLayer alloc] init];
         UIBezierPath *path = [[UIBezierPath alloc] init];
         CGPoint arcCenter = CGPointMake(i * lineSize + lineSize * 8 / 9, self.frame.size.height / 5);
-        CGFloat radius = 3.f;
+        CGFloat radius = 3.5f;
         if (intValue == 1 || intValue == 2) {
             [path addArcWithCenter:arcCenter radius:radius startAngle:0 endAngle:2 * M_PI clockwise:true];
             layer.path = path.CGPath;

@@ -15,6 +15,7 @@
     self = [super initWithFrame:CGRectNull style:UITableViewStyleGrouped];
     if (self) {
         self.estimatedRowHeight = 100;
+        self.showsVerticalScrollIndicator = NO;
     }
     return self;
 }

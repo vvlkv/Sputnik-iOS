@@ -27,7 +27,6 @@
     self.vkLabel.highlighted = YES;
     self.vkLabel.highlightedTextColor = [UIColor suaiBlueColor];
     [self.vkLabel addGestureRecognizer:tapOnVkGesture];
-    
     UITapGestureRecognizer *tapOnSiteGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapSiteLabel:)];
     self.siteLabel.userInteractionEnabled = YES;
     self.siteLabel.textColor = [UIColor suaiBlueColor];

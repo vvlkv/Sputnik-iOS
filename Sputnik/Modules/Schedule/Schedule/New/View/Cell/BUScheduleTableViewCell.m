@@ -25,7 +25,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.frameView.backgroundColor = [UIColor clearColor];
     self.frameView.layer.borderWidth = 3.f;
     self.frameView.layer.borderColor = [[UIColor suaiGrayColor] CGColor];
     self.frameView.layer.cornerRadius = 8.f;
@@ -50,6 +49,7 @@
     CGFloat fontSize = [UIScreen mainScreen].bounds.size.width == 320.f ? 14.f : 15.f;
     [self.pairText setFont:[UIFont suaiRobotoFont:RobotoFontMedium size:fontSize]];
     self.pairText.textAlignment = NSTextAlignmentCenter;
+    self.pairText.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)setTeacher:(NSString *)teacher {
@@ -61,10 +61,8 @@
     [super setFrame:frame];
     UIRectCorner corners = UIRectCornerBottomLeft | UIRectCornerBottomRight;
     UIBezierPath* rounded = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:corners cornerRadii:CGSizeMake(16.0, 16.0)];
-    
     CAShapeLayer* shape = [[CAShapeLayer alloc] init];
     [shape setPath:rounded.CGPath];
-    
     self.layer.mask = shape;
 }
 

@@ -25,6 +25,9 @@
     [super awakeFromNib];
     self.dateLabel.text = @"";
     self.weekTypeLabel.text = @"";
+    self.backgroundColor = [UIColor whiteColor];
+    self.dateLabel.backgroundColor = [UIColor whiteColor];
+    self.weekTypeLabel.backgroundColor = [UIColor whiteColor];
 }
 
 
@@ -42,7 +45,6 @@
     UIColor *contentColor;
     if ([_week containsString:@"нечетная"]) {
         contentColor = [UIColor suaiRedColor];
-        
     } else {
         contentColor =  [UIColor suaiBlueColor];
     }

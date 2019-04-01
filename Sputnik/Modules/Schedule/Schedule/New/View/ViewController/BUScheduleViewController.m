@@ -182,10 +182,8 @@
         searchButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
                                                                      target:self
                                                                      action:@selector(p_searchAction)];
-    } else {
-         searchButton = nil;
+        self.navigationItem.leftBarButtonItem = searchButton;
     }
-    self.navigationItem.leftBarButtonItem = searchButton;
 }
 
 - (void)showFailInternetMessage {

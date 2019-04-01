@@ -60,6 +60,7 @@ static NSString *backgroundViewName = @"BUAstronautView";
     austronautView.message = [self.dataSource tableView:self titleForAustronautAtIndex:index];
     austronautView.frame = self.view.frame;
     tableView.backgroundView = austronautView;
+    tableView.bounces = NO;
 }
 
 #pragma mark - Table view data source
@@ -71,6 +72,7 @@ static NSString *backgroundViewName = @"BUAstronautView";
     if (totalPairs == 0) {
         [self p_addBackground:tableView atIndex:_index];
     } else {
+        tableView.bounces = YES;
         tableView.backgroundView = nil;
     }
     return totalPairs;

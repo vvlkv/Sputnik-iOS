@@ -47,6 +47,7 @@
     tableView = [[UITableView alloc] init];
     tableView.dataSource = self;
     tableView.delegate = self;
+    tableView.showsVerticalScrollIndicator = NO;
     self.delegate = [self.output delegate];
     self.dataSource = [self.output dataSource];
     if (@available(iOS 11.0, *)) {

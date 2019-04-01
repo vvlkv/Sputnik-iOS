@@ -1,14 +1,16 @@
 //
-//  BUNewsDetailInfoTableViewCell.h
-//  SUAI_Navigation
+//  BUDetailNewsView.h
+//  Sputnik
 //
-//  Created by Виктор on 30.07.17.
-//  Copyright © 2017 Viktor. All rights reserved.
+//  Created by Виктор on 22/03/2019.
+//  Copyright © 2019 Viktor. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface BUNewsDetailInfoTableViewCell : UITableViewCell
+NS_ASSUME_NONNULL_BEGIN
+
+@interface BUDetailNewsScrollView : UIView
 
 @property (strong, nonatomic) NSString *date;
 @property (strong, nonatomic) NSString *header;
@@ -17,3 +19,5 @@
 @property (strong, nonatomic) UIImage *image;
 
 @end
+
+NS_ASSUME_NONNULL_END

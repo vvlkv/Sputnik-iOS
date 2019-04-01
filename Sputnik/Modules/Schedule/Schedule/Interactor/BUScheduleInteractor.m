@@ -16,7 +16,6 @@
 #import "BUDateFormatter.h"
 #import "NSCalendar+CurrentDay.h"
 #import "BUNotificationCenter.h"
-
 #import "SputnikConst.h"
 
 @interface BUScheduleInteractor()

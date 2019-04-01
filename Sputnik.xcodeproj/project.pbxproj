@@ -56,8 +56,6 @@
 		553A0B621F2E77F8000A58FA /* BUNewsDetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553A0B611F2E77F8000A58FA /* BUNewsDetailInfoViewController.m */; };
 		553A0B681F2E783F000A58FA /* BUNewsDetailInfoPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 553A0B671F2E783F000A58FA /* BUNewsDetailInfoPresenter.m */; };
 		553A0B6B1F2E784B000A58FA /* BUNewsDetailInfoInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 553A0B6A1F2E784B000A58FA /* BUNewsDetailInfoInteractor.m */; };
-		553A0B791F2E792A000A58FA /* BUNewsDetailInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 553A0B771F2E792A000A58FA /* BUNewsDetailInfoTableViewCell.m */; };
-		553A0B7A1F2E792A000A58FA /* BUNewsDetailInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553A0B781F2E792A000A58FA /* BUNewsDetailInfoTableViewCell.xib */; };
 		553A0B861F2EC0FA000A58FA /* BUNavigationSearchScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553A0B851F2EC0FA000A58FA /* BUNavigationSearchScreenViewController.m */; };
 		553A0B8C1F2EDA58000A58FA /* BUSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553A0B8B1F2EDA58000A58FA /* BUSettingsViewController.m */; };
 		553A0B8F1F2F0C8F000A58FA /* BUSettingsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 553A0B8E1F2F0C8F000A58FA /* BUSettingsPresenter.m */; };
@@ -103,6 +101,8 @@
 		557D93311FCCD06700D200E3 /* BUNewStyleSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 557D93301FCCD06700D200E3 /* BUNewStyleSearchController.m */; };
 		558B7D5B22441AC8009994FD /* ChooseEntityMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 558B7D5A22441AC8009994FD /* ChooseEntityMessageView.m */; };
 		558B7D5D22441AD9009994FD /* ChooseEntityMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 558B7D5C22441AD9009994FD /* ChooseEntityMessageView.xib */; };
+		558B7D60224572CD009994FD /* BUDetailNewsScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 558B7D5F224572CD009994FD /* BUDetailNewsScrollView.m */; };
+		558B7D62224572D6009994FD /* BUDetailNewsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 558B7D61224572D6009994FD /* BUDetailNewsView.xib */; };
 		558EAB221FB8F8FF00A1EAEC /* BUReferenceMainScreenRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 558EAB211FB8F8FF00A1EAEC /* BUReferenceMainScreenRouter.m */; };
 		558EAB2C1FBA34F000A1EAEC /* BUReferenceDetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 558EAB2B1FBA34F000A1EAEC /* BUReferenceDetailInfoViewController.m */; };
 		5595479F1FBCC2C500604771 /* BUReferenceTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5595479E1FBCC2C500604771 /* BUReferenceTableView.m */; };
@@ -301,9 +301,6 @@
 		553A0B6D1F2E786B000A58FA /* BUNewsDetailInfoViewControllerOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUNewsDetailInfoViewControllerOutput.h; sourceTree = "<group>"; };
 		553A0B6E1F2E7885000A58FA /* BUNewsDetailInfoInteractorInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUNewsDetailInfoInteractorInput.h; sourceTree = "<group>"; };
 		553A0B6F1F2E788B000A58FA /* BUNewsDetailInfoInteractorOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUNewsDetailInfoInteractorOutput.h; sourceTree = "<group>"; };
-		553A0B761F2E792A000A58FA /* BUNewsDetailInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUNewsDetailInfoTableViewCell.h; sourceTree = "<group>"; };
-		553A0B771F2E792A000A58FA /* BUNewsDetailInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUNewsDetailInfoTableViewCell.m; sourceTree = "<group>"; };
-		553A0B781F2E792A000A58FA /* BUNewsDetailInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BUNewsDetailInfoTableViewCell.xib; sourceTree = "<group>"; };
 		553A0B821F2E84D1000A58FA /* BUNewsDetailInfoDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUNewsDetailInfoDataSource.h; sourceTree = "<group>"; };
 		553A0B841F2EC0FA000A58FA /* BUNavigationSearchScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUNavigationSearchScreenViewController.h; sourceTree = "<group>"; };
 		553A0B851F2EC0FA000A58FA /* BUNavigationSearchScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUNavigationSearchScreenViewController.m; sourceTree = "<group>"; };
@@ -398,6 +395,9 @@
 		558B7D5922441AC8009994FD /* ChooseEntityMessageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseEntityMessageView.h; sourceTree = "<group>"; };
 		558B7D5A22441AC8009994FD /* ChooseEntityMessageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseEntityMessageView.m; sourceTree = "<group>"; };
 		558B7D5C22441AD9009994FD /* ChooseEntityMessageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseEntityMessageView.xib; sourceTree = "<group>"; };
+		558B7D5E224572CD009994FD /* BUDetailNewsScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUDetailNewsScrollView.h; sourceTree = "<group>"; };
+		558B7D5F224572CD009994FD /* BUDetailNewsScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUDetailNewsScrollView.m; sourceTree = "<group>"; };
+		558B7D61224572D6009994FD /* BUDetailNewsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BUDetailNewsView.xib; sourceTree = "<group>"; };
 		558EAB201FB8F8FF00A1EAEC /* BUReferenceMainScreenRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUReferenceMainScreenRouter.h; sourceTree = "<group>"; };
 		558EAB211FB8F8FF00A1EAEC /* BUReferenceMainScreenRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUReferenceMainScreenRouter.m; sourceTree = "<group>"; };
 		558EAB231FB8F94B00A1EAEC /* BUReferenceMainScreenRouterInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUReferenceMainScreenRouterInput.h; sourceTree = "<group>"; };
@@ -505,7 +505,6 @@
 		55B889BC1EAE8E9800FBE41E /* Sputnik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sputnik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B889C01EAE8E9800FBE41E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		55B889CB1EAE8E9800FBE41E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		55B889CE1EAE8E9800FBE41E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55B889D01EAE8E9800FBE41E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55B88A101EAFDA7B00FBE41E /* BUNavigationWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUNavigationWebView.h; sourceTree = "<group>"; };
 		55B88A111EAFDA7B00FBE41E /* BUNavigationWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUNavigationWebView.m; sourceTree = "<group>"; };
@@ -559,6 +558,7 @@
 		55F21FDD1F8D536D00509EDF /* BURootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BURootNavigationController.m; sourceTree = "<group>"; };
 		55F21FDF1F8D539C00509EDF /* BUTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUTabBarViewController.h; sourceTree = "<group>"; };
 		55F21FE01F8D53A600509EDF /* BUTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUTabBarViewController.m; sourceTree = "<group>"; };
+		55F28D2022528703003F4C46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55F8E23921DF801D005184A2 /* UIViewController+Anchor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Anchor.h"; sourceTree = "<group>"; };
 		55F8E23A21DF801D005184A2 /* UIViewController+Anchor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Anchor.m"; sourceTree = "<group>"; };
 		55F8E23C21DF92C6005184A2 /* BUScheduleTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUScheduleTableViewController.h; sourceTree = "<group>"; };
@@ -981,23 +981,15 @@
 		553A0B5F1F2E77E0000A58FA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				553A0B701F2E78F1000A58FA /* Cell */,
 				553A0B601F2E77F8000A58FA /* BUNewsDetailInfoViewController.h */,
 				553A0B611F2E77F8000A58FA /* BUNewsDetailInfoViewController.m */,
 				553A0B6C1F2E7865000A58FA /* BUNewsDetailInfoViewControllerInput.h */,
 				553A0B6D1F2E786B000A58FA /* BUNewsDetailInfoViewControllerOutput.h */,
+				558B7D5E224572CD009994FD /* BUDetailNewsScrollView.h */,
+				558B7D5F224572CD009994FD /* BUDetailNewsScrollView.m */,
+				558B7D61224572D6009994FD /* BUDetailNewsView.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		553A0B701F2E78F1000A58FA /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				553A0B761F2E792A000A58FA /* BUNewsDetailInfoTableViewCell.h */,
-				553A0B771F2E792A000A58FA /* BUNewsDetailInfoTableViewCell.m */,
-				553A0B781F2E792A000A58FA /* BUNewsDetailInfoTableViewCell.xib */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		553A0B831F2EC0D6000A58FA /* NavigationSearchScreen */ = {
@@ -2231,7 +2223,7 @@
 		55B889B41EAE8E9800FBE41E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Viktor;
 				TargetAttributes = {
 					55B889BB1EAE8E9800FBE41E = {
@@ -2243,10 +2235,10 @@
 			};
 			buildConfigurationList = 55B889B71EAE8E9800FBE41E /* Build configuration list for PBXProject "Sputnik" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
+				ru,
 				Base,
 			);
 			mainGroup = 55B889B31EAE8E9800FBE41E;
@@ -2272,10 +2264,10 @@
 				55031E381F3608C20039B261 /* BUGreetingsViewController.xib in Resources */,
 				5529C5201F36118600911EF8 /* BUFirstStepView.xib in Resources */,
 				55FAC4E91FBF5C7C001BC129 /* BUReferenceHeadTableViewCell.xib in Resources */,
-				553A0B7A1F2E792A000A58FA /* BUNewsDetailInfoTableViewCell.xib in Resources */,
 				55B889CF1EAE8E9800FBE41E /* LaunchScreen.storyboard in Resources */,
 				551898DF1F16D7480046BA33 /* Roboto-Bold.ttf in Resources */,
 				55E70A401F1EADDE009C1548 /* BUScheduleRefreshView.xib in Resources */,
+				558B7D62224572D6009994FD /* BUDetailNewsView.xib in Resources */,
 				5552183F1FC459A8007F96D6 /* BUReferenceLinkTableViewCell.xib in Resources */,
 				55B889CC1EAE8E9800FBE41E /* Assets.xcassets in Resources */,
 				5572C71B220CD30A00380CF6 /* BUSliderTableViewCell.xib in Resources */,
@@ -2352,6 +2344,7 @@
 				5511EAAD1EC1F37E0088EAE7 /* BUMainStateModel.m in Sources */,
 				55C7E3D81FC3669700934DB5 /* BUReferenceViewModelHeaderItem.m in Sources */,
 				55FE419321F4F77A006495DB /* BUScheduleSearchViewController.m in Sources */,
+				558B7D60224572CD009994FD /* BUDetailNewsScrollView.m in Sources */,
 				55A236A31F35175D00A2249F /* BUSettingsEntityViewController.m in Sources */,
 				5529C51E1F36118000911EF8 /* BUFirstStepView.m in Sources */,
 				550FE7C41F9FA0F20026ABA9 /* BULeftPanelMapView.m in Sources */,
@@ -2417,7 +2410,6 @@
 				553A0B6B1F2E784B000A58FA /* BUNewsDetailInfoInteractor.m in Sources */,
 				55C300BB1F2E329500C07CD7 /* BUNewsViewController.m in Sources */,
 				5520C24F21DE71FB00F2B95C /* BUScheduleNavigationController.m in Sources */,
-				553A0B791F2E792A000A58FA /* BUNewsDetailInfoTableViewCell.m in Sources */,
 				553A0B551F2E769F000A58FA /* BUNewsRouter.m in Sources */,
 				555218591FC4DAF9007F96D6 /* BUReferenceViewModelCathedraConstructor.m in Sources */,
 				559D155A1F2D08320038F5BC /* BUNavigationRouter.m in Sources */,
@@ -2495,7 +2487,7 @@
 		55B889CD1EAE8E9800FBE41E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				55B889CE1EAE8E9800FBE41E /* Base */,
+				55F28D2022528703003F4C46 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -2507,6 +2499,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -2563,6 +2556,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";

@@ -41,7 +41,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.edgesForExtendedLayout = UIRectEdgeAll;
     self.view.backgroundColor = [UIColor whiteColor];
     UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithTitle:@"Назад"
                                                                    style:UIBarButtonItemStylePlain
@@ -55,19 +54,18 @@
 
 - (void)initSearchBar {
     search = [[BUNewStyleSearchController alloc] initWithSearchResultsController:nil];
-    search.searchBar.placeholder = @"Например, 1741 или Бритов. Г. С.";
+    search.searchBar.placeholder = @"1741 или Бритов. Г. С.";
     search.searchBar.scopeButtonTitles = @[@"Группы", @"Преподаватели", @"Аудитории"];
     search.searchBar.delegate = self;
-    self.definesPresentationContext = YES;
-    search.obscuresBackgroundDuringPresentation = NO;
     if (@available(iOS 11.0, *)) {
-        contentsTableView.frame = (CGRect){self.view.bounds.origin, self.view.bounds.size.width, self.view.bounds.size.height};
+        contentsTableView.frame = (CGRect){self.view.bounds.origin, self.view.bounds.size};
         self.navigationController.navigationBar.prefersLargeTitles = NO;
         self.navigationItem.searchController = search;
-        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
         self.navigationItem.hidesSearchBarWhenScrolling = NO;
+        search.obscuresBackgroundDuringPresentation = NO;
     } else {
-        contentsTableView.frame = (CGRect){self.view.bounds.origin, self.view.bounds.size.width, self.view.bounds.size.height};
+        search.dimsBackgroundDuringPresentation = NO;
+        contentsTableView.frame = (CGRect){self.view.bounds.origin, self.view.bounds.size};
         contentsTableView.tableHeaderView = search.searchBar;
     }
     self.definesPresentationContext = YES;
@@ -118,11 +116,6 @@
     [search.searchBar resignFirstResponder];
     [self dismissViewControllerAnimated:YES completion:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self.view endEditing:YES];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -182,4 +175,5 @@
     NSString *searchString = [[searchController searchBar] text];
     [self searchContentsForSearchText:searchString];
 }
+
 @end

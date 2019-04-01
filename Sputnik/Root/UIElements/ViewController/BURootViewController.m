@@ -67,6 +67,7 @@ NSString *const kMessageViewName = @"ChooseEntityMessageView";
 }
 
 - (void)showFailView:(NSString *)message action:(void(^)(void))action {
+    [self hideActivityIndicator];
     messageView.delegate = self;
     messageView.messageText = message;
     messageView.isButtonHidden = action == nil;

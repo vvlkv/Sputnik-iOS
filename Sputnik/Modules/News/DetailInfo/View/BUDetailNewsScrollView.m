@@ -1,15 +1,17 @@
 //
-//  BUNewsDetailInfoTableViewCell.m
-//  SUAI_Navigation
+//  BUDetailNewsView.m
+//  Sputnik
 //
-//  Created by Виктор on 30.07.17.
-//  Copyright © 2017 Viktor. All rights reserved.
+//  Created by Виктор on 22/03/2019.
+//  Copyright © 2019 Viktor. All rights reserved.
 //
 
-#import "BUNewsDetailInfoTableViewCell.h"
+#import "BUDetailNewsScrollView.h"
 #import "UIFont+SUAI.h"
 
-@interface BUNewsDetailInfoTableViewCell ()
+@interface BUDetailNewsScrollView() {
+    
+}
 
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *headerLabel;
@@ -19,7 +21,7 @@
 
 @end
 
-@implementation BUNewsDetailInfoTableViewCell
+@implementation BUDetailNewsScrollView
 
 - (void)awakeFromNib {
     [super awakeFromNib];
