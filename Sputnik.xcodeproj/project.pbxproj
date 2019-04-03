@@ -103,6 +103,7 @@
 		558B7D5D22441AD9009994FD /* ChooseEntityMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 558B7D5C22441AD9009994FD /* ChooseEntityMessageView.xib */; };
 		558B7D60224572CD009994FD /* BUDetailNewsScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 558B7D5F224572CD009994FD /* BUDetailNewsScrollView.m */; };
 		558B7D62224572D6009994FD /* BUDetailNewsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 558B7D61224572D6009994FD /* BUDetailNewsView.xib */; };
+		558DA91622554072004DAEE7 /* BUSearchStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 558DA91522554072004DAEE7 /* BUSearchStorage.m */; };
 		558EAB221FB8F8FF00A1EAEC /* BUReferenceMainScreenRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 558EAB211FB8F8FF00A1EAEC /* BUReferenceMainScreenRouter.m */; };
 		558EAB2C1FBA34F000A1EAEC /* BUReferenceDetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 558EAB2B1FBA34F000A1EAEC /* BUReferenceDetailInfoViewController.m */; };
 		5595479F1FBCC2C500604771 /* BUReferenceTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5595479E1FBCC2C500604771 /* BUReferenceTableView.m */; };
@@ -173,6 +174,16 @@
 		55E70A471F1FF23D009C1548 /* BUSUAIGradientNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E70A461F1FF23D009C1548 /* BUSUAIGradientNavigationBar.m */; };
 		55F21FDE1F8D536D00509EDF /* BURootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F21FDD1F8D536D00509EDF /* BURootNavigationController.m */; };
 		55F21FE11F8D53A600509EDF /* BUTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F21FE01F8D53A600509EDF /* BUTabBarViewController.m */; };
+		55F28D342253E94B003F4C46 /* BUPercentDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F28D262253E94B003F4C46 /* BUPercentDriver.m */; };
+		55F28D352253E94B003F4C46 /* BUPopUpPresentAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F28D292253E94B003F4C46 /* BUPopUpPresentAnimator.m */; };
+		55F28D362253E94B003F4C46 /* BUPopUpDismissAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F28D2A2253E94B003F4C46 /* BUPopUpDismissAnimator.m */; };
+		55F28D372253E94B003F4C46 /* BUCustomTransitioner.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F28D2F2253E94B003F4C46 /* BUCustomTransitioner.m */; };
+		55F28D382253E94B003F4C46 /* BUScrollViewUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F28D312253E94B003F4C46 /* BUScrollViewUpdater.m */; };
+		55F28D392253E94B003F4C46 /* BUScrollViewDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F28D322253E94B003F4C46 /* BUScrollViewDetector.m */; };
+		55F28D3A2253E94B003F4C46 /* BUCustomPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F28D332253E94B003F4C46 /* BUCustomPresentationController.m */; };
+		55F28D3D2253E9A8003F4C46 /* BUSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F28D3C2253E9A8003F4C46 /* BUSearchViewController.m */; };
+		55F28D432253F72B003F4C46 /* BUSearchPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F28D422253F72B003F4C46 /* BUSearchPresenter.m */; };
+		55F28D462253FA6A003F4C46 /* BUSearchResultsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F28D452253FA6A003F4C46 /* BUSearchResultsViewModel.m */; };
 		55F8E23B21DF801D005184A2 /* UIViewController+Anchor.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F8E23A21DF801D005184A2 /* UIViewController+Anchor.m */; };
 		55F8E23E21DF92C6005184A2 /* BUScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F8E23D21DF92C6005184A2 /* BUScheduleTableViewController.m */; };
 		55F8E24121DF97FD005184A2 /* TitleSegmentedControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F8E23F21DF97FC005184A2 /* TitleSegmentedControlView.m */; };
@@ -398,6 +409,9 @@
 		558B7D5E224572CD009994FD /* BUDetailNewsScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUDetailNewsScrollView.h; sourceTree = "<group>"; };
 		558B7D5F224572CD009994FD /* BUDetailNewsScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUDetailNewsScrollView.m; sourceTree = "<group>"; };
 		558B7D61224572D6009994FD /* BUDetailNewsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BUDetailNewsView.xib; sourceTree = "<group>"; };
+		558DA91222553FF9004DAEE7 /* BUSputnikCoreData 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "BUSputnikCoreData 3.xcdatamodel"; sourceTree = "<group>"; };
+		558DA91422554072004DAEE7 /* BUSearchStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUSearchStorage.h; sourceTree = "<group>"; };
+		558DA91522554072004DAEE7 /* BUSearchStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUSearchStorage.m; sourceTree = "<group>"; };
 		558EAB201FB8F8FF00A1EAEC /* BUReferenceMainScreenRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUReferenceMainScreenRouter.h; sourceTree = "<group>"; };
 		558EAB211FB8F8FF00A1EAEC /* BUReferenceMainScreenRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUReferenceMainScreenRouter.m; sourceTree = "<group>"; };
 		558EAB231FB8F94B00A1EAEC /* BUReferenceMainScreenRouterInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUReferenceMainScreenRouterInput.h; sourceTree = "<group>"; };
@@ -559,6 +573,28 @@
 		55F21FDF1F8D539C00509EDF /* BUTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUTabBarViewController.h; sourceTree = "<group>"; };
 		55F21FE01F8D53A600509EDF /* BUTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUTabBarViewController.m; sourceTree = "<group>"; };
 		55F28D2022528703003F4C46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		55F28D252253E94B003F4C46 /* BUCustomTransitioner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUCustomTransitioner.h; sourceTree = "<group>"; };
+		55F28D262253E94B003F4C46 /* BUPercentDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUPercentDriver.m; sourceTree = "<group>"; };
+		55F28D272253E94B003F4C46 /* BUScrollViewDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUScrollViewDetector.h; sourceTree = "<group>"; };
+		55F28D292253E94B003F4C46 /* BUPopUpPresentAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUPopUpPresentAnimator.m; sourceTree = "<group>"; };
+		55F28D2A2253E94B003F4C46 /* BUPopUpDismissAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUPopUpDismissAnimator.m; sourceTree = "<group>"; };
+		55F28D2B2253E94B003F4C46 /* BUPopUpPresentAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUPopUpPresentAnimator.h; sourceTree = "<group>"; };
+		55F28D2C2253E94B003F4C46 /* BUPopUpDismissAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUPopUpDismissAnimator.h; sourceTree = "<group>"; };
+		55F28D2D2253E94B003F4C46 /* BUScrollViewUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUScrollViewUpdater.h; sourceTree = "<group>"; };
+		55F28D2E2253E94B003F4C46 /* BUCustomPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUCustomPresentationController.h; sourceTree = "<group>"; };
+		55F28D2F2253E94B003F4C46 /* BUCustomTransitioner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUCustomTransitioner.m; sourceTree = "<group>"; };
+		55F28D302253E94B003F4C46 /* BUPercentDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUPercentDriver.h; sourceTree = "<group>"; };
+		55F28D312253E94B003F4C46 /* BUScrollViewUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUScrollViewUpdater.m; sourceTree = "<group>"; };
+		55F28D322253E94B003F4C46 /* BUScrollViewDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUScrollViewDetector.m; sourceTree = "<group>"; };
+		55F28D332253E94B003F4C46 /* BUCustomPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUCustomPresentationController.m; sourceTree = "<group>"; };
+		55F28D3B2253E9A8003F4C46 /* BUSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BUSearchViewController.h; path = ../BUSearchViewController.h; sourceTree = "<group>"; };
+		55F28D3C2253E9A8003F4C46 /* BUSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BUSearchViewController.m; path = ../BUSearchViewController.m; sourceTree = "<group>"; };
+		55F28D412253F72B003F4C46 /* BUSearchPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUSearchPresenter.h; sourceTree = "<group>"; };
+		55F28D422253F72B003F4C46 /* BUSearchPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUSearchPresenter.m; sourceTree = "<group>"; };
+		55F28D442253FA6A003F4C46 /* BUSearchResultsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUSearchResultsViewModel.h; sourceTree = "<group>"; };
+		55F28D452253FA6A003F4C46 /* BUSearchResultsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUSearchResultsViewModel.m; sourceTree = "<group>"; };
+		55F28D482253FD40003F4C46 /* BUScheduleSearchViewControllerInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUScheduleSearchViewControllerInput.h; sourceTree = "<group>"; };
+		55F28D492253FD4D003F4C46 /* BUScheduleSearchViewControllerOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUScheduleSearchViewControllerOutput.h; sourceTree = "<group>"; };
 		55F8E23921DF801D005184A2 /* UIViewController+Anchor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Anchor.h"; sourceTree = "<group>"; };
 		55F8E23A21DF801D005184A2 /* UIViewController+Anchor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Anchor.m"; sourceTree = "<group>"; };
 		55F8E23C21DF92C6005184A2 /* BUScheduleTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUScheduleTableViewController.h; sourceTree = "<group>"; };
@@ -1147,6 +1183,7 @@
 		55797FFD1F8D5B9100B40F67 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				55F28D242253E94B003F4C46 /* Transitions */,
 				55FE426D21FC7581006495DB /* ActivityIndicator */,
 				55E70A441F1FF228009C1548 /* GradientNavigationBar */,
 				5522F9D31F196A0200D2AACE /* SegmentedControl */,
@@ -1259,6 +1296,15 @@
 				557D932D1FCCBD6700D200E3 /* BUReferenceSearcher.m */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		558DA91322554054004DAEE7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				558DA91422554072004DAEE7 /* BUSearchStorage.h */,
+				558DA91522554072004DAEE7 /* BUSearchStorage.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		558EAB1F1FB8F8E300A1EAEC /* Router */ = {
@@ -1985,6 +2031,57 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		55F28D242253E94B003F4C46 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				55F28D282253E94B003F4C46 /* Animators */,
+				55F28D252253E94B003F4C46 /* BUCustomTransitioner.h */,
+				55F28D2F2253E94B003F4C46 /* BUCustomTransitioner.m */,
+				55F28D2D2253E94B003F4C46 /* BUScrollViewUpdater.h */,
+				55F28D312253E94B003F4C46 /* BUScrollViewUpdater.m */,
+				55F28D2E2253E94B003F4C46 /* BUCustomPresentationController.h */,
+				55F28D332253E94B003F4C46 /* BUCustomPresentationController.m */,
+				55F28D302253E94B003F4C46 /* BUPercentDriver.h */,
+				55F28D262253E94B003F4C46 /* BUPercentDriver.m */,
+				55F28D272253E94B003F4C46 /* BUScrollViewDetector.h */,
+				55F28D322253E94B003F4C46 /* BUScrollViewDetector.m */,
+			);
+			path = Transitions;
+			sourceTree = "<group>";
+		};
+		55F28D282253E94B003F4C46 /* Animators */ = {
+			isa = PBXGroup;
+			children = (
+				55F28D2B2253E94B003F4C46 /* BUPopUpPresentAnimator.h */,
+				55F28D292253E94B003F4C46 /* BUPopUpPresentAnimator.m */,
+				55F28D2C2253E94B003F4C46 /* BUPopUpDismissAnimator.h */,
+				55F28D2A2253E94B003F4C46 /* BUPopUpDismissAnimator.m */,
+			);
+			path = Animators;
+			sourceTree = "<group>";
+		};
+		55F28D3F2253F702003F4C46 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55F28D3B2253E9A8003F4C46 /* BUSearchViewController.h */,
+				55F28D3C2253E9A8003F4C46 /* BUSearchViewController.m */,
+				55F28D482253FD40003F4C46 /* BUScheduleSearchViewControllerInput.h */,
+				55F28D492253FD4D003F4C46 /* BUScheduleSearchViewControllerOutput.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		55F28D402253F719003F4C46 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				55F28D412253F72B003F4C46 /* BUSearchPresenter.h */,
+				55F28D422253F72B003F4C46 /* BUSearchPresenter.m */,
+				55F28D442253FA6A003F4C46 /* BUSearchResultsViewModel.h */,
+				55F28D452253FA6A003F4C46 /* BUSearchResultsViewModel.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		55F8E23821DF8007005184A2 /* UIViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2130,6 +2227,9 @@
 		55FE419021F4F762006495DB /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				558DA91322554054004DAEE7 /* Model */,
+				55F28D402253F719003F4C46 /* Presenter */,
+				55F28D3F2253F702003F4C46 /* View */,
 				55FE419121F4F77A006495DB /* BUScheduleSearchViewController.h */,
 				55FE419221F4F77A006495DB /* BUScheduleSearchViewController.m */,
 			);
@@ -2238,6 +2338,7 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				en,
 				ru,
 				Base,
 			);
@@ -2319,6 +2420,8 @@
 			files = (
 				55E539291FC61F9600F4ED04 /* BUReferenceViewModelSubDivisionsConstructor.m in Sources */,
 				555218561FC4D9F0007F96D6 /* BUReferenceViewModelHeadConstructor.m in Sources */,
+				55F28D3A2253E94B003F4C46 /* BUCustomPresentationController.m in Sources */,
+				55F28D462253FA6A003F4C46 /* BUSearchResultsViewModel.m in Sources */,
 				550FE7C51F9FA0F20026ABA9 /* BUPanelMapView.m in Sources */,
 				55FE41A821F8EC13006495DB /* BUNewsDataDisplayManager.m in Sources */,
 				557D93151FCADBC300D200E3 /* BUReferenceViewModelTimeConstructor.m in Sources */,
@@ -2353,6 +2456,7 @@
 				557980031F8D5BD500B40F67 /* UIImage+Gradient.m in Sources */,
 				55E70A3E1F1EADD7009C1548 /* BUScheduleRefreshView.m in Sources */,
 				5572C721220DFEE400380CF6 /* BUNotificationsViewModelPair.m in Sources */,
+				55F28D372253E94B003F4C46 /* BUCustomTransitioner.m in Sources */,
 				5595BB7D1FB8C45B00FDA98B /* BUSubdivision.m in Sources */,
 				551232FD1FEEED9600D6066D /* BUSettingsDataDisplayManager.m in Sources */,
 				553A0B621F2E77F8000A58FA /* BUNewsDetailInfoViewController.m in Sources */,
@@ -2361,6 +2465,7 @@
 				5552185C1FC4DBCB007F96D6 /* BURefrerenceViewModelDirectorConstructor.m in Sources */,
 				55FE418A21F4AC32006495DB /* BUScheduleRouter.m in Sources */,
 				55E70A471F1FF23D009C1548 /* BUSUAIGradientNavigationBar.m in Sources */,
+				55F28D392253E94B003F4C46 /* BUScrollViewDetector.m in Sources */,
 				5538D40D1F3F470A00B38AAF /* BUAboutAppViewController.m in Sources */,
 				559D154A1F2CC41E0038F5BC /* BUPairViewModel.m in Sources */,
 				5595BB811FB8C96100FDA98B /* BUReferenceMainScreenInteractor.m in Sources */,
@@ -2368,6 +2473,8 @@
 				5595BB921FB8D2B600FDA98B /* BUReferenceViewController+DataSource.m in Sources */,
 				55FAC4F21FBF6378001BC129 /* BUReferenceHeaderTableViewCell.m in Sources */,
 				55C300C11F2E32B500C07CD7 /* BUNewsPresenter.m in Sources */,
+				55F28D382253E94B003F4C46 /* BUScrollViewUpdater.m in Sources */,
+				55F28D3D2253E9A8003F4C46 /* BUSearchViewController.m in Sources */,
 				5595BB951FB8D2BF00FDA98B /* BUReferenceViewController+Delegate.m in Sources */,
 				5595BB7B1FB8C45B00FDA98B /* BUDean.m in Sources */,
 				55C932331F35288600D41A2A /* BUAppDataContainer.m in Sources */,
@@ -2398,6 +2505,7 @@
 				55F8E23E21DF92C6005184A2 /* BUScheduleTableViewController.m in Sources */,
 				55FAC4ED1FBF5F7B001BC129 /* BUReferenceCathedraTableViewCell.m in Sources */,
 				5595BB841FB8C97200FDA98B /* BUReferenceMainScreenPresenter.m in Sources */,
+				55F28D362253E94B003F4C46 /* BUPopUpDismissAnimator.m in Sources */,
 				5595BB791FB8C45B00FDA98B /* BUHeader.m in Sources */,
 				55A8F79E220B75B2009BB3A9 /* BUSettingsViewModelNotifications.m in Sources */,
 				5556BF711F36FDE300A7352B /* BUGreetingsPresenter.m in Sources */,
@@ -2426,6 +2534,7 @@
 				555218421FC45F6F007F96D6 /* BUReferenceViewModelTable.m in Sources */,
 				55DD6D012207225900848E0F /* UIFont+SUAI.m in Sources */,
 				557D932A1FCCBAD700D200E3 /* BUSearchResultsTableViewController.m in Sources */,
+				55F28D432253F72B003F4C46 /* BUSearchPresenter.m in Sources */,
 				553A0B951F2F0D2E000A58FA /* BUSettingsInteractor.m in Sources */,
 				55DB77261F1BD1B400AEBE6D /* BUScheduleHeaderView.m in Sources */,
 				552CBA321F35206800BAA81A /* BUSettingsWireFrame.m in Sources */,
@@ -2433,12 +2542,14 @@
 				557980021F8D5BD500B40F67 /* UIColor+SUAI.m in Sources */,
 				559D15541F2CDABA0038F5BC /* BUNavigationPresenter.m in Sources */,
 				5595BB8F1FB8D27400FDA98B /* BUReferenceDataDisplayManager.m in Sources */,
+				55F28D342253E94B003F4C46 /* BUPercentDriver.m in Sources */,
 				559D15511F2CCF450038F5BC /* BUMainScreenViewController.m in Sources */,
 				55C439681F3767D400FB9003 /* BUScheduleDataManager.m in Sources */,
 				55BD12471FAF4209001EDFCA /* BUReferenceWireFrame.m in Sources */,
 				551898F11F16DAD90046BA33 /* BURootViewController.m in Sources */,
 				5595BB5D1FB8C44E00FDA98B /* BUSUAIJSONParser.m in Sources */,
 				55B889C11EAE8E9800FBE41E /* main.m in Sources */,
+				55F28D352253E94B003F4C46 /* BUPopUpPresentAnimator.m in Sources */,
 				553A0B8C1F2EDA58000A58FA /* BUSettingsViewController.m in Sources */,
 				55FE419F21F64417006495DB /* BUCalendarPresenter.m in Sources */,
 				552870781FE710CB00637F00 /* NSArray+ScheduleEquality.m in Sources */,
@@ -2473,6 +2584,7 @@
 				5595BB7A1FB8C45B00FDA98B /* BUFacultyDepartment.m in Sources */,
 				5595BB761FB8C45B00FDA98B /* BUInfoPlacedEntity.m in Sources */,
 				558EAB221FB8F8FF00A1EAEC /* BUReferenceMainScreenRouter.m in Sources */,
+				558DA91622554072004DAEE7 /* BUSearchStorage.m in Sources */,
 				552C490B1F3F5007000D381E /* BUFailView.m in Sources */,
 				55A236471F34DED500A2249F /* BUCustomButtonView.m in Sources */,
 				55FE427721FCA321006495DB /* BUScheduleState.m in Sources */,
@@ -2676,10 +2788,11 @@
 		55FE427821FF8DA8006495DB /* BUSputnikCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				558DA91222553FF9004DAEE7 /* BUSputnikCoreData 3.xcdatamodel */,
 				5572C7252213417600380CF6 /* BUSputnikCoreData 2.xcdatamodel */,
 				55FE427921FF8DA8006495DB /* BUSputnikCoreData.xcdatamodel */,
 			);
-			currentVersion = 5572C7252213417600380CF6 /* BUSputnikCoreData 2.xcdatamodel */;
+			currentVersion = 558DA91222553FF9004DAEE7 /* BUSputnikCoreData 3.xcdatamodel */;
 			path = BUSputnikCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

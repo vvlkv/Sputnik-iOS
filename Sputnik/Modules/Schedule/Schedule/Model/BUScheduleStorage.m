@@ -32,11 +32,9 @@
 
 @end
 
-
 @implementation BUScheduleStorage
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         dataManager = [[BUScheduleDataManager alloc] init];

@@ -58,7 +58,7 @@ static NSString *backgroundViewName = @"BUAstronautView";
                                                                                        owner:self
                                                                                      options:nil][0];
     austronautView.message = [self.dataSource tableView:self titleForAustronautAtIndex:index];
-    austronautView.frame = self.view.frame;
+    austronautView.frame = self.view.bounds;
     tableView.backgroundView = austronautView;
     tableView.bounces = NO;
 }

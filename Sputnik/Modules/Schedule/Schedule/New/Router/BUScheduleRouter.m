@@ -16,10 +16,22 @@
 #import "BURootNavigationController.h"
 #import "BUScheduleSearchViewController.h"
 
+#import "BUSearchViewController.h"
+#import "BUSearchPresenter.h"
+
 #import "BUMainScreenViewController.h"
 
 #import "BUCalendarPresenter.h"
 #import "BUCalendarViewController.h"
+#import "BUCustomTransitioner.h"
+
+@interface BUScheduleRouter() {
+    
+}
+
+@property (strong, nonatomic) BUCustomTransitioner *transitioner;
+
+@end
 
 @implementation BUScheduleRouter
 
@@ -57,13 +69,20 @@
 }
 
 - (void)presentSearchViewControllerFromViewController:(__kindof UIViewController *)vc {
-    BUScheduleSearchViewController *searchVC = [[BUScheduleSearchViewController alloc] init];
+    var *searchVC = [[BUSearchViewController alloc] init];
+    var *presenter = [[BUSearchPresenter alloc] init];
     __weak typeof(self) welf = self;
-    searchVC.foundEntity = ^(SUAIEntity *entity) {
-        [welf.output didFindEntity:entity];
+    presenter.didFindEntity = ^(SUAIEntity * _Nonnull entity) {
+        [searchVC dismissViewControllerAnimated:YES completion:^{
+            [welf.output didFindEntity:entity];
+        }];
     };
-    BURootNavigationController *rootNavVC = [[BURootNavigationController alloc] initWithRootViewController:searchVC];
-    [vc presentViewController:rootNavVC animated:YES completion:nil];
+    presenter.view = searchVC;
+    searchVC.output = presenter;
+    _transitioner = [[BUCustomTransitioner alloc] init];
+    searchVC.transitioningDelegate = _transitioner;
+    searchVC.modalPresentationStyle = UIModalPresentationCustom;
+    [vc presentViewController:searchVC animated:YES completion:nil];
 }
 
 - (void)showAuditory:(NSString *)auditory fromViewController:(__kindof UIViewController *)vc {

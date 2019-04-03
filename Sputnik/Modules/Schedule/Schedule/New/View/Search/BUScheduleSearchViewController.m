@@ -27,8 +27,7 @@
 
 @implementation BUScheduleSearchViewController
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         var *groups = [[[SUAI instance] schedule] groups];

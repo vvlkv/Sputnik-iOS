@@ -12,7 +12,19 @@
 #import "BURootNavigationController.h"
 #import "BUScheduleSearchViewController.h"
 
+#import "BUSearchPresenter.h"
+#import "BUSearchViewController.h"
+#import "BUCustomTransitioner.h"
+
 #import "BUNotificationsWireframe.h"
+
+@interface BUSettingsRouter() {
+    
+}
+
+@property (strong, nonatomic) BUCustomTransitioner *transitioner;
+
+@end
 
 @implementation BUSettingsRouter
 
@@ -29,13 +41,19 @@
 }
 
 - (void)presentSearchViewControllerFromViewController:(__kindof UIViewController *)vc {
-    var *searchVC = [[BUScheduleSearchViewController alloc] init];
+    var *searchVC = [[BUSearchViewController alloc] init];
+    var *presenter = [[BUSearchPresenter alloc] init];
+    searchVC.output = presenter;
+    presenter.view = searchVC;
     __weak typeof(self) welf = self;
-    searchVC.foundEntity = ^(SUAIEntity * _Nonnull entity) {
+    presenter.didFindEntity = ^(SUAIEntity * _Nonnull entity) {
         [welf.output didFindEntity:entity];
+        [searchVC dismissViewControllerAnimated:YES completion:nil];
     };
-    var *navVC = [[BURootNavigationController alloc] initWithRootViewController:searchVC];
-    [vc presentViewController:navVC animated:YES completion:nil];
+    _transitioner = [[BUCustomTransitioner alloc] init];
+    searchVC.transitioningDelegate = _transitioner;
+    searchVC.modalPresentationStyle = UIModalPresentationCustom;
+    [vc presentViewController:searchVC animated:YES completion:nil];
 }
 
 - (void)pushNotificationCenterFromViewController:(UIViewController *)vc {
