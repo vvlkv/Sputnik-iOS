@@ -10,6 +10,7 @@
 #define BUScheduleInteractorOutput_h
 
 @class SUAISchedule;
+@class SUAIError;
 @protocol BUScheduleInteractorOutput <NSObject>
 @required
 
@@ -18,7 +19,7 @@
 - (void)didObtainDayIndex:(NSUInteger)index;
 - (void)didObtainWeekIndex:(NSUInteger)index;
 
-- (void)didScheduleFaultLoading;
+- (void)didScheduleFaultLoadingWithError:(SUAIError *)error;
 - (void)didChangeInternetReachability:(BOOL)isReachable;
 - (void)didLoadCodes;
 - (void)didChangeEntityName:(NSString *)name andType:(NSUInteger)type;

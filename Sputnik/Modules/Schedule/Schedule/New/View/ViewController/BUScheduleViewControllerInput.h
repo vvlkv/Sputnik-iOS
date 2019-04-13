@@ -22,7 +22,7 @@
 - (void)showAlertControllerWithItems:(NSArray<NSString *> *)items selected:(void (^) (NSInteger index))selectionBlock;
 - (void)showAlertController:(NSString *)title message:(NSString *)message;
 - (void)showSearchIconVisibility:(BOOL)isVisible;
-- (void)showFailInternetMessage;
+- (void)showFailMessage:(NSString *)text withButton:(BOOL)haveButton;
 - (void)showChooseEntityMessage;
 - (void)showProgress;
 - (void)hideProgress;

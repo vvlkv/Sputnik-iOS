@@ -5,6 +5,15 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <PreActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;infoplist=&quot;$BUILT_PRODUCTS_DIR/$INFOPLIST_PATH&quot;&#10;builddate=`date`&#10;if [[ -n &quot;$builddate&quot; ]]; then&#10;/usr/libexec/PlistBuddy -c &quot;Add :CFBuildDate $builddate&quot; ${infoplist}&#10;/usr/libexec/PlistBuddy -c &quot;Set :CFBuildDate $builddate&quot; ${infoplist}&#10;fi&#10;">
+            </ActionContent>
+         </ExecutionAction>
+      </PreActions>
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"

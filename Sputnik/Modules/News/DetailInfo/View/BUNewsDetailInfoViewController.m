@@ -33,7 +33,7 @@
 
 - (void)updateContent {
     [self hideActivityIndicator];
-    [self hideInternetFailView];
+    [self hideFailView];
     let *news = [self.dataSource newsModel];
     detailNewsView.date = news.date;
     detailNewsView.header = news.header;
@@ -49,7 +49,7 @@
 
 - (void)loadFailed {
     [self hideActivityIndicator];
-    [self showInternetFailView];
+    [self showFailView:@"Новость загрузить не удалось :(" withButton:NO];
 }
 
 @end

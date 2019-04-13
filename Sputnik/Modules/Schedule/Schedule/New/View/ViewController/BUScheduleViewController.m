@@ -143,7 +143,7 @@
 }
 
 - (void)createScheduleViews:(NSUInteger)startIndex {
-    [self hideInternetFailView];
+    [self hideFailView];
     [self p_configurePageViewController:startIndex];
     [self p_configureSessionView];
 }
@@ -186,13 +186,14 @@
     }
 }
 
-- (void)showFailInternetMessage {
-    [self showInternetFailView];
+- (void)showFailMessage:(NSString *)text withButton:(BOOL)haveButton {
+    [super showFailView:text withButton:haveButton];
 }
 
 - (void)showChooseEntityMessage {
     [self hideActivityIndicator];
-    [self showFailView:@"Расписание недоступно. Выберите группу или преподавателя в настройках" action:^{}];
+    [self showFailView:@"Расписание недоступно. Выберите группу или преподавателя в настройках"
+            withButton:YES];
 }
 
 - (void)showProgress {

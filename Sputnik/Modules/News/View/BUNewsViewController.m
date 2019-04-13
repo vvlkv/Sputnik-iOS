@@ -65,14 +65,19 @@ NSString *const cellIdentifier = @"cellID";
 
 - (void)updateContent {
     [self hideActivityIndicator];
-    [self hideInternetFailView];
+    [self hideFailView];
     newsTableView.hidden = NO;
     [newsTableView reloadData];
 }
 
-- (void)showFailMessage {
+//- (void)showFailMessage {
+//    [self hideActivityIndicator];
+//    [self showFailView:@"Отсутствует подключение к сети :(" withButton:NO];
+//}
+
+- (void)showFailMessageWithText:(NSString *)text {
     [self hideActivityIndicator];
-    [self showInternetFailView];
+    [self showFailView:text withButton:NO];
 }
 
 #pragma mark - UITableViewDataSource

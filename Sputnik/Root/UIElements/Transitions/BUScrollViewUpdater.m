@@ -58,4 +58,5 @@ NSString *const kPropertyName = @"contentOffset";
 - (void)dealloc {
     [_scrollView removeObserver:self forKeyPath:kPropertyName];
 }
+
 @end

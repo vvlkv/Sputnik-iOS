@@ -12,6 +12,6 @@
 
 @required
 - (void)updateContent;
-- (void)showFailMessage;
+- (void)showFailMessageWithText:(NSString *)text;
 
 @end

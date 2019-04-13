@@ -20,6 +20,7 @@
 #import "SUAIEntity.h"
 #import "SUAIPair.h"
 #import "SUAIAuditory.h"
+#import "SUAIError.h"
 
 #import "BUScheduleState.h"
 
@@ -87,9 +88,17 @@
     }
 }
 
-- (void)didScheduleFaultLoading {
-    if (_dataManager == nil)
-        [self.view showFailInternetMessage];
+- (void)didScheduleFaultLoadingWithError:(SUAIError *)error {
+    if (_dataManager != nil)
+        return;
+    switch ([error code]) {
+        case SUAIErrorNetworkFault:
+            [self.view showFailMessage:@"Отсутствует подключение к сети :(" withButton:NO];
+            break;
+        default:
+            [self.view showFailMessage:@"Hе удалось загрузить расписание с сервера :(" withButton:NO];
+            break;
+    }
 }
 
 - (void)didObtainDate:(NSString *)date andWeek:(NSString *)week {
@@ -191,13 +200,14 @@
     NSMutableArray <NSString *> *items = [NSMutableArray array];
     [items addObjectsFromArray:groups];
     [items addObjectsFromArray:teachers];
-    if ([[pair auditory] building] == BM) {
+    if ([[pair auditory] building] == BM && ![[[pair auditory] number] isEqualToString:@""]) {
         [items addObject:[[pair auditory] number]];
         [items addObject:@"Показать на карте"];
     }
+    
     __weak typeof(self) welf = self;
     if ([items count] > 0) {
-        [self.view showAlertControllerWithItems:items selected:^(NSInteger index) {
+        [welf.view showAlertControllerWithItems:items selected:^(NSInteger index) {
             NSInteger type = -1;
             if ([groups containsObject:items[index]])
                 type = 0;
@@ -206,9 +216,9 @@
             else if ([[[pair auditory] number] containsString:items[index]])
                 type = 2;
             if (type == -1) {
-                [welf.router showAuditory:[[pair auditory] number] fromViewController:(UIViewController *)self.view];
+                [welf.router showAuditory:[[pair auditory] number] fromViewController:(UIViewController *)welf.view];
             } else {
-                [welf.router pushScheduleViewControllerFromViewController:(UIViewController *)self.view withEntity:items[index] type:type];
+                [welf.router pushScheduleViewControllerFromViewController:(UIViewController *)welf.view withEntity:items[index] type:type];
             }
         }];
     }

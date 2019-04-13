@@ -35,12 +35,16 @@
 #pragma mark - BUNewsInteractorOutput
 
 - (void)didObtainNews:(NSArray<SUAINews *> *)news {
-    _news = news;
-    [self.view updateContent];
+    if (news != nil && [news count] > 0) {
+        _news = news;
+        [self.view updateContent];
+    } else {
+        [self.view showFailMessageWithText:@"Не удалось загрузить новости с сервера :("];
+    }
 }
 
 - (void)didObtainFail {
-    [self.view showFailMessage];
+    [self.view showFailMessageWithText:@"Отсутствует подключение к сети :("];
 }
 
 - (void)didChangeInternetReachability:(BOOL)isReachable {

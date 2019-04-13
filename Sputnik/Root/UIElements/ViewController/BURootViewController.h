@@ -13,8 +13,7 @@
 - (void)showActivityIndicator;
 - (void)hideActivityIndicator;
 
-- (void)showFailView:(NSString *)message action:(void(^)(void))action;
-- (void)showInternetFailView;
-- (void)hideInternetFailView;
+- (void)showFailView:(NSString *)message withButton:(BOOL)button;
+- (void)hideFailView;
 
 @end

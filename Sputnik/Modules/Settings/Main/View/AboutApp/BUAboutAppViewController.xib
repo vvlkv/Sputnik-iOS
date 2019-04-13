@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BUAboutAppViewController">
             <connections>
+                <outlet property="appName" destination="Nma-UY-jCT" id="Fe6-Da-tGf"/>
                 <outlet property="siteLabel" destination="Fau-Uy-Uq9" id="HIq-eZ-C2O"/>
+                <outlet property="versionLabel" destination="Uhh-8m-2sq" id="oju-EU-QGw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="vkLabel" destination="AMr-AM-9a9" id="9Vy-qN-p0Z"/>
             </connections>
@@ -22,25 +32,26 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="satellite" translatesAutoresizingMaskIntoConstraints="NO" id="4iv-Pk-bEC">
-                    <rect key="frame" x="70" y="92" width="235" height="235"/>
+                    <rect key="frame" x="107.5" y="92" width="160" height="160"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="235" id="DyU-tg-4Ip"/>
+                        <constraint firstAttribute="height" constant="160" id="DyU-tg-4Ip"/>
+                        <constraint firstAttribute="width" secondItem="4iv-Pk-bEC" secondAttribute="height" multiplier="1:1" id="XeV-Q0-fL3"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Спутник ГУАП" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nma-UY-jCT">
-                    <rect key="frame" x="131" y="335" width="113.5" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nma-UY-jCT">
+                    <rect key="frame" x="144.5" y="276" width="86" height="25.5"/>
+                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="19"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Версия 3.1.0 от 1 февраля 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uhh-8m-2sq">
-                    <rect key="frame" x="90" y="364" width="195.5" height="16"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uhh-8m-2sq">
+                    <rect key="frame" x="163.5" y="305.5" width="48" height="18.5"/>
+                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
                     <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVC-dT-z49">
-                    <rect key="frame" x="62.5" y="388" width="250" height="124"/>
+                    <rect key="frame" x="62.5" y="340" width="250" height="124"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Авторы:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6T-tG-DKD">
                             <rect key="frame" x="8" y="0.0" width="234" height="16"/>
@@ -116,15 +127,14 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="BVC-dT-z49" firstAttribute="top" secondItem="Uhh-8m-2sq" secondAttribute="bottom" constant="8" id="6fF-jc-KFC"/>
-                <constraint firstItem="Uhh-8m-2sq" firstAttribute="top" secondItem="Nma-UY-jCT" secondAttribute="bottom" constant="8" id="Aqq-7w-PG1"/>
+                <constraint firstItem="BVC-dT-z49" firstAttribute="top" secondItem="Uhh-8m-2sq" secondAttribute="bottom" constant="16" id="6fF-jc-KFC"/>
+                <constraint firstItem="4iv-Pk-bEC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="81h-vM-Sgc"/>
+                <constraint firstItem="Uhh-8m-2sq" firstAttribute="top" secondItem="Nma-UY-jCT" secondAttribute="bottom" constant="4" id="Aqq-7w-PG1"/>
                 <constraint firstItem="Nma-UY-jCT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="CjM-bz-efY"/>
                 <constraint firstItem="Uhh-8m-2sq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Cpw-YE-Uic"/>
-                <constraint firstAttribute="trailing" secondItem="4iv-Pk-bEC" secondAttribute="trailing" constant="70" id="D4c-Yn-UIK"/>
                 <constraint firstItem="BVC-dT-z49" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ZTM-HO-33v"/>
                 <constraint firstItem="4iv-Pk-bEC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="92" id="dDD-Uj-d02"/>
-                <constraint firstItem="4iv-Pk-bEC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="70" id="uvV-fK-wvY"/>
-                <constraint firstItem="Nma-UY-jCT" firstAttribute="top" secondItem="4iv-Pk-bEC" secondAttribute="bottom" constant="8" id="vht-2V-9hs"/>
+                <constraint firstItem="Nma-UY-jCT" firstAttribute="top" secondItem="4iv-Pk-bEC" secondAttribute="bottom" constant="24" id="vht-2V-9hs"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>

@@ -10,7 +10,6 @@
 #import "BUSettingsEntityViewController.h"
 #import "BUAboutAppViewController.h"
 #import "BURootNavigationController.h"
-#import "BUScheduleSearchViewController.h"
 
 #import "BUSearchPresenter.h"
 #import "BUSearchViewController.h"

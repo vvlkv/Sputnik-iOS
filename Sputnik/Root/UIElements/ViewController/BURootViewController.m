@@ -56,7 +56,7 @@ NSString *const kMessageViewName = @"ChooseEntityMessageView";
 }
 
 - (void)showActivityIndicator {
-    [self hideInternetFailView];
+    [self hideFailView];
     [self.view addSubview:_indicatorView];
     [_indicatorView startAnimating];
 }
@@ -66,11 +66,11 @@ NSString *const kMessageViewName = @"ChooseEntityMessageView";
     [_indicatorView removeFromSuperview];
 }
 
-- (void)showFailView:(NSString *)message action:(void(^)(void))action {
+- (void)showFailView:(NSString *)message withButton:(BOOL)button {
     [self hideActivityIndicator];
     messageView.delegate = self;
     messageView.messageText = message;
-    messageView.isButtonHidden = action == nil;
+    messageView.isButtonHidden = !button;
     messageView.contentMode = UIViewContentModeCenter;
     messageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:messageView];
@@ -81,11 +81,8 @@ NSString *const kMessageViewName = @"ChooseEntityMessageView";
     [self.tabBarController setSelectedIndex:totalControllers - 1];
 }
 
-- (void)showInternetFailView {
-    [self showFailView:@"Отсутствует подключение к сети :(" action:nil];
-}
 
-- (void)hideInternetFailView {
+- (void)hideFailView {
     [messageView removeFromSuperview];
 }
 

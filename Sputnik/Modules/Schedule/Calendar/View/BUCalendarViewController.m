@@ -155,11 +155,13 @@ CGFloat const weekDescriptionHeight = 44.f;
 
 - (void)showAlertControllerWithItems:(NSArray<NSString *> *)items selected:(void (^) (NSInteger index))selectionBlock {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    __weak typeof(alert) wAlert = alert;
     for (NSString *item in items) {
+        __weak typeof(item) wItem = item;
         UIAlertAction *action = [UIAlertAction actionWithTitle:item style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             if (selectionBlock != nil)
-                selectionBlock([items indexOfObject:item]);
-            [alert dismissViewControllerAnimated:YES completion:nil];
+                selectionBlock([items indexOfObject:wItem]);
+            [wAlert dismissViewControllerAnimated:YES completion:nil];
         }];
         [alert addAction:action];
     }
@@ -167,7 +169,7 @@ CGFloat const weekDescriptionHeight = 44.f;
                              actionWithTitle:@"Отмена"
                              style:UIAlertActionStyleCancel
                              handler:^(UIAlertAction *action) {
-                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                 [wAlert dismissViewControllerAnimated:YES completion:nil];
                              }];
     [alert addAction:cancel];
     [self presentViewController:alert animated:YES completion:nil];

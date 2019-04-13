@@ -57,7 +57,7 @@
 }
 
 - (void)p_weekTypeObtained {
-    NSUInteger weekType = [[[SUAI instance] schedule] currentWeekType];
+    WeekType weekType = [[[SUAI instance] schedule] currentWeekType];
     [self.output didObtainWeekIndex:weekType];
     NSArray const *dateComponents = [BUDateFormatter dateFromWeek:weekType];
     if ([dateComponents count] == 2) {
@@ -86,8 +86,7 @@
     [[[SUAI instance] schedule] loadScheduleFor:entity ofType:type success:^(SUAISchedule *schedule) {
         [welf.output didObtainSchedule:schedule];
     } fail:^(__kindof SUAIError *error) {
-        if (error.code != SUAIErrorEntityNotAvailable || ![SUAI instance].isReachable)
-            [welf.output didScheduleFaultLoading];
+        [welf.output didScheduleFaultLoadingWithError:error];
     }];
 }
 

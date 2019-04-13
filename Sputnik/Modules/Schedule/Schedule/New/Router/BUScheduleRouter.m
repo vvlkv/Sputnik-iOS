@@ -14,7 +14,6 @@
 #import "BUScheduleRouter.h"
 
 #import "BURootNavigationController.h"
-#import "BUScheduleSearchViewController.h"
 
 #import "BUSearchViewController.h"
 #import "BUSearchPresenter.h"
@@ -40,10 +39,10 @@
 - (void)pushScheduleViewControllerFromViewController:(__kindof UIViewController *)vc
                                           withEntity:(NSString *)entity
                                                 type:(NSUInteger)type {
-    BUScheduleViewController *newVC = [[BUScheduleViewController alloc] init];
-    BUSchedulePresenter *presenter = [[BUSchedulePresenter alloc] initWithEntityName:entity andType:type];
-    BUScheduleInteractor *interactor = [[BUScheduleInteractor alloc] init];
-    BUScheduleRouter *router = [[BUScheduleRouter alloc] init];
+    var *newVC = [[BUScheduleViewController alloc] init];
+    var *presenter = [[BUSchedulePresenter alloc] initWithEntityName:entity andType:type];
+    var *interactor = [[BUScheduleInteractor alloc] init];
+    var *router = [[BUScheduleRouter alloc] init];
     newVC.output = presenter;
     presenter.view = newVC;
     presenter.input = interactor;
@@ -53,9 +52,9 @@
 }
 
 - (void)presentCalendarViewControllerFromViewController:(__kindof UIViewController *)vc withSchedule:(SUAISchedule *)schedule {
-    BUCalendarViewController *cVC = [[BUCalendarViewController alloc] init];
-    BURootNavigationController *navVC = [[BURootNavigationController alloc] initWithRootViewController:cVC];
-    BUCalendarPresenter *presenter = [[BUCalendarPresenter alloc] initWithSchedule:schedule];
+    var *cVC = [[BUCalendarViewController alloc] init];
+    var *navVC = [[BURootNavigationController alloc] initWithRootViewController:cVC];
+    var *presenter = [[BUCalendarPresenter alloc] initWithSchedule:schedule];
     __weak typeof(self) welf = self;
     presenter.foundEntity = ^(NSString *name, NSUInteger type) {
         [welf pushScheduleViewControllerFromViewController:vc withEntity:name type:type];
@@ -69,11 +68,12 @@
 }
 
 - (void)presentSearchViewControllerFromViewController:(__kindof UIViewController *)vc {
-    var *searchVC = [[BUSearchViewController alloc] init];
+    BUSearchViewController *searchVC = [[BUSearchViewController alloc] init];
     var *presenter = [[BUSearchPresenter alloc] init];
     __weak typeof(self) welf = self;
+    __weak BUSearchViewController *welfVC = searchVC;
     presenter.didFindEntity = ^(SUAIEntity * _Nonnull entity) {
-        [searchVC dismissViewControllerAnimated:YES completion:^{
+        [welfVC dismissViewControllerAnimated:YES completion:^{
             [welf.output didFindEntity:entity];
         }];
     };

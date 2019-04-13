@@ -199,7 +199,6 @@
 		55FAC4F31FBF6378001BC129 /* BUReferenceHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55FAC4F11FBF6378001BC129 /* BUReferenceHeaderTableViewCell.xib */; };
 		55FAC50A1FC1EBA0001BC129 /* BUReferenceDetailInfoInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FAC5091FC1EBA0001BC129 /* BUReferenceDetailInfoInteractor.m */; };
 		55FE418A21F4AC32006495DB /* BUScheduleRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FE418921F4AC32006495DB /* BUScheduleRouter.m */; };
-		55FE419321F4F77A006495DB /* BUScheduleSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FE419221F4F77A006495DB /* BUScheduleSearchViewController.m */; };
 		55FE419921F64193006495DB /* BUCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FE419821F64193006495DB /* BUCalendarViewController.m */; };
 		55FE419C21F6422D006495DB /* BUCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FE419B21F6422D006495DB /* BUCalendar.m */; };
 		55FE419F21F64417006495DB /* BUCalendarPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FE419E21F64417006495DB /* BUCalendarPresenter.m */; };
@@ -634,8 +633,6 @@
 		55FE418921F4AC32006495DB /* BUScheduleRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUScheduleRouter.m; sourceTree = "<group>"; };
 		55FE418B21F4AC58006495DB /* BUScheduleRouterInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUScheduleRouterInput.h; sourceTree = "<group>"; };
 		55FE418C21F4AC64006495DB /* BUScheduleRouterOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUScheduleRouterOutput.h; sourceTree = "<group>"; };
-		55FE419121F4F77A006495DB /* BUScheduleSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUScheduleSearchViewController.h; sourceTree = "<group>"; };
-		55FE419221F4F77A006495DB /* BUScheduleSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUScheduleSearchViewController.m; sourceTree = "<group>"; };
 		55FE419721F64193006495DB /* BUCalendarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUCalendarViewController.h; sourceTree = "<group>"; };
 		55FE419821F64193006495DB /* BUCalendarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUCalendarViewController.m; sourceTree = "<group>"; };
 		55FE419A21F6422D006495DB /* BUCalendar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUCalendar.h; sourceTree = "<group>"; };
@@ -1539,6 +1536,7 @@
 		55A17C111F15619E005694E5 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				55FE419021F4F762006495DB /* Search */,
 				55FE419421F64152006495DB /* Calendar */,
 				5579801A1F8D5F4C00B40F67 /* Schedule */,
 			);
@@ -2099,7 +2097,6 @@
 				55E70A331F1E9F0B009C1548 /* TableHeader */,
 				55B3DE9B1F1BBC9300B38B5F /* Cell */,
 				55B3DE9C1F1BBC9300B38B5F /* CellHeader */,
-				55FE419021F4F762006495DB /* Search */,
 				55FE418D21F4B5EB006495DB /* Navigation */,
 				55FE418E21F4B5F4006495DB /* ViewController */,
 				55FE418F21F4B60B006495DB /* Content */,
@@ -2230,10 +2227,9 @@
 				558DA91322554054004DAEE7 /* Model */,
 				55F28D402253F719003F4C46 /* Presenter */,
 				55F28D3F2253F702003F4C46 /* View */,
-				55FE419121F4F77A006495DB /* BUScheduleSearchViewController.h */,
-				55FE419221F4F77A006495DB /* BUScheduleSearchViewController.m */,
 			);
-			path = Search;
+			name = Search;
+			path = Schedule/New/View/Search;
 			sourceTree = "<group>";
 		};
 		55FE419421F64152006495DB /* Calendar */ = {
@@ -2446,7 +2442,6 @@
 				55FE426C21FC6A26006495DB /* SputnikConst.m in Sources */,
 				5511EAAD1EC1F37E0088EAE7 /* BUMainStateModel.m in Sources */,
 				55C7E3D81FC3669700934DB5 /* BUReferenceViewModelHeaderItem.m in Sources */,
-				55FE419321F4F77A006495DB /* BUScheduleSearchViewController.m in Sources */,
 				558B7D60224572CD009994FD /* BUDetailNewsScrollView.m in Sources */,
 				55A236A31F35175D00A2249F /* BUSettingsEntityViewController.m in Sources */,
 				5529C51E1F36118000911EF8 /* BUFirstStepView.m in Sources */,

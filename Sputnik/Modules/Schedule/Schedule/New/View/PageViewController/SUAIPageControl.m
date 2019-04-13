@@ -176,7 +176,8 @@ const CGFloat selectorLineWidth = 3.f;
     _offset = offset;
     CGFloat position = offset / [[UIScreen mainScreen] bounds].size.width;
     var possiblePos = (NSUInteger)(position + .5f);
-    if (_currentPage != possiblePos)
+    
+    if (_currentPage != possiblePos && possiblePos < [titles count])
         self.currentPage = possiblePos;
 }
 
