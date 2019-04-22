@@ -9,8 +9,6 @@
 #import "AppDelegate.h"
 #import "BUTabBarViewController.h"
 #import "BUTabBarPresenter.h"
-#import "BUGreetingsWireFrame.h"
-#import "BUAppDataContainer.h"
 #import "SUAI.h"
 #import "BUNotificationCenter.h"
 #import "SputnikConst.h"

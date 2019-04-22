@@ -7,7 +7,7 @@
 //
 
 #import "BUReferenceHeadTableViewCell.h"
-#import "BUReferenceViewModelBaseItem.h"
+#import "BUReferenceViewModelIconItem.h"
 #import "BUFaculty.h"
 #import "UIFont+SUAI.h"
 
@@ -30,12 +30,12 @@
 - (void)setModel:(id<BUReferenceViewModelItemProtocol>)model {
     [super setModel:model];
     self.nameLabel.text = [model value];
-//    self.iconImageView.image = [UIImage imageNamed:@"i1.png"];
-//    if ([model isKindOfClass:[BUFaculty class]]) {
-//        BUFaculty *faculty = (BUFaculty *)model;
-//        if (faculty.icon != nil) {
-//            self.iconImageView.image = [UIImage imageNamed:[faculty icon]];
+//    if ([model isKindOfClass:[BUReferenceViewModelIconItem class]]) {
+//        let *iconModel = (BUReferenceViewModelIconItem *)model;
+//        if (iconModel.icon != nil) {
+//            self.iconImageView.image = [UIImage imageNamed:[iconModel icon]];
 //        }
+//    } else {
 //    }
 }
 

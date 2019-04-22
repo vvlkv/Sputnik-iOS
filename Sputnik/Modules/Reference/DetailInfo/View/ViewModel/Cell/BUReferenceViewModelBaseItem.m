@@ -16,8 +16,7 @@
 
 @implementation BUReferenceViewModelBaseItem
 
-- (instancetype)init
-{
+- (instancetype)init {
     return [self initWithAction:ReferenceActionTypeNone];
 }
 
