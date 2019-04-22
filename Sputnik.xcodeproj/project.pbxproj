@@ -45,6 +45,7 @@
 		5529C5231F3611AB00911EF8 /* BUSecondStepView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5529C5221F3611AB00911EF8 /* BUSecondStepView.m */; };
 		5529C5251F3611B300911EF8 /* BUSecondStepView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5529C5241F3611B300911EF8 /* BUSecondStepView.xib */; };
 		5529E1F91F24BEC900F5CA4F /* NSCalendar+CurrentDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 5529E1F81F24BEC900F5CA4F /* NSCalendar+CurrentDay.m */; };
+		552B848C226E2752009FB92B /* BUReferenceViewModelIconItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 552B848B226E2752009FB92B /* BUReferenceViewModelIconItem.m */; };
 		552C490B1F3F5007000D381E /* BUFailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 552C490A1F3F5007000D381E /* BUFailView.m */; };
 		552C490D1F3F5012000D381E /* BUFailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 552C490C1F3F5012000D381E /* BUFailView.xib */; };
 		552CBA1E1F351C6200BAA81A /* BUNewsWireFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 552CBA1D1F351C6200BAA81A /* BUNewsWireFrame.m */; };
@@ -285,6 +286,8 @@
 		5529C5241F3611B300911EF8 /* BUSecondStepView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BUSecondStepView.xib; sourceTree = "<group>"; };
 		5529E1F71F24BEC900F5CA4F /* NSCalendar+CurrentDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+CurrentDay.h"; sourceTree = "<group>"; };
 		5529E1F81F24BEC900F5CA4F /* NSCalendar+CurrentDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+CurrentDay.m"; sourceTree = "<group>"; };
+		552B848A226E2752009FB92B /* BUReferenceViewModelIconItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUReferenceViewModelIconItem.h; sourceTree = "<group>"; };
+		552B848B226E2752009FB92B /* BUReferenceViewModelIconItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUReferenceViewModelIconItem.m; sourceTree = "<group>"; };
 		552C49091F3F5007000D381E /* BUFailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUFailView.h; sourceTree = "<group>"; };
 		552C490A1F3F5007000D381E /* BUFailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUFailView.m; sourceTree = "<group>"; };
 		552C490C1F3F5012000D381E /* BUFailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BUFailView.xib; sourceTree = "<group>"; };
@@ -808,6 +811,8 @@
 				555218361FC456C6007F96D6 /* BUReferenceViewModelLinkItem.m */,
 				557D93191FCAF63100D200E3 /* BUReferenceViewModelTimeItem.h */,
 				557D931A1FCAF63100D200E3 /* BUReferenceViewModelTimeItem.m */,
+				552B848A226E2752009FB92B /* BUReferenceViewModelIconItem.h */,
+				552B848B226E2752009FB92B /* BUReferenceViewModelIconItem.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2501,6 +2506,7 @@
 				55FAC4ED1FBF5F7B001BC129 /* BUReferenceCathedraTableViewCell.m in Sources */,
 				5595BB841FB8C97200FDA98B /* BUReferenceMainScreenPresenter.m in Sources */,
 				55F28D362253E94B003F4C46 /* BUPopUpDismissAnimator.m in Sources */,
+				552B848C226E2752009FB92B /* BUReferenceViewModelIconItem.m in Sources */,
 				5595BB791FB8C45B00FDA98B /* BUHeader.m in Sources */,
 				55A8F79E220B75B2009BB3A9 /* BUSettingsViewModelNotifications.m in Sources */,
 				5556BF711F36FDE300A7352B /* BUGreetingsPresenter.m in Sources */,

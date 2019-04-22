@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "BUScheduleTableViewController.h"
-#import "Enums.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

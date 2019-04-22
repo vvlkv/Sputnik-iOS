@@ -39,7 +39,7 @@
 
 - (void)initialize {
     self.backgroundColor = [UIColor suaiBlueColor];
-    self.layer.cornerRadius = 5.f;
+    self.layer.cornerRadius = 4.f;
     self.userInteractionEnabled = YES;
     auditoryButton = [[UIButton alloc] initWithFrame:self.bounds];
     auditoryButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
