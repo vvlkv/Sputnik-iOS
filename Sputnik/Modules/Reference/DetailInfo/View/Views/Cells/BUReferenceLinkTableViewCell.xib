@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,7 +27,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3h9-zQ-7mM">
-                        <rect key="frame" x="80" y="11.5" width="224" height="21"/>
+                        <rect key="frame" x="112" y="11.5" width="192" height="21"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -37,7 +37,7 @@
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="VJQ-YN-l4c" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="BYX-Eh-Xau"/>
-                    <constraint firstItem="3h9-zQ-7mM" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.7" id="ETg-s9-cCC"/>
+                    <constraint firstItem="3h9-zQ-7mM" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.6" id="ETg-s9-cCC"/>
                     <constraint firstAttribute="trailing" secondItem="3h9-zQ-7mM" secondAttribute="trailing" constant="16" id="Ikl-LI-dcR"/>
                     <constraint firstItem="VJQ-YN-l4c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="U9c-Ks-Mqe"/>
                     <constraint firstItem="3h9-zQ-7mM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="nBL-Lp-tMs"/>
