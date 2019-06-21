@@ -72,7 +72,7 @@ static NSString *sliderCellName = @"BUSliderTableViewCell";
     UIAlertAction *goTosettingsAction = [UIAlertAction actionWithTitle:@"Перейти в настройки"
                                                                  style:UIAlertActionStyleDefault
                                                                handler:^(UIAlertAction * _Nonnull action) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+                                                                   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
     }];
     [alert addAction:goTosettingsAction];
     [self presentViewController:alert animated:YES completion:nil];

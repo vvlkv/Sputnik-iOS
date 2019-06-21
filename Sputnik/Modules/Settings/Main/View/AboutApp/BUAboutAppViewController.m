@@ -59,11 +59,12 @@
 }
 
 - (void)didTapSiteLabel:(UITapGestureRecognizer *)recognizer {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://sputnik.guap.ru"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://sputnik.guap.ru"] options:@{} completionHandler:nil];
 }
 
 - (void)didTapVkLabel:(UITapGestureRecognizer *)recognizer {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://vk.com/suainav"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://vk.com/suainav"] options:@{} completionHandler:nil];
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://vk.com/suainav"]];
 }
 
 
