@@ -24,4 +24,4 @@ Reference information module contains information about institutes, departments.
 1. Make sure you have [Homebrew](https://brew.sh). If not - install Homebrew;
 2. Clone or download this repository;
 3. Go to root folder and run **setup** script;
-4. Open Sputnik.xcworkspace;
+4. Open Sputnik.xcworkspace.
