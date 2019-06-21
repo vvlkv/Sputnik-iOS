@@ -15,7 +15,11 @@
 
 @end
 
+#ifdef PUBLIC
+static NSString *const informationFileName = @"information_mock";
+#else
 static NSString *const informationFileName = @"information";
+#endif
 
 @implementation BUReferenceMainScreenInteractor
 

@@ -31,7 +31,6 @@
 - (void)parseInformation {
     NSError *error;
     NSDictionary *objects = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
-    
     NSDictionary *results = [objects valueForKey:@"informationsuai"];
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
     [result setValue: [self parseFaculties:[results objectForKey:@"faculties"]] forKey:@"faculties"];

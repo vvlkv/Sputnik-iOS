@@ -1,0 +1,31 @@
+name: Sputnik
+options:
+  bundleIdPrefix: Viktor-Volkov
+  minimumXcodeGenVersion: 2.5.0
+  deploymentTarget:
+    iOS: "10.0"
+  groupSortPosition: top
+  developmentLanguage: en
+settings:
+  base:
+    TARGETED_DEVICE_FAMILY: 1
+    MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS: YES
+    GCC_PREPROCESSOR_DEFINITIONS:
+      - "\"var=__auto_type\""
+      - "\"let=__auto_type const\""
+      - "PUBLIC=1"
+
+targets:
+  Sputnik:
+    type: application
+    platform: iOS
+    deploymentTarget: "10.0"
+    productType: application
+    devices: iPhone
+    sources:
+      - path: Sputnik
+        excludes:
+          - "Resources/Information/information.json"
+          - "Resources/Navigation/"
+    settings:
+      TARGETED_DEVICE_FAMILY: 1

@@ -21,11 +21,7 @@ Reference information module contains information about institutes, departments.
 
 <img src="img/ref.png" width="300"> <img src="img/ref_cath.png" width="300"> <img src="img/ref_inst.png" width="300">
 ## How to install
-1. Download repo;
-2. Using terminal go to root folder and install CocoaPods dependencies:
-```bash
-pod install
-```
-3. Open Sputnik.xcworkspace;
-4. Delete Navigation folder placed in Sputnik/Resources;
-5. cmd + R.
+1. Make sure you have [Homebrew](https://brew.sh). If not - install Homebrew;
+2. Clone or download this repository;
+3. Go to root folder and run **setup** script;
+4. Open Sputnik.xcworkspace;

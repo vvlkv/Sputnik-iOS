@@ -56,13 +56,13 @@
 - (void)didPressOnAction {
     switch ([action type]) {
         case ReferenceActionTypeCall:
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", [NSString prepareToCall:[action value]]]]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", [NSString prepareToCall:[action value]]]] options:@{} completionHandler:nil];
             break;
         case ReferenceActionTypeMail:
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"mailto:%@", [action value]]]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"mailto:%@", [action value]]] options:@{} completionHandler:nil];
             break;
         case ReferenceActionTypeSite:
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[action value]]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[action value]] options:@{} completionHandler:nil];
             break;
         case ReferenceActionTypeAuditory:
             [self.router viewController:(UIViewController *)self.view foundAuditory:[action value]];

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18E226" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="BUAuditoryModel" representedClassName="BUAuditoryModel" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="pair" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BUPairModel" inverseName="auditory" inverseEntity="BUPairModel" syncable="YES"/>
+    </entity>
+    <entity name="BUDayModel" representedClassName="BUDayModel" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weekday" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="pairs" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="BUPairModel" inverseName="day" inverseEntity="BUPairModel" syncable="YES"/>
+        <relationship name="semSchedule" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BUScheduleModel" inverseName="semester" inverseEntity="BUScheduleModel" syncable="YES"/>
+        <relationship name="sesSchedule" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BUScheduleModel" inverseName="session" inverseEntity="BUScheduleModel" syncable="YES"/>
+    </entity>
+    <entity name="BUEntityModel" representedClassName="BUEntityModel" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="semesterCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sessionCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="schedule" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BUScheduleModel" inverseName="entityObject" inverseEntity="BUScheduleModel" syncable="YES"/>
+        <relationship name="search" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BURecentlySearchResultsModel" inverseName="recentlySearch" inverseEntity="BURecentlySearchResultsModel" syncable="YES"/>
+    </entity>
+    <entity name="BUGroupModel" representedClassName="BUGroupModel" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="pair" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BUPairModel" inverseName="groups" inverseEntity="BUPairModel" syncable="YES"/>
+    </entity>
+    <entity name="BUPairModel" representedClassName="BUPairModel" syncable="YES" codeGenerationType="class">
+        <attribute name="color" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lessonType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="auditory" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="BUAuditoryModel" inverseName="pair" inverseEntity="BUAuditoryModel" syncable="YES"/>
+        <relationship name="day" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="BUDayModel" inverseName="pairs" inverseEntity="BUDayModel" syncable="YES"/>
+        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="BUGroupModel" inverseName="pair" inverseEntity="BUGroupModel" syncable="YES"/>
+        <relationship name="teachers" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="BUTeacherModel" inverseName="pair" inverseEntity="BUTeacherModel" syncable="YES"/>
+    </entity>
+    <entity name="BURecentlySearchResultsModel" representedClassName="BURecentlySearchResultsModel" syncable="YES" codeGenerationType="class">
+        <relationship name="recentlySearch" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="BUEntityModel" inverseName="search" inverseEntity="BUEntityModel" syncable="YES"/>
+    </entity>
+    <entity name="BUScheduleModel" representedClassName="BUScheduleModel" syncable="YES" codeGenerationType="class">
+        <relationship name="entityObject" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="BUEntityModel" inverseName="schedule" inverseEntity="BUEntityModel" syncable="YES"/>
+        <relationship name="semester" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="BUDayModel" inverseName="semSchedule" inverseEntity="BUDayModel" syncable="YES"/>
+        <relationship name="session" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="BUDayModel" inverseName="sesSchedule" inverseEntity="BUDayModel" syncable="YES"/>
+    </entity>
+    <entity name="BUTeacherModel" representedClassName="BUTeacherModel" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="pair" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BUPairModel" inverseName="teachers" inverseEntity="BUPairModel" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="BUAuditoryModel" positionX="-12456" positionY="-17190" width="128" height="75"/>
+        <element name="BUDayModel" positionX="-12438" positionY="-17172" width="128" height="120"/>
+        <element name="BUEntityModel" positionX="-12402" positionY="-17145" width="128" height="135"/>
+        <element name="BUGroupModel" positionX="-12492" positionY="-17262" width="128" height="75"/>
+        <element name="BUPairModel" positionX="-12474" positionY="-17244" width="128" height="165"/>
+        <element name="BURecentlySearchResultsModel" positionX="-12447" positionY="-17181" width="128" height="60"/>
+        <element name="BUScheduleModel" positionX="-12420" positionY="-17154" width="128" height="90"/>
+        <element name="BUTeacherModel" positionX="-12501.4921875" positionY="-17278.7578125" width="128" height="75"/>
+    </elements>
+</model>
