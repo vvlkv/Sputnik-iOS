@@ -10,23 +10,6 @@
 
 @implementation NSString (Dash)
 
-+ (NSString *)appendDash:(NSString *)string {
-
-    if ([string isEqualToString:@""])
-        return string;
-    NSString *numberString;
-    NSScanner *scanner = [NSScanner scannerWithString:string];
-    NSCharacterSet *numbers = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
-    [scanner scanUpToCharactersFromSet:numbers intoString:NULL];
-    [scanner scanCharactersFromSet:numbers intoString:&numberString];
-
-    if ([numberString length] == [string length]) {
-        return [NSString stringWithFormat:@"%@-%@", [string substringToIndex:2], [string substringFromIndex:2]];
-    }
-
-    return string;
-}
-
 + (NSString *)prepareToCall:(NSString *)number {
     NSString *goodNumber = [number stringByReplacingOccurrencesOfString:@"(" withString:@""];
     goodNumber = [goodNumber stringByReplacingOccurrencesOfString:@")" withString:@""];
