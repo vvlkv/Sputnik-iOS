@@ -28,7 +28,6 @@ CGFloat const kDelimeter = 6.;
     self = [super initWithPresentedViewController:presentedViewController presentingViewController:presentingViewController];
     if (self) {
         _blurView = [[UIView alloc] init];
-        _blurView.tag = 2;
         _blurView.backgroundColor = [UIColor blackColor];
         _blurView.alpha = .0f;
     }
@@ -45,10 +44,18 @@ CGFloat const kDelimeter = 6.;
     _blurView.frame = self.containerView.frame;
     [self.containerView addSubview:_blurView];
     [self roundCorners];
+    __weak typeof(self) welf = self;
+    [self.presentingViewController.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+        welf.blurView.alpha = .4f;
+    } completion:nil];
 }
 
 - (void)dismissalTransitionWillBegin {
     [self.containerView endEditing:YES];
+    __weak typeof(self) welf = self;
+    [self.presentedViewController.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+        welf.blurView.alpha = .0f;
+    } completion:nil];
 }
 
 - (void)roundCorners {
