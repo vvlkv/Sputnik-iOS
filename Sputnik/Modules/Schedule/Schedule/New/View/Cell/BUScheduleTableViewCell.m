@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (weak, nonatomic) IBOutlet UITextView *pairText;
 @property (weak, nonatomic) IBOutlet UILabel *teacherLabel;
+@property (weak, nonatomic) IBOutlet UILabel *teacherDegreeLabel;
 @property (weak, nonatomic) IBOutlet UIView *frameView;
 
 @end
@@ -31,6 +32,8 @@
     [self.typeLabel setFont:[UIFont suaiRobotoFont:RobotoFontBold size:46.f]];
     [self.typeLabel setTextColor:[UIColor suaiPurpleColor]];
     [self.teacherLabel setFont:[UIFont suaiRobotoFont:RobotoFontLight size:16.f]];
+    [self.teacherDegreeLabel setFont:[UIFont suaiRobotoFont:RobotoFontLight size:12.f]];
+    self.teacherDegreeLabel.textColor = UIColor.darkGrayColor;
     [self.pairText addObserver:self forKeyPath:@"contentSize" options:(NSKeyValueObservingOptionNew) context:NULL];
 }
 
@@ -52,9 +55,19 @@
     self.pairText.backgroundColor = [UIColor whiteColor];
 }
 
-- (void)setTeacher:(NSString *)teacher {
-    _teacher = teacher;
-    self.teacherLabel.text = _teacher;
+- (void)setTeacherName:(NSString *)teacher {
+    _teacherName = teacher;
+    self.teacherLabel.text = _teacherName;
+}
+
+- (void)setTeacherDegree:(NSString *)teacherDegree {
+    _teacherDegree = teacherDegree;
+    if (_teacherDegree == nil) {
+        self.teacherDegreeLabel.text = @"";
+        self.teacherLabel.textAlignment = NSTextAlignmentCenter;
+    } else {
+        self.teacherDegreeLabel.text = _teacherDegree;
+    }
 }
 
 - (void)setFrame:(CGRect)frame {
