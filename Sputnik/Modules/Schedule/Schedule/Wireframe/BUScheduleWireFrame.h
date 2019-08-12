@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "ModuleWireframe.h"
 
-@class UIViewController;
 @interface BUScheduleWireFrame : NSObject <ModuleWireframe>
 
 @end

@@ -13,8 +13,8 @@
 
 @implementation BUSUAIGradientNavigationBar
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame {
+    
     self = [super initWithFrame:frame];
     if (self) {
         [self createGradient];
@@ -35,4 +35,5 @@
     layer.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
     [self setBackgroundImage:[UIImage imageFromLayer:layer] forBarMetrics:UIBarMetricsDefault];
 }
+
 @end
