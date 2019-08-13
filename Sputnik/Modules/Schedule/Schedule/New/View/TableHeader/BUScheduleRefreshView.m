@@ -26,8 +26,6 @@
     self.dateLabel.text = @"";
     self.weekTypeLabel.text = @"";
     self.backgroundColor = [UIColor whiteColor];
-    self.dateLabel.backgroundColor = [UIColor whiteColor];
-    self.weekTypeLabel.backgroundColor = [UIColor whiteColor];
 }
 
 

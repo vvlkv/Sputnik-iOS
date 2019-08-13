@@ -16,24 +16,25 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucP-E3-INS">
-                    <rect key="frame" x="8" y="25" width="359" height="21"/>
+                    <rect key="frame" x="8" y="15" width="359" height="21"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbr-qt-c38">
-                    <rect key="frame" x="8" y="4" width="359" height="21"/>
+                    <rect key="frame" x="8" y="0.0" width="359" height="21"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="dbr-qt-c38" secondAttribute="trailing" constant="8" id="EeH-Xm-LFq"/>
-                <constraint firstItem="ucP-E3-INS" firstAttribute="top" secondItem="dbr-qt-c38" secondAttribute="bottom" id="J6s-4t-jzs"/>
-                <constraint firstItem="dbr-qt-c38" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="4" id="SoT-zT-eLw"/>
+                <constraint firstItem="ucP-E3-INS" firstAttribute="top" secondItem="dbr-qt-c38" secondAttribute="bottom" constant="-6" id="J6s-4t-jzs"/>
+                <constraint firstItem="dbr-qt-c38" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="SoT-zT-eLw"/>
                 <constraint firstAttribute="trailing" secondItem="ucP-E3-INS" secondAttribute="trailing" constant="8" id="U6B-d7-CMf"/>
                 <constraint firstItem="dbr-qt-c38" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Ud5-xY-nIn"/>
                 <constraint firstItem="ucP-E3-INS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="dOn-xl-Aqb"/>
