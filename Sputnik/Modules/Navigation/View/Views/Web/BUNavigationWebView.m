@@ -27,12 +27,10 @@ const NSString *zoomDescription[] = {@"HandleButtonZoom(-1.25)", @"HandleButtonZ
 
 - (void)initWebView {
     WKPreferences *prefs = [[WKPreferences alloc] init];
-    prefs.javaScriptEnabled = YES;
     WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
     configuration.preferences = prefs;
     
     [configuration.preferences setValue:@YES forKey:@"allowFileAccessFromFileURLs"];
-    
     self.webView = [[WKWebView alloc] initWithFrame:[self bounds] configuration:configuration];
     self.webView.UIDelegate = self;
     self.webView.navigationDelegate = self;
@@ -46,7 +44,7 @@ const NSString *zoomDescription[] = {@"HandleButtonZoom(-1.25)", @"HandleButtonZ
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"index" withExtension:@"html" subdirectory:@"assets"];
     if (url != nil) {
         NSString *folderString = [[url URLByDeletingLastPathComponent] absoluteString];
-        NSURL *folderURL = [NSURL fileURLWithPath:folderString isDirectory:YES];
+        NSURL *folderURL = [[NSURL fileURLWithPath:folderString isDirectory:YES] standardizedURL];
         [self.webView loadFileURL:url allowingReadAccessToURL:folderURL];
     }
 }

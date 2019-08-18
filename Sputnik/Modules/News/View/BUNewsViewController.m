@@ -70,11 +70,6 @@ NSString *const cellIdentifier = @"cellID";
     [newsTableView reloadData];
 }
 
-//- (void)showFailMessage {
-//    [self hideActivityIndicator];
-//    [self showFailView:@"Отсутствует подключение к сети :(" withButton:NO];
-//}
-
 - (void)showFailMessageWithText:(NSString *)text {
     [self hideActivityIndicator];
     [self showFailView:text withButton:NO];

@@ -44,7 +44,6 @@ NSUInteger const pageHeight = 34;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
     [self configurePageControl];
     [self configurePageViewController];
 }
@@ -59,7 +58,11 @@ NSUInteger const pageHeight = 34;
     _pageControl.delegate = self;
     CGSize viewSize = self.view.frame.size;
     _pageControl.frame = CGRectMake(0, 0, viewSize.width, pageHeight);
-    _pageControl.backgroundColor = [UIColor whiteColor];
+    if (@available(iOS 13.0, *)) {
+        _pageControl.backgroundColor = [UIColor systemBackgroundColor];
+    } else {
+        _pageControl.backgroundColor = [UIColor whiteColor];
+    }
     [self.view addSubview:_pageControl];
 }
 

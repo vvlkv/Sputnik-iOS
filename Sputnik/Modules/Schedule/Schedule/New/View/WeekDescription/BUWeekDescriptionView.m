@@ -24,7 +24,6 @@
     self = [super init];
     if (self) {
         UILabel *weekLabel = [[UILabel alloc] init];
-        weekLabel.backgroundColor = [UIColor whiteColor];
         [self addSubview:weekLabel];
         weekLabel.translatesAutoresizingMaskIntoConstraints = NO;
         [[weekLabel.topAnchor constraintEqualToAnchor:self.topAnchor] setActive:YES];
@@ -32,7 +31,6 @@
         [[weekLabel.leadingAnchor constraintEqualToAnchor:self.leadingAnchor
                                                  constant:8] setActive:YES];
         [[weekLabel.trailingAnchor constraintEqualToAnchor:self.trailingAnchor] setActive:YES];
-        self.backgroundColor = [UIColor whiteColor];
         weekLabel.font = [UIFont suaiRobotoFont:RobotoFontBold size:24.f];
         self.weekDescriptionLabel = weekLabel;
     }

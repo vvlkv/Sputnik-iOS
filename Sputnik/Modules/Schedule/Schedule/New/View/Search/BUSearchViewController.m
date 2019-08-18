@@ -23,7 +23,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    if (@available(iOS 13.0, *)) {
+        self.view.backgroundColor = [UIColor systemBackgroundColor];
+    } else {
+        self.view.backgroundColor = [UIColor whiteColor];
+    }
     [self p_configureSearchBar];
     [self p_configureTableView];
 }
@@ -32,6 +36,7 @@
     _searchBar = [[UISearchBar alloc] init];
     _searchBar.placeholder = @"Поиск расписания";
     _searchBar.delegate = self;
+    _searchBar.backgroundColor = UIColor.clearColor;
     _searchBar.searchBarStyle = UISearchBarStyleMinimal;
     _searchBar.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:_searchBar];
@@ -58,7 +63,11 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *view = [[UIView alloc] init];
-    view.backgroundColor = [UIColor whiteColor];
+    if (@available(iOS 13.0, *)) {
+        view.backgroundColor = [UIColor systemBackgroundColor];
+    } else {
+        view.backgroundColor = [UIColor whiteColor];
+    }
     UILabel *label = [[UILabel alloc] init];
     label.translatesAutoresizingMaskIntoConstraints = NO;
     label.text = [self.output titleForHeaderInSection:section];

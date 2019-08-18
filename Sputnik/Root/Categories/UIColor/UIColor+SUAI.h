@@ -10,11 +10,13 @@
 
 @interface UIColor (SUAI)
 
++ (UIColor *)suaiNavigationGradientFromColor;
++ (UIColor *)suaiNavigationGradientMidColor;
++ (UIColor *)suaiNavigationGradientToColor;
 + (UIColor *)suaiPurpleColor;
 + (UIColor *)suaiBlueColor;
 + (UIColor *)suaiDarkBlueColor;
 + (UIColor *)suaiRedColor;
-+ (UIColor *)suaiLightGreenColor;
 + (UIColor *)suaiLightPurpleColor;
 + (UIColor *)suaiGrayColor;
 + (UIColor *)suaiReferenceBackgroundGrayColor;

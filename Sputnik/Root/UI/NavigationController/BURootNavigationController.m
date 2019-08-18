@@ -23,12 +23,24 @@
     self.navigationBar.shadowImage = [UIImage new];
     self.navigationBar.translucent = YES;
     self.navigationBar.backgroundColor = [UIColor clearColor];
-    CAGradientLayer *layer = [UIColor suaiGradientColorFrom:[UIColor suaiBlueColor] to:[UIColor suaiLightPurpleColor]];
+    CAGradientLayer *layer = [CAGradientLayer layer];
+    layer.backgroundColor = UIColor.blackColor.CGColor;
+    layer.colors = @[(id)[UIColor suaiNavigationGradientFromColor].CGColor,
+                     (id)[UIColor suaiNavigationGradientMidColor].CGColor,
+                     (id)[UIColor suaiNavigationGradientToColor].CGColor];
+    layer.startPoint = CGPointMake(0, 1);
+    layer.endPoint = CGPointMake(1, 1);
+    layer.locations = @[@0, @0.75, @1];
     layer.frame = CGRectMake(0, 0, self.navigationBar.bounds.size.width, self.navigationBar.bounds.size.height);
     UIGraphicsBeginImageContext(layer.bounds.size);
     [layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     self.navigationBar.barTintColor = [UIColor colorWithPatternImage:image];
+}
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    [super traitCollectionDidChange:previousTraitCollection];
+    [self configureBarColor];
 }
 
 @end

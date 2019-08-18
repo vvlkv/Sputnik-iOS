@@ -52,7 +52,6 @@
     CGFloat fontSize = [UIScreen mainScreen].bounds.size.width == 320.f ? 14.f : 15.f;
     [self.pairText setFont:[UIFont suaiRobotoFont:RobotoFontMedium size:fontSize]];
     self.pairText.textAlignment = NSTextAlignmentCenter;
-    self.pairText.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)setTeacherName:(NSString *)teacher {
