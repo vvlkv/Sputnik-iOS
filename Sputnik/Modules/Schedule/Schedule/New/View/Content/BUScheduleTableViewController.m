@@ -88,7 +88,8 @@ static NSString *backgroundViewName = @"BUAstronautView";
                                            viewModelForPair:indexPath.section
                                                       atDay:_index];
     cell.name = [viewModel name];
-    cell.teacher = [viewModel subInfo];
+    cell.teacherName = [viewModel subInfo];
+    cell.teacherDegree = [viewModel teacherDegree];
     cell.pairType = [viewModel type];
     return cell;
 }

@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *subInfo;
+@property (strong, nonatomic) NSString *teacherDegree;
 @property (strong, nonatomic) NSString *type;
 @property (strong, nonatomic) NSString *time;
 @property (strong, nonatomic) NSString *auditory;

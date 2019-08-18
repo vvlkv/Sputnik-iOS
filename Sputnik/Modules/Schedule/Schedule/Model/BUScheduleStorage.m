@@ -23,6 +23,7 @@
 #import "SUAIPair.h"
 #import "SUAIAuditory.h"
 #import "SUAITime.h"
+#import "SUAITeacher.h"
 
 #import <CoreData/CoreData.h>
 
@@ -103,9 +104,9 @@
     pairModel.time = [pair.time stringValue];
     pairModel.lessonType = pair.lessonType;
     pairModel.color = (NSUInteger)pair.color;
-    for (NSString *teacher in [pair teachers]) {
+    for (SUAITeacher *teacher in [pair teachers]) {
         var *teacherModel = (BUTeacherModel *)[self p_initEntityWithName:@"BUTeacherModel" inContext:context];
-        teacherModel.name = teacher;
+        teacherModel.name = teacher.stringRepresentation;
         [pairModel addTeachersObject:teacherModel];
     }
     for (NSString *group in [pair groups]) {
@@ -144,16 +145,16 @@
         pair.color = (WeekType)[pairModel color];
         pair.lessonType = [pairModel lessonType];
         pair.time = [[SUAITime alloc] initWithTimeString:[pairModel time]];
-        NSMutableArray *contents = [NSMutableArray array];
+        NSMutableArray<SUAITeacher *> *contents = [NSMutableArray arrayWithCapacity:pairModel.teachers.count];
         for (BUTeacherModel *teacher in [pairModel teachers]) {
-            [contents addObject:[teacher name]];
+            [contents addObject:[[SUAITeacher alloc] initWithString:teacher.name]];
         }
         pair.teachers = [contents copy];
-        contents = [NSMutableArray array];
+        NSMutableArray<NSString *> *groups = [NSMutableArray arrayWithCapacity:pairModel.groups.count];
         for (BUGroupModel *group in [pairModel groups]) {
-            [contents addObject:[group name]];
+            [groups addObject:[group name]];
         }
-        pair.groups = [contents copy];
+        pair.groups = [groups copy];
         var *auditoryModel = [pairModel auditory];
         pair.auditory = [[SUAIAuditory alloc] initWithString:[auditoryModel name]];
         [pairs addObject:pair];

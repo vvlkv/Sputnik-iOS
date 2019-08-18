@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) NSString *pairType;
 @property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSString *teacher;
+@property (strong, nonatomic) NSString *teacherName;
+@property (strong, nonatomic) NSString *teacherDegree;
 
 @end

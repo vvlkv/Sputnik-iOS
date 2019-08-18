@@ -15,6 +15,7 @@
 #import "SUAIAuditory.h"
 #import "SUAIEntity.h"
 #import "SUAITime.h"
+#import "SUAITeacher.h"
 #import "UIColor+SUAI.h"
 
 @interface BUScheduleDataDisplayManager() {
@@ -103,12 +104,14 @@
         SUAIDay *day = _schedule.session[pair];
         pairModel = [day pairs][0];
         let *pairTime = [[pairModel time] stringValue];
-        pairVM.time = [NSString stringWithFormat:@"%@ (%@:00-..)", [day name], [pairTime containsString:@"1"] ? @"10" : @"14"];
+        pairVM.time = [NSString stringWithFormat:@"%@ (%@:00-...)", [day name], [pairTime containsString:@"1"] ? @"10" : @"14"];
         pairVM.type = [[pairTime componentsSeparatedByString:@" "] firstObject];
     }
     pairVM.name = [pairModel name];
     if ([[_schedule entity] type] == EntityTypeGroup) {
-        pairVM.subInfo = [[pairModel teachers] componentsJoinedByString:@" "];
+        let *teacher = pairModel.teachers.firstObject;
+        pairVM.subInfo = teacher.name;
+        pairVM.teacherDegree = teacher.degree;
     } else {
         pairVM.subInfo = [[pairModel groups] componentsJoinedByString:@"; "];
     }

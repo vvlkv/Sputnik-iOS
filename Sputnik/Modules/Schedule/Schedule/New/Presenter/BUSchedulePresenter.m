@@ -21,6 +21,7 @@
 #import "SUAIPair.h"
 #import "SUAIAuditory.h"
 #import "SUAIError.h"
+#import "SUAITeacher.h"
 
 @interface BUSchedulePresenter()<BUScheduleTableViewControllerDelegate> {
     BUScheduleDataDisplayManager *_dataManager;
@@ -190,9 +191,9 @@
         if (![group isEqualToString:_entity])
             [groups addObject:group];
     }
-    for (NSString *teacher in [pair teachers]) {
-        if (![teacher containsString:_entity])
-            [teachers addObject:[[teacher componentsSeparatedByString:@" -"] firstObject]];
+    for (SUAITeacher *teacher in [pair teachers]) {
+        if (![teacher.name containsString:_entity])
+            [teachers addObject:teacher.name];
     }
     NSMutableArray <NSString *> *items = [NSMutableArray array];
     [items addObjectsFromArray:groups];
