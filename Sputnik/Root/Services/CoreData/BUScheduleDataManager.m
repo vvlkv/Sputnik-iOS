@@ -23,8 +23,7 @@ NSString *const coreDataName = @"BUSputnikCoreData";
 
 @implementation BUScheduleDataManager
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         [self managedObjectModel];

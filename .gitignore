@@ -34,5 +34,9 @@ fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 
+project_dev.yml
+setup_dev
+Podfile_dev
+
 Sputnik/Resources/Navigation/
 Sputnik/Resources/Information/information.json

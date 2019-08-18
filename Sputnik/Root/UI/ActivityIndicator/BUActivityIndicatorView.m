@@ -14,7 +14,7 @@
 - (void)startAnimating {
     self.layer.sublayers = nil;
     BUActivityIndicatorAnimation *animation = [[BUActivityIndicatorAnimation alloc] init];
-    [animation setupAnimationInLayer:self.layer withSize:CGSizeMake(40.f, 40.f) tintColor:[UIColor greenColor]];
+    [animation setupAnimationInLayer:self.layer withSize:CGSizeMake(40.f, 40.f)];
     self.layer.speed = 1.3f;
 }
 

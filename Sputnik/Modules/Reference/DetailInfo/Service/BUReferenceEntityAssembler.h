@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class BUInfoEntity;
+@protocol BUReferenceViewModelTableProtocol;
 @interface BUReferenceEntityAssembler : NSObject
 
-- (NSArray *)assemblyDataFromEntity:(id)entity;
+- (NSArray<id<BUReferenceViewModelTableProtocol>> *)assemblyDataFromEntity:(BUInfoEntity *)entity;
 
 @end

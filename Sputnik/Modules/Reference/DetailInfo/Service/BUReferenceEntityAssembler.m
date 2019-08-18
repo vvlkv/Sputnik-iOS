@@ -17,8 +17,11 @@
 
 @implementation BUReferenceEntityAssembler
 
-- (NSArray *)assemblyDataFromEntity:(id)entity {
-    NSMutableArray *entities = [NSMutableArray arrayWithArray:[self assemblyHead:entity]];
+- (NSArray<id<BUReferenceViewModelTableProtocol>> *)assemblyDataFromEntity:(BUInfoEntity *)entity {
+    
+    NSMutableArray<id<BUReferenceViewModelTableProtocol>> *entities = [NSMutableArray array];
+    [entities addObject:[self assemblyHead:entity]];
+    
     if ([entity isMemberOfClass:[BUFaculty class]]) {
         [entities addObjectsFromArray:[self assemblyFaculty:(BUFaculty *)entity]];
     } else if ([entity isMemberOfClass:[BUFacultyDepartment class]]) {
@@ -31,14 +34,14 @@
     return entities;
 }
 
-- (NSArray *)assemblyHead:(BUInfoEntity *)infoEntity {
+- (id<BUReferenceViewModelTableProtocol>)assemblyHead:(BUInfoEntity *)infoEntity {
     BUReferenceViewModelTable *headTable = [[BUReferenceViewModelTable alloc] initWithType:ViewModelTableHead];
     [headTable addModel:infoEntity];
-    return @[headTable];
+    return headTable;
 }
 
-- (NSArray *)assemblyFaculty:(BUFaculty *)faculty {
-    NSMutableArray *entities = [NSMutableArray array];
+- (NSArray<id<BUReferenceViewModelTableProtocol>> *)assemblyFaculty:(BUFaculty *)faculty {
+    NSMutableArray<id<BUReferenceViewModelTableProtocol>> *entities = [NSMutableArray array];
     if ([[faculty departments] count] > 0) {
         [entities addObjectsFromArray:[self assemblyFacultyDepartments:faculty]];
     } else {
@@ -48,22 +51,29 @@
     return [entities copy];
 }
 
-- (NSArray *)assemblyFacultyDepartments:(BUFaculty *)faculty {
-    NSMutableArray *entities = [NSMutableArray array];
+- (NSArray<id<BUReferenceViewModelTableProtocol>> *)assemblyFacultyDepartments:(BUFaculty *)faculty {
+    
+    NSMutableArray<id<BUReferenceViewModelTableProtocol>> *entities = [NSMutableArray array];
+    
     BUReferenceViewModelTable *cathedralTable = [[BUReferenceViewModelTable alloc] initWithType:ViewModelTableCathedras];
     [cathedralTable addModel:faculty];
     [entities addObject:cathedralTable];
+    
     BUReferenceViewModelTable *aboutTable = [[BUReferenceViewModelTable alloc] initWithType:ViewModelTableAbout];
     [aboutTable addModel:faculty];
     [entities addObject:aboutTable];
+    
     return [entities copy];
 }
 
-- (NSArray *)assemblyAbout:(BUDean *)dean {
-    NSMutableArray *entities = [NSMutableArray array];
+- (NSArray<id<BUReferenceViewModelTableProtocol>> *)assemblyAbout:(BUDean *)dean {
+    
+    NSMutableArray<id<BUReferenceViewModelTableProtocol>> *entities = [NSMutableArray array];
+    
     BUReferenceViewModelTable *directorTable = [[BUReferenceViewModelTable alloc] initWithType:ViewModelTableDirector];
     [directorTable addModel:[dean header]];
     [entities addObject:directorTable];
+    
     if ([[dean subHeaders] count] > 0) {
         BUReferenceViewModelTable *subHeadersTable = [[BUReferenceViewModelTable alloc] initWithType:ViewModelTableSubHeaders];
         [subHeadersTable addModel:[dean subHeaders]];
@@ -73,18 +83,23 @@
     BUReferenceViewModelTable *linkTable = [[BUReferenceViewModelTable alloc] initWithType:ViewModelTableLink];
     [linkTable addModel:[dean link]];
     [entities addObject:linkTable];
+    
     return [entities copy];
 }
 
-- (NSArray *)assemblyDepartments:(BUDepartment *)department {
-    NSMutableArray *entities = [NSMutableArray array];
+- (NSArray<id<BUReferenceViewModelTableProtocol>> *)assemblyDepartments:(BUDepartment *)department {
+    
+    NSMutableArray<id<BUReferenceViewModelTableProtocol>> *entities = [NSMutableArray array];
+    
     if ([[department subdivisions] count] > 0) {
         BUReferenceViewModelTable *subDivisionsTable = [[BUReferenceViewModelTable alloc] initWithType:ViewModelTableSubDivisions];
         [subDivisionsTable addModel:[department subdivisions]];
         [entities addObject:subDivisionsTable];
+        
         BUReferenceViewModelTable *aboutTable = [[BUReferenceViewModelTable alloc] initWithType:ViewModelTableAbout];
         [aboutTable addModel:department];
         [entities addObject:aboutTable];
+        
     } else {
         return [self assemblyAboutDepartment:department];
     }
@@ -92,19 +107,24 @@
     return entities;
 }
 
-- (NSArray *)assemblyFacultyDepartmensInfo:(BUFacultyDepartment *)facultyDepartment {
+- (NSArray<id<BUReferenceViewModelTableProtocol>> *)assemblyFacultyDepartmensInfo:(BUFacultyDepartment *)facultyDepartment {
+    
     NSMutableArray *entities = [NSMutableArray array];
+    
     BUReferenceViewModelTable *directorTable = [[BUReferenceViewModelTable alloc] initWithType:ViewModelTableDirector];
     [directorTable addModel:[facultyDepartment header]];
     [entities addObject:directorTable];
+    
     BUReferenceViewModelTable *linkTable = [[BUReferenceViewModelTable alloc] initWithType:ViewModelTableLink];
     [linkTable addModel:[facultyDepartment link]];
     [entities addObject:linkTable];
+    
     return entities;
 }
 
-- (NSArray *)assemblySubDivision:(BUSubdivision *)subdivision {
-    NSMutableArray *entities = [NSMutableArray array];
+- (NSArray<id<BUReferenceViewModelTableProtocol>> *)assemblySubDivision:(BUSubdivision *)subdivision {
+    
+    NSMutableArray<id<BUReferenceViewModelTableProtocol>> *entities = [NSMutableArray array];
     
     BUReferenceViewModelTable *directorTable = [[BUReferenceViewModelTable alloc] initWithType:ViewModelTableDirector];
     [directorTable addModel:[subdivision header]];
@@ -118,19 +138,22 @@
     BUReferenceViewModelTable *linkTable = [[BUReferenceViewModelTable alloc] initWithType:ViewModelTableLink];
     [linkTable addModel:subdivision];
     [entities addObject:linkTable];
+    
     return entities;
 }
 
-- (NSArray *)assemblyAboutDepartment:(BUDepartment *)department {
-    NSMutableArray *entities = [NSMutableArray array];
+- (NSArray<id<BUReferenceViewModelTableProtocol>> *)assemblyAboutDepartment:(BUDepartment *)department {
+    
+    NSMutableArray<id<BUReferenceViewModelTableProtocol>> *entities = [NSMutableArray array];
+    
     BUReferenceViewModelTable *directorTable = [[BUReferenceViewModelTable alloc] initWithType:ViewModelTableDirector];
     [directorTable addModel:[department header]];
     [entities addObject:directorTable];
     
     BUReferenceViewModelTable *linkTable = [[BUReferenceViewModelTable alloc] initWithType:ViewModelTableLink];
     [linkTable addModel:department];
-    
     [entities addObject:linkTable];
+    
     return entities;
 }
 

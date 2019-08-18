@@ -5,7 +5,7 @@ options:
   deploymentTarget:
     iOS: "10.0"
   groupSortPosition: top
-  developmentLanguage: en
+  developmentLanguage: ru
 settings:
   base:
     TARGETED_DEVICE_FAMILY: 1

@@ -11,7 +11,7 @@
 
 @implementation BUActivityIndicatorAnimation
 
-- (void)setupAnimationInLayer:(CALayer *)layer withSize:(CGSize)size tintColor:(UIColor *)tintColor {
+- (void)setupAnimationInLayer:(CALayer *)layer withSize:(CGSize)size {
     double beginTime = 0.5;
     double strokeStartDuration = 1.2;
     double strokeEndDuration = 0.7;

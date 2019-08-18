@@ -8,8 +8,6 @@
 
 #import "BUHeader.h"
 
-//static NSString *const kvcFields[] = {@"_type", @"_phone", @"_mail"};
-
 @interface BUHeader () {
     NSArray *kvcFields;
 }

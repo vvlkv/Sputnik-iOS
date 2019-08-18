@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BUActivityIndicatorAnimation : NSObject
 
-- (void)setupAnimationInLayer:(CALayer *)layer withSize:(CGSize)size tintColor:(UIColor *)tintColor;
+- (void)setupAnimationInLayer:(CALayer *)layer withSize:(CGSize)size;
 
 @end
 

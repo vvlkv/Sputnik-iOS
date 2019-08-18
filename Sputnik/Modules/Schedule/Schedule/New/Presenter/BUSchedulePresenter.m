@@ -22,11 +22,8 @@
 #import "SUAIAuditory.h"
 #import "SUAIError.h"
 
-#import "BUScheduleState.h"
-
 @interface BUSchedulePresenter()<BUScheduleTableViewControllerDelegate> {
     BUScheduleDataDisplayManager *_dataManager;
-    BUScheduleState *_state;
     NSString *_entity;
     NSUInteger _type;
     NSUInteger _dayIndex;
