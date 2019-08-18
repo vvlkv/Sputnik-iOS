@@ -142,7 +142,7 @@
     CGFloat yOffset = self.view.frame.size.height / 6;
     let transform = shouldIdent ? CGAffineTransformIdentity : CGAffineTransformMakeTranslation(0, -yOffset);
     
-    [UIView animateWithDuration:[CATransaction animationDuration] animations:^{
+    [UIView animateWithDuration:[CATransaction animationDuration] * 1.5 animations:^{
         self.view.transform = transform;
     } completion:^(BOOL finished) {
         self->animating = NO;
