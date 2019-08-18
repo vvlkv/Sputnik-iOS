@@ -10,14 +10,14 @@
 
 @implementation BUInfoPlacedEntity
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         _pos = _aud = @"";
     }
     return self;
 }
+
 - (void)setkvcValue:(id)value forKey:(NSString *)key {
     [super setkvcValue:value forKey:key];
     if ([key isEqualToString:@"_pos"])

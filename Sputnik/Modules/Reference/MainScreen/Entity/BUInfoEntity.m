@@ -12,14 +12,14 @@ static NSString *kvcPropertyNames = {@"_name"};
 
 @implementation BUInfoEntity
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         _name = @"";
     }
     return self;
 }
+
 - (nonnull id)copyWithZone:(nullable NSZone *)zone {
     BUInfoEntity *copyInfoEntity = [[[self class] alloc] init];
     copyInfoEntity.name = _name;
@@ -28,7 +28,7 @@ static NSString *kvcPropertyNames = {@"_name"};
 
 - (void)setkvcValue:(id)value
              forKey:(NSString *)key {
-    if ([key isEqualToString:@"_name"]) {
+    if ([key isEqualToString:kvcPropertyNames]) {
         _name = value;
     }
 }
