@@ -15,7 +15,7 @@
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
-@property (weak, nonatomic) IBOutlet UITextView *pairText;
+@property (weak, nonatomic) IBOutlet UILabel *pairLabel;
 @property (weak, nonatomic) IBOutlet UILabel *teacherLabel;
 @property (weak, nonatomic) IBOutlet UILabel *teacherDegreeLabel;
 @property (weak, nonatomic) IBOutlet UIView *frameView;
@@ -34,7 +34,6 @@
     [self.teacherLabel setFont:[UIFont suaiRobotoFont:RobotoFontLight size:16.f]];
     [self.teacherDegreeLabel setFont:[UIFont suaiRobotoFont:RobotoFontLight size:12.f]];
     self.teacherDegreeLabel.textColor = UIColor.darkGrayColor;
-    [self.pairText addObserver:self forKeyPath:@"contentSize" options:(NSKeyValueObservingOptionNew) context:NULL];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -48,10 +47,10 @@
 
 - (void)setName:(NSString *)name {
     _name = name;
-    self.pairText.text = _name;
+    self.pairLabel.text = _name;
     CGFloat fontSize = [UIScreen mainScreen].bounds.size.width == 320.f ? 14.f : 15.f;
-    [self.pairText setFont:[UIFont suaiRobotoFont:RobotoFontMedium size:fontSize]];
-    self.pairText.textAlignment = NSTextAlignmentCenter;
+    [self.pairLabel setFont:[UIFont suaiRobotoFont:RobotoFontMedium size:fontSize]];
+    self.pairLabel.textAlignment = NSTextAlignmentCenter;
 }
 
 - (void)setTeacherName:(NSString *)teacher {
@@ -76,26 +75,6 @@
     CAShapeLayer* shape = [[CAShapeLayer alloc] init];
     [shape setPath:rounded.CGPath];
     self.layer.mask = shape;
-}
-
-
-#pragma mark - Observer
-
--(void)observeValueForKeyPath:(NSString *)keyPath
-                     ofObject:(id)object
-                       change:(NSDictionary *)change
-                      context:(void *)context {
-    
-    if ([keyPath isEqualToString:@"contentSize"]) {
-        UITextView *tv = object;
-        CGFloat deadSpace = ([tv bounds].size.height - [tv contentSize].height);
-        CGFloat inset = MAX(0, deadSpace/2.0);
-        tv.contentInset = UIEdgeInsetsMake(inset, tv.contentInset.left, inset, tv.contentInset.right);
-    }
-}
-
-- (void)dealloc {
-    [self.pairText removeObserver:self forKeyPath:@"contentSize"];
 }
 
 @end
