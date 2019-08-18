@@ -10,12 +10,44 @@
 
 @implementation UIColor (SUAI)
 
++ (UIColor *)suaiNavigationGradientFromColor {
+    if (@available(iOS 11.0, *)) {
+        return [UIColor colorNamed:@"GradientFromColor"];
+    } else {
+        return [self suaiBlueColor];
+    }
+}
+
++ (UIColor *)suaiNavigationGradientMidColor {
+    if (@available(iOS 11.0, *)) {
+        return [UIColor colorNamed:@"GradientMidColor"];
+    } else {
+        return [UIColor colorWithRed:171.f/255.f green:58.f/255.f blue:141.f/255.f alpha:1.f];
+    }
+}
+
++ (UIColor *)suaiNavigationGradientToColor {
+    if (@available(iOS 11.0, *)) {
+        return [UIColor colorNamed:@"GradientToColor"];
+    } else {
+        return [self suaiLightPurpleColor];
+    }
+}
+
 + (UIColor *)suaiPurpleColor {
-    return [UIColor colorWithRed:80.f/255.f green:45.f/255.f blue:127.f/255.f alpha:1.f];
+    if (@available(iOS 11.0, *)) {
+        return [UIColor colorNamed:@"PurpleColor"];
+    } else {
+        return [UIColor colorWithRed:80.f/255.f green:45.f/255.f blue:127.f/255.f alpha:1.f];
+    }
 }
 
 + (UIColor *)suaiBlueColor {
-    return [UIColor colorWithRed:0.f green:90.f/255.f blue:170.f/255.f alpha:1.f];
+    if (@available(iOS 11.0, *)) {
+        return [UIColor colorNamed:@"BlueColor"];
+    } else {
+        return [UIColor colorWithRed:0.f green:90.f/255.f blue:170.f/255.f alpha:1.f];
+    }
 }
 
 + (UIColor *)suaiDarkBlueColor {
@@ -24,10 +56,6 @@
 
 + (UIColor *)suaiRedColor {
     return [UIColor colorWithRed:231.f/255.f green:15.f/255.f blue:71.f/255.f alpha:1.f];
-}
-
-+ (UIColor *)suaiLightGreenColor {
-    return [UIColor colorWithRed:0.f green:154.f/255.f blue:73.f/255.f alpha:.6f];
 }
 
 + (UIColor *)suaiLightPurpleColor {

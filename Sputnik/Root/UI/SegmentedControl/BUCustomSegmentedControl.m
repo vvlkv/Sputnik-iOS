@@ -30,12 +30,6 @@
         [self addTarget:self
                  action:@selector(segmentChanged:)
        forControlEvents:UIControlEventValueChanged];
-        NSDictionary *normalAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-        [self setTitleTextAttributes:normalAttributes forState:UIControlStateSelected];
-        if (type == BUSegmentTypeWhite) {
-            [self setTitleTextAttributes:normalAttributes forState:UIControlStateNormal];
-        }
-        
     }
     return self;
 }

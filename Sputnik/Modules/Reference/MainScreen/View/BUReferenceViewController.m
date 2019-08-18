@@ -73,7 +73,6 @@
 - (void)initSegmentedControl {
     CGFloat segmentHeight = 29.f;
     segmentView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 49 - segmentHeight - 16.f, self.view.frame.size.width, segmentHeight + 16.f)];
-    segmentView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:segmentView];
     CALayer *topBorder = [CALayer layer];
     topBorder.frame = CGRectMake(0.0f, 0.0f, segmentView.frame.size.width, .5f);

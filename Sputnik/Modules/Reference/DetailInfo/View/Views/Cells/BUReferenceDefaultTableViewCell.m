@@ -31,7 +31,7 @@
     BUReferenceViewModelDefaultItem *item = (BUReferenceViewModelDefaultItem *)model;
     self.valueLabel.text = [item value];
     [self.valueLabel setTextColor:[item color]];
-    if ([item color] != [UIColor blackColor])
+    if (![item canSelect])
         return;
     switch ([item actionType]) {
         case ReferenceActionTypeCall:

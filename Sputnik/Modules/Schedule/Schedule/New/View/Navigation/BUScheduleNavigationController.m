@@ -37,7 +37,6 @@ NSString *const refreshViewName = @"BUScheduleRefreshView";
                                                                        owner:self
                                                                      options:nil][0];
     _dateView.translatesAutoresizingMaskIntoConstraints = NO;
-    _dateView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_dateView];
     NSLayoutConstraint *top = [_dateView.topAnchor constraintEqualToAnchor:self.topAnchor constant:44.f];
     NSLayoutConstraint *left = [_dateView.leftAnchor constraintEqualToAnchor:self.leftAnchor];
@@ -49,7 +48,6 @@ NSString *const refreshViewName = @"BUScheduleRefreshView";
 - (void)p_addWeekTypeControl {
     UIView *scheduleWeekView = [[UIView alloc] init];
     scheduleWeekView.translatesAutoresizingMaskIntoConstraints = NO;
-    scheduleWeekView.backgroundColor = [UIColor whiteColor];
     _scheduleTypeControl = [[BUCustomSegmentedControl alloc] initWithItems:@[@"Нижняя", @"Верхняя"]
                                                                   andType:BUSegmentTypeNormal];
     _scheduleTypeControl.frame = CGRectMake(8, 8, self.view.frame.size.width - 16, 29);

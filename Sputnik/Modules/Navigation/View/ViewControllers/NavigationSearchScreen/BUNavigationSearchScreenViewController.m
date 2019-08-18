@@ -30,7 +30,6 @@
     self.navigationItem.leftBarButtonItem = cancelItem;
     mySearchBar = [[UISearchBar alloc] init];
     mySearchBar.searchBarStyle = UISearchBarStyleMinimal;
-    [mySearchBar setValue:@"Отмена" forKey:@"_cancelButtonText"];
     mySearchBar.delegate = self;
     mySearchBar.frame = CGRectMake(0, 0, self.view.frame.size.width, 44);
     mySearchBar.placeholder = @"Например, вход или 5233";

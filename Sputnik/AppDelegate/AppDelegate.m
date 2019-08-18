@@ -23,7 +23,11 @@
     var *presenter = [[BUTabBarPresenter alloc] init];
     tabBar.output = presenter;
     presenter.view = tabBar;
-    self.window.backgroundColor = [UIColor whiteColor];
+    if (@available(iOS 13.0, *)) {
+        self.window.backgroundColor = [UIColor systemBackgroundColor];
+    } else {
+        self.window.backgroundColor = [UIColor whiteColor];
+    }
     self.window.rootViewController = tabBar;
     [self.window makeKeyAndVisible];
     [self.window.layer setCornerRadius:5.f];

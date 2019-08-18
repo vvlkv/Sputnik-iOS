@@ -36,7 +36,6 @@ NSString *const failViewName = @"BUFailView";
     [super viewDidLoad];
     [self.greetingsLabel setFont:[UIFont suaiRobotoFont:RobotoFontMedium size:25.f]];
     self.greetingsLabel.textColor = [UIColor whiteColor];
-//    [self.output viewDidLoad];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -46,6 +45,7 @@ NSString *const failViewName = @"BUFailView";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
     CAGradientLayer *layer = [UIColor suaiGradientColorFrom:[UIColor suaiBlueColor]
                                                          to:[UIColor suaiLightPurpleColor]];
     layer.frame = self.view.frame;

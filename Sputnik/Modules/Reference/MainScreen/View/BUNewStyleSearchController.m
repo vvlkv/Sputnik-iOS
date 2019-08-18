@@ -27,7 +27,6 @@
 {
     self = [super initWithSearchResultsController:searchResultsController];
     if (self) {
-        [self.searchBar setValue:@"Отмена" forKey:@"_cancelButtonText"];
         self.searchBar.placeholder = @"Поиск";
         if (@available(iOS 11.0, *)) {
             [self customizeCursor];

@@ -63,19 +63,14 @@
     self.tabBar.translucent = NO;
     self.tabBar.items[0].title = @"Новости";
     self.tabBar.items[0].image = [UIImage imageNamed:@"NewsNormal"];
-    self.tabBar.items[0].selectedImage = [[UIImage imageNamed:@"NewsFill"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.tabBar.items[1].title = @"Расписание";
     self.tabBar.items[1].image = [UIImage imageNamed:@"ScheduleNormal"];
-    self.tabBar.items[1].selectedImage = [[UIImage imageNamed:@"ScheduleFill"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.tabBar.items[2].title = @"Навигация";
     self.tabBar.items[2].image = [UIImage imageNamed:@"NavigationNormal"];
-    self.tabBar.items[2].selectedImage = [[UIImage imageNamed:@"NavigationFill"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.tabBar.items[3].title = @"Справочник";
     self.tabBar.items[3].image = [UIImage imageNamed:@"InformationNormal"];
-    self.tabBar.items[3].selectedImage = [[UIImage imageNamed:@"InformationFill"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.tabBar.items[4].title = @"Настройки";
     self.tabBar.items[4].image = [UIImage imageNamed:@"SettingsNormal"];
-    self.tabBar.items[4].selectedImage = [[UIImage imageNamed:@"SettingsFill"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 }
 
 - (void)presentGreetings {

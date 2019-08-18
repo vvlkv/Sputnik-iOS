@@ -13,7 +13,11 @@
 - (instancetype)initWithAction:(ReferenceActionType)type {
     self = [super initWithAction:type];
     if (self) {
-        _color = [UIColor blackColor];
+        if (@available(iOS 13.0, *)) {
+            _color = [UIColor labelColor];
+        } else {
+            _color = [UIColor blackColor];
+        }
         _canSelect = YES;
     }
     return self;

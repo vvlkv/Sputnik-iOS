@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14854.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14806.4"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -26,8 +24,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oo7-3D-WQi">
-                            <rect key="frame" x="8" y="177.5" width="224" height="20.5"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <rect key="frame" x="8" y="141" width="224" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -40,13 +37,12 @@
                         <constraint firstAttribute="width" constant="240" id="Pxm-Xk-i0o"/>
                         <constraint firstAttribute="trailing" secondItem="Oo7-3D-WQi" secondAttribute="trailing" constant="8" id="Pzt-hB-xg7"/>
                         <constraint firstAttribute="height" constant="206" id="VkD-PS-A4w"/>
+                        <constraint firstItem="Oo7-3D-WQi" firstAttribute="top" secondItem="Wdg-BE-0kK" secondAttribute="bottom" constant="8" id="ceR-S4-prK"/>
                         <constraint firstItem="Oo7-3D-WQi" firstAttribute="centerX" secondItem="efH-3o-8p1" secondAttribute="centerX" id="gAE-2c-Xw1"/>
                         <constraint firstItem="Oo7-3D-WQi" firstAttribute="leading" secondItem="efH-3o-8p1" secondAttribute="leading" constant="8" id="iwo-Az-MKU"/>
-                        <constraint firstAttribute="bottom" secondItem="Oo7-3D-WQi" secondAttribute="bottom" constant="8" id="ji8-hf-ONi"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="efH-3o-8p1" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="4Ca-YN-IA7"/>
                 <constraint firstItem="efH-3o-8p1" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="WVT-bE-yF4"/>
