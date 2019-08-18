@@ -41,8 +41,7 @@ NSString *const refreshViewName = @"BUScheduleRefreshView";
     NSLayoutConstraint *top = [_dateView.topAnchor constraintEqualToAnchor:self.topAnchor constant:44.f];
     NSLayoutConstraint *left = [_dateView.leftAnchor constraintEqualToAnchor:self.leftAnchor];
     NSLayoutConstraint *right = [_dateView.rightAnchor constraintEqualToAnchor:self.rightAnchor];
-    NSLayoutConstraint *height = [_dateView.heightAnchor constraintEqualToConstant:56.f];
-    [self.view addConstraints:@[right, height, top, left]];
+    [self.view addConstraints:@[right, top, left]];
 }
 
 - (void)p_addWeekTypeControl {

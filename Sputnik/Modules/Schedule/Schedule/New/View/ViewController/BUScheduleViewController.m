@@ -71,10 +71,10 @@
     _pageVC.view.translatesAutoresizingMaskIntoConstraints = NO;
     [self addChildViewController:_pageVC];
     [self.view addSubview:_pageVC.view];
-    NSLayoutConstraint *top = [_pageVC.view.topAnchor constraintEqualToAnchor:self.topAnchor constant:56.f];
+    NSLayoutConstraint *top = [_pageVC.view.topAnchor constraintEqualToAnchor:self.topAnchor constant:44.f];
     NSLayoutConstraint *bottom = [_pageVC.view.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:-45.f];
     left = [_pageVC.view.leftAnchor constraintEqualToAnchor:self.leftAnchor];
-    NSLayoutConstraint *width = [_pageVC.view.widthAnchor constraintEqualToConstant:screenWidth];
+    NSLayoutConstraint *width = [_pageVC.view.widthAnchor constraintEqualToAnchor:self.view.widthAnchor];
     [self.view addConstraints:@[top, bottom, left, width]];
 }
 
@@ -85,9 +85,9 @@
     sessionViewController.view.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:sessionViewController.view];
     [self addChildViewController:sessionViewController];
-    NSLayoutConstraint *top = [sessionViewController.view.topAnchor constraintEqualToAnchor:self.topAnchor constant:56.f];
+    NSLayoutConstraint *top = [sessionViewController.view.topAnchor constraintEqualToAnchor:self.topAnchor constant:44.f];
     NSLayoutConstraint *bottom = [sessionViewController.view.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:0];
-    NSLayoutConstraint *width = [sessionViewController.view.widthAnchor constraintEqualToConstant:screenWidth];
+    NSLayoutConstraint *width = [sessionViewController.view.widthAnchor constraintEqualToAnchor:self.view.widthAnchor];
     NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:sessionViewController.view attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_pageVC.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0];
     [self.view addConstraints:@[top, bottom, width, left]];
     
