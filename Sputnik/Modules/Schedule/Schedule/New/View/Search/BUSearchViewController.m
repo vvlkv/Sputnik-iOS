@@ -128,33 +128,25 @@
 #pragma mark - UISearchBarDelegate
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
-    animating = YES;
-    CGFloat topSafeArea = 20.0f;
-    CGFloat yOffset = self.view.frame.size.height / 6;
-    if (@available(iOS 11.0, *)) {
-        topSafeArea = [UIApplication sharedApplication].keyWindow.safeAreaInsets.top;
-    }
-    [UIView animateWithDuration:0.3f animations:^{
-        self.view.frame = CGRectMake(0, topSafeArea, self.view.frame.size.width, self.view.frame.size.height + yOffset);
-    } completion:^(BOOL finished) {
-        self->animating = NO;
-    }];
+    [self animateViewToIdentity:NO];
     return YES;
 }
 
 - (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar {
+    [self animateViewToIdentity:YES];
+    return YES;
+}
+
+- (void)animateViewToIdentity:(BOOL)shouldIdent {
     animating = YES;
     CGFloat yOffset = self.view.frame.size.height / 6;
-    CGFloat topSafeArea = 20.0f;
-    if (@available(iOS 11.0, *)) {
-        topSafeArea = [UIApplication sharedApplication].keyWindow.safeAreaInsets.top;
-    }
-    [UIView animateWithDuration:0.3f animations:^{
-        self.view.frame = CGRectMake(0, yOffset, self.view.frame.size.width, self.view.frame.size.height - yOffset + topSafeArea);
+    let transform = shouldIdent ? CGAffineTransformIdentity : CGAffineTransformMakeTranslation(0, -yOffset);
+    
+    [UIView animateWithDuration:[CATransaction animationDuration] animations:^{
+        self.view.transform = transform;
     } completion:^(BOOL finished) {
         self->animating = NO;
     }];
-    return YES;
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
