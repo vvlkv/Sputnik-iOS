@@ -24,6 +24,11 @@
     [super awakeFromNib];
     self.imageView.image = [UIImage imageNamed:@"Austronaut"];
     [self.titleLabel setFont:[UIFont suaiRobotoFont:RobotoFontRegular size:24.f]];
+    if (@available(iOS 13.0, *)) {
+        self.backgroundColor = [UIColor systemBackgroundColor];
+    } else {
+        self.backgroundColor = [UIColor whiteColor];
+    }
 }
 
 - (void)setMessage:(NSString *)message {
