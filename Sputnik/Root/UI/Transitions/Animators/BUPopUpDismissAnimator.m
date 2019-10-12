@@ -31,7 +31,7 @@
     
     [UIView animateWithDuration:[self transitionDuration:transitionContext]
                           delay:0
-                        options:UIViewAnimationOptionCurveEaseIn
+                        options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          fromViewController.view.transform = CGAffineTransformMakeTranslation(0, finalFrame.size.height);
     } completion:^(BOOL finished) {
