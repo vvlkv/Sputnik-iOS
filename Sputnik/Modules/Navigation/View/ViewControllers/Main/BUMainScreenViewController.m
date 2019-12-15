@@ -23,6 +23,10 @@
 
 @implementation BUMainScreenViewController
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleDefault;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.webView.delegate = self;
