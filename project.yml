@@ -14,7 +14,16 @@ settings:
       - "\"var=__auto_type\""
       - "\"let=__auto_type const\""
       - "PUBLIC=1"
-
+    CODE_SIGN_STYLE: Manual
+  configs:
+    debug:
+      AP_NAME: Sputnik debug
+      PROVISIONING_PROFILE_SPECIFIER: 'Sputnik Development'
+      PRODUCT_BUNDLE_IDENTIFIER: com.dev.suai.sputnik
+    release:
+      AP_NAME: Спутник ГУАП
+      PROVISIONING_PROFILE_SPECIFIER: 'XC iOS: Viktor-Volkov.SUAI-Navigation'
+      PRODUCT_BUNDLE_IDENTIFIER: Viktor-Volkov.SUAI-Navigation
 targets:
   Sputnik:
     type: application
