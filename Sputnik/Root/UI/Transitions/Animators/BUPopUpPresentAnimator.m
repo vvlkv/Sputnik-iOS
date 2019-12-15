@@ -11,7 +11,7 @@
 @implementation BUPopUpPresentAnimator
 
 - (NSTimeInterval)transitionDuration:(nullable id <UIViewControllerContextTransitioning>)transitionContext {
-    return [CATransaction animationDuration] * 2.0;
+    return [CATransaction animationDuration] * 1.5;
 }
 
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
@@ -31,7 +31,7 @@
     [UIView animateWithDuration:[self transitionDuration:transitionContext]
                           delay:0.0
          usingSpringWithDamping:.7 initialSpringVelocity:.0
-                        options:UIViewAnimationOptionCurveEaseIn animations:^{
+                        options:UIViewAnimationOptionCurveEaseInOut animations:^{
                             toViewController.view.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
         toViewController.view.frame = finalFrame;

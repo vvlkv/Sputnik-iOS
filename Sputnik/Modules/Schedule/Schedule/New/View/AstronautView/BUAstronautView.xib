@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14854.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14806.4"/>
@@ -43,6 +43,7 @@
                     </constraints>
                 </view>
             </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="efH-3o-8p1" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="4Ca-YN-IA7"/>
                 <constraint firstItem="efH-3o-8p1" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="WVT-bE-yF4"/>

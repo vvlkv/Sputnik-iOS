@@ -13,6 +13,10 @@
 
 @implementation BURootNavigationController
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureBarColor];
