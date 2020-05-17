@@ -6,6 +6,7 @@ options:
     iOS: "10.0"
   groupSortPosition: top
   developmentLanguage: ru
+  postGenCommand: pod install
 settings:
   base:
     TARGETED_DEVICE_FAMILY: 1
