@@ -27,7 +27,6 @@ Package.resolved
 .build/
 Pods/
 *.xcodeproj
-*.xcworkspace
 
 fastlane/report.xml
 fastlane/Preview.html
