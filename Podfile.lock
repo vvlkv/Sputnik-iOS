@@ -9,7 +9,7 @@ DEPENDENCIES:
   - SUAI
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - FSCalendar
     - HTMLKit
     - SUAI
@@ -21,4 +21,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 0d4e16c5b19912c1e99fa79a1866420537c703f0
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.9.1
