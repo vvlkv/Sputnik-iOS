@@ -1,0 +1,24 @@
+include:
+  - path: ../../Configs/RootOptions.yml
+name: SputnikUI
+targets:
+  SputnikUI:
+    type: framework
+    platform: iOS
+    sources:
+      - SputnikUI
+    dependencies:
+      - carthage: SnapKit
+      - carthage: Kingfisher
+      - framework: Utils.framework
+        implicit: true
+      - framework: Resources.framework
+        implicit: true
+    scheme:
+      parallelizeBuild: true
+    settings:
+      TARGETED_DEVICE_FAMILY: 1
+      APPLICATION_EXTENSION_API_ONLY: NO
+    preBuildScripts:
+      - name: Lint
+        path: ../../Scripts/swiftlint.sh

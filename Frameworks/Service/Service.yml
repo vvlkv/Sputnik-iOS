@@ -1,0 +1,21 @@
+include:
+  - path: ../../Configs/RootOptions.yml
+name: Service
+targets:
+  Service:
+    type: framework
+    platform: iOS
+    sources:
+      - Service
+    settings:
+      # MACH_O_TYPE: staticlib
+      TARGETED_DEVICE_FAMILY: 1
+      APPLICATION_EXTENSION_API_ONLY: YES
+    dependencies:
+      - framework: ../Database/Database.framework
+        implicit: true
+      - framework: ../Network5ka/Network5ka.framework
+        implicit: true
+    preBuildScripts:
+      - name: Lint
+        path: ../../Scripts/swiftlint.sh

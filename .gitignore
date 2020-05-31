@@ -38,5 +38,10 @@ project_dev.yml
 setup_dev
 Podfile_dev
 
+Carthage
+
+lintConfig.yml
+Frameworks/*/Mintfile
+
 Sputnik/Resources/Navigation/
 Sputnik/Resources/Information/information.json
