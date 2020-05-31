@@ -1,11 +1,7 @@
+include:
+  - path: Configs/RootOptions.yml
 name: Sputnik
 options:
-  bundleIdPrefix: Viktor-Volkov
-  minimumXcodeGenVersion: 2.5.0
-  deploymentTarget:
-    iOS: "10.0"
-  groupSortPosition: top
-  developmentLanguage: ru
   postGenCommand: pod install
 settings:
   base:
@@ -29,13 +25,26 @@ targets:
   Sputnik:
     type: application
     platform: iOS
-    deploymentTarget: "10.0"
-    productType: application
-    devices: iPhone
     sources:
       - path: Sputnik
         excludes:
           - "Resources/Information/information.json"
           - "Resources/Navigation/"
+    dependencies:
+      - framework: SputnikUI.framework
+        implicit: true
+      - framework: Resources.framework
+        implicit: true
+      - framework: Service.framework
+        implicit: true
+      - framework: Database.framework
+        implicit: true
+      - framework: NetworkSputnik.framework
+        implicit: true
+      - framework: Utils.framework
+        implicit: true
+      - carthage: Kingfisher
+      - carthage: Rswift
+      - carthage: SnapKit
     settings:
       TARGETED_DEVICE_FAMILY: 1

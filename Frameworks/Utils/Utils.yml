@@ -1,0 +1,22 @@
+include:
+  - path: ../../Configs/RootOptions.yml
+name: Utils
+targets:
+  Utils:
+    type: framework
+    platform: iOS
+    settings:
+      # MACH_O_TYPE: staticlib
+    sources:
+      - Utils
+    dependencies:
+      - framework: Resources.framework
+        implicit: true
+      - carthage: Swissors
+    scheme:
+      parallelizeBuild: true
+    settings:
+      TARGETED_DEVICE_FAMILY: 1
+    preBuildScripts:
+      - name: Lint
+        path: ../../Scripts/swiftlint.sh

@@ -1,0 +1,17 @@
+include:
+  - path: ../../Configs/RootOptions.yml
+name: Database
+targets:
+  Database:
+    platform: iOS
+    type: framework
+    settings:
+      TARGETED_DEVICE_FAMILY: 1
+      APPLICATION_EXTENSION_API_ONLY: YES
+    sources:
+      - Database
+    scheme:
+      parallelizeBuild: true
+    preBuildScripts:
+      - name: Lint
+        path: ../../Scripts/swiftlint.sh
