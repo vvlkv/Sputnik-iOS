@@ -1,0 +1,24 @@
+include:
+  - path: ../../Configs/RootOptions.yml
+name: Resources
+options:
+  preGenCommand: mkdir -p Resources/Generated/ && touch Resources/Generated/R.generated.swift
+targets:
+  Resources:
+    type: framework
+    platform: iOS
+    sources:
+      - Resources
+    settings:
+      TARGETED_DEVICE_FAMILY: 1
+      APPLICATION_EXTENSION_API_ONLY: YES
+    dependencies:
+      - carthage: Rswift
+        implicit: true
+    preBuildScripts:
+      - name: R.Swift
+        path: ../../Scripts/rswift.sh
+        inputFiles:
+          - $TEMP_DIR/rswift-lastrun
+        outputFiles:
+          - $SRCROOT/Resources/Generated/R.generated.swift

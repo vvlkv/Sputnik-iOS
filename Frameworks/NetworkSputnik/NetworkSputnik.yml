@@ -1,0 +1,20 @@
+include:
+  - path: ../../Configs/RootOptions.yml
+name: NetworkSputnik
+targets:
+  NetworkSputnik:
+    type: framework
+    platform: iOS
+    sources:
+      - NetworkSputnik
+    dependencies:
+      - framework: Utils.framework
+        implicit: true
+    scheme:
+      parallelizeBuild: true
+    settings:
+      TARGETED_DEVICE_FAMILY: 1
+      APPLICATION_EXTENSION_API_ONLY: YES
+    preBuildScripts:
+      - name: Lint
+        path: ../../Scripts/swiftlint.sh

@@ -1,0 +1,17 @@
+options:
+  bundleIdPrefix: viktor-volkov.sputnik
+  minimumXcodeGenVersion: 2.15.1
+  carthageBuildPath: ../Carthage/Build
+  developmentLanguage: ru
+  deploymentTarget:
+    iOS: 13.0
+  groupSortPosition: top
+attributes:
+  ORGANIZATIONNAME: "'E-Legion' Ltd."
+configs:
+  Debug: debug
+  Release: release
+settings:
+  CURRENT_PROJECT_VERSION: 1
+  TARGETED_DEVICE_FAMILY: 1
+  CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED: YES
