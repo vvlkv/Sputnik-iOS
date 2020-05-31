@@ -14,7 +14,7 @@ targets:
     dependencies:
       - framework: ../Database/Database.framework
         implicit: true
-      - framework: ../Network5ka/Network5ka.framework
+      - framework: ../NetworkSputnik/NetworkSputnik.framework
         implicit: true
     preBuildScripts:
       - name: Lint
